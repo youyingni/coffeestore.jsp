@@ -1,0 +1,242 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden; /* 禁止水平滾動 */
+  overflow-y: auto;
+
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  background-color: bisque;
+}
+
+.navbar {
+  background-color: brown;
+  color: white;
+}
+
+.product{
+  display: flex;
+  padding-left: 100px;
+}
+
+
+
+
+.container {
+  padding-top: 200px;
+}
+
+.carousel {
+  padding-top: 50px;
+  padding-left: 375px;
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  height: 300px;
+  margin: 20px auto;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d; /* 確保內部元素使用 3D */
+  transform: rotateY(calc(var(--offset) * 45deg))
+    scaleY(calc(1 + var(--abs-offset) * -0.3))
+    translateZ(calc(var(--abs-offset) * -28rem))
+    translateX(calc(var(--direction) * -3rem));/* 遠近 */
+  filter: blur(calc(var(--abs-offset) * 0.5rem));
+  transition: all 0.3s ease-out;
+  opacity: var(--opacity);
+}
+.card {
+  width: 18rem;
+  height: 22rem;
+  padding: 2rem;
+  background-color: hsl(280deg, 0%, calc(100% - var(--abs-offset) * 50%));
+  border-radius: 1rem;
+  color: #040405;
+  font-weight: bolder;
+  text-align: justify;
+  transition: all 0.3s ease-out;
+}
+
+.card img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover; /* 確保圖片適應容器 */
+  border-radius: 10px; /* 增加圓角美觀 */
+}
+
+.card h4 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 0 0.7em;
+  color: #010710;
+}
+
+.card p,
+.card h4 {
+  transition: all 0.3s ease-out;
+  opacity: var(--active);
+}
+
+
+/*按鈕*/
+.nav {
+  color: #ffffff;
+
+  font-size: 5rem;
+  position: absolute;
+  top: calc(50% - 1.5rem);
+  z-index: 2;
+  cursor: pointer;
+  user-select: none;
+  background: none;
+  border: none;
+}
+
+.nav i {
+  vertical-align: middle;
+}
+
+.nav.left {
+  left: 1rem;
+}
+
+.nav.right {
+  right: 1rem;
+}
+
+.icons {
+  width: 30px;
+  height: 30px;
+}
+.product-section {
+  margin: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+.product-section2 {
+  margin: 20px;
+  padding: 10px;
+  background-color: bisque;
+  border-radius: 10px;
+}
+
+h2 {
+  text-align: left;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 每行 4 列 */
+  gap: 20px; /* 卡片之間的間距 */
+}
+
+
+/*         
+
+  .product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 每行 2 列gap20 */
+
+
+
+
+
+
+
+
+
+
+
+.card {
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.product-section {
+  background-color: bisque;
+  padding-top: 200px;
+}
+
+/* 星星 */
+.rating {
+  font-size: 1rem;
+  color: #ffc107;
+  margin: 5px 0;
+}
+
+.rating,
+.favorite {
+  display: inline-block; /* 讓星星和愛心排列在同一行 */
+  vertical-align: middle; /* 垂直居中 */
+}
+
+/* 收藏按鈕樣式 */
+.favorite {
+  position: absolute;
+  right: 30px;
+
+  color: #ff6f61;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.favorite:hover {
+  color: #ff3b2f;
+}
+.favorite i {
+  color: gray;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* 點擊後愛心變紅 */
+.favorite i.active {
+  color: #ff6f61;
+}
+
+footer {
+  line-height: 150%;
+  background-color: #0D1B2A;
+  color: white;
+  text-align: center;
+  font-size: 25px;
+  letter-spacing: 3px;
+  min-width: fit-content;
+  text-wrap: nowrap;
+  font-family: "LXGW WenKai Mono TC", monospace;
+
+}
+
+
+
+.card:hover {
+  transform: scale(1.05); /* 懸停放大 */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
