@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    box-sizing: border-box;
 }
 
 body {
@@ -13,24 +12,13 @@ body {
     position: relative;
 }
 
-footer {
-    padding: 10px 0;
-    width: 100%;
-    bottom: 0;
-    background-color: #0D1B2A;
-    color: white;
-    text-align: center;
-    font-size: 25px;
-    min-width: fit-content;
-    text-wrap: nowrap;
-    font-family: "LXGW WenKai Mono TC", monospace;
-    letter-spacing: 3px;
-}
+
+
 
 .tittle {
     margin-top: 70px;
     position: relative;
-    font-size: 50px;
+    font-size: 40px;
     font-family: 'Kalam', cursive;
     font-weight: 700;
 
@@ -40,237 +28,89 @@ div {
     margin: 10px;
 }
 
+/*
 .background {
-    padding: 20px;
-    background-image: url("../img/OIP.jpg");
-    width: 55%;
-    height: 600px;
-    min-height: 600px;
-    background-size: cover;
+    height: 550px;
+    /*background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
     display: flex;
     align-items: center;
-    /* 垂直居中 */
     justify-content: center;
-    /* 水平居中 */
     position: relative;
+    background-color: #efebe2;
     /*overflow: hidden;
-    /* 防止內容溢出背景區域 */
-    text-align: center;
-    margin: auto;
-    opacity: 0.7;
-    clear: left;
-    border-radius: 10px;
+   
 }
 
-img {
+.background img {
     object-fit: cover;
     border-radius: 25px;
+    float: left;
+    height: 500px;
+    min-height: 500px;
+    margin-right: 20px;
 }
 
 .background p {
     text-align: justify;
-    width: 85%;
-    background-color: rgba(0, 0, 0, 0.76);
-    color: #ffffff;
+    color: #000000;
     border-radius: 10px;
     font-family: "LXGW WenKai Mono TC", monospace;
-    font-size: 28px;
+    font-size: 25px;
     letter-spacing: 10px;
     line-height: 40px;
-    padding: 10px;
-
-
+    padding: 20px;
+    float: right;
+    width: 95%;
+    min-height: 500px;
 }
 
-/*放大變色效果*/
-.background p:hover {
-    transform: scale(1.1);
-    background-color: #3d281cc3;
-    color: #f6f200;
-}
-
-.logo {
-    border-radius: 100%;
-    width: 35px;
-    height: 35px;
-}
-
-iframe {
-    margin: auto;
-    border-radius: 10px;
-    width: 800px;
-    height: 600px;
-    border: 1;
-}
-
-/*放大效果*/
-iframe:hover {
-    transform: scale(1.3);
-}
-
-/*地圖嵌入*/
-.map {
-    margin-top: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 25px;
-    font-family: "LXGW WenKai Mono TC", monospace;
-}
-
+*/
 
 .cat {
-    padding: 3px 20px;
+    margin: 25px;
+    padding: 20px;
     text-align: left;
-    font-size: 25px;
+    font-size: 22px;
     border-radius: 10px;
-    background-color: antiquewhite;
     letter-spacing: 10px;
     line-height: 40px;
     font-family: "LXGW WenKai Mono TC", monospace;
-    width: 750px;
-    float: right;
-    height: 420px;
+    width: 850px;
+    height: min-content;
+    min-height: fit-content;
+    background-color: rgba(85, 170, 153, 0.511);
+    color: #3D281c;
+}
+
+.cat p {
+    font-size: 25px;
+    font-family: 'Kalam', cursive;
+    font-weight: 700;
 }
 
 .allcat {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .cat1 {
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
+    background-color: #efebe2;
+    width: 90%;
 }
 
-.us {
-    color: #3D281c;
-}
 
-.txt1 {
-    font-size: 30px;
-    font-family: "LXGW WenKai Mono TC", monospace;
-}
-
-.us:hover {
-    background-color: #1c4372;
-    color: #f97bad;
-    transform: scale(1.2);
-}
 
 
 /*****************NAV******************/
 
-nav.hidden {
-    transform: translateY(-100%);
-}
 
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
-    transition: transform 0.3s ease;
-    z-index: 1000;
-}
-
-nav a {
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-#primary_nav_wrap {
-    padding: 5px 0;
-    display: flex;
-    align-items: center;
-    background-color: #dfbb96;
-    height: 30px;
-    min-height: min-content;
-    width: 100%;
-    justify-content: space-between;
-}
-
-
-#primary_nav_wrap ul {
-    list-style: none;
-    position: relative;
-    float: left;
-    margin: 0;
-    padding: 0
-}
-
-#primary_nav_wrap ul a {
-    display: block;
-    color: rgb(45, 34, 34);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 30px;
-    padding: 0 15px;
-    font-family: 'Kalam', cursive;
-}
-
-#primary_nav_wrap ul li {
-    position: relative;
-    float: left;
-    margin: 0;
-    padding: 0;
-}
-
-
-#primary_nav_wrap ul li:hover>a {
-    background-color: #3D281c;
-    /* 選項背景色 */
-    color: #ffffff;
-    /* 選項文字色 */
-    border-radius: 25px;
-    transform: scale(1);
-}
-
-/* 同類祖先的背景色改變 */
-#primary_nav_wrap ul li:hover>a,
-#primary_nav_wrap ul li:hover>ul>li:hover>a,
-#primary_nav_wrap ul li:hover>ul>li:hover>ul>li:hover>a {
-
-    background-color: #3D281c;
-    /* 背景色 */
-    color: #ffffff;
-    /* 文字色 */
-}
-
-#primary_nav_wrap ul ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    padding: 0
-}
-
-#primary_nav_wrap ul ul li {
-    float: none;
-    width: 200px
-}
-
-#primary_nav_wrap ul ul a {
-    line-height: 120%;
-    padding: 10px 15px
-}
-
-#primary_nav_wrap ul ul ul {
-    top: 0;
-    left: 100%
-}
-
-#primary_nav_wrap ul li:hover>ul {
-    display: block
-}
-
-/**************************************************/
 .slideshow-container {
     position: relative;
     /* 定位基準 */
@@ -281,26 +121,31 @@ nav a {
     max-height: 500px;
     min-height: 500px;
     /* 幻燈片最大高度 */
-    margin: auto;
-    /* 居中 */
-    overflow: visible;
-    /* 確保按鈕不被裁切 */
+    margin-left: 50px;
+
 }
 
 .singleSlide {
     display: none;
     width: 100%;
+    height: 480px;
     position: relative;
     animation: fadeAndScale 2s ease-in-out;
-}
-
-.singleSlide img {
     min-width: 500px;
     /* 幻燈片最小寬度 */
     max-width: 500px;
     /* 幻燈片最大寬度 */
-    max-height: 420px;
-    min-height: 420px;
+    max-height: 480px;
+    min-height: 480px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.singleSlide img {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    object-fit: cover !important;
 }
 
 .singleSlide img:hover {
@@ -356,29 +201,15 @@ nav a {
     color: white;
 }
 
-
-
-/* 小標題 */
-.text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-}
-
-
 @keyframes fadeAndScale {
     0% {
         opacity: 0;
-        transform: scale(0.4);
+        transform: scale(1);
     }
 
     50% {
         opacity: 0.6;
-        transform: scale(0.6);
+        transform: scale(1);
     }
 
     100% {
@@ -388,94 +219,10 @@ nav a {
     }
 }
 
+
+
+
+
 /**************************************************/
-.card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.flip {
-    position: relative;
-    display: inline-block;
-    margin: 10px;
-
-
-    >.front,
-    >.back {
-        display: block;
-        width: 400px;
-        height: 400px;
-        background-size: cover !important;
-        background-position: center !important;
-        padding: 1em 2em;
-        border-radius: 25px;
-        /* 確保是正方形 */
-        transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
-        transition-duration: .5s;
-        transition-property: transform, opacity;
-        display: flex;
-        /* 使用 Flexbox */
-        align-items: center;
-        /* 垂直居中 */
-        justify-content: center;
-        /* 水平居中 */
-
-    }
-
-    >.front {
-        transform: rotateY(0deg);
-        font-family: 'Kalam', cursive;
-        font-size: 30px;
-        font-weight: 700;
-        text-align: center;
-        background: #dfbb96;
-        color: #3D281c;
-        letter-spacing: 10px;
-        line-height: 40px;
-    }
-
-    >.back {
-        position: absolute;
-        opacity: 0;
-        top: 0;
-        left: 0;
-        transform: rotateY(-180deg);
-        background: #bf8969;
-        color: #f4ece6;
-        font-family: "LXGW WenKai Mono TC", monospace;
-        text-align: center;
-        font-size: 25px;
-        letter-spacing: 10px;
-        line-height: 40px;
-
-
-    }
-
-    &:hover {
-        >.front {
-            transform: rotateY(180deg);
-        }
-
-        >.back {
-            opacity: 1;
-            transform: rotateY(0deg);
-        }
-    }
-
-    &.flip-vertical {
-        >.back {
-            transform: rotateX(-180deg);
-        }
-
-        &:hover {
-            >.front {
-                transform: rotateX(180deg);
-            }
-
-            >.back {
-                transform: rotateX(0deg);
-            }
-        }
-    }
-}
+/**************************************************/

@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    box-sizing: border-box;
 }
 
 body {
@@ -30,7 +29,7 @@ footer {
 .tittle {
     margin-top: 70px;
     position: relative;
-    font-size: 50px;
+    font-size: 40px;
     font-family: 'Kalam', cursive;
     font-weight: 700;
 
@@ -41,55 +40,43 @@ div {
 }
 
 .background {
-    padding: 20px;
-    background-image: url("../img/OIP.jpg");
-    width: 55%;
-    height: 600px;
-    min-height: 600px;
-    background-size: cover;
+    height: 550px;
+    /*background-size: cover;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center center;*/
     display: flex;
     align-items: center;
-    /* 垂直居中 */
     justify-content: center;
-    /* 水平居中 */
     position: relative;
     /*overflow: hidden;
     /* 防止內容溢出背景區域 */
-    text-align: center;
-    margin: auto;
-    opacity: 0.7;
-    clear: left;
-    border-radius: 10px;
 }
 
-img {
+.background img {
     object-fit: cover;
     border-radius: 25px;
+    float: left;
+    height: 500px;
+    min-height: 500px;
+    margin-right: 20px;
 }
 
 .background p {
     text-align: justify;
-    width: 85%;
-    background-color: rgba(0, 0, 0, 0.76);
-    color: #ffffff;
+    background-color: rgb(255, 252, 252);
+    color: #000000;
     border-radius: 10px;
     font-family: "LXGW WenKai Mono TC", monospace;
-    font-size: 28px;
+    font-size: 25px;
     letter-spacing: 10px;
     line-height: 40px;
-    padding: 10px;
-
-
+    padding: 20px;
+    float: right;
+    width: 90%;
+    min-height: 500px;
 }
 
-/*放大變色效果*/
-.background p:hover {
-    transform: scale(1.1);
-    background-color: #3d281cc3;
-    color: #f6f200;
-}
+
 
 .logo {
     border-radius: 100%;
@@ -119,15 +106,17 @@ iframe:hover {
     text-align: center;
     font-size: 25px;
     font-family: "LXGW WenKai Mono TC", monospace;
+    clear: both;
 }
 
 
 .cat {
+    margin: 25px;
     padding: 3px 20px;
     text-align: left;
     font-size: 25px;
     border-radius: 10px;
-    background-color: antiquewhite;
+    background-color: #efebe2;
     letter-spacing: 10px;
     line-height: 40px;
     font-family: "LXGW WenKai Mono TC", monospace;
@@ -144,7 +133,8 @@ iframe:hover {
 .cat1 {
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: center;
+    background-color: #928c80d5;
 }
 
 .us {
@@ -165,110 +155,9 @@ iframe:hover {
 
 /*****************NAV******************/
 
-nav.hidden {
-    transform: translateY(-100%);
-}
-
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
-    transition: transform 0.3s ease;
-    z-index: 1000;
-}
-
-nav a {
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-#primary_nav_wrap {
-    padding: 5px 0;
-    display: flex;
-    align-items: center;
-    background-color: #dfbb96;
-    height: 30px;
-    min-height: min-content;
-    width: 100%;
-    justify-content: space-between;
-}
 
 
-#primary_nav_wrap ul {
-    list-style: none;
-    position: relative;
-    float: left;
-    margin: 0;
-    padding: 0
-}
 
-#primary_nav_wrap ul a {
-    display: block;
-    color: rgb(45, 34, 34);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 30px;
-    padding: 0 15px;
-    font-family: 'Kalam', cursive;
-}
-
-#primary_nav_wrap ul li {
-    position: relative;
-    float: left;
-    margin: 0;
-    padding: 0;
-}
-
-
-#primary_nav_wrap ul li:hover>a {
-    background-color: #3D281c;
-    /* 選項背景色 */
-    color: #ffffff;
-    /* 選項文字色 */
-    border-radius: 25px;
-    transform: scale(1);
-}
-
-/* 同類祖先的背景色改變 */
-#primary_nav_wrap ul li:hover>a,
-#primary_nav_wrap ul li:hover>ul>li:hover>a,
-#primary_nav_wrap ul li:hover>ul>li:hover>ul>li:hover>a {
-
-    background-color: #3D281c;
-    /* 背景色 */
-    color: #ffffff;
-    /* 文字色 */
-}
-
-#primary_nav_wrap ul ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    padding: 0
-}
-
-#primary_nav_wrap ul ul li {
-    float: none;
-    width: 200px
-}
-
-#primary_nav_wrap ul ul a {
-    line-height: 120%;
-    padding: 10px 15px
-}
-
-#primary_nav_wrap ul ul ul {
-    top: 0;
-    left: 100%
-}
-
-#primary_nav_wrap ul li:hover>ul {
-    display: block
-}
 
 /**************************************************/
 .slideshow-container {
@@ -295,12 +184,14 @@ nav a {
 }
 
 .singleSlide img {
-    min-width: 500px;
+    margin-top: 25px;
+    min-width: 450px;
     /* 幻燈片最小寬度 */
-    max-width: 500px;
+    max-width: 450px;
     /* 幻燈片最大寬度 */
     max-height: 420px;
     min-height: 420px;
+    border-radius: 25px;
 }
 
 .singleSlide img:hover {
@@ -356,18 +247,6 @@ nav a {
     color: white;
 }
 
-
-
-/* 小標題 */
-.text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
-}
 
 
 @keyframes fadeAndScale {

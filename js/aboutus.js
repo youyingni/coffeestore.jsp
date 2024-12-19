@@ -50,7 +50,7 @@ function initializeSlides(containerClass) {
       showSlides(slideIndex);
 
       // 自動播放（可選）
-       setInterval(() => plusSlides(1), 2000); // 每2秒自動切換
+       setInterval(() => plusSlides(1), 4000); // 每2秒自動切換
   });
 }
 

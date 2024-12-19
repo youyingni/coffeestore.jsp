@@ -1,0 +1,183 @@
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+nav.hidden {
+    transform: translateY(-100%);
+}
+
+
+#primary_nav_wrap {
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    background-color: #513518;
+    height: 30px;
+    min-height: min-content;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#primary_nav_wrap ul {
+    list-style: none;
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: start;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+#primary_nav_wrap ul a {
+    display: block;
+    color: rgb(255, 250, 250);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 30px;
+    padding: 0 15px;
+    font-family: 'Kalam', cursive;
+    min-width: fit-content;
+    width: fit-content;
+}
+
+#primary_nav_wrap ul li {
+    width: fit-content;
+    min-width: fit-content;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+#primary_nav_wrap ul li:hover>a {
+    background-color: #3D281c;
+    /* 選項背景色 */
+    color: #ffffff;
+    /* 選項文字色 */
+    border-radius: 25px;
+    transform: scale(1);
+}
+
+/* 同類祖先的背景色改變 */
+#primary_nav_wrap ul li:hover>a,
+#primary_nav_wrap ul li:hover>ul>li:hover>a,
+#primary_nav_wrap ul li:hover>ul>li:hover>ul>li:hover>a {
+    background-color: rgb(170, 123, 85);
+    /* 背景色 */
+    color: #ffffff;
+    /* 文字色 */
+}
+
+#primary_nav_wrap ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 0;
+}
+
+#primary_nav_wrap ul ul li {
+    float: none;
+    width: 200px;
+}
+
+#primary_nav_wrap ul ul a {
+    line-height: 120%;
+    padding: 10px 15px;
+}
+
+#primary_nav_wrap ul ul ul {
+    top: 0;
+    left: 100%;
+}
+
+#primary_nav_wrap ul li:hover>ul {
+    display: block;
+}
+
+/* ========== 新增樣式區域 ========== */
+
+/* 修改選項自己和其祖先 */
+#primary_nav_wrap ul li:hover,
+#primary_nav_wrap ul li:hover>a {
+    background-color: rgb(170, 123, 85);
+    color: #ffffff;
+}
+
+/* 修改同級選項 */
+#primary_nav_wrap ul li:hover~li a {
+    background-color: #867b74;
+    color: #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 修改後代選項 */
+#primary_nav_wrap ul li:hover ul a {
+    background-color: #5A9;
+    color: #ffffff;
+}
+
+.logo {
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+}
+
+/*****************************************/
+footer {
+    padding: 10px;
+    width: 100%;
+    bottom: 0;
+    background-color: #0D1B2A;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    min-width: fit-content;
+    text-wrap: nowrap;
+    font-family: "LXGW WenKai Mono TC", monospace;
+    letter-spacing: 5px;
+}
+
+footer div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.marquee {
+    height: 25px;
+    width: 100%;
+    position: relative;
+}
+
+.marquee div {
+    width: 200%;
+    position: absolute;
+    overflow: hidden;
+    animation: marquee 10s linear infinite;
+}
+
+
+@keyframes marquee {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: -100%;
+    }
+}
