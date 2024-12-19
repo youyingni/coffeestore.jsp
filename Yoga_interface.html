@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Card Slider</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css" />
+
+  <style>
+    @import url("./css/YY.css");
+  </style>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <div>
+        <span class="fw-bold">紓咖</span>
+      </div>
+      <div>
+        <a href="#"><img src="image/search.png" alt="search" class="icons mx-2"></a>
+        <a href="#"><img src="image/cart.png" alt="cart" class="icons mx-2"></a>
+        <a href="#"><img src="image/member.png" alt="member" class="icons mx-2"></a>
+      </div>
+    </div>
+  </nav>
+
+  <header>
+    <div class="carousel">
+      <div class="card-container">
+        <div class="card">
+          <img class="card-img-top" src="image/Yoga1.jpg" alt="Tamilnadu" style="height: 200px;">
+          <div class="card-body">
+            <h4 class="card-title">Top3</h4>
+            <p class="card-text">瑜珈輪</p>
+            <a href="BuyYoga.html" class="btn btn-primary">了解詳情</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="card">
+          <img class="card-img-top" src="image/Yoga2.jpg" alt="Kerala" style="height: 200px;">
+          <div class="card-body">
+            <h4 class="card-title">TOP2</h4>
+            <p class="card-text">當代舞</p>
+            <a href="BuyYoga.html" class="btn btn-primary">了解詳情</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-container">
+        <div class="card">
+          <img class="card-img-top" src="image/Yoga3.jpg" alt="Mumbai" style="height: 200px;">
+          <div class="card-body">
+            <h4 class="card-title">TOP1</h4>
+            <p class="card-text">流動瑜珈</p>
+            <a href="BuyYoga.html" class="btn btn-primary">了解詳情</a>
+          </div>
+        </div>
+      </div>
+      <button class="nav left" onclick="prevSlide()"><i class="bi bi-chevron-left"></i></button>
+      <button class="nav right" onclick="nextSlide()"><i class="bi bi-chevron-right"></i></button>
+    </div>
+  </header>
+
+  <section class="product-section">
+    <div class="TB"><h2>初階瑜珈</h2></div>
+    <div class="product-grid">
+      <!-- 6 個商品 -->
+      <div class="card">
+        <img src="image/Yoga2.jpg" alt="Coffee" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">
+            <a href="BuyYoga.html">靈性瑜珈</a>
+          </h5>
+          <p class="card-text">NT$400</p>
+          <div class="rating">
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+          </div>
+          <div class="favorite">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="image/Yoga3.jpg" alt="Coffee" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">基礎瑜珈</h5>
+          <p class="card-text">NT$400</p>
+          <div class="rating">
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+          </div>
+          <div class="favorite">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="image/Yoga4.jpg" alt="Coffee" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">經絡瑜珈</h5>
+          <p class="card-text">NT$400</p>
+          <div class="rating">
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+          </div>
+          <div class="favorite">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="image/Yoga5.jpg" alt="Coffee" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">陰瑜珈</h5>
+          <p class="card-text">NT$400</p>
+          <div class="rating">
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+          </div>
+          <div class="favorite">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="product-section2">
+    <div class="TB"><h2>進階課程</h2></div>
+    <div class="product-grid">
+      <!-- 8 個商品 -->
+      <div class="card">
+        <a href="purchase.html" class="card-link"></a>
+        <img src="image/Yoga5.jpg" alt="Coffee" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">
+            皮拉提斯</h5>
+          <p class="card-text">NT$400</p>
+          </a>
+          <div class="rating">
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+          </div>
+          <div class="favorite">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+        
+
+
+
+
+      </div>
+      <div class="card">
+        <img src="image/Yoga5.jpg" alt="Coffee" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">
+            雕塑瑜珈</h5>
+          <p class="card-text">NT$400</p>
+          <div class="rating">
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+          </div>
+          <div class="favorite">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+
+  <section class="product-section2">
+    <h2>奶茶 / 可可</h2>
+    <div class="product-grid">
+      <!-- 6 個商品 -->
+      <div class="card">
+        <img src="image/milktea.png" alt="Coffee" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">
+            草莓奶茶 (杯)</h5>
+          <p class="card-text">NT$45</p>
+          <div class="rating">
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+          </div>
+          <div class="favorite">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="image/milktea.png" alt="Coffee" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">抹茶牛奶 (杯)</h5>
+          <p class="card-text">NT$60</p>
+          <div class="rating">
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+          </div>
+          <div class="favorite">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="image/milktea.png" alt="Coffee" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">伯爵奶茶 (杯)</h5>
+          <p class="card-text">NT$60</p>
+          <div class="rating">
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+          </div>
+          <div class="favorite">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="image/milktea.png" alt="Coffee" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">薰衣草奶茶 (杯)</h5>
+          <p class="card-text">NT$60</p>
+          <div class="rating">
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+          </div>
+          <div class="favorite">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="image/milktea.png" alt="Coffee" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">西班牙可可 (杯)</h5>
+          <p class="card-text">NT$30</p>
+          <div class="rating">
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+          </div>
+          <div class="favorite">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="image/milktea.png" alt="Coffee" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">西班牙可可奶 (杯)</h5>
+          <p class="card-text">NT$60</p>
+          <div class="rating">
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+          </div>
+          <div class="favorite">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="image/coffee3.png" alt="Coffee" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">奶茶/可可外帶加價</h5>
+          <p class="card-text">NT$40</p>
+          <div class="rating">
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+          </div>
+          <div class="favorite">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  </div>
+  </section>
+  <footer>
+    @CYCUIM
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="./js/Product_interface.js"></script>
+</body>
+
+
+
+</html>
