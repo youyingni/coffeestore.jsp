@@ -11,6 +11,8 @@
         href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap"
         rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
 </head>
 <style>
     @import url('../css/aboutus.css');
@@ -48,12 +50,12 @@
                 </ul>
             </li>
 
-            <li><a href="#">紓咖活動</a>
+            <li><a href="act.html">紓咖活動</a>
                 <ul>
-                    <li><a href="#">精油製作</a></li>
-                    <li><a href="#">頌缽</a></li>
-                    <li><a href="#">書法</a></li>
-                    <li><a href="#">花藝</a></li>
+                    <li><a href="act.html#oil">精油</a></li>
+                    <li><a href="act.html#sounds">頌缽</a></li>
+                    <li><a href="act.html#words">書法</a></li>
+                    <li><a href="act.html#Xmas">聖誕</a></li>
                 </ul>
             </li>
             <li><a href="#">紓咖說書</a>
@@ -61,7 +63,6 @@
             <li><a href="aboutus.html">關於我們about us</a>
                 <ul>
                     <li><a href="#cats">店貓介紹</a></li>
-                    <li><a href="#contactus">聯絡我們</a></li>
                     <li><a href="#qa">Q&A</a></li>
                 </ul>
             </li>
@@ -74,26 +75,29 @@
         </ul>
         <div class="icon">
             <ul>
+
                 <li>
-                    <a href="#">
-                        <iconify-icon icon="guidance:shop" width="30px" height="30px"></iconify-icon>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <iconify-icon icon="mynaui:search" width="30px" height="30px"></iconify-icon>
-                    </a>
+                    <iconify-icon icon="mdi:heart" width="40px" height="40px" style="color: #fe0000"></iconify-icon>
                 </li>
                 <li>
                     <a href="#">
                         <iconify-icon icon="bi:people-circle" width="30px" height="30px"></iconify-icon>
                     </a>
                 </li>
+
+                <li>
+                    <a href="#">
+                        <iconify-icon icon="guidance:shop" width="30px" height="30px"></iconify-icon>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
     <div>
-        <div class="tittle">| ABOUT US</div>
+        <div class="tittle">
+            <h1 class="animate__animated animate__backInLeft">| ABOUT US</h1>
+        </div>
+
         <div class="background">
             <p><img src="../img/OIP.jpg">
                 紓咖是內壢的一個多元文化空間，結合紓壓、咖啡與多樣活動，致力於打造一個能讓人放鬆心靈、提升自我的場所。<br>
@@ -117,192 +121,207 @@
         </div>
     </div>
 
-    <div class="allcat">
-        <div class="tittle" id="cats">| 店貓介紹</div>
-        <div class="cat1">
-            <div class="slideshow-container">
-                <div class="singleSlide">
-                    <img src='../img/S__43368585_0.jpg' />
-                </div>
-                <div class="singleSlide">
-                    <img src='../img/S__43368583_0.jpg' />
-                </div>
-                <div class="singleSlide">
-                    <img src='../img/S__43368547_0.jpg' />
-                </div>
-                <div class="singleSlide">
-                    <img src='../img/S__43368580_0.jpg' />
-                </div>
-                <!-- 按鈕 -->
-                <button class="prev" onclick="plusSlides(-1)">❮</button>
-                <button class="next" onclick="plusSlides(1)">❯</button>
-            </div>
-            <div class="cat">
-
-                <ul>
-
-                    <b>
-                        俏咪&emsp;14y/母/三花貓
-                    </b>
-                    <br>
-                    <li>特色：超級傲嬌唐朝公主/很怕冷要喝溫水/什麼都不玩/吃飽就睡睡飽繼續吃<br> </li>
-                    <li>背景：小茗老師颱風天撿到的，身體很虛弱花很多錢救回來的。</li>
-                    <li>親人度：</li>
-                    <iconify-icon icon="stash:star-solid" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                    <iconify-icon icon="stash:star-solid" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                    <iconify-icon icon="stash:star-light" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                    <iconify-icon icon="stash:star-light" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                    <iconify-icon icon="stash:star-light" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                </ul>
-
-            </div>
+    <div>
+        <div class="tittle" id="cats">
+            <h1 class="animate__animated animate__backInLeft">| 店貓介紹</h1>
         </div>
 
+        <div class="allcat">
 
-        <div class="cat1">
-            <div class="slideshow-container">
-                <div class="singleSlide">
-                    <img src='../img/S__43368577_0.jpg' />
+            <div class="cat1">
+                <div class="slideshow-container">
+                    <div class="animate__animated animate__backInLeft">
+                        <div class="singleSlide">
+                            <img src='../img/S__43368585_0.jpg' />
+                        </div>
+                        <div class="singleSlide">
+                            <img src='../img/S__43368583_0.jpg' />
+                        </div>
+                        <div class="singleSlide">
+                            <img src='../img/S__43368547_0.jpg' />
+                        </div>
+                        <div class="singleSlide">
+                            <img src='../img/S__43368580_0.jpg' />
+                        </div>
+                        <!-- 按鈕 -->
+                        <button class="prev" onclick="plusSlides(-1)">❮</button>
+                        <button class="next" onclick="plusSlides(1)">❯</button>
+                    </div>
                 </div>
-                <div class="singleSlide">
-                    <img src='../img/S__43368575_0.jpg' />
+                <div class="cat">
+                    <ul>
+                        <div class="animate__animated animate__backInRight">
+                            <b>
+                                俏咪&emsp;14y/母/三花貓
+                            </b>
+                            <br>
+                            <li>特色：超級傲嬌唐朝公主/很怕冷要喝溫水/什麼都不玩/吃飽就睡睡飽繼續吃<br> </li>
+                            <li>背景：小茗老師颱風天撿到的，身體很虛弱花很多錢救回來的。</li>
+                            <li>親人度：</li>
+                            <iconify-icon icon="stash:star-solid" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                            <iconify-icon icon="stash:star-solid" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                            <iconify-icon icon="stash:star-light" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                            <iconify-icon icon="stash:star-light" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                            <iconify-icon icon="stash:star-light" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                        </div>
+                    </ul>
                 </div>
-                <div class="singleSlide">
-                    <img src='../img/S__43368537_0.jpg' />
-                </div>
-                <div class="singleSlide">
-                    <img src='../img/S__43368549_0.jpg' />
-                </div>
-                <div class="singleSlide">
-                    <img src='../img/S__43368544_0.jpg' />
-                </div>
-                <!-- 按鈕 -->
-                <button class="prev">❮</button>
-                <button class="next">❯</button>
             </div>
-            <div class="cat">
-                <ul>
-                    <b>
-                        元寶&emsp;5y/公/橘貓
-                    </b>
-                    <br>
-                    <li>特色：精力旺盛/親人愛玩/有偶包/所有貓咪的老大/不會搶食物 <br></li>
-                    <li>故事：袁老闆在宜蘭當兵的時候撿到的，當時在老闆車底下，老闆伸手他就跳上來，就捧著他抱回家了。<br></li>
-                    <li>親人度：</li>
-                    <iconify-icon icon="stash:star-solid" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                    <iconify-icon icon="stash:star-solid" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                    <iconify-icon icon="stash:star-solid" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                    <iconify-icon icon="stash:star-solid" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                    <iconify-icon icon="stash:star-solid" width="70" height="70" style="color: #f6e217"></iconify-icon>
-
-                </ul>
+            <div class="cat1">
+                <div class="slideshow-container">
+                    <div class="animate__animated animate__backInLeft">
+                        <div class="singleSlide">
+                            <img src='../img/S__43368577_0.jpg' />
+                        </div>
+                        <div class="singleSlide">
+                            <img src='../img/S__43368575_0.jpg' />
+                        </div>
+                        <div class="singleSlide">
+                            <img src='../img/S__43368537_0.jpg' />
+                        </div>
+                        <div class="singleSlide">
+                            <img src='../img/S__43368549_0.jpg' />
+                        </div>
+                        <div class="singleSlide">
+                            <img src='../img/S__43368544_0.jpg' />
+                        </div>
+                        <!-- 按鈕 -->
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                    </div>
+                </div>
+                <div class="cat">
+                    <ul>
+                        <div class="animate__animated animate__backInRight">
+                            <b>
+                                元寶&emsp;5y/公/橘貓
+                            </b>
+                            <br>
+                            <li>特色：精力旺盛/親人愛玩/有偶包/所有貓咪的老大/不會搶食物 <br></li>
+                            <li>故事：袁老闆在宜蘭當兵的時候撿到的，當時在老闆車底下，老闆伸手他就跳上來，就捧著他抱回家了。<br></li>
+                            <li>親人度：</li>
+                            <iconify-icon icon="stash:star-solid" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                            <iconify-icon icon="stash:star-solid" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                            <iconify-icon icon="stash:star-solid" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                            <iconify-icon icon="stash:star-solid" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                            <iconify-icon icon="stash:star-solid" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                        </div>
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="cat1">
-            <div class="slideshow-container">
-                <div class="singleSlide">
-                    <img src='../img/S__44220423_0.jpg' />
+            <div class="cat1">
+                <div class="slideshow-container">
+                    <div class="animate__animated animate__backInLeft">
+                        <div class="singleSlide">
+                            <img src='../img/S__44220423_0.jpg' />
+                        </div>
+                        <div class="singleSlide">
+                            <img src='../img/0014.jpg' />
+                        </div>
+                        <div class="singleSlide">
+                            <img src='../img/0012.jpg' />
+                        </div>
+                        <div class="singleSlide">
+                            <img src='../img/S__44220418_0.jpg' />
+                        </div>
+                        <!-- 按鈕 -->
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                    </div>
                 </div>
-                <div class="singleSlide">
-                    <img src='../img/0014.jpg' />
+                <div class="cat">
+                    <ul>
+                        <div class="animate__animated animate__backInRight">
+                            <b>
+                                帥帥&emsp;4y/公/虎斑貓
+                            </b>
+                            <br>
+                            <li>特色：優雅細軟的小偽娘/智商超級高/所有門都會開/喜歡玩小球/和點點是雙胞胎<br></li>
+                            <li>
+                                故事：是要開店前朋友在苗栗山上撿到的，兩隻從小感請很好沒辦法分開領養，就乾脆一次養兩隻吧。<br>
+                                （紓咖生日象徵性的跟兩隻生日同一天）
+                            </li>
+                            <li>親人度：</li>
+                            <iconify-icon icon="stash:star-solid" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                            <iconify-icon icon="stash:star-solid" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                            <iconify-icon icon="stash:star-solid" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                            <iconify-icon icon="stash:star-light" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                            <iconify-icon icon="stash:star-light" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                        </div>
+                    </ul>
                 </div>
-                <div class="singleSlide">
-                    <img src='../img/0012.jpg' />
-                </div>
-                <div class="singleSlide">
-                    <img src='../img/S__44220418_0.jpg' />
-                </div>
-
-                <!-- 按鈕 -->
-                <button class="prev">❮</button>
-                <button class="next">❯</button>
             </div>
-
-            <div class="cat">
-
-                <ul>
-
-                    <b>
-                        帥帥&emsp;4y/公/虎斑貓
-                    </b>
-                    <br>
-                    <li>特色：優雅細軟的小偽娘/智商超級高/所有門都會開/喜歡玩小球/和點點是雙胞胎<br></li>
-                    <li>
-                        故事：是要開店前朋友在苗栗山上撿到的，兩隻從小感請很好沒辦法分開領養，就乾脆一次養兩隻吧。<br>
-                        （紓咖生日象徵性的跟兩隻生日同一天）
-                    </li>
-                    <li>親人度：</li>
-                    <iconify-icon icon="stash:star-solid" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                    <iconify-icon icon="stash:star-solid" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                    <iconify-icon icon="stash:star-solid" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                    <iconify-icon icon="stash:star-light" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                    <iconify-icon icon="stash:star-light" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                </ul>
-            </div>
-        </div>
-        <div class="cat1">
-            <div class="slideshow-container">
-                <div class="singleSlide">
-                    <img src='../img/S__44220425.jpg' />
+            <div class="cat1">
+                <div class="slideshow-container">
+                    <div class="animate__animated animate__backInLeft">
+                        <div class="singleSlide">
+                            <img src='../img/S__44220425.jpg' />
+                        </div>
+                        <div class="singleSlide">
+                            <img src='../img/0013.jpg' />
+                        </div>
+                        <div class="singleSlide">
+                            <img src='../img/0011.jpg' />
+                        </div>
+                        <div class="singleSlide">
+                            <img src='../img/S__43368578_0.jpg' />
+                        </div>
+                        <!-- 按鈕 -->
+                        <button class="prev">❮</button>
+                        <button class="next">❯</button>
+                    </div>
                 </div>
-                <div class="singleSlide">
-                    <img src='../img/0013.jpg' />
+                <div class="cat">
+                    <ul>
+                        <div class="animate__animated animate__backInRight">
+                            <b>
+                                點點&emsp;4y/公/虎斑貓
+                            </b>
+                            <br>
+                            <li>特色：貼心/願意為食物奔走/瘦的時候很美/和帥帥是雙胞胎<br></li>
+                            <li>
+                                故事：是要開店前朋友在苗栗山上撿到的，兩隻從小感請很好沒辦法分開領養，就乾脆一次養兩隻吧。<br>
+                                （紓咖生日象徵性的跟兩隻生日同一天）
+                            </li>
+                            <li>親人度：</li>
+                            <iconify-icon icon="stash:star-solid" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                            <iconify-icon icon="stash:star-solid" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                            <iconify-icon icon="stash:star-solid" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                            <iconify-icon icon="stash:star-solid" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                            <iconify-icon icon="stash:star-light" width="70" height="70"
+                                style="color: #f6e217"></iconify-icon>
+                        </div>
+                    </ul>
                 </div>
-                <div class="singleSlide">
-                    <img src='../img/0011.jpg' />
-                </div>
-                <div class="singleSlide">
-                    <img src='../img/S__43368578_0.jpg' />
-                </div>
-                <!-- 按鈕 -->
-                <button class="prev">❮</button>
-                <button class="next">❯</button>
-            </div>
-            <div class="cat">
-                <ul>
-                    <b>
-                        點點&emsp;4y/公/虎斑貓
-                    </b>
-                    <br>
-                    <li>特色：貼心/願意為食物奔走/瘦的時候很美/和帥帥是雙胞胎<br></li>
-                    <li>
-                        故事：是要開店前朋友在苗栗山上撿到的，兩隻從小感請很好沒辦法分開領養，就乾脆一次養兩隻吧。<br>
-                        （紓咖生日象徵性的跟兩隻生日同一天）
-                    </li>
-                    <li>親人度：</li>
-                    <iconify-icon icon="stash:star-solid" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                    <iconify-icon icon="stash:star-solid" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                    <iconify-icon icon="stash:star-solid" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                    <iconify-icon icon="stash:star-solid" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                    <iconify-icon icon="stash:star-light" width="70" height="70" style="color: #f6e217"></iconify-icon>
-                </ul>
             </div>
         </div>
     </div>
 
-    <div>
-        <div class="tittle" id="contactus">|聯絡我們</div>
-        <ul>
-            <div>
-                <p class="txt1">
-                    <a href="https://www.facebook.com/relaxshuca">
-                        <iconify-icon class="us" icon="entypo-social:facebook" width="80" height="80"></iconify-icon>
-                    </a>紓咖
-                    <a href="https://www.instagram.com/cominghsu_/?hl=zh-tw">
-                        <iconify-icon class="us" icon="formkit:instagram" width="80" height="80"></iconify-icon>
-                    </a>cominghsu
-                    <iconify-icon class="us" icon="el:phone-alt" width="80" height="80"></iconify-icon>
-                    0911305010
-                    <img src="../img/fb.png" width="200px" height="200px">facebook
-                    <img src="../img/ig.png" width="200px" height="200px">instagram
-                </p>
-            </div>
 
-        </ul>
-
-    </div>
     <div>
-        <div class="tittle" id="qa">| Q & A</div>
+        <div class="tittle" id="qa">
+            <h1 class="animate__animated animate__backInLeft">| Q & A</h1>
+        </div>
+
         <div class="card">
             <div class="flip">
                 <div class="front">
@@ -432,6 +451,36 @@
 
 
     <footer>
+
+        <div class="footer-container">
+            <div class="left-section">
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/relaxshuca">
+                        <iconify-icon class="icon1" icon="entypo-social:facebook" width="50" height="50"></iconify-icon>
+                    </a>
+                    <span>紓咖</span>
+                    <a href="https://www.instagram.com/cominghsu_/?hl=zh-tw">
+                        <iconify-icon class="icon1" icon="formkit:instagram" width="50" height="50"></iconify-icon>
+                    </a>
+                    <span>cominghsu</span>
+                    <iconify-icon class="icon1" icon="el:phone-alt" width="50" height="50"></iconify-icon>
+                    <span>0911305010</span>
+                </div>
+                <div>
+                    <iconify-icon icon="maki:marker" style="color: #d22c0d" width="30" height="30"></iconify-icon>
+                    地址：320桃園市中壢區環中東路357-1號
+                </div>
+
+            </div>
+            <div class="right-section">
+                <img src="../img/fb.png" alt="Facebook QR" width="200"><br>
+                <p>facebook</p>
+                <img src="../img/ig.png" alt="Instagram QR" width="200"><br>
+                <p>instagram</p>
+            </div>
+        </div>
+
+
         <div class="marquee">
             <div>
                 © 2020.紓咖修息棧 All Rights Reserved 網頁設計 ‧ CYCU IMFORMATUION MANAGEMENT&emsp;&emsp;&emsp;&emsp;&emsp;©

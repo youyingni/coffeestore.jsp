@@ -12,24 +12,12 @@ body {
     position: relative;
 }
 
-footer {
-    padding: 10px 0;
-    width: 100%;
-    bottom: 0;
-    background-color: #0D1B2A;
-    color: white;
-    text-align: center;
-    font-size: 25px;
-    min-width: fit-content;
-    text-wrap: nowrap;
-    font-family: "LXGW WenKai Mono TC", monospace;
-    letter-spacing: 3px;
-}
+
 
 .tittle {
     margin-top: 70px;
     position: relative;
-    font-size: 40px;
+    font-size: 20px;
     font-family: 'Kalam', cursive;
     font-weight: 700;
 
@@ -94,7 +82,7 @@ iframe {
 
 /*放大效果*/
 iframe:hover {
-    transform: scale(1.3);
+    transform: scale(1.1);
 }
 
 /*地圖嵌入*/
@@ -123,35 +111,25 @@ iframe:hover {
     width: 750px;
     float: right;
     height: 420px;
+    height: min-content;
+    min-height: fit-content;
 }
 
-.allcat {
-    display: flex;
-    flex-direction: column;
-}
 
 .cat1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #928c80d5;
+    width: 100%;
 }
 
-.us {
-    color: #3D281c;
+.allcat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-
-.txt1 {
-    font-size: 30px;
-    font-family: "LXGW WenKai Mono TC", monospace;
-}
-
-.us:hover {
-    background-color: #1c4372;
-    color: #f97bad;
-    transform: scale(1.2);
-}
-
 
 /*****************NAV******************/
 
@@ -160,20 +138,15 @@ iframe:hover {
 
 
 /**************************************************/
+/*
 .slideshow-container {
     position: relative;
-    /* 定位基準 */
     min-width: 500px;
-    /* 幻燈片最小寬度 */
     max-width: 500px;
-    /* 幻燈片最大寬度 */
     max-height: 500px;
     min-height: 500px;
-    /* 幻燈片最大高度 */
     margin: auto;
-    /* 居中 */
     overflow: visible;
-    /* 確保按鈕不被裁切 */
 }
 
 .singleSlide {
@@ -186,12 +159,47 @@ iframe:hover {
 .singleSlide img {
     margin-top: 25px;
     min-width: 450px;
+    max-width: 450px;
+    max-height: 420px;
+    min-height: 420px;
+    border-radius: 25px;
+}*/
+
+.slideshow-container {
+    position: relative;
+    /* 定位基準 */
+    min-width: 500px;
+    /* 幻燈片最小寬度 */
+    max-width: 500px;
+    /* 幻燈片最大寬度 */
+    max-height: 500px;
+    min-height: 500px;
+    /* 幻燈片最大高度 */
+    margin-left: 100px;
+    margin-top: 50px;
+}
+
+.singleSlide {
+    display: none;
+    width: 100%;
+    height: 480px;
+    position: relative;
+    animation: fadeAndScale 2s ease-in-out;
+    min-width: 450px;
     /* 幻燈片最小寬度 */
     max-width: 450px;
     /* 幻燈片最大寬度 */
     max-height: 420px;
     min-height: 420px;
     border-radius: 25px;
+    overflow: hidden;
+}
+
+.singleSlide img {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    object-fit: cover !important;
 }
 
 .singleSlide img:hover {
@@ -357,4 +365,15 @@ iframe:hover {
             }
         }
     }
+}
+
+/*********************************************/
+.my-element {
+    display: inline-block;
+    margin: 0 0.5rem;
+
+    animation: bounce;
+    /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s;
+    /* don't forget to set a duration! */
 }
