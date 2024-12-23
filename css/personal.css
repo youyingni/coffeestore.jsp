@@ -1,0 +1,57 @@
+/* 基本樣式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FDF6F0;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    border-bottom: 2px solid #6C7A5E;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #555;
+}
+
+.section {
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.profile {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.profile img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.profile .details {
+    text-align: left;
+}
+
+a {
+    color: #6C7A5E;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
