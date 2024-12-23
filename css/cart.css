@@ -1,5 +1,9 @@
 @import "compass/css3";
 
+.icon{
+  width: 50px;
+  height: 50px;
+}
 .product-image {
 	float: left;
 	width: 20%;
@@ -61,6 +65,8 @@
 	padding: 0px 30px 30px 20px;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 100;
+  background-color: #DDCDC3;
+  
   }
   
   h1 {
@@ -79,7 +85,7 @@
   .column-labels label {
 	padding-bottom: 15px;
 	margin-bottom: 15px;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #413e3e;
   }
   .column-labels .product-image, .column-labels .product-details, .column-labels .product-removal {
 	text-indent: -9999px;
@@ -89,7 +95,7 @@
   .product {
 	margin-bottom: 20px;
 	padding-bottom: 10px;
-	border-bottom: 1px solid #eee;
+	border-bottom: 1px solid #413e3e;
   }
   .product .product-image {
 	text-align: center;
@@ -111,7 +117,7 @@
   .product .remove-product {
 	border: 0;
 	padding: 4px 8px;
-	background-color: #c66;
+	background-color: #DDCDC3;
 	color: #fff;
 	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
 	font-size: 12px;
@@ -156,4 +162,159 @@
   
   .checkout:hover {
 	background-color: #494;
+  }
+
+
+
+
+
+
+
+  .page-wrapper {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .page-wrapper button {
+    padding: 20px;
+    border: none;
+    background: #d5d8e7;
+    position: relative;
+    outline: none;
+    border-radius: 5px;
+    color: #292d48;
+    font-size: 18px;
+  }
+  .page-wrapper button .cart1-item {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    top: -10px;
+    right: -10px;
+  }
+  .page-wrapper button .cart1-item:before {
+    content: "❤️";
+    display: block;
+    line-height: 24px;
+    height: 24px;
+    width: 24px;
+    font-size: 12px;
+    font-weight: 600;
+    background: #2bd156;
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+  }
+  .page-wrapper button.sendtocart1 .cart1-item {
+    display: block;
+    animation: xAxis 1s forwards cubic-bezier(1, 0.44, 0.84, 0.165);
+  }
+  .page-wrapper button.sendtocart1 .cart1-item:before {
+    animation: yAxis 1s alternate forwards cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  
+  .cart1 {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: #292d48;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
+  .cart1 i {
+    font-size: 25px;
+    color: white;
+  }
+  .cart1:before {
+    content: attr(data-totalitems);
+    font-size: 12px;
+    font-weight: 600;
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    background: #2bd156;
+    line-height: 24px;
+    padding: 0 5px;
+    height: 24px;
+    min-width: 24px;
+    color: white;
+    text-align: center;
+    border-radius: 24px;
+  }
+  .cart1.shake {
+    animation: shakeCart 0.4s ease-in-out forwards;
+  }
+  
+  @keyframes xAxis {
+    100% {
+      transform: translateX(calc(50vw - 105px));
+    }
+  }
+  @keyframes yAxis {
+    100% {
+      transform: translateY(calc(-50vh + 75px));
+    }
+  }
+  @keyframes shakeCart1 {
+    25% {
+      transform: translateX(6px);
+    }
+    50% {
+      transform: translateX(-4px);
+    }
+    75% {
+      transform: translateX(2px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+
+  /* 付款方式容器樣式 */
+  .payment-methods {
+    margin: 20px auto;
+    text-align: center;
+    width: 80%;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f9f9f9;
+  }
+
+  .payment-methods label {
+    display: inline-block;
+    margin: 10px;
+  }
+
+  .payment-methods label input {
+    display: none;
+  }
+
+  .payment-methods label img {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0 auto 5px;
+  }
+
+  .payment-methods label div {
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+    background: white;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+
+  .payment-methods label input:checked + div {
+    background: #007BFF;
+    color: white;
+    border-color: #007BFF;
   }

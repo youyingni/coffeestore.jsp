@@ -7,7 +7,7 @@
   
     margin: 0;
     font-family: "Montserrat", sans-serif;
-    background-color: bisque;
+    background-color: #DDCDC3;
   }
   
   .navbar {
@@ -26,7 +26,15 @@
     width: 30px;
     height: 30px;
   }
-
+  
+  h1{
+    width: 165px;
+    background-color: white;
+    border-radius: 20px;
+    margin: 10px;
+    text-align: left;
+    font-weight: 800;
+  }
   
   
   .product{
@@ -43,7 +51,7 @@
   
   .carousel {
     padding-top: 50px;
-    padding-left: 375px;
+    padding-left: 350px;
     position: relative;
     width: 90%;
     max-width: 800px;
@@ -82,6 +90,14 @@
     text-align: justify;
     transition: all 0.3s ease-out;
   }
+
+  .card-title {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  
+
+  
 
 
   
@@ -141,10 +157,13 @@
     background-color: #f9f9f9;
     border-radius: 10px;
   }
+
+
+  
   .product-section2 {
     margin: 20px;
     padding: 10px;
-    background-color: bisque;
+    background-color: #DDCDC3;
     border-radius: 10px;
   }
   
@@ -156,37 +175,48 @@
     color: #f9f9f9;
   }
 
-  .TB{
-    width: 110px;
-    background-color: #ff6f61;
-    border-radius: 10px;
-
+  .TB {
+    display: flex;
+    justify-content: center; /* 水平置中 */
+    align-items: center;    /* 垂直置中 */
+    margin-bottom: 20px;    /* 與卡片的距離 */
+    background-color: #6f6a6a; /* 背景色 */
+    border-radius: 10px;    /* 圓角 */
+    padding: 10px 20px;     /* 內邊距 */
+    width: fit-content;     /* 自動調整寬度 */
+    margin: 0 auto;         /* 整體居中 */
   }
   
-
+  .TB h2 {
+    color: white;           /* 標題文字顏色 */
+    font-size: 1.8rem;      /* 標題文字大小 */
+    font-weight: bold;      /* 加粗標題 */
+    margin: 0;              /* 移除內邊距 */
+  }
   .product-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 每行兩個 */
-    gap: 50px;
-    padding-left: 100px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+
+    justify-items: center;
+    border-radius: 40px;
   }
   
   
   
   
-  
-  
-  
-  
+
   
 
   .card {
+    width: 400px;
     background-color: #fff;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
   }
 
   .card-body
@@ -196,7 +226,7 @@
   
   
   .product-section {
-    background-color: bisque;
+    background-color: #DDCDC3;
     padding-top: 200px;
   }
   
@@ -268,4 +298,11 @@
     text-decoration: none;
     color: inherit;
   }
+
+
+
+
+  
+  
+
   

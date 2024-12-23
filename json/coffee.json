@@ -1,0 +1,378 @@
+{
+  "categories": [
+    {
+      "category": "咖啡類",
+      "items": [
+        {
+          "id": "americano",
+          "name": "美式咖啡",
+          "price": 40,
+          "image": "../image/coffee.png",
+          "rating": 5
+        },
+        {
+          "id": "latte",
+          "name": "咖啡拿鐵",
+          "price": 60,
+          "image": "../image/coffee.png",
+          "rating": 5
+        },
+        {
+          "id": "flavored-latte",
+          "name": "風味咖啡拿鐵",
+          "price": 80,
+          "image": "../image/coffee.png",
+          "rating": 5
+        },
+        {
+          "id": "ice-brick-coffee",
+          "name": "冰磚咖啡 - 只有冰的",
+          "price": 180,
+          "image": "../image/coffee.png",
+          "rating": 5
+        },
+        {
+          "id": "cold-brew",
+          "name": "冰滴咖啡 - 只有冰的",
+          "price": 110,
+          "image": "../image/coffee2.png",
+          "rating": 5
+        },
+        {
+          "id": "dirty-coffee",
+          "name": "髒髒咖啡 - 只有冰的",
+          "price": 45,
+          "image": "../image/coffee3.png",
+          "rating": 5
+        }
+      ]
+    },   
+    {
+      "category": "手沖咖啡",
+      "items": [
+        {
+          "id": "office-sour",
+          "name": "辦公室系列-小心酸",
+          "price": 80,
+          "image": "../image/poc.png",
+          "rating": 5
+        },
+        {
+          "id": "office-bittersweet",
+          "name": "辦公室系列-小甘苦",
+          "price": 80,
+          "image": "../image/poc.png",
+          "rating": 5
+        },
+        {
+          "id": "office-relax",
+          "name": "辦公室系列-小放空",
+          "price": 80,
+          "image": "../image/poc.png",
+          "rating": 5
+        },
+        {
+          "id": "office-sigh",
+          "name": "辦公室系列-小感嘆",
+          "price": 80,
+          "image": "../image/poc.png",
+          "rating": 5
+        },
+        {
+          "id": "office-scheme",
+          "name": "辦公室系列-小心機",
+          "price": 80,
+          "image": "../image/poc.png",
+          "rating": 5
+        },
+        {
+          "id": "office-blessing",
+          "name": "辦公室系列-小確辛",
+          "price": 80,
+          "image": "../image/poc.png",
+          "rating": 5
+        }
+      ]
+    },
+
+    {
+      "category": "花草茶類",
+      "items": [
+        {
+          "id": "tea-pot-lavender",
+          "name": "薰衣草茶 (壺)",
+          "price": 120,
+          "image": "../image/herbal tea.png",
+          "rating": 5
+        },
+        {
+          "id": "tea-pot-lemon-grass",
+          "name": "檸檬香茅草茶 (壺)",
+          "price": 120,
+          "image": "../image/herbal tea.png",
+          "rating": 5
+        },
+        {
+          "id": "tea-pot-wild-ginger",
+          "name": "野薑花草茶 (壺)",
+          "price": 120,
+          "image": "../image/herbal tea.png",
+          "rating": 5
+        },
+        {
+          "id": "tea-pot-roselle",
+          "name": "洛神花草茶 (壺)",
+          "price": 120,
+          "image": "../image/herbal tea.png",
+          "rating": 5
+        },
+        {
+          "id": "tea-pot-blueberry",
+          "name": "藍莓果茶 (壺)",
+          "price": 120,
+          "image": "../image/herbal tea.png",
+          "rating": 5
+        },
+        {
+          "id": "tea-pot-rose-earl-grey",
+          "name": "玫瑰伯爵茶 (壺)",
+          "price": 140,
+          "image": "../image/herbal tea.png",
+          "rating": 5
+        },
+        {
+          "id": "tea-pot-black",
+          "name": "紓咖紅茶 (壺)",
+          "price": 70,
+          "image": "../image/herbal tea.png",
+          "rating": 5
+        },
+        {
+          "id": "tea-pot-green",
+          "name": "紓咖綠茶 (壺)",
+          "price": 70,
+          "image": "../image/herbal tea.png",
+          "rating": 5
+        }
+      ]
+    },
+
+
+
+
+    {
+      "category": "茶",
+      "items": [
+        {
+          "id": "tea-cup-black",
+          "name": "紓咖紅茶 (杯)",
+          "price": 30,
+          "image": "../image/herbal tea.png",
+          "rating": 5
+        },
+        {
+          "id": "tea-cup-green",
+          "name": "紓咖綠茶 (杯)",
+          "price": 30,
+          "image": "../image/herbal tea.png",
+          "rating": 5
+        },
+        {
+          "id": "tea-cup-yuzu-green",
+          "name": "柚子綠茶 (杯)",
+          "price": 30,
+          "image": "../image/herbal tea.png",
+          "rating": 5
+        },
+        {
+          "id": "tea-cup-apple-black",
+          "name": "蘋果紅茶 (杯)",
+          "price": 30,
+          "image": "../image/herbal tea.png",
+          "rating": 5
+        },
+        {
+          "id": "tea-cup-matcha",
+          "name": "日式抹茶 (杯)",
+          "price": 40,
+          "image": "../image/herbal tea.png",
+          "rating": 5
+        },
+        {
+          "id": "tea-cup-earl-grey",
+          "name": "伯爵茶 (杯)",
+          "price": 45,
+          "image": "../image/herbal tea.png",
+          "rating": 5
+        },
+        {
+          "id": "ttea-cup-lavender",
+          "name": "薰衣草茶 (杯))",
+          "price": 45,
+          "image": "../image/herbal tea.png",
+          "rating": 5
+        },
+        {
+          "id": "tea-cup-blueberry",
+          "name": "小藍莓茶 (杯)",
+          "price": 50,
+          "image": "../image/herbal tea.png",
+          "rating": 5
+        }
+      ]
+    },
+
+
+    {
+      "category": "奶茶 / 可可",
+      "items": [
+        {
+          "id": "strawberry-milk",
+          "name": "草莓奶茶 (杯)",
+          "price": 45,
+          "image": "../image/milktea.png",
+          "rating": 5
+        },
+        {
+          "id": "matcha-milk",
+          "name": "抹茶牛奶 (杯)",
+          "price": 60,
+          "image": "../image/milktea.png",
+          "rating": 5
+        },
+
+        {
+          "id": "tea-cup-milk-earl-grey",
+          "name": "伯爵奶茶 (杯)",
+          "price": 60,
+          "image": "../image/milktea.png",
+          "rating": 5
+        },
+   
+        {
+          "id": "lavender-milktea",
+          "name": "薰衣草奶茶 (杯)",
+          "price": 60,
+          "image": "../image/milktea.png",
+          "rating": 5
+        },
+
+
+
+
+        {
+          "id": "spanish-cocoa",
+          "name": "西班牙可可 (杯)",
+          "price": 30,
+          "image": "../image/milktea.png",
+          "rating": 5
+        },
+        {
+          "id": "spanish-cocoa-milk",
+          "name": "西班牙可可奶 (杯)",
+          "price": 60,
+          "image": "../image/milktea.png",
+          "rating": 5
+        }
+
+      ]
+    },
+
+    {
+      "category": "氣泡水",
+      "items": [
+        {
+          "id": "sparkling-yuzu",
+          "name": "柚子氣泡飲",
+          "price": 50,
+          "image": "../image/sparkling_water.png",
+          "rating": 5
+        },
+        {
+          "id": "sparkling-lemon",
+          "name": "清新檸檬氣泡飲",
+          "price": 70,
+          "image": "../image/sparkling_water.png",
+          "rating": 5
+        },
+
+        {
+          "id": "sparkling-apple",
+          "name": "蘋果氣泡飲",
+          "price": 50,
+          "image": "../image/sparkling_water.png",
+          "rating": 5
+        },
+
+        {
+          "id": "sparkling-strawberry",
+          "name": "草莓氣泡飲",
+          "price": 50,
+          "image": "../image/sparkling_water.png",
+          "rating": 5
+        },
+  
+        {
+          "id": "sparkling-rose",
+          "name": "粉彩玫瑰氣泡飲",
+          "price": 60,
+          "image": "../image/sparkling_water.png",
+          "rating": 5
+        },
+
+        {
+          "id": "sparkling-blueberry",
+          "name": "藍莓氣泡飲",
+          "price": 60,
+          "image": "../image/sparkling_water.png",
+          "rating": 5
+        }
+       
+      ]
+    },
+    {
+      "category": "功能性飲料- 發泡飲",
+      "items": [
+        {
+          "id": "functional-dazzling-lady",
+          "name": "妖嬌女魔法藥水腸胃保健",
+          "price": 70,
+          "image": "../image/sw.png",
+          "rating": 5
+        },
+        {
+          "id": "functional-energy-broth",
+          "name": "元寶堅尼活力湯",
+          "price": 70,
+          "image": "../image/sw.png",
+          "rating": 5
+        },
+
+        {
+          "id": "functional-nezuko-elixir",
+          "name": "彌豆子青春甘露",
+          "price": 70,
+          "image": "../image/sw.png",
+          "rating": 5
+        },
+
+        {
+          "id": "functional-vampire-golden-cup",
+          "name": "吸血鬼安眠金杯",
+          "price": 50,
+          "image": "../image/sw.png",
+          "rating": 5
+        },
+  
+        {
+          "id": "functional-popeye-drink",
+          "name": "卜派力士活力飲",
+          "price": 70,
+          "image": "../image/sw.png",
+          "rating": 5
+        }
+       
+      ]
+    }
+  ]
+}

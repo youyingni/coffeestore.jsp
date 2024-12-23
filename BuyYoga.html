@@ -1,3 +1,4 @@
+<!--還沒-->
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
@@ -17,7 +18,11 @@
             <span class="fw-bold">紓咖</span>
         </div>
         <div class="navbar-icons">
-            <a href="#"><img src="image/heart.png" alt="heart" class="icons mx-2"></a>
+          <a href="heart.html" class="heart-link">
+            <div id="heart" class="heart" data-totalitems="0">
+                <img src="image/heart.png" alt="heart" class="icons mx-2">
+            </div>
+        </a>
             <a href="#"><img src="image/member.png" alt="member" class="icons mx-2"></a>
 
 
@@ -63,9 +68,15 @@
             </div>
 
 
-              <button class="buy-now">加入收藏</button>
-            </div>
-        </div>
+            <div class="button-container">
+              <div class="pages-wrapper">
+                  <button id="addtoheart">
+                      加入收藏
+                      <span class="heart-item"></span>
+                  </button>
+              </div>
+          </div>
+
 
 
 

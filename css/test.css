@@ -115,6 +115,16 @@ nav a {
 #primary_nav_wrap ul li:hover>ul {
     display: block
 }
+
+.navbar-icons {
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+
   
 
   /*
@@ -137,6 +147,12 @@ nav a {
     width: 40px;
     height: 40px;
   }
+
+
+                                  /*       我是分界線                 */
+
+
+                                  
   
   .container {
     background-color: burlywood;
@@ -242,6 +258,7 @@ nav a {
     border-radius: 5px;
   }
   
+/*   沒有用*/
   .add-to-cart,
   .buy-now {
     margin: 10px 0;
@@ -262,6 +279,8 @@ nav a {
   .buy-now {
     background-color: #f4b183;
   }
+
+  /**/
 
   
   .reviews {
@@ -424,18 +443,9 @@ nav a {
 
 
 /* 加入購物車*/
-.new-version {
-  position: fixed;
-  bottom: 20px;
-}
-.new-version a {
-  color: #2bd156;
-  text-decoration: none;
-}
 
 
-
-.page-wrapper {
+.page-wrapper,.pages-wrapper {
   min-height: 100%;
   display: flex;
   align-items: center;
@@ -458,6 +468,88 @@ nav a {
   top: -10px;
   right: -10px;
 }
+/*heart*/
+.pages-wrapper button .heart-item {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  top: -10px;
+  right: -10px;
+}
+
+.pages-wrapper button .heart-item:before {
+  content: "❤️";
+  display: block;
+  line-height: 24px;
+  height: 24px;
+  width: 24px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #c92626;
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+}
+
+
+.pages-wrapper button {
+  padding: 13px;
+  border: none;
+  background: #7d136d;
+  position: relative;
+  outline: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+}
+
+/*heart 位置*/
+
+.pages-wrapper button.sendtocart .heart-item {
+  display: block;
+  animation: xAxis 1s forwards cubic-bezier(1, 0.8, 0.84, 1.6);
+}
+.pages-wrapper button.sendtocart .heart-item:before {
+  animation: yAxis 1s alternate forwards cubic-bezier(0.3, 0.84, 0.6, 2.0);
+}
+
+.heart {
+  position: relative; /* 從 absolute 改為 relative */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heart:before {
+  content: attr(data-totalitems);
+  font-size: 12px;
+  font-weight: 600;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #a4305a;
+  line-height: 16px;
+  padding: 0 5px;
+  height: 16px;
+  min-width: 16px;
+  color: white;
+  text-align: center;
+  border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/**/
+
+
 .page-wrapper button .cart-item:before {
   content: "+";
   display: block;
@@ -470,6 +562,13 @@ nav a {
   color: white;
   border-radius: 20px;
   text-align: center;
+
+
+
+
+
+
+
 }
 /* 位置*/
 .page-wrapper button.sendtocart .cart-item {
@@ -504,6 +603,9 @@ nav a {
   border-radius: 50%;
 }
 
+
+
+
 .cart.shake {
   animation: shakeCart 0.4s ease-in-out forwards;
 }
@@ -531,3 +633,46 @@ nav a {
     transform: translateX(0);
   }
 }
+
+
+
+/* 愛心抖動效果 */
+.pages-wrapper button.sendtoheart .heart-item {
+  display: block;
+  animation: heartFly 1s forwards cubic-bezier(0.5, 0.8, 0.4, 1.2);
+}
+
+@keyframes heartFly {
+  0% {
+      transform: translate(0, 0);
+  }
+  100% {
+      transform: translateX(calc(50vw - 105px)) translateY(calc(-50vh + 75px)); /* 調整目標位置 */
+  }
+}
+
+/* 愛心目標圖標抖動 */
+.heart.shake {
+  animation: shakeHeart 0.6s ease-in-out forwards;
+}
+
+@keyframes shakeHeart {
+  25% { transform: translateX(6px); }
+  50% { transform: translateX(-4px); }
+  75% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
