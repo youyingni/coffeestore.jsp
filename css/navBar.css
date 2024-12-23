@@ -149,6 +149,7 @@ nav.hidden {
 }
 
 .left-section {
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -161,7 +162,9 @@ nav.hidden {
     /* 縮小兩張圖片之間的距離 */
     margin-right: 0;
     /* 移除右邊多餘的空白 */
+    text-align: center;
 }
+
 
 .icon1 {
     color: antiquewhite;
@@ -171,6 +174,20 @@ nav.hidden {
     color: rgb(97, 198, 178);
     background-color: antiquewhite;
     ;
+}
+
+iframe {
+    margin: auto;
+    margin-right: 50px;
+    border-radius: 10px;
+    width: 600px;
+    height: 250px;
+    border: 1;
+}
+
+/*放大效果*/
+iframe:hover {
+    transform: scale(1.1);
 }
 
 /*****************************************/

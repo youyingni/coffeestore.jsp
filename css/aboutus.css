@@ -72,30 +72,9 @@ div {
     height: 35px;
 }
 
-iframe {
-    margin: auto;
-    border-radius: 10px;
-    width: 800px;
-    height: 600px;
-    border: 1;
-}
 
-/*放大效果*/
-iframe:hover {
-    transform: scale(1.1);
-}
 
-/*地圖嵌入*/
-.map {
-    margin-top: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: 25px;
-    font-family: "LXGW WenKai Mono TC", monospace;
-    clear: both;
-}
+
 
 
 .cat {
@@ -377,3 +356,5 @@ iframe:hover {
     animation-duration: 2s;
     /* don't forget to set a duration! */
 }
+
+/*********************************/
