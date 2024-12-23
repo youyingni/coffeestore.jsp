@@ -1,0 +1,549 @@
+* {
+    box-sizing: border-box;
+    box-sizing: border-box;
+    font-weight: normal;
+}
+
+.clearfix {
+    clear: both;
+}
+
+footer {
+    line-height: 150%;
+    background-color: #0D1B2A;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 3px;
+    min-width: fit-content;
+    text-wrap: nowrap;
+    font-family: "LXGW WenKai Mono TC", monospace;
+
+}
+
+.tittle {
+    position: relative;
+    left: 5px;
+    font-size: 50px;
+}
+
+body {
+    background-color: #DDCDC3;
+    margin: 0;
+    padding: 0;
+
+}
+
+
+.logo {
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+}
+
+
+/*****************NAV******************/
+
+nav.hidden {
+    transform: translateY(-100%);
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+#primary_nav_wrap {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    background-color: #dfbb96;
+    height: 30px;
+    min-height: min-content;
+    width: 100%;
+    justify-content: space-between;
+}
+
+
+#primary_nav_wrap ul {
+    list-style: none;
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0
+}
+
+#primary_nav_wrap ul a {
+    display: block;
+    color: rgb(45, 34, 34);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 32px;
+    padding: 0 15px;
+    font-family: 'Trocchi', serif;
+}
+
+#primary_nav_wrap ul li {
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+
+
+#primary_nav_wrap ul li:hover>a {
+    background-color: #3D281c;
+    /* 選項背景色 */
+    color: #ffffff;
+    /* 選項文字色 */
+    border-radius: 25px;
+    transform: scale(1);
+}
+
+/* 同類祖先的背景色改變 */
+#primary_nav_wrap ul li:hover>a,
+#primary_nav_wrap ul li:hover>ul>li:hover>a,
+#primary_nav_wrap ul li:hover>ul>li:hover>ul>li:hover>a {
+
+    background-color: #3D281c;
+    /* 背景色 */
+    color: #ffffff;
+    /* 文字色 */
+}
+
+#primary_nav_wrap ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 0
+}
+
+#primary_nav_wrap ul ul li {
+    float: none;
+    width: 200px
+}
+
+#primary_nav_wrap ul ul a {
+    line-height: 120%;
+    padding: 10px 15px
+}
+
+#primary_nav_wrap ul ul ul {
+    top: 0;
+    left: 100%
+}
+
+#primary_nav_wrap ul li:hover>ul {
+    display: block
+}
+
+
+/*-------------------------------------------*/
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+.singleSlide {
+    display: none;
+}
+
+img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+/* 先給他absolute的位置，再用top來置中 */
+.prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+    border: transparent solid 1px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: black;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+    border: transparent solid 1px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    color: black;
+}
+
+/* on Hover, 靠上去的時候會有變化 */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white !important;
+}
+
+/* 小標題 */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* 淡入淡出 特效*/
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/**********************************/
+
+html,
+body,
+.hello-parent {
+    height: 100%;
+    width: 100%;
+
+}
+
+.hello-parent {
+    display: flex;
+    background: #fff;
+    background: -webkit-radial-gradient(#fff, #eaeaea);
+    background: -o-radial-gradient(#fff, #eaeaea);
+    background: -moz-radial-gradient(#fff, #eaeaea);
+    background: radial-gradient(#fff, #eaeaea);
+
+}
+
+.hello-word {
+    margin: auto;
+    animation: fade-out 22s ease forwards;
+}
+
+
+/* H Animation */
+
+.H-left-stroke {
+    stroke-dasharray: 124px;
+    stroke-dashoffset: 124px;
+    animation: H-left-move 20s ease forwards;
+}
+
+.H-mid-stroke {
+    stroke-dasharray: 37px;
+    stroke-dashoffset: 37px;
+    animation: H-mid-move 9s ease forwards;
+}
+
+.H-right-stroke {
+    stroke-dasharray: 124px;
+    stroke-dashoffset: 124px;
+    animation: H-right-move 13s ease forwards;
+}
+
+@keyframes H-left-move {
+    0% {
+        stroke-dashoffset: 124px;
+    }
+
+    5% {
+        stroke-dashoffset: 0px;
+    }
+
+    100% {
+        stroke-dashoffset: 0px;
+    }
+}
+
+@keyframes H-mid-move {
+    0% {
+        stroke-dashoffset: 37px;
+    }
+
+    5% {
+        stroke-dashoffset: 37px;
+    }
+
+    10% {
+        stroke-dashoffset: 0px;
+    }
+
+    100% {
+        stroke-dashoffset: 0px;
+    }
+}
+
+@keyframes H-right-move {
+    0% {
+        stroke-dashoffset: 124px;
+    }
+
+    5% {
+        stroke-dashoffset: 124px;
+    }
+
+    10% {
+        stroke-dashoffset: 0px;
+    }
+
+    100% {
+        stroke-dashoffset: 0px;
+    }
+}
+
+/* E Animation */
+
+.E-left-stroke {
+    stroke-dasharray: 124px;
+    stroke-dashoffset: 124px;
+    animation: E-left-move 20s ease forwards;
+}
+
+.E-top-stroke {
+    stroke-dasharray: 47px;
+    stroke-dashoffset: 47px;
+    animation: E-top-move 10s ease forwards;
+}
+
+.E-mid-stroke {
+    stroke-dasharray: 42px;
+    stroke-dashoffset: 42px;
+    animation: E-mid-move 10s ease forwards;
+}
+
+.E-bottom-stroke {
+    stroke-dasharray: 47px;
+    stroke-dashoffset: 47px;
+    animation: E-bottom-move 10s ease forwards;
+}
+
+@keyframes E-left-move {
+    0% {
+        stroke-dashoffset: 124px;
+    }
+
+    2% {
+        stroke-dashoffset: 124px;
+    }
+
+    6% {
+        stroke-dashoffset: 0px;
+    }
+
+    100% {
+        stroke-dashoffset: 0px;
+    }
+}
+
+@keyframes E-top-move {
+    0% {
+        stroke-dashoffset: 47px;
+    }
+
+    6% {
+        stroke-dashoffset: 47px;
+    }
+
+    11% {
+        stroke-dashoffset: 0px;
+    }
+
+    100% {
+        stroke-dashoffset: 0px;
+    }
+}
+
+@keyframes E-mid-move {
+    0% {
+        stroke-dashoffset: 42px;
+    }
+
+    8% {
+        stroke-dashoffset: 42px;
+    }
+
+    13% {
+        stroke-dashoffset: 0px;
+    }
+
+    100% {
+        stroke-dashoffset: 0px;
+    }
+}
+
+@keyframes E-bottom-move {
+    0% {
+        stroke-dashoffset: 47px;
+    }
+
+    11% {
+        stroke-dashoffset: 47px;
+    }
+
+    16% {
+        stroke-dashoffset: 0px;
+    }
+
+    100% {
+        stroke-dashoffset: 0px;
+    }
+}
+
+/* L One Animation */
+
+.L-one-long-stroke {
+    stroke-dasharray: 124px;
+    stroke-dashoffset: 124px;
+    animation: L-one-long-move 20s ease forwards;
+}
+
+.L-one-short-stroke {
+    stroke-dasharray: 44px;
+    stroke-dashoffset: 44px;
+    animation: L-one-short-move 10s ease forwards;
+}
+
+@keyframes L-one-long-move {
+    0% {
+        stroke-dashoffset: 124px;
+    }
+
+    2% {
+        stroke-dashoffset: 124px;
+    }
+
+    7% {
+        stroke-dashoffset: 0px;
+    }
+
+    100% {
+        stroke-dashoffset: 0px;
+    }
+}
+
+@keyframes L-one-short-move {
+    0% {
+        stroke-dashoffset: 44px;
+    }
+
+    13% {
+        stroke-dashoffset: 44px;
+    }
+
+    18% {
+        stroke-dashoffset: 0px;
+    }
+
+    100% {
+        stroke-dashoffset: 0px;
+    }
+}
+
+/* L Two Animation */
+
+.L-two-long-stroke {
+    stroke-dasharray: 124px;
+    stroke-dashoffset: 124px;
+    animation: L-two-long-move 20s ease forwards;
+}
+
+.L-two-short-stroke {
+    stroke-dasharray: 44px;
+    stroke-dashoffset: 44px;
+    animation: L-two-short-move 10s ease forwards;
+}
+
+@keyframes L-two-long-move {
+    0% {
+        stroke-dashoffset: 124px;
+    }
+
+    3% {
+        stroke-dashoffset: 124px;
+    }
+
+    8% {
+        stroke-dashoffset: 0px;
+    }
+
+    100% {
+        stroke-dashoffset: 0px;
+    }
+}
+
+@keyframes L-two-short-move {
+    0% {
+        stroke-dashoffset: 44px;
+    }
+
+    15% {
+        stroke-dashoffset: 44px;
+    }
+
+    20% {
+        stroke-dashoffset: 0px;
+    }
+
+    100% {
+        stroke-dashoffset: 0px;
+    }
+}
+
+/* O Animation */
+
+.O-stroke {
+    stroke-dasharray: 302px;
+    stroke-dashoffset: 302px;
+    animation: O-move 20s ease forwards;
+}
+
+@keyframes O-move {
+    0% {
+        stroke-dashoffset: 302px;
+    }
+
+    4% {
+        stroke-dashoffset: 302px;
+    }
+
+    9% {
+        stroke-dashoffset: 0px;
+    }
+
+    100% {
+        stroke-dashoffset: 0px;
+    }
+}
+
+/**********************/
