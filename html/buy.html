@@ -236,11 +236,7 @@
         });
       });
     });
-
-
-
-
-
+    
 
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -319,11 +315,7 @@
             <img src="${item.image}" alt="${item.name}" class="card-img-top">
             <a href="buy.html?product=${item.id}" style="text-decoration: none; color: inherit;">
             <div class="card-body">
-              <h5 class="card-title">
-                
-                  ${item.name}
-            
-              </h5>
+              <h5 class="card-title">${item.name}</h5>
               <p class="card-text">NT$${item.price}</p>
               <div class="rating">
                 ${'⭐'.repeat(item.rating)}
@@ -339,7 +331,6 @@
 
   </script>
 
-  <script src="../js/script.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
   <script src="../js/script.js"></script>
 </body>

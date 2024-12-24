@@ -19,7 +19,20 @@
   <style>
     @import url("../css/Product_interface.css");
     @import url("../css/navBar.css.css");
-   
+    .product-link {
+  text-decoration: none;
+  color: inherit; /* 繼承文字顏色 */
+  display: block; /* 設為區塊，確保整個區域可點擊 */
+  padding: 10px; /* 添加內距讓區塊更大 */
+  background-color: transparent; /* 預設背景色透明 */
+  transition: background-color 0.3s ease, color 0.3s ease; /* 添加過渡效果 */
+  border-radius: 8px; /* 添加圓角（可選） */
+}
+
+.product-link:hover {
+  background-color: #bebebe; /* 滑鼠懸停時背景色，例如淺橙色 */
+  color: #ffffff; /* 改變文字顏色，例如橘紅色 */
+}
   </style>
 </head>
 
@@ -143,10 +156,11 @@
       <div class="card">
         <img src="../image/coffee.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=americano" style="text-decoration: none; color: inherit;">美式咖啡
-          </h5>
-          <p class="card-text">NT$40</p></a>
+          <a href="buy.html?product=americano" class="product-link">
+            <h5 class="card-title">美式咖啡</h5>
+            <p class="card-text">NT$40</p>
+          </a>
+
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -163,9 +177,10 @@
       <div class="card">
         <img src="../image/coffee.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=latte" style="text-decoration: none; color: inherit;">咖啡拿鐵</h5>
-          <p class="card-text">NT$60</p></a>
+          <a href="buy.html?product=latte" class="product-link">
+            <h5 class="card-title">咖啡拿鐵</h5>
+            <p class="card-text">NT$60</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -182,9 +197,10 @@
       <div class="card">
         <img src="../image/coffee.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=flavored-latte" style="text-decoration: none; color: inherit;">風味咖啡拿鐵</h5>
-          <p class="card-text">NT$80</p></a>
+          <a href="buy.html?product=flavored-latte" class="product-link">
+            <h5 class="card-title">風味咖啡拿鐵</h5>
+            <p class="card-text">NT$80</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -201,9 +217,10 @@
       <div class="card">
         <img src="../image/coffee.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=ice-brick-coffee" style="text-decoration: none; color: inherit;">冰磚咖啡</h5>
-          <p class="card-text">NT$180</p></a>
+          <a href="buy.html?product=ice-brick-coffee" class="product-link">
+            <h5 class="card-title">冰磚咖啡</h5>
+            <p class="card-text">NT$180</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -220,9 +237,10 @@
       <div class="card">
         <img src="../image/coffee2.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=cold-brew" style="text-decoration: none; color: inherit;">冰滴咖啡</h5>
-          <p class="card-text">NT$110</p></a>
+          <a href="buy.html?product=cold-brew" class="product-link">
+            <h5 class="card-title">冰滴咖啡</h5>
+            <p class="card-text">NT$110</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -239,9 +257,10 @@
       <div class="card">
         <img src="../image/coffee3.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=dirty-coffee" style="text-decoration: none; color: inherit;">髒髒咖啡</h5>
-          <p class="card-text">NT$45</p></a>
+          <a href="buy.html?product=dirty-coffee" class="product-link">
+            <h5 class="card-title">髒髒咖啡</h5>
+            <p class="card-text">NT$45</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -265,9 +284,10 @@
       <div class="card">
         <img src="../image/poc.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=office-sour" style="text-decoration: none; color: inherit;">辦公室系列-小心酸</h5>
-          <p class="card-text">NT$80</p></a>
+          <a href="buy.html?product=office-sour" class="product-link">
+            <h5 class="card-title">辦公室系列-小心酸</h5>
+            <p class="card-text">NT$80</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -285,10 +305,10 @@
       <div class="card">
         <img src="../image/poc.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=office-bittersweet" style="text-decoration: none; color: inherit;">辦公室系列-小甘苦</a>
-          </h5></a>
-          <p class="card-text">NT$80</p>
+          <a href="buy.html?product=office-bittersweet" class="product-link">
+            <h5 class="card-title">辦公室系列-小甘苦</h5>
+            <p class="card-text">NT$80</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -306,9 +326,10 @@
       <div class="card">
         <img src="../image/poc.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=office-relax" style="text-decoration: none; color: inherit;">辦公室系列-小放空</h5>
-          <p class="card-text">NT$80</p></a>
+          <a href="buy.html?product=office-relax" class="product-link">
+            <h5 class="card-title">辦公室系列-小放空</h5>
+            <p class="card-text">NT$80</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -325,9 +346,10 @@
       <div class="card">
         <img src="../image/poc.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=office-sigh" style="text-decoration: none; color: inherit;">辦公室系列-小感嘆</h5>
-          <p class="card-text">NT$80</p></a>
+          <a href="buy.html?product=office-sigh" class="product-link">
+            <h5 class="card-title">辦公室系列-小感嘆</h5>
+            <p class="card-text">NT$80</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -344,9 +366,10 @@
       <div class="card">
         <img src="../image/poc.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=office-scheme" style="text-decoration: none; color: inherit;">辦公室系列-小心機</h5>
-          <p class="card-text">NT$80</p></a>
+          <a href="buy.html?product=office-scheme" class="product-link">
+            <h5 class="card-title">辦公室系列-小心機</h5>
+            <p class="card-text">NT$80</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -363,9 +386,10 @@
       <div class="card">
         <img src="../image/poc.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=office-blessing" style="text-decoration: none; color: inherit;">辦公室系列-小確辛</h5>
-          <p class="card-text">NT$80</p></a>
+          <a href="buy.html?product=office-blessing" class="product-link">
+            <h5 class="card-title">辦公室系列-小確辛</h5>
+            <p class="card-text">NT$80</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -392,9 +416,9 @@
         <a href="purchase.html" class="card-link"></a>
         <img src="../image/herbal tea.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=tea-pot-lavender" style="text-decoration: none; color: inherit;">薰衣草茶 (壺)</h5>
-          <p class="card-text">NT$120</p></a>
+          <a href="buy.html?product=tea-pot-lavender" class="product-link">
+            <h5 class="card-title">薰衣草茶 (壺)</h5>
+            <p class="card-text">NT$120</p>
           </a>
           <div class="rating">
             <span>⭐</span>
@@ -412,9 +436,10 @@
       <div class="card">
         <img src="../image/herbal tea.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=tea-pot-lemon-grass" style="text-decoration: none; color: inherit;">檸檬香茅草茶 (壺)</h5>
-              <p class="card-text">NT$120</p></a>
+          <a href="buy.html?product=tea-pot-lemon-grass" class="product-link">
+            <h5 class="card-title">檸檬香茅草茶 (壺)</h5>
+            <p class="card-text">NT$120</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -430,9 +455,10 @@
       <div class="card">
         <img src="../image/herbal tea.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=tea-pot-wild-ginger" style="text-decoration: none; color: inherit;">野薑花草茶 (壺)</h5>
-              <p class="card-text">NT$120</p></a>
+          <a href="buy.html?product=tea-pot-wild-ginger" class="product-link">
+            <h5 class="card-title">野薑花草茶 (壺)</h5>
+            <p class="card-text">NT$120</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -448,9 +474,10 @@
       <div class="card">
         <img src="../image/herbal tea.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=tea-pot-roselle" style="text-decoration: none; color: inherit;">洛神花草茶 (壺)</h5>
-              <p class="card-text">NT$120</p></a>
+          <a href="buy.html?product=tea-pot-roselle" class="product-link">
+            <h5 class="card-title">洛神花草茶 (壺)</h5>
+            <p class="card-text">NT$120</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -466,9 +493,10 @@
       <div class="card">
         <img src="../image/herbal tea.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=tea-pot-blueberry" style="text-decoration: none; color: inherit;">藍莓果茶 (壺)</h5>
-              <p class="card-text">NT$120</p></a>
+          <a href="buy.html?product=tea-pot-blueberry" class="product-link">
+            <h5 class="card-title">藍莓果茶 (壺)</h5>
+            <p class="card-text">NT$120</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -484,9 +512,10 @@
       <div class="card">
         <img src="../image/herbal tea.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=tea-pot-rose-earl-grey" style="text-decoration: none; color: inherit;">玫瑰伯爵茶 (壺)</h5>
-              <p class="card-text">NT$140</p></a>
+          <a href="buy.html?product=tea-pot-rose-earl-grey" class="product-link">
+            <h5 class="card-title">玫瑰伯爵茶 (壺)</h5>
+            <p class="card-text">NT$140</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -502,9 +531,10 @@
       <div class="card">
         <img src="../image/herbal tea.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=tea-pot-black" style="text-decoration: none; color: inherit;">紓咖紅茶 (壺)</h5>
-              <p class="card-text">NT$70</p></a>
+          <a href="buy.html?product=tea-pot-black" class="product-link">
+            <h5 class="card-title">紓咖紅茶 (壺)</h5>
+            <p class="card-text">NT$70</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -520,9 +550,10 @@
       <div class="card">
         <img src="../image/herbal tea.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=tea-pot-green" style="text-decoration: none; color: inherit;">紓咖綠茶 (壺)</h5>
-              <p class="card-text">NT$70</p></a>
+          <a href="buy.html?product=tea-pot-green" class="product-link">
+            <h5 class="card-title">紓咖綠茶 (壺)</h5>
+            <p class="card-text">NT$70</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -547,10 +578,10 @@
       <div class="card">
         <img src="../image/coffee.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=tea-cup-black" style="text-decoration: none; color: inherit;">紓咖紅茶(杯)
-          </h5>
-          <p class="card-text">NT$30</p></a>
+          <a href="buy.html?product=tea-cup-black" class="product-link">
+            <h5 class="card-title">紓咖紅茶(杯)</h5>
+            <p class="card-text">NT$30</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -567,10 +598,10 @@
       <div class="card">
         <img src="../image/coffee.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=tea-cup-green" style="text-decoration: none; color: inherit;"> 紓咖綠茶(杯)
-          </h5>
-          <p class="card-text">NT$30</p></a>
+          <a href="buy.html?product=tea-cup-green" class="product-link">
+            <h5 class="card-title">紓咖綠茶(杯)</h5>
+            <p class="card-text">NT$30</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -587,31 +618,10 @@
       <div class="card">
         <img src="../image/coffee.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=tea-cup-yuzu-green" style="text-decoration: none; color: inherit;">柚子綠茶(杯)
-          </h5>
-          <p class="card-text">NT$30</p></a>
-          <div class="rating">
-            <span>⭐</span>
-            <span>⭐</span>
-            <span>⭐</span>
-            <span>⭐</span>
-            <span>⭐</span>
-          </div>
-          <div class="favorite">
-            <i class="bi bi-heart-fill"></i>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="card">
-        <img src="../image/coffee.png" alt="Coffee" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=tea-cup-apple-black" style="text-decoration: none; color: inherit;">蘋果紅茶(杯)
-          </h5>
-          <p class="card-text">NT$30</p></a>
+          <a href="buy.html?product=tea-cup-yuzu-green" class="product-link">
+            <h5 class="card-title">柚子綠茶(杯)</h5>
+            <p class="card-text">NT$30</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -629,10 +639,31 @@
       <div class="card">
         <img src="../image/coffee.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=tea-cup-matcha" style="text-decoration: none; color: inherit;">日式抹茶(杯)
-          </h5>
-          <p class="card-text">NT$40</p></a>
+          <a href="buy.html?product=tea-cup-apple-black" class="product-link">
+            <h5 class="card-title">蘋果紅茶(杯)</h5>
+            <p class="card-text">NT$30</p>
+          </a>
+          <div class="rating">
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+            <span>⭐</span>
+          </div>
+          <div class="favorite">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="card">
+        <img src="../image/coffee.png" alt="Coffee" class="card-img-top">
+        <div class="card-body">
+          <a href="buy.html?product=tea-cup-matcha" class="product-link">
+            <h5 class="card-title">日式抹茶(杯)</h5>
+            <p class="card-text">NT$40</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -649,10 +680,10 @@
       <div class="card">
         <img src="../image/coffee.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=tea-cup-earl-grey" style="text-decoration: none; color: inherit;">伯爵茶
-          </h5>
-          <p class="card-text">NT$45</p></a>
+          <a href="buy.html?product=tea-cup-earl-grey" class="product-link">
+            <h5 class="card-title">伯爵茶</h5>
+            <p class="card-text">NT$45</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -669,10 +700,10 @@
       <div class="card">
         <img src="../image/coffee.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=ttea-cup-lavender" style="text-decoration: none; color: inherit;">薰衣草茶(杯)
-          </h5>
-          <p class="card-text">NT$45</p></a>
+          <a href="buy.html?product=ttea-cup-lavender" class="product-link">
+            <h5 class="card-title">薰衣草茶(杯)</h5>
+            <p class="card-text">NT$45</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -689,10 +720,10 @@
       <div class="card">
         <img src="../image/coffee.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=tea-cup-blueberry" style="text-decoration: none; color: inherit;">小藍莓茶
-          </h5>
-          <p class="card-text">NT$40</p></a>
+          <a href="buy.html?product=tea-cup-blueberry" class="product-link">
+            <h5 class="card-title">小藍莓茶</h5>
+            <p class="card-text">NT$40</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -716,9 +747,10 @@
       <div class="card">
         <img src="../image/milktea.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=strawberry-milk" style="text-decoration: none; color: inherit;">草莓奶茶 (杯)</h5>
-          <p class="card-text">NT$45</p></a>
+          <a href="buy.html?product=strawberry-milk" class="product-link">
+            <h5 class="card-title">草莓奶茶 (杯)</h5>
+            <p class="card-text">NT$45</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -737,9 +769,10 @@
       <div class="card">
         <img src="../image/milktea.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=matcha-milk" style="text-decoration: none; color: inherit;">抹茶牛奶 (杯)</h5>
-          <p class="card-text">NT$60</p></a>
+          <a href="buy.html?product=matcha-milk" class="product-link">
+            <h5 class="card-title">抹茶牛奶 (杯)</h5>
+            <p class="card-text">NT$60</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -756,9 +789,10 @@
       <div class="card">
         <img src="../image/milktea.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=tea-cup-milk-earl-grey" style="text-decoration: none; color: inherit;">伯爵奶茶 (杯)</h5>
-          <p class="card-text">NT$60</p></a>
+          <a href="buy.html?product=tea-cup-milk-earl-grey" class="product-link">
+            <h5 class="card-title">伯爵奶茶 (杯)</h5>
+            <p class="card-text">NT$60</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -775,9 +809,10 @@
       <div class="card">
         <img src="../image/milktea.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=lavender-milktea" style="text-decoration: none; color: inherit;">薰衣草奶茶 (杯)</h5>
-          <p class="card-text">NT$60</p></a>
+          <a href="buy.html?product=lavender-milktea" class="product-link">
+            <h5 class="card-title">薰衣草奶茶 (杯)</h5>
+            <p class="card-text">NT$60</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -794,9 +829,10 @@
       <div class="card">
         <img src="../image/milktea.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=spanish-cocoa" style="text-decoration: none; color: inherit;">西班牙可可 (杯)</h5>
-          <p class="card-text">NT$30</p></a>
+          <a href="buy.html?product=spanish-cocoa" class="product-link">
+            <h5 class="card-title">西班牙可可 (杯)</h5>
+            <p class="card-text">NT$30</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -813,9 +849,10 @@
       <div class="card">
         <img src="../image/milktea.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=spanish-cocoa-milk" style="text-decoration: none; color: inherit;">西班牙可可奶 (杯)</h5>
-          <p class="card-text">NT$60</p></a>
+          <a href="buy.html?product=spanish-cocoa-milk" class="product-link">
+            <h5 class="card-title">西班牙可可奶 (杯)</h5>
+            <p class="card-text">NT$60</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -844,10 +881,10 @@
       <div class="card">
         <img src="../image/sparkling_water.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=sparkling-yuzu" style="text-decoration: none; color: inherit;">柚子氣泡飲
-          </h5>
-          <p class="card-text">NT$50</p></a>
+          <a href="buy.html?product=sparkling-yuzu" class="product-link">
+            <h5 class="card-title">柚子氣泡飲</h5>
+            <p class="card-text">NT$50</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -864,9 +901,10 @@
       <div class="card">
         <img src="../image/sparkling_water.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=sparkling-lemon" style="text-decoration: none; color: inherit;">清新檸檬氣泡飲
-          <p class="card-text">NT$70</p></a>
+          <a href="buy.html?product=sparkling-lemon" class="product-link">
+            <h5 class="card-title">清新檸檬氣泡飲</h5>
+            <p class="card-text">NT$70</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -885,10 +923,10 @@
       <div class="card">
         <img src="../image/sparkling_water.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=sparkling-apple" style="text-decoration: none; color: inherit;">蘋果氣泡飲
-          </h5>
-          <p class="card-text">NT$50</p></a>
+          <a href="buy.html?product=sparkling-apple" class="product-link">
+            <h5 class="card-title">蘋果氣泡飲</h5>
+            <p class="card-text">NT$50</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -905,10 +943,10 @@
       <div class="card">
         <img src="../image/sparkling_water.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=sparkling-strawberry" style="text-decoration: none; color: inherit;">草莓氣泡飲
-          </h5>
-          <p class="card-text">NT$50</p></a>
+          <a href="buy.html?product=sparkling-strawberry" class="product-link">
+            <h5 class="card-title">草莓氣泡飲</h5>
+            <p class="card-text">NT$50</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -926,10 +964,10 @@
       <div class="card">
         <img src="../image/sparkling_water.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=sparkling-rose" style="text-decoration: none; color: inherit;">粉彩玫瑰氣泡飲
-          </h5>
-          <p class="card-text">NT$60</p></a>
+          <a href="buy.html?product=sparkling-rose" class="product-link">
+            <h5 class="card-title">粉彩玫瑰氣泡飲</h5>
+            <p class="card-text">NT$60</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -946,10 +984,10 @@
       <div class="card">
         <img src="../image/sparkling_water.png" alt="Coffee" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">
-            <a href="buy.html?product=sparkling-blueberry" style="text-decoration: none; color: inherit;">藍莓氣泡飲
-          </h5>
-          <p class="card-text">NT$60</p></a>
+          <a href="buy.html?product=sparkling-blueberry" class="product-link">
+            <h5 class="card-title">藍莓氣泡飲</h5>
+            <p class="card-text">NT$60</p>
+          </a>
           <div class="rating">
             <span>⭐</span>
             <span>⭐</span>
@@ -973,10 +1011,10 @@
     <div class="card">
       <img src="../image/sw.png" alt="Coffee" class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">
-          <a href="buy.html?product=functional-dazzling-lady" style="text-decoration: none; color: inherit;">妖嬌女魔法藥水
-        </h5>
-        <p class="card-text">NT$70</p></a>
+        <a href="buy.html?product=functional-dazzling-lady" class="product-link">
+          <h5 class="card-title">妖嬌女魔法藥水</h5>
+          <p class="card-text">NT$70</p>
+        </a>
         <div class="rating">
           <span>⭐</span>
           <span>⭐</span>
@@ -993,10 +1031,10 @@
     <div class="card">
       <img src="../image/sw.png" alt="Coffee" class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">
-          <a href="buy.html?product=functional-energy-broth" style="text-decoration: none; color: inherit;">元寶堅尼活力湯
-        </h5>
-        <p class="card-text">NT$70</p></a>
+        <a href="buy.html?product=functional-energy-broth" class="product-link">
+          <h5 class="card-title">元寶堅尼活力湯</h5>
+          <p class="card-text">NT$70</p>
+        </a>
         <div class="rating">
           <span>⭐</span>
           <span>⭐</span>
@@ -1013,10 +1051,10 @@
     <div class="card">
       <img src="../image/sw.png" alt="Coffee" class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">
-          <a href="buy.html?product=functional-nezuko-elixir" style="text-decoration: none; color: inherit;">彌豆子青春甘露
-        </h5>
-        <p class="card-text">NT$70</p></a>
+        <a href="buy.html?product=functional-nezuko-elixir" class="product-link">
+          <h5 class="card-title">彌豆子青春甘露</h5>
+          <p class="card-text">NT$70</p>
+        </a>
         <div class="rating">
           <span>⭐</span>
           <span>⭐</span>
@@ -1033,10 +1071,10 @@
     <div class="card">
       <img src="../image/sw.png" alt="Coffee" class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">
-          <a href="buy.html?product=functional-vampire-golden-cup" style="text-decoration: none; color: inherit;">吸血鬼安眠金杯
-        </h5>
-        <p class="card-text">NT$70</p></a>
+        <a href="buy.html?product=functional-vampire-golden-cup" class="product-link">
+          <h5 class="card-title">吸血鬼安眠金杯</h5>
+          <p class="card-text">NT$70</p>
+        </a>
         <div class="rating">
           <span>⭐</span>
           <span>⭐</span>
@@ -1053,10 +1091,10 @@
     <div class="card">
       <img src="../image/sw.png" alt="Coffee" class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">
-          <a href="buy.html?product=functional-popeye-drink" style="text-decoration: none; color: inherit;">卜派力士活力飲
-        </h5>
-        <p class="card-text">NT$70</p></a>
+        <a href="buy.html?product=functional-popeye-drink" class="product-link">
+          <h5 class="card-title">卜派力士活力飲</h5>
+          <p class="card-text">NT$70</p>
+        </a>
         <div class="rating">
           <span>⭐</span>
           <span>⭐</span>
