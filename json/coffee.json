@@ -8,42 +8,49 @@
           "name": "美式咖啡",
           "price": 40,
           "image": "../image/coffee.png",
-          "rating": 5
+          "rating": 5,
+          "description": "純正美式，帶來純粹的咖啡香氣。"
         },
         {
           "id": "latte",
           "name": "咖啡拿鐵",
           "price": 60,
           "image": "../image/coffee.png",
-          "rating": 5
+          "rating": 5,
+          "description": "奶香與咖啡的完美融合，暖心又濃郁。"
+          
         },
         {
           "id": "flavored-latte",
           "name": "風味咖啡拿鐵",
           "price": 80,
           "image": "../image/coffee.png",
-          "rating": 5
+          "rating": 5,
+          "description": " 添加風味的拿鐵，為您帶來不同的驚喜。"        
         },
         {
           "id": "ice-brick-coffee",
-          "name": "冰磚咖啡 - 只有冰的",
+          "name": "冰磚咖啡",
           "price": 180,
           "image": "../image/coffee.png",
-          "rating": 5
+          "rating": 5,
+          "description": " 冰磚咖啡，為夏日降溫的最佳選擇。"
         },
         {
           "id": "cold-brew",
-          "name": "冰滴咖啡 - 只有冰的",
+          "name": "冰滴咖啡",
           "price": 110,
           "image": "../image/coffee2.png",
-          "rating": 5
+          "rating": 5,
+          "description": " 冰滴咖啡，低溫萃取的極致享受。"
         },
         {
           "id": "dirty-coffee",
-          "name": "髒髒咖啡 - 只有冰的",
+          "name": "髒髒咖啡",
           "price": 45,
           "image": "../image/coffee3.png",
-          "rating": 5
+          "rating": 5,
+          "description": " 濃郁與冰涼的碰撞，絕佳風味體驗。"
         }
       ]
     },   
@@ -55,42 +62,48 @@
           "name": "辦公室系列-小心酸",
           "price": 80,
           "image": "../image/poc.png",
-          "rating": 5
+          "rating": 5,
+          "description": " 小心酸，適合忙碌間的放鬆時光。"
         },
         {
           "id": "office-bittersweet",
           "name": "辦公室系列-小甘苦",
           "price": 80,
           "image": "../image/poc.png",
-          "rating": 5
+          "rating": 5,
+          "description": "小甘苦，甘苦中品味生活的真諦。"
         },
         {
           "id": "office-relax",
           "name": "辦公室系列-小放空",
           "price": 80,
           "image": "../image/poc.png",
-          "rating": 5
+          "rating": 5,
+          "description": " 小放空，輕鬆一下的好選擇。"
         },
         {
           "id": "office-sigh",
           "name": "辦公室系列-小感嘆",
           "price": 80,
           "image": "../image/poc.png",
-          "rating": 5
+          "rating": 5,
+          "description": " 小感嘆，喝出心中的那一聲感慨。"
         },
         {
           "id": "office-scheme",
           "name": "辦公室系列-小心機",
           "price": 80,
           "image": "../image/poc.png",
-          "rating": 5
+          "rating": 5,
+          "description": " 小心機，給生活增添些許樂趣。"
         },
         {
           "id": "office-blessing",
           "name": "辦公室系列-小確辛",
           "price": 80,
           "image": "../image/poc.png",
-          "rating": 5
+          "rating": 5,
+          "description": " 小確辛，幸福的每一口。"
         }
       ]
     },
@@ -103,56 +116,65 @@
           "name": "薰衣草茶 (壺)",
           "price": 120,
           "image": "../image/herbal tea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "優雅的薰衣草香氣，讓心靈瞬間沉澱。"
         },
         {
           "id": "tea-pot-lemon-grass",
           "name": "檸檬香茅草茶 (壺)",
           "price": 120,
           "image": "../image/herbal tea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "清新檸檬香，健康能量滿滿。"
         },
         {
           "id": "tea-pot-wild-ginger",
           "name": "野薑花草茶 (壺)",
           "price": 120,
           "image": "../image/herbal tea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "濃郁的花草芳香，佐以野薑溫暖的氣息。"
         },
+
         {
           "id": "tea-pot-roselle",
           "name": "洛神花草茶 (壺)",
           "price": 120,
           "image": "../image/herbal tea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "色彩鮮豔，口感清新，是解膩的完美搭配。"
         },
         {
           "id": "tea-pot-blueberry",
           "name": "藍莓果茶 (壺)",
           "price": 120,
           "image": "../image/herbal tea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "甜美果香，健康茶飲首選。"
         },
         {
           "id": "tea-pot-rose-earl-grey",
           "name": "玫瑰伯爵茶 (壺)",
           "price": 140,
           "image": "../image/herbal tea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "浪漫玫瑰香，下午茶好伴侶。"
         },
         {
           "id": "tea-pot-black",
           "name": "紓咖紅茶 (壺)",
           "price": 70,
           "image": "../image/herbal tea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "醇厚紅茶，簡單日常的溫暖。"
         },
         {
           "id": "tea-pot-green",
           "name": "紓咖綠茶 (壺)",
           "price": 70,
           "image": "../image/herbal tea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "甘醇綠茶香，清新又舒適。"
         }
       ]
     },
@@ -168,56 +190,65 @@
           "name": "紓咖紅茶 (杯)",
           "price": 30,
           "image": "../image/herbal tea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "經典紅茶，活力一整天。"
         },
         {
           "id": "tea-cup-green",
           "name": "紓咖綠茶 (杯)",
           "price": 30,
           "image": "../image/herbal tea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "清新綠茶，簡單又自然。"
         },
         {
           "id": "tea-cup-yuzu-green",
           "name": "柚子綠茶 (杯)",
           "price": 30,
           "image": "../image/herbal tea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "柚子香氣，清新好滋味。"
         },
         {
           "id": "tea-cup-apple-black",
           "name": "蘋果紅茶 (杯)",
           "price": 30,
           "image": "../image/herbal tea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "甜美蘋果香，茶韻悠長。"
         },
         {
           "id": "tea-cup-matcha",
           "name": "日式抹茶 (杯)",
           "price": 40,
           "image": "../image/herbal tea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "濃厚抹茶味，日式風情。"
         },
         {
           "id": "tea-cup-earl-grey",
           "name": "伯爵茶 (杯)",
           "price": 45,
           "image": "../image/herbal tea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "優雅伯爵香，品味細節。"
         },
         {
           "id": "ttea-cup-lavender",
           "name": "薰衣草茶 (杯))",
           "price": 45,
           "image": "../image/herbal tea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "花香濃郁，片刻寧靜。"
         },
+
         {
           "id": "tea-cup-blueberry",
           "name": "小藍莓茶 (杯)",
           "price": 50,
           "image": "../image/herbal tea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "藍莓果香，酸甜又美味。"
         }
       ]
     },
@@ -231,14 +262,16 @@
           "name": "草莓奶茶 (杯)",
           "price": 45,
           "image": "../image/milktea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "奶香與草莓的完美融合，甜而不膩。"
         },
         {
           "id": "matcha-milk",
           "name": "抹茶牛奶 (杯)",
           "price": 60,
           "image": "../image/milktea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "抹茶的濃厚韻味，與牛奶的雙重享受。"
         },
 
         {
@@ -246,7 +279,8 @@
           "name": "伯爵奶茶 (杯)",
           "price": 60,
           "image": "../image/milktea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "經典伯爵香氣注入奶茶，風味濃郁且香甜。"
         },
    
         {
@@ -254,7 +288,8 @@
           "name": "薰衣草奶茶 (杯)",
           "price": 60,
           "image": "../image/milktea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "薰衣草香氣，迷人滋味。"
         },
 
 
@@ -265,14 +300,16 @@
           "name": "西班牙可可 (杯)",
           "price": 30,
           "image": "../image/milktea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "濃郁可可香，純粹好滋味。"
         },
         {
           "id": "spanish-cocoa-milk",
           "name": "西班牙可可奶 (杯)",
           "price": 60,
           "image": "../image/milktea.png",
-          "rating": 5
+          "rating": 5,
+          "description": "可可與牛奶，濃郁又絲滑。"
         }
 
       ]
@@ -286,14 +323,16 @@
           "name": "柚子氣泡飲",
           "price": 50,
           "image": "../image/sparkling_water.png",
-          "rating": 5
+          "rating": 5,
+          "description": "柚子香甜，氣泡輕盈酸爽。"
         },
         {
           "id": "sparkling-lemon",
           "name": "清新檸檬氣泡飲",
           "price": 70,
           "image": "../image/sparkling_water.png",
-          "rating": 5
+          "rating": 5,
+          "description": "檸檬香氣，清新好心情。"
         },
 
         {
@@ -301,7 +340,8 @@
           "name": "蘋果氣泡飲",
           "price": 50,
           "image": "../image/sparkling_water.png",
-          "rating": 5
+          "rating": 5,
+          "description": "甜美蘋果味，清涼又滿足。"
         },
 
         {
@@ -309,7 +349,8 @@
           "name": "草莓氣泡飲",
           "price": 50,
           "image": "../image/sparkling_water.png",
-          "rating": 5
+          "rating": 5,
+          "description": "草莓酸甜，氣泡的跳躍感。"
         },
   
         {
@@ -317,7 +358,8 @@
           "name": "粉彩玫瑰氣泡飲",
           "price": 60,
           "image": "../image/sparkling_water.png",
-          "rating": 5
+          "rating": 5,
+          "description": "玫瑰香氣，優雅的清爽。"
         },
 
         {
@@ -325,7 +367,8 @@
           "name": "藍莓氣泡飲",
           "price": 60,
           "image": "../image/sparkling_water.png",
-          "rating": 5
+          "rating": 5,
+          "description": "藍莓香氣，健康又輕盈。"
         }
        
       ]
@@ -338,14 +381,16 @@
           "name": "妖嬌女魔法藥水腸胃保健",
           "price": 70,
           "image": "../image/sw.png",
-          "rating": 5
+          "rating": 5,
+          "description": "膳食纖維多，甜菊糖低卡保健。"
         },
         {
           "id": "functional-energy-broth",
           "name": "元寶堅尼活力湯",
           "price": 70,
           "image": "../image/sw.png",
-          "rating": 5
+          "rating": 5,
+          "description": "酵素益生菌，橙汁風味滿滿活力。"
         },
 
         {
@@ -353,7 +398,8 @@
           "name": "彌豆子青春甘露",
           "price": 70,
           "image": "../image/sw.png",
-          "rating": 5
+          "rating": 5,
+          "description": "鐵與B群，青春健康莓果香。"
         },
 
         {
@@ -361,7 +407,8 @@
           "name": "吸血鬼安眠金杯",
           "price": 50,
           "image": "../image/sw.png",
-          "rating": 5
+          "rating": 5,
+          "description": "B群+鈣，助眠放鬆好選擇。"
         },
   
         {
@@ -369,7 +416,8 @@
           "name": "卜派力士活力飲",
           "price": 70,
           "image": "../image/sw.png",
-          "rating": 5
+          "rating": 5,
+          "description": "紅酒素與抗氧化，提振精神。"
         }
        
       ]

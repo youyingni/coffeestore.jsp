@@ -7,32 +7,40 @@
 .product-image {
 	float: left;
 	width: 20%;
+  font-family: "LXGW WenKai Mono TC", monospace;
   }
-  
+
   .product-details {
 	float: left;
 	width: 37%;
+  text-align: left;
+  font-family: "LXGW WenKai Mono TC", monospace;
   }
+  
   
   .product-price {
 	float: left;
 	width: 12%;
+  font-family: "LXGW WenKai Mono TC", monospace;
   }
   
   .product-quantity {
 	float: left;
 	width: 10%;
+  font-family: "LXGW WenKai Mono TC", monospace;
   }
   
   .product-removal {
 	float: left;
 	width: 9%;
+  font-family: "LXGW WenKai Mono TC", monospace;
   }
   
   .product-line-price {
 	float: left;
-	width: 12%;
+	width: 10%;
 	text-align: right;
+  font-family: "LXGW WenKai Mono TC", monospace;
   }
   
   /* This is used as the traditional .clearfix class */
@@ -62,19 +70,22 @@
   
   /* Body/Header stuff */
   body {
-	padding: 0px 30px 30px 20px;
+	padding: 0px 0px 0px 0px;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: 100;
-  background-color: #DDCDC3;
+  background-color: #E0E0E0;
   
   }
   
   h1 {
 	font-weight: 100;
+  padding: 25px;
+  text-align: left;
+  font-family: "LXGW WenKai Mono TC", monospace;
   }
   
   label {
-	color: #aaa;
+	color: #484848;
   }
   
   .shopping-cart {
@@ -104,8 +115,11 @@
 	width: 100px;
   }
   .product .product-details .product-title {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 800;
 	margin-right: 20px;
-	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+	font-family: "LXGW WenKai Mono TC", monospace;
   }
   .product .product-details .product-description {
 	margin: 5px 20px 5px 0;
@@ -117,7 +131,7 @@
   .product .remove-product {
 	border: 0;
 	padding: 4px 8px;
-	background-color: #DDCDC3;
+	background-color: #D0D0D0;
 	color: #fff;
 	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
 	font-size: 12px;
@@ -284,7 +298,7 @@
     max-width: 400px;
     padding: 15px;
     border-radius: 10px;
-    background: #f9f9f9;
+    background: #c7c7c7;
   }
 
   .payment-methods label {
@@ -305,7 +319,8 @@
 
   .payment-methods label div {
     padding: 10px 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #484848;
+    font-weight: 800;
     border-radius: 10px;
     font-size: 14px;
     background: white;
@@ -318,3 +333,80 @@
     color: white;
     border-color: #007BFF;
   }
+
+  .order-remarks textarea {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .remark{
+    text-align: left;
+    padding-left: 4%;
+  }
+
+  .modal div {
+  margin-bottom: 10px;
+}
+
+/* 按鈕基礎樣式 */
+.sweetness-option,
+.ice-option {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #333;
+  font-family: "LXGW WenKai Mono TC", monospace;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* 按鈕選中樣式 */
+.sweetness-option.selected,
+.ice-option.selected {
+  background-color: #a06f52;
+  color: white;
+  border-color: #ff9a41;
+}
+
+/* 按鈕 hover 效果 */
+.sweetness-option:hover,
+.ice-option:hover {
+  background-color: #92522d;
+  border-color: #999;
+}
+
+/* 儲存和取消按鈕 */
+#saveChanges,
+#cancelChanges {
+  padding: 10px 15px;
+  margin: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#saveChanges {
+  background-color: #007bff;
+  color: white;
+}
+
+#saveChanges:hover {
+  background-color: #0056b3;
+}
+
+#cancelChanges {
+  background-color: #f9f9f9;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+#cancelChanges:hover {
+  background-color: #e0e0e0;
+}

@@ -6,6 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>咖啡訂單介面</title>
   <link rel="stylesheet" href="../css/style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap"
+    rel="stylesheet">
+
 
   <style>
     .card-title-link {
@@ -21,6 +25,13 @@
       border-radius: 100%;
       width: 35px;
       height: 35px;
+    }
+
+    .description {
+      background-color: rgb(125, 159, 159);
+      color: white;
+      font-weight: 400;
+      border-radius: 10px;
     }
   </style>
 
@@ -60,7 +71,12 @@
         <img id="product-image" src="../image/placeholder.png" alt="商品圖片" class="product-image">
         <h1 id="product-name">商品名稱</h1>
         <p id="product-price">NT$0</p>
+        <div class="description">
+          <h4 id="product-description">商品文案</h4>
+        </div>
       </div>
+
+
       <!-- 選項 -->
       <div class="product-details">
         <div class="options">
@@ -79,6 +95,7 @@
             <button data-group="ice">熱的</button>
           </div>
         </div>
+
         <div class="d-flex align-items-center">
           <span class="me-2">數量</span>
           <button class="btn btn-outline-secondary" id="decrease-btn"
@@ -98,11 +115,11 @@
           </div>
 
 
-            <div class="pages-wrapper">
-              <button id="addtoheart">
-                加入收藏
-                <span class="heart-item"></span>
-              </button>
+          <div class="pages-wrapper">
+            <button id="addtoheart">
+              加入收藏
+              <span class="heart-item"></span>
+            </button>
           </div>
         </div>
     </section>
@@ -135,15 +152,15 @@
           <div class="comment">
             <h3>小志</h3>
             <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
-            <h4>好喝啦</h4>
+            <h4>好喝啦!</h4>
           </div>
           <div class="comment">
             <h3>小浩</h3>
             <span>⭐</span>
-            <h4>沒有實體志浩差評</h4>
+            <h4>今天沒看到貓哭哭!</h4>
           </div>
           <div class="comment">
-            <h3>小浩</h3>
+            <h3>小呵</h3>
             <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
             <h4>還會再來</h4>
           </div>
@@ -181,6 +198,45 @@
         }
       });
     });
+
+    //冰塊甜度選項
+    document.addEventListener("DOMContentLoaded", function () {
+      const addToCartButton = document.getElementById("addtocart");
+
+      addToCartButton.addEventListener("click", function (event) {
+        // 檢查是否選擇了甜度和冰塊
+        const sweetnessSelected = document.querySelector(".sweetness button.selected");
+        const iceSelected = document.querySelector(".ice button.selected");
+
+        if (!sweetnessSelected || !iceSelected) {
+          alert("請先選擇甜度和冰塊再加入購物車！");
+          event.preventDefault(); // 防止按鈕的預設行為
+          return;
+        }
+
+        // 如果都已選擇，執行加入購物車邏輯
+        console.log("甜度:", sweetnessSelected.innerText);
+        console.log("冰塊:", iceSelected.innerText);
+        alert("成功加入購物車！");
+      });
+
+      // 添加選中效果
+      const optionButtons = document.querySelectorAll(".options button");
+
+      optionButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          // 取消同一組其他按鈕的選中狀態
+          const group = button.getAttribute("data-group");
+          document.querySelectorAll(`button[data-group='${group}']`).forEach((btn) => {
+            btn.classList.remove("selected");
+          });
+
+          // 選中當前按鈕
+          button.classList.add("selected");
+        });
+      });
+    });
+
 
 
 
@@ -241,6 +297,7 @@
             document.getElementById("product-image").src = currentProduct.image;
             document.getElementById("product-name").innerText = currentProduct.name;
             document.getElementById("product-price").innerText = `NT$${currentProduct.price}`;
+            document.getElementById("product-description").innerText = currentProduct.description; // 更新描述
           } else {
             // 顯示找不到商品的訊息
             document.querySelector(".product-image-container").innerHTML = `
@@ -260,23 +317,24 @@
             recommendedContainer.innerHTML += `
           <div class="card">
             <img src="${item.image}" alt="${item.name}" class="card-img-top">
+            <a href="buy.html?product=${item.id}" style="text-decoration: none; color: inherit;">
             <div class="card-body">
               <h5 class="card-title">
-                <a href="buy.html?product=${item.id}" style="text-decoration: none; color: inherit;">
+                
                   ${item.name}
-                </a>
+            
               </h5>
               <p class="card-text">NT$${item.price}</p>
               <div class="rating">
                 ${'⭐'.repeat(item.rating)}
               </div>
+               </a>
             </div>
           </div>`;
           });
         })
         .catch((error) => console.error("Error loading JSON:", error));
     });
-
 
 
   </script>

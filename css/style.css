@@ -1,3 +1,12 @@
+/*
+#DDCDC3背景
+burlywood 原
+#efebe2裡\
+
+font-family: "LXGW WenKai Mono TC", monospace;
+*/
+
+
 * {
   box-sizing: border-box;
 }
@@ -10,7 +19,7 @@ body {
 }
 
 .navbar {
-  background-color: brown;
+  background-color: #513518;
   color: white;
 }
 .navbar-icons {
@@ -28,10 +37,10 @@ body {
   height: 40px;
 }
 .container {
-  background-color: burlywood;
+  background-color: #DDCDC3;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
   padding: 20px;
 }
 
@@ -43,6 +52,7 @@ body {
 .product-image-container h1 {
   font-size: 24px;
   margin: 5px 0;
+  font-family: "LXGW WenKai Mono TC", monospace;
 }
 
 .product-image-container .price {
@@ -55,15 +65,17 @@ body {
   display: flex;
   flex-direction: row; /* 內容左右排列 */
   background-color: #efebe2;
+  gap: 80px;
   padding: 50px;
   padding-left: 300px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
 }
 
 .product-image {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   border-radius: 10px;
   margin-right: 20px;
 }
@@ -72,11 +84,14 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 30px;
+  
 }
 
 .product-details h1 {
   font-size: 24px;
   margin-bottom: 10px;
+  font-family: "LXGW WenKai Mono TC", monospace;
 }
 
 .product-details .price {
@@ -92,6 +107,7 @@ body {
 .options p {
   font-size: 22px;
   margin: 10px 0;
+  font-family: "LXGW WenKai Mono TC", monospace;
 }
 
 .options button {
@@ -102,6 +118,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
+  font-family: "LXGW WenKai Mono TC", monospace;
 }
 
 .options button.selected {
@@ -145,6 +162,7 @@ body {
 .reviews h2 {
   font-size: 30px;
   margin-bottom: 10px;
+  font-family: "LXGW WenKai Mono TC", monospace;
 }
 
 .rating span {
@@ -218,7 +236,7 @@ button:hover {
 }
 
 .card {
-  background: #fff;
+  background: #fdf7f3;
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 15px;
@@ -228,10 +246,10 @@ button:hover {
 }
 
 .card-img-top {
-  min-width: 350px;
-  width:350px;
-  min-height: 350px;
-  height: 350px;
+  min-width: 250px;
+  width:250px;
+  min-height: 250px;
+  height: 250px;
   border-radius: 10px;
 }
 
@@ -297,6 +315,7 @@ button:hover {
   outline: none;
   border-radius: 5px;
   color: white;
+  font-family: "LXGW WenKai Mono TC", monospace;
   font-size: 18px;
 }
 .page-wrapper button .cart-item {
@@ -420,6 +439,7 @@ button:hover {
   outline: none;
   border-radius: 5px;
   color: white;
+  font-family: "LXGW WenKai Mono TC", monospace;
   font-size: 18px;
 
 }

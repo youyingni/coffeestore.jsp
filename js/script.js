@@ -23,23 +23,40 @@ document.querySelectorAll(".rating span").forEach((star) => {
 });
 
 // 購物車
-$(document).ready(function(){
-  $('#addtocart').on('click',function(){
+$(document).ready(function() {
+  $('#addtocart').on('click', function() {
+    // 檢查是否選擇了甜度和冰塊
+    var sweetnessSelected = $('.sweetness button.selected').length > 0;
+    var iceSelected = $('.ice button.selected').length > 0;
+
+    if (!sweetnessSelected || !iceSelected) {
+      alert('請先選擇甜度和冰塊再加入購物車！');
+      return; // 停止執行特效
+    }
+
+    // 如果條件符合，啟動加入購物車特效
     var button = $(this);
     var cart = $('#cart');
     var cartTotal = cart.attr('data-totalitems');
     var newCartTotal = parseInt(cartTotal) + 1;
-    
+
     button.addClass('sendtocart');
-    setTimeout(function(){
+    setTimeout(function() {
       button.removeClass('sendtocart');
       cart.addClass('shake').attr('data-totalitems', newCartTotal);
-      setTimeout(function(){
+      setTimeout(function() {
         cart.removeClass('shake');
-      },500)
-    },1000)
-  })
-})
+      }, 500);
+    }, 1000);
+  });
+
+  // 點擊甜度或冰塊按鈕時，添加選中狀態
+  $('.sweetness button, .ice button').on('click', function() {
+    var group = $(this).data('group');
+    $(`button[data-group="${group}"]`).removeClass('selected');
+    $(this).addClass('selected');
+  });
+});
 
 //add to my favourite
 

@@ -201,6 +201,7 @@ footer div {
 h1{
   width: 165px;
   background-color: white;
+  font-family: "LXGW WenKai Mono TC", monospace;
   border-radius: 20px;
   margin: 70px;
   text-align: left;
@@ -278,6 +279,10 @@ h1{
   opacity: var(--active);
 }
 
+.card-text{
+  font-family: "LXGW WenKai Mono TC", monospace;
+}
+
 
 /*按鈕*/
 .nav {
@@ -310,16 +315,17 @@ h1{
   height: 30px;
 }
 .product-section {
-  margin: 20px;
-  padding: 20px;
+  margin: 5px;
+  padding: 10px;
   background-color: #f9f9f9;
   border-radius: 10px;
 }
 .product-section2 {
-  margin: 20px;
+  margin: 5px;
   padding: 10px;
   background-color: #DDCDC3;
   border-radius: 10px;
+  padding: 50px 5px;
 }
 
 h2 {
@@ -332,20 +338,29 @@ h2 {
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 每行 4 列 */
-  gap: 20px; /* 卡片之間的間距 */
+  gap: 30px; /* 卡片之間的間距增大 */
 }
-
-
-
 
 .card {
   background-color: #fff;
   padding: 10px;
+  width: 16rem; /* 卡片寬度減小 */
+  height: 20rem; /* 卡片高度減小 */
   border: 1px solid #ddd;
   border-radius: 8px;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+.card-img-top {
+  min-width: 150px; /* 圖片寬度縮小 */
+  width: 150px;
+  min-height: 150px; /* 圖片高度縮小 */
+  height: 150px;
+  border-radius: 10px;
+}
+
+
 
 
 .product-section {
@@ -414,5 +429,6 @@ footer {
 a {
   text-decoration: none;
   color: inherit;
+  font-family: "LXGW WenKai Mono TC", monospace;
 }
 
