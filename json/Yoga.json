@@ -1,0 +1,63 @@
+{
+    "categories": [
+      {
+        "category": "初階瑜珈",
+        "items": [          
+          {
+            "id": "spiritual_yoga",
+            "name": "靈性瑜珈",
+            "price": 1750,
+            "image": "../image/Yoga2.jpg",
+            "rating": 5,
+            "Copywriting":"靈性瑜珈是一種結合身心靈的練習方式，\n不僅僅專注於身體的動作與柔韌性，\n也更深入地探討內在心靈的提升與精神層面的成長。\n透過體位法（Asana）、冥想、呼吸控制（Pranayama）以及正念練習，\n靈性瑜珈幫助練習者與自己內心深處建立更深的連結。"
+          },
+          {
+            "id": "basic_yoga",
+            "name": "基礎瑜珈",
+            "price": 1750,
+            "image": "../image/Yoga3.jpg",
+            "rating": 5,
+            "Copywriting":"適合初學者，\n學習基本動作與姿勢，打好瑜珈基礎。\n從簡單的姿勢開始，逐步掌握正確的呼吸與姿勢。"
+          },
+          {
+            "id": "meridian_yoga",
+            "name": "經絡瑜珈",
+            "price": 1750,
+            "image": "../image/Yoga4.jpg",
+            "rating": 5,
+            "Copywriting": "結合經絡理論，促進能量流動，\n增進身體健康。通過特定的動作，\n激活身體內的經絡系統，達到調節身體的效果。"
+          },
+          {
+            "id": "yin_yoga",
+            "name": "陰瑜珈",
+            "price": 1750,
+            "image": "../image/Yoga5.jpg",
+            "rating": 5,
+            "Copywriting": "透過長時間靜態拉伸，\n幫助身體深層放鬆與恢復。\n適合忙碌的現代人，\n放鬆身心並改善柔韌性。"
+          }
+        ]
+      },   
+      {
+        "category": "進階瑜珈",
+        "items": [
+          {
+            "id": "pilates",
+            "name": "皮拉提斯",
+            "price": 70,
+            "image": "../image/Yoga5.jpg",
+            "rating": 5,
+            "Copywriting":"強化核心肌群，\n改善體態與身體協調性，增強肌力。\n這是一個全方位的健身課程，\n適合希望提升身體控制力的學員。"
+          },   
+          {
+            "id": "sculpt_yoga",
+            "name": "雕塑瑜珈",
+            "price": 70,
+            "image": "../image/Yoga5.jpg",
+            "rating": 5,
+            "Copywriting": "專注於塑形與雕刻線條，\n打造理想體態與自信。\n課程針對希望塑造更佳身形的人士，\n結合力量訓練與瑜珈。"
+          }
+         
+        ]
+      }
+    ]
+  }
