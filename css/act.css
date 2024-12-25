@@ -18,7 +18,7 @@ body {
 .tittle {
     margin-top: 70px;
     position: relative;
-    font-size: 40px;
+    font-size: 20px;
     font-family: 'Kalam', cursive;
     font-weight: 700;
 
@@ -28,45 +28,7 @@ div {
     margin: 10px;
 }
 
-/*
-.background {
-    height: 550px;
-    /*background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background-color: #efebe2;
-    /*overflow: hidden;
-   
-}
 
-.background img {
-    object-fit: cover;
-    border-radius: 25px;
-    float: left;
-    height: 500px;
-    min-height: 500px;
-    margin-right: 20px;
-}
-
-.background p {
-    text-align: justify;
-    color: #000000;
-    border-radius: 10px;
-    font-family: "LXGW WenKai Mono TC", monospace;
-    font-size: 25px;
-    letter-spacing: 10px;
-    line-height: 40px;
-    padding: 20px;
-    float: right;
-    width: 95%;
-    min-height: 500px;
-}
-
-*/
 
 .cat {
     margin: 25px;
@@ -80,7 +42,7 @@ div {
     width: 850px;
     height: min-content;
     min-height: fit-content;
-    background-color: rgba(85, 170, 153, 0.511);
+    background-color: rgb(200, 200, 200);
     color: #3D281c;
 }
 
@@ -224,5 +186,14 @@ div {
 
 
 /**************************************************/
+.my-element {
+    display: inline-block;
+    margin: 0 0.5rem;
+
+    animation: bounce;
+    /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s;
+    /* don't forget to set a duration! */
+}
 
 /**************************************************/

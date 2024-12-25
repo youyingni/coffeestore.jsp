@@ -138,30 +138,81 @@ nav.hidden {
 }
 
 /*****************************************/
-footer {
-    padding: 10px;
-    width: 100%;
-    bottom: 0;
-    background-color: #0D1B2A;
-    color: white;
-    text-align: center;
-    font-size: 25px;
-    min-width: fit-content;
-    text-wrap: nowrap;
-    font-family: "LXGW WenKai Mono TC", monospace;
-    letter-spacing: 5px;
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    /* 均分左右區域，讓中間區域縮小 */
+    align-items: flex-start;
+    gap: 0;
+    /* 移除多餘的間距 */
 }
 
-footer div {
+.left-section {
+    margin-top: 50px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    /* 減少內部間距 */
+}
+
+.right-section {
+    display: flex;
+    gap: 10px;
+    /* 縮小兩張圖片之間的距離 */
+    margin-right: 0;
+    /* 移除右邊多餘的空白 */
+    text-align: center;
+}
+
+
+.icon1 {
+    color: antiquewhite;
+}
+
+.icon1:hover {
+    color: rgb(97, 198, 178);
+    background-color: antiquewhite;
+    ;
+}
+
+iframe {
+    margin: auto;
+    margin-right: 50px;
+    border-radius: 10px;
+    width: 600px;
+    height: 250px;
+    border: 1;
+}
+
+/*放大效果*/
+iframe:hover {
+    transform: scale(1.1);
+}
+
+
+
+/*****************************************/
+
+footer {
+    padding: 10px 0;
+    width: 100%;
+    background-color: #0D1B2A;
+    color: white;
+    font-size: 25px;
+    font-family: "LXGW WenKai Mono TC", monospace;
+
 }
 
 .marquee {
     height: 25px;
     width: 100%;
     position: relative;
+    text-align: center;
+    min-width: fit-content;
+    text-wrap: nowrap;
+    letter-spacing: 5px;
+    bottom: 0;
 }
 
 .marquee div {
@@ -169,6 +220,9 @@ footer div {
     position: absolute;
     overflow: hidden;
     animation: marquee 10s linear infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -181,3 +235,5 @@ footer div {
         left: -100%;
     }
 }
+
+/**************************************************/
