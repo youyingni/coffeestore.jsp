@@ -1,5 +1,9 @@
+.title{
+    font-family: 'Kalam', cursive;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: "LXGW WenKai Mono TC", monospace;
     line-height: 1.6;
     margin: 0;
     padding: 0;

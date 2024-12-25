@@ -17,7 +17,7 @@
   
   html {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "LXGW WenKai Mono TC", monospace;
     color: #DDCDc3;
   }
 
@@ -26,11 +26,15 @@
     
     margin: 30px 50px;
     line-height: 1.4;
-    background-color: #DDCDC3;
+    background-color: #F5E6DA;
+    font-family: "LXGW WenKai Mono TC", monospace;
     
   }
  
-   
+  .md-trigger btn{
+    font-family: "LXGW WenKai Mono TC", monospace;
+
+  }
 
 
   
@@ -66,21 +70,21 @@
   }
   
   .main-nav a {
-    background: var(--primary);
+    background: #DDCDc3; /* 更改背景顏色為 #DDCDc3 */
     display: block;
     text-decoration: none;
     padding: 12px;
     text-align: center;
-    color: #1a0c04;
+    color: #1a0c04; /* 文字顏色 */
     text-transform: uppercase;
-    font-size:18px;
+    font-size: 18px;
     box-shadow: var(--shadow);
-  }
-  
-  .main-nav a:hover {
-    background: var(--dark);
-    color: var(--light);
-  }
+}
+
+.main-nav a:hover {
+    background: #cbb4a8; /* Hover 時更深的顏色 */
+    color: #fff; /* Hover 時的文字顏色 */
+}
   
   /* Top Container */
   .top-container {
@@ -132,16 +136,14 @@
     color: #666;
     margin-bottom: 10px;
   }
- 
-  .login-section h2,
+
+
+
+
+.login-section h2,
 .form-section h2 {
-    font-size: 16px;
-    margin-bottom: 5000px;
-} 
-  
-
-
-
+    margin-bottom: 20px; /* 合理的數值 */
+}
 
 
 
@@ -204,6 +206,10 @@
     padding: 16px;
   }
   
+  .container {
+    overflow: visible;
+}
+
   /* Media Queries */
   @media (max-width: 700px) {
     .top-container {
