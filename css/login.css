@@ -1,31 +1,50 @@
 
 
 
+.final{
+  background-color: #DDCDc3;
+  opacity: 80%;
+}
+
 :root {
     --primary: #ddd;
-    --dark: #333;
+   
     --light: #fff;
     --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
+    --background-color:#DDCDc3;
+
   }
   
   html {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    color: brown;
+    color: #DDCDc3;
   }
+
   
   body {
-    background: #DDCDC3;
+    
     margin: 30px 50px;
     line-height: 1.4;
+    background-color: #DDCDC3;
+    
   }
+ 
+   
+
+
   
   .btn {
-    background: brown;
-    color: burlywood;
-    padding: 0.6rem 1.3rem;
+    background-color: #57514d;
+    color: #fff;
+    padding: 1rem 2rem; 
+    font-size: 1.2rem; 
     text-decoration: none;
     border: 0;
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: transform 0.3s ease, background-color 0.3s ease; 
+    opacity: 80%;
   }
   
   img {
@@ -52,7 +71,7 @@
     text-decoration: none;
     padding: 12px;
     text-align: center;
-    color: brown;
+    color: #1a0c04;
     text-transform: uppercase;
     font-size:18px;
     box-shadow: var(--shadow);
@@ -70,7 +89,7 @@
     grid-template-areas:
       'showcase showcase top-box-a'
       'showcase showcase top-box-b';
-    color: brown;
+    color: #DDCDc3;
   }
   
 
@@ -90,19 +109,21 @@
   flex-direction: column;
   align-items: start;
   justify-content: center;
+  
 }
 
 .showcase h1 {
   font-size: 64px;
   margin-bottom: 0;
   color: var(--light);
-  color: rgb(112, 22, 22);
+  color: #513518;
+
 }
 
 .showcase p {
   font-size: 50px;
   margin-top: 0;
-  color:burlywood;
+  color:#513518;
 }
 
 
@@ -115,7 +136,7 @@
   .login-section h2,
 .form-section h2 {
     font-size: 16px;
-    margin-bottom: 10px;
+    margin-bottom: 5000px;
 } 
   
 
@@ -160,15 +181,7 @@
     box-shadow: var(--shadow);
   }
   
-  /* Info */
-  .info {
-    background: var(--primary);
-    box-shadow: var(--shadow);
-    display: grid;
-    grid-gap: 30px;
-    grid-template-columns: repeat(2, 1fr);
-    padding: 48px;
-  }
+ 
   
   /* Portfolio */
   .portfolio {
@@ -244,8 +257,8 @@
   display: none;
   text-align: center;
   padding: 30px; /* 增加內部空間 */
-  border: 2px solid #ddd;
-  background: #fff;
+  border: 2px solid #513518;
+  background: #DDCDc3;
   position: absolute;
   top: 0;
   left: 0;
@@ -267,21 +280,26 @@
   margin: 0 auto; /* 圖片居中 */
 }
 
+.hotclass{
+  color:#513518 ;
+  font-weight: bold;
+}
+
 .sale-price {
   font-size: 24px; /* 調整文字大小 */
-  color: #e74c3c;
+  color: #513518;
   font-weight: bold;
 }
 
 .original-price {
   font-size: 18px; /* 增加原價文字大小 */
-  color: #888;
+  color:  #4d453d;
   text-decoration: line-through;
 }
 
 .buy-button {
   padding: 12px 24px; /* 加大按鈕 */
-  background-color: #e74c3c;
+  background-color: #57514d;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -290,7 +308,7 @@
 }
 
 .buy-button:hover {
-  background-color: #c0392b;
+  background-color: #3a2a20;
 }
 
 .carousel-indicators {
@@ -310,5 +328,5 @@
 }
 
 .carousel-indicators .active {
-  background-color: #e74c3c;
+  background-color: #3a2a20;
 }
