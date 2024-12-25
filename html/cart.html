@@ -1,0 +1,479 @@
+<!--購物車-->
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>購物車</title>
+  <link
+        href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap"
+        rel="stylesheet">
+  <style>
+    /* 主體樣式 */
+    body {
+      text-align: center;
+      margin: 20px;
+    }
+
+    /* 按鈕樣式 */
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-top: 20px;
+      cursor: pointer;
+      background-color: burlywood;
+      color: aliceblue;
+      font-weight: 600;
+    }
+
+    /* 模態框容器 */
+    .modal {
+      display: none;
+      /* 預設隱藏 */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 400px;
+      background: white;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      padding: 20px;
+      z-index: 1000;
+      font-weight: 800;
+    }
+
+    /* 模態框背景遮罩 */
+    .overlay {
+      display: none;
+      /* 預設隱藏 */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    /* SVG 勾勾樣式 */
+    svg {
+      display: block;
+      margin: 0 auto;
+      height: 80px;
+      width: 80px;
+      color: green;
+      /* SVG path 使用 currentColor 繼承此顏色 */
+    }
+
+    .circle {
+      stroke-dasharray: 76;
+      stroke-dashoffset: 76;
+      animation: draw 1s forwards;
+    }
+
+    .tick {
+      stroke-dasharray: 18;
+      stroke-dashoffset: 18;
+      animation: draw 1s forwards 1s;
+    }
+
+    @keyframes draw {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+
+  </style>
+
+  <style>
+    @import url("../css/cart.css");
+  </style>
+</head>
+
+<body>
+  <h1>購物車</h1>
+
+  <div class="shopping-cart">
+
+    <!-- 標籤欄 -->
+    <div class="column-labels">
+      <label class="product-image">圖片</label>
+      <label class="product-details">商品</label>
+      <label class="product-price">價格</label>
+      <label class="product-quantity">數量</label>
+      <label class="product-removal">移除</label>
+      <label class="product-line-price">小計</label>
+    </div>
+
+    <!-- 商品 1 -->
+    <div class="product">
+      <div class="product-image">
+        <img src="../image/coffee.png">
+      </div>
+      <div class="product-details">
+        <div class="product-title">美式咖啡</div>
+        <p class="product-description">純正美式，帶來純粹的咖啡香氣。</p>
+        <div>微糖/去冰
+          <a href="#" class="modify-button" data-id="1">修改</a>
+        </div>
+        
+        <!-- 修改模態框 -->
+        <div class="overlay" id="modifyOverlay" style="display:none;"></div>
+        <div class="modal" id="modifyModal" style="display:none;">
+          <h2>修改冰塊和甜度</h2>
+          <label>選擇甜度：</label>
+          <div>
+            <button class="sweetness-option" data-value="半糖">半糖</button>
+            <button class="sweetness-option" data-value="微糖">微糖</button>
+            <button class="sweetness-option" data-value="無糖">無糖</button>
+          </div>
+          <label>選擇冰塊：</label>
+          <div>
+            <button class="ice-option" data-value="正常冰">冰的</button>
+            <button class="ice-option" data-value="少冰">少冰</button>
+            <button class="ice-option" data-value="去冰">去冰</button>
+            <button class="ice-option" data-value="常溫">溫的</button>
+            <button class="ice-option" data-value="熱飲">熱的</button>
+          </div>
+          <button id="saveChanges">儲存</button>
+          <button id="cancelChanges">取消</button>
+        </div>
+      </div>
+      <div class="product-price">40.00</div>
+      <div class="product-quantity">
+        <input type="number" value="2" min="1">
+      </div>
+      <div class="product-removal">
+        <button class="remove-product">
+          <img src="../image/garbage.png" alt="" class="icon">
+        </button>
+      </div>
+      <div class="product-line-price">80.00</div>
+    </div>
+
+    <!-- 商品 2 -->
+    <div class="product">
+      <div class="product-image">
+        <img src="../image/coffee.png">
+      </div>
+      <div class="product-details">
+        <div class="product-title">風味咖啡拿鐵</div>
+        <p class="product-description">添加風味的拿鐵，為您帶來不同的驚喜。</p>
+        <div>微糖/去冰
+          <a href="#" class="modify-button" data-id="1">修改</a>
+        </div>
+        
+        <!-- 修改模態框 -->
+        <div class="overlay" id="modifyOverlay" style="display:none;"></div>
+        <div class="modal" id="modifyModal" style="display:none;">
+          <h2>修改冰塊和甜度</h2>
+          <label>選擇甜度：</label>
+          <div>
+            <button class="sweetness-option" data-value="半糖">半糖</button>
+            <button class="sweetness-option" data-value="微糖">微糖</button>
+            <button class="sweetness-option" data-value="無糖">無糖</button>
+          </div>
+          <label>選擇冰塊：</label>
+          <div>
+            <button class="ice-option" data-value="正常冰">冰的</button>
+            <button class="ice-option" data-value="少冰">少冰</button>
+            <button class="ice-option" data-value="去冰">去冰</button>
+            <button class="ice-option" data-value="常溫">溫的</button>
+            <button class="ice-option" data-value="熱飲">熱的</button>
+          </div>
+          <button id="saveChanges">儲存</button>
+          <button id="cancelChanges">取消</button>
+        </div>
+      </div>
+      <div class="product-price">80.00</div>
+      <div class="product-quantity">
+        <input type="number" value="1" min="1">
+      </div>
+      <div class="product-removal">
+        <button class="remove-product">
+          <img src="../image/garbage.png" alt="" class="icon">
+        </button>
+      </div>
+      <div class="product-line-price">80.00</div>
+    </div>
+
+    <!-- 商品 3 -->
+    <div class="product">
+      <div class="product-image">
+        <img src="../image/herbal tea.png">
+      </div>
+      <div class="product-details">
+        <div class="product-title">薰衣草茶 (壺)</div>
+        <p class="product-description">優雅的薰衣草香氣，讓心靈瞬間沉澱。</p>
+        <div>微糖/去冰
+          <a href="#" class="modify-button" data-id="1">修改</a>
+        </div>
+        
+        <!-- 修改模態框 -->
+        <div class="overlay" id="modifyOverlay" style="display:none;"></div>
+        <div class="modal" id="modifyModal" style="display:none;">
+          <h2>修改冰塊和甜度</h2>
+          <label>選擇甜度：</label>
+          <div>
+            <button class="sweetness-option" data-value="半糖">半糖</button>
+            <button class="sweetness-option" data-value="微糖">微糖</button>
+            <button class="sweetness-option" data-value="無糖">無糖</button>
+          </div>
+          <label>選擇冰塊：</label>
+          <div>
+            <button class="ice-option" data-value="正常冰">冰的</button>
+            <button class="ice-option" data-value="少冰">少冰</button>
+            <button class="ice-option" data-value="去冰">去冰</button>
+            <button class="ice-option" data-value="常溫">溫的</button>
+            <button class="ice-option" data-value="熱飲">熱的</button>
+          </div>
+          <button id="saveChanges">儲存</button>
+          <button id="cancelChanges">取消</button>
+        </div>
+      </div>
+      <div class="product-price">120.00</div>
+      <div class="product-quantity">
+        <input type="number" value="1" min="1">
+      </div>
+      <div class="product-removal">
+        <button class="remove-product">
+          <img src="../image/garbage.png" alt="" class="icon">
+        </button>
+      </div>
+      <div class="product-line-price">120.00</div>
+    </div>
+
+    <!-- 商品 4 -->
+    <div class="product">
+      <div class="product-image">
+        <img src="../image/herbal tea.png">
+      </div>
+      <div class="product-details">
+        <div class="product-title">玫瑰伯爵茶 (壺)</div>
+        <p class="product-description">浪漫玫瑰香，下午茶好伴侶。</p>
+        <div>微糖/去冰
+          <a href="#" class="modify-button" data-id="1">修改</a>
+        </div>
+        
+        <!-- 修改模態框 -->
+        <div class="overlay" id="modifyOverlay" style="display:none;"></div>
+        <div class="modal" id="modifyModal" style="display:none;">
+          <h2>修改冰塊和甜度</h2>
+          <label>選擇甜度：</label>
+          <div>
+            <button class="sweetness-option" data-value="半糖">半糖</button>
+            <button class="sweetness-option" data-value="微糖">微糖</button>
+            <button class="sweetness-option" data-value="無糖">無糖</button>
+          </div>
+          <label>選擇冰塊：</label>
+          <div>
+            <button class="ice-option" data-value="正常冰">冰的</button>
+            <button class="ice-option" data-value="少冰">少冰</button>
+            <button class="ice-option" data-value="去冰">去冰</button>
+            <button class="ice-option" data-value="常溫">溫的</button>
+            <button class="ice-option" data-value="熱飲">熱的</button>
+          </div>
+          <button id="saveChanges">儲存</button>
+          <button id="cancelChanges">取消</button>
+        </div>
+      </div>
+      <div class="product-price">140.00</div>
+      <div class="product-quantity">
+        <input type="number" value="1" min="1">
+      </div>
+      <div class="product-removal">
+        <button class="remove-product">
+          <img src="../image/garbage.png" alt="" class="icon">
+        </button>
+      </div>
+      <div class="product-line-price">140.00</div>
+    </div>
+
+    <div class="order-remarks">
+      <h2 class="remark">訂單備註</h2>
+      <textarea placeholder="例如：請放在門口" rows="3"></textarea>
+    </div>
+
+
+    <div class="payment-methods">
+      <h2>選擇付款方式</h2>
+      <label>
+        <input type="radio" name="payment" value="linepay">
+        <div>
+          <img src="../image/linepay.png" alt="Line Pay">
+          Line Pay
+        </div>
+      </label>
+      <label>
+        <input type="radio" name="payment" value="cod">
+        <div>
+          <img src="../image/cash.png" alt="Line Pay">
+          貨到付款
+        </div>
+      </label>
+
+    </div>
+    <!-- 總計 -->
+    <div class="totals">
+      <div class="totals-item">
+        <label>小計</label>
+        <div class="totals-value" id="cart-subtotal">420.00</div>
+      </div>
+      <div class="totals-item">
+        <label>運費</label>
+        <div class="totals-value" id="cart-shipping">60.00</div>
+      </div>
+      <div class="totals-item totals-item-total">
+        <label>總計</label>
+        <div class="totals-value" id="cart-total">480.00</div>
+      </div>
+    </div>
+
+    <button class="checkout" id="completePurchase">完成訂單</button>
+    <div class="overlay" id="overlay"></div>
+    <div class="modal" id="purchaseModal">
+      <p>購買已完成</p>
+      <svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="currentColor" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path class="circle"
+            d="M13 1C6.372583 1 1 6.372583 1 13s5.372583 12 12 12 12-5.372583 12-12S19.627417 1 13 1z" />
+          <path class="tick" d="M6.5 13.5L10 17l8.808621-8.308621" />
+        </g>
+      </svg>
+      <a href="coffee.html"><button onclick="closeModal()">回到首頁</button></a>
+      <a href="order.html"><button onclick="viewOrderDetails()">訂單詳情</button></a>
+    </div>
+
+
+    <script>
+      const completePurchaseButton = document.getElementById("completePurchase");
+      const modal = document.getElementById("purchaseModal");
+      const overlay = document.getElementById("overlay");
+
+      // 顯示模態框
+      completePurchaseButton.addEventListener("click", () => {
+        const selectedPayment = document.querySelector('input[name="payment"]:checked');
+        if (!selectedPayment) {
+          alert("請選擇付款方式");
+          return;
+        }
+
+        modal.style.display = "block";
+        overlay.style.display = "block";
+      });
+
+      // 關閉模態框
+      function closeModal() {
+        modal.style.display = "none";
+        overlay.style.display = "none";
+      }
+
+      // 查看訂單詳情（範例）
+      function viewOrderDetails() {
+        alert("訂單詳情功能未實現");
+      }
+
+      //冰塊糖度
+      document.addEventListener("DOMContentLoaded", function () {
+  let currentSweetness = "";
+  let currentIce = "";
+
+  const modifyButtons = document.querySelectorAll(".modify-button");
+
+  // 點擊「修改」按鈕
+  modifyButtons.forEach((button) => {
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // 找到對應的商品
+      const product = this.closest(".product");
+
+      // 建立動態模態框
+      const modalHTML = `
+        <div class="overlay modify-overlay"></div>
+        <div class="modal modify-modal">
+          <h2>修改冰塊和甜度</h2>
+          <label>選擇甜度：</label>
+          <div>
+            <button class="sweetness-option" data-value="半糖">半糖</button>
+            <button class="sweetness-option" data-value="微糖">微糖</button>
+            <button class="sweetness-option" data-value="無糖">無糖</button>
+          </div>
+          <label>選擇冰塊：</label>
+          <div>
+            <button class="ice-option" data-value="正常冰">冰的</button>
+            <button class="ice-option" data-value="少冰">少冰</button>
+            <button class="ice-option" data-value="去冰">去冰</button>
+            <button class="ice-option" data-value="常溫">溫的</button>
+            <button class="ice-option" data-value="熱飲">熱的</button>
+          </div>
+          <button class="save-changes">儲存</button>
+          <button class="cancel-changes">取消</button>
+        </div>
+      `;
+
+      // 插入模態框到商品內
+      product.insertAdjacentHTML("beforeend", modalHTML);
+
+      // 顯示模態框
+      const overlay = product.querySelector(".modify-overlay");
+      const modal = product.querySelector(".modify-modal");
+      overlay.style.display = "block";
+      modal.style.display = "block";
+
+      // 處理按鈕交互
+      product.querySelectorAll(".sweetness-option, .ice-option").forEach((button) => {
+        button.addEventListener("click", function () {
+          const group = this.classList.contains("sweetness-option") ? ".sweetness-option" : ".ice-option";
+          product.querySelectorAll(group).forEach((btn) => btn.classList.remove("selected"));
+          this.classList.add("selected");
+        });
+      });
+
+      // 儲存按鈕
+      product.querySelector(".save-changes").addEventListener("click", function () {
+        const selectedSweetness = product.querySelector(".sweetness-option.selected");
+        const selectedIce = product.querySelector(".ice-option.selected");
+
+        if (selectedSweetness && selectedIce) {
+          currentSweetness = selectedSweetness.getAttribute("data-value");
+          currentIce = selectedIce.getAttribute("data-value");
+
+          // 更新甜度和冰塊顯示
+          const modifyText = product.querySelector(".modify-button").parentElement;
+          modifyText.innerHTML = `${currentSweetness}/${currentIce} <a href="#" class="modify-button">修改</a>`;
+
+          // 移除模態框
+          overlay.remove();
+          modal.remove();
+        } else {
+          alert("請選擇甜度和冰塊！");
+        }
+      });
+
+      // 取消按鈕
+      product.querySelector(".cancel-changes").addEventListener("click", function () {
+        overlay.remove();
+        modal.remove();
+      });
+    });
+  });
+});
+
+
+
+
+
+
+    </script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="../js/cart.js"></script>
+
+</body>
+
+</html>
