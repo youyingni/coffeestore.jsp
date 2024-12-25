@@ -12,49 +12,62 @@
         }
         lastScrollY = window.scrollY; // 更新滾動位置
     });
+/******************************/
+$(function () {
+  const items = $('.carousel-item'); // 所有幻燈片
+  const total = items.length; // 總數量
+  let current = 0;
+  let autoPlayInterval;
 
-    /*************/
+  // 初始化自動播放
+  startAutoPlay();
 
-    let slideIndex = 1; //先設預設變數為1
- 
-function showSlides(props) {
-  let i;
-  //取得所有的mySlides 因為他是取class 而不是id 所以要用getElementsByClassName
-  let slides = document.getElementsByClassName("singleSlide");
- 
-  //如果n大於slides的長度，代表已經到最後一張，所以要從第一張開始
-  if (props > slides.length) {
-    slideIndex = 1;
+  $('#moveRight').on('click', function () {
+      moveSlide(1); // 向右滑動
+      resetAutoPlay(); // 重置自動播放
+  });
+
+  $('#moveLeft').on('click', function () {
+      moveSlide(-1); // 向左滑動
+      resetAutoPlay(); // 重置自動播放
+  });
+
+  function moveSlide(step) {
+      const prev = current;
+      current = (current + step + total) % total; // 計算新索引
+      items.removeClass('active prev next'); // 清除所有狀態
+      items.eq(prev).addClass(step > 0 ? 'prev' : 'next'); // 設定滑出方向
+      items.eq(current).addClass('active'); // 設定當前顯示項
+
+      // 清除其他不必要的類別
+      setTimeout(() => {
+          items.removeClass('prev next');
+      }, 1000); // 過渡時間 1 秒
   }
- 
-  if (props < 1) {
-    slideIndex = slides.length;
-  }
-   
- 
-  //將所有圖片隱藏
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
- 
-  //將新的圖片顯示
-  //   console.log(slideIndex - 1, 25);
- 
-  //array都從0開始，所以要減一，因為我們的slideIndex是從1開始 ，已經賦予值
-  slides[slideIndex - 1].style.display = "flex";
-}
- 
-function plusSlides(a) {
-  showSlides((slideIndex += a));
-}
-//使用者點擊左右按鈕時，並傳入參數1或-1，代表下一張或上一張
-plusSlides(slideIndex);
 
-// 設定自動播放，每3秒切換一次
-setInterval(function() {
-  plusSlides(1); // 每3秒自動切換到下一張幻燈片
-}, 2000); // 3000毫秒 = 3秒
+  function startAutoPlay() {
+      autoPlayInterval = setInterval(() => {
+          moveSlide(1); // 每次向右滑動
+      }, 5000); // 每 3 秒切換一次
+  }
 
-/************************************/
+  function resetAutoPlay() {
+      clearInterval(autoPlayInterval); // 停止目前計時器
+      startAutoPlay(); // 重新開始自動播放
+  }
+});
+/******************************/
+document.addEventListener("DOMContentLoaded", () => {
+  // 設定動畫結束後的滾動時間
+  const animationDuration = 3000; // 動畫時間 (毫秒)
+
+  setTimeout(() => {
+      // 動畫結束後自動滾動到下一段內容，讓 HELLO 完全消失
+      window.scrollTo({
+          top: window.innerHeight + 50, // 滾動到比畫面底部更多一些的位置
+          behavior: "smooth", // 平滑滾動效果
+      });
+  }, animationDuration);
+});
 
 

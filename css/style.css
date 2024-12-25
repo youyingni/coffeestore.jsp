@@ -1,6 +1,19 @@
 * {
   box-sizing: border-box;
 }
+p{
+
+  font-weight: 700;
+  font-family: "LXGW WenKai Mono TC", monospace;
+ 
+}
+h4{
+  line-height: 2.2rem;
+  font-weight: 400;
+
+  font-family: "LXGW WenKai Mono TC", monospace;
+
+}
 
 body {
   font-family: Arial, sans-serif;
@@ -10,7 +23,7 @@ body {
 }
 
 .navbar {
-  background-color: brown;
+  background-color: #513518;
   color: white;
 }
 .navbar-icons {
@@ -23,15 +36,16 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+
 .icons {
   width: 40px;
   height: 40px;
 }
 .container {
-  background-color: burlywood;
+  background-color: #DDCDC3;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
   padding: 20px;
 }
 
@@ -43,6 +57,7 @@ body {
 .product-image-container h1 {
   font-size: 24px;
   margin: 5px 0;
+  font-family: "LXGW WenKai Mono TC", monospace;
 }
 
 .product-image-container .price {
@@ -55,15 +70,17 @@ body {
   display: flex;
   flex-direction: row; /* 內容左右排列 */
   background-color: #efebe2;
+  gap: 80px;
   padding: 50px;
   padding-left: 300px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  
 }
 
 .product-image {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   border-radius: 10px;
   margin-right: 20px;
 }
@@ -72,11 +89,14 @@ body {
   flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 30px;
+  
 }
 
 .product-details h1 {
   font-size: 24px;
   margin-bottom: 10px;
+  font-family: "LXGW WenKai Mono TC", monospace;
 }
 
 .product-details .price {
@@ -92,6 +112,7 @@ body {
 .options p {
   font-size: 22px;
   margin: 10px 0;
+  font-family: "LXGW WenKai Mono TC", monospace;
 }
 
 .options button {
@@ -102,6 +123,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.2s, color 0.2s;
+  font-family: "LXGW WenKai Mono TC", monospace;
 }
 
 .options button.selected {
@@ -131,24 +153,9 @@ body {
   border-radius: 5px;
 }
 
-.add-to-cart,
-.buy-now {
-  margin: 10px 0;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  color: white;
-}
 
-.add-to-cart {
-  background-color: #6a983c;
-}
 
-.buy-now {
-  background-color: #f4b183;
-}
+
 
 .reviews {
   background-color: #efebe2;
@@ -160,6 +167,7 @@ body {
 .reviews h2 {
   font-size: 30px;
   margin-bottom: 10px;
+  font-family: "LXGW WenKai Mono TC", monospace;
 }
 
 .rating span {
@@ -233,7 +241,7 @@ button:hover {
 }
 
 .card {
-  background: #fff;
+  background: #fdf7f3;
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 15px;
@@ -243,8 +251,10 @@ button:hover {
 }
 
 .card-img-top {
-  width: 80%;
-  height: auto;
+  min-width: 250px;
+  width:250px;
+  min-height: 250px;
+  height: 250px;
   border-radius: 10px;
 }
 
@@ -272,36 +282,10 @@ button:hover {
   display: flex;
   justify-content: flex-start; /* 按鈕靠左 */
   align-items: center; /* 垂直居中 */
-  gap: 10px; /* 按鈕之間的間距 */
+  gap: 25px; /* 按鈕之間的間距 */
   margin-top: 20px; /* 與上方內容保持距離 */
 }
 
-.add-to-cart,
-.buy-now {
-  padding: 10px 20px;
-  font-size: 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.add-to-cart {
-  background-color: #f8b400; /* 加入購物車按鈕顏色 */
-  color: white;
-}
-
-.add-to-cart:hover {
-  background-color: #f6a200; /* 懸停顏色 */
-}
-
-.buy-now {
-  background-color: #ff5733; /* 直接結帳按鈕顏色 */
-  color: white;
-}
-
-.buy-now:hover {
-  background-color: #e04e2b; /* 懸停顏色 */
-}
 
 .star {
   color: gold;
@@ -319,21 +303,24 @@ button:hover {
 }
 
 
-
+/* 加入購物車*/
 .page-wrapper {
   min-height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
+/*購物車按鈕*/
 .page-wrapper button {
-  padding: 13px;
+  margin: auto;
+  padding: 15px;
   border: none;
   background: #dcc847;
   position: relative;
   outline: none;
   border-radius: 5px;
   color: white;
+  font-family: "LXGW WenKai Mono TC", monospace;
   font-size: 18px;
 }
 .page-wrapper button .cart-item {
@@ -389,6 +376,9 @@ button:hover {
   border-radius: 50%;
 }
 
+
+
+
 .cart.shake {
   animation: shakeCart 0.4s ease-in-out forwards;
 }
@@ -416,3 +406,91 @@ button:hover {
     transform: translateX(0);
   }
 }
+
+
+
+
+/*heart*/
+
+.pages-wrapper button .heart-item {
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  top: -10px;
+  right: -10px;
+}
+
+.pages-wrapper button .heart-item:before {
+  content: "❤️";
+  display: block;
+  line-height: 24px;
+  height: 24px;
+  width: 24px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #c92626;
+  color: white;
+  border-radius: 20px;
+  text-align: center;
+}
+
+
+.pages-wrapper button {
+  padding: 15px;
+  border: none;
+  background: #7d136d;
+  position: relative;
+  top: 40%;
+  outline: none;
+  border-radius: 5px;
+  color: white;
+  font-family: "LXGW WenKai Mono TC", monospace;
+  font-size: 18px;
+
+}
+
+/*heart 位置*/
+
+.pages-wrapper button.sendtocart .heart-item {
+  display: block;
+  animation: xAxis 1s forwards cubic-bezier(1, 0.8, 0.84, 1.6);
+}
+.pages-wrapper button.sendtocart .heart-item:before {
+  animation: yAxis 1s alternate forwards cubic-bezier(0.3, 0.84, 0.6, 2.0);
+}
+
+.heart {
+  position: relative; /* 從 absolute 改為 relative */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heart:before {
+  content: attr(data-totalitems);
+  font-size: 12px;
+  font-weight: 600;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: #a4305a;
+  line-height: 16px;
+  padding: 0 5px;
+  height: 16px;
+  min-width: 16px;
+  color: white;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.heart.shake {
+  animation: shakeHeart 0.6s ease-in-out forwards;
+}
+
+@keyframes shakeHeart {
+  25% { transform: translateX(6px); }
+  50% { transform: translateX(-4px); }
+  75% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+

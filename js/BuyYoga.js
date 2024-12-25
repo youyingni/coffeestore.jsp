@@ -1,3 +1,4 @@
+/*購物車*/
 document.querySelectorAll("[data-group]").forEach((button) => {
     button.addEventListener("click", (event) => {
       const group = event.target.getAttribute("data-group");
@@ -20,15 +21,10 @@ document.querySelectorAll("[data-group]").forEach((button) => {
       }
     });
   });
-
-
-
-
   
   // 購物車
   $(document).ready(function(){
     $('#addtocart').on('click',function(){
-      console.log(311)
       var button = $(this);
       var cart = $('#cart');
       var cartTotal = cart.attr('data-totalitems');
@@ -44,84 +40,89 @@ document.querySelectorAll("[data-group]").forEach((button) => {
       },1000)
     })
   })
-
-
-
-  $(document).ready(function(){
-    $('#addtoheart').on('click',function(){
-      console.log(5222)
-      var button = $(this);
-      var heart = $('#heart');
-      var heartTotal = heart.attr('data-totalitems');
-      var newheartTotal = parseInt(heartTotal) + 1;
-      
-      button.addClass('sendtoheart');
-      setTimeout(function(){
-        button.removeClass('sendtoheart');
-        heart.addClass('shake').attr('data-totalitems', newheartTotal);
-        setTimeout(function(){
-          heart.removeClass('shake');
-        },500)
-      },1000)
-    })
-  })
-
-
-
-
-/*
+  
+  //add to my favourite
+  
+  
+  
   $(document).ready(function () {
-    let heart = $('#heart'); // 愛心圖標
-    let isFavorited = false; // 收藏狀態
-
+    let heart = $('#heart'); // nav 裡的愛心圖標
+    let isFavorited = false; // 收藏狀態 (初始為未收藏)
+  
     $('#addtoheart').on('click', function () {
         let button = $(this); // 按鈕
-        let heartTotal = parseInt(heart.attr('data-totalitems')) || 0; // 目前數量
-
+        let heartTotal = parseInt(heart.attr('data-totalitems')) || 0;
+  
         if (!isFavorited) {
-            // 新增愛心特效
-            addHeartEffect(button, heart, heartTotal + 1);
-            isFavorited = true;
+            // 第一次按下：愛心飛到 nav，數量加 1
+            animateHeart(button, heart, 1);
+            isFavorited = true; // 設定為已收藏
         } else {
-            // 移除愛心
-            updateHeartCount(heart, heartTotal - 1);
-            isFavorited = false;
+            // 第二次按下：數量變回 0，並顯示飛回按鈕
+            animateHeartBack(heart, button, 0);
+            isFavorited = false; // 設定為未收藏
         }
     });
-
-    function addHeartEffect(button, heart, newTotal) {
-        // 克隆一個飛行的 icon
+  
+    // 愛心飛向 nav
+    function animateHeart(button, heart, newTotal) {
         let heartItem = $('<div class="heart-item">❤️</div>');
         $('body').append(heartItem);
-
-        // 設定飛行動畫的初始位置
+  
         let buttonOffset = button.offset();
+        let heartOffset = heart.offset();
+  
         heartItem.css({
             position: 'absolute',
-            top: buttonOffset.top,
-            left: buttonOffset.left,
-            zIndex: 9999
+            top: buttonOffset.top + 'px',
+            left: buttonOffset.left + 'px',
+            zIndex: 9999,
+            fontSize: '20px'
         });
-
-        // 執行動畫：飛向 nav 的愛心圖標
+  
         heartItem.animate({
-            top: heart.offset().top,
-            left: heart.offset().left,
+            top: heartOffset.top + 'px',
+            left: heartOffset.left + 'px',
             opacity: 0
         }, 1000, function () {
-            heartItem.remove(); // 動畫結束後移除元素
-            heart.addClass('shake'); // 愛心抖動
+            heartItem.remove();
+            heart.addClass('shake');
             setTimeout(() => heart.removeClass('shake'), 500);
-
-            // 更新數字
             updateHeartCount(heart, newTotal);
         });
     }
-
+  
+    // 愛心飛回按鈕
+    function animateHeartBack(heart, button, newTotal) {
+        let heartItem = $('<div class="heart-item">❤️</div>');
+        $('body').append(heartItem);
+  
+        let buttonOffset = button.offset();
+        let heartOffset = heart.offset();
+  
+        heartItem.css({
+            position: 'absolute',
+            top: heartOffset.top + 'px',
+            left: heartOffset.left + 'px',
+            zIndex: 9999,
+            fontSize: '20px'
+        });
+  
+        heartItem.animate({
+            top: buttonOffset.top + 'px',
+            left: buttonOffset.left + 'px',
+            opacity: 0
+        }, 1000, function () {
+            heartItem.remove();
+            button.addClass('shake');
+            setTimeout(() => button.removeClass('shake'), 500);
+            updateHeartCount(heart, newTotal);
+        });
+    }
+  
+    // 更新數字
     function updateHeartCount(heart, total) {
         heart.attr('data-totalitems', total);
-        heart.find('.count').text(total); // 確保數字顯示
+        heart.find('.count').text(total); // 更新數字顯示
     }
-});
-
-*/
+  });

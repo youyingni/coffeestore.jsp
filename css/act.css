@@ -1,0 +1,228 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #DDCDC3;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+
+
+
+.tittle {
+    margin-top: 70px;
+    position: relative;
+    font-size: 40px;
+    font-family: 'Kalam', cursive;
+    font-weight: 700;
+
+}
+
+div {
+    margin: 10px;
+}
+
+/*
+.background {
+    height: 550px;
+    /*background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: #efebe2;
+    /*overflow: hidden;
+   
+}
+
+.background img {
+    object-fit: cover;
+    border-radius: 25px;
+    float: left;
+    height: 500px;
+    min-height: 500px;
+    margin-right: 20px;
+}
+
+.background p {
+    text-align: justify;
+    color: #000000;
+    border-radius: 10px;
+    font-family: "LXGW WenKai Mono TC", monospace;
+    font-size: 25px;
+    letter-spacing: 10px;
+    line-height: 40px;
+    padding: 20px;
+    float: right;
+    width: 95%;
+    min-height: 500px;
+}
+
+*/
+
+.cat {
+    margin: 25px;
+    padding: 20px;
+    text-align: left;
+    font-size: 22px;
+    border-radius: 10px;
+    letter-spacing: 10px;
+    line-height: 40px;
+    font-family: "LXGW WenKai Mono TC", monospace;
+    width: 850px;
+    height: min-content;
+    min-height: fit-content;
+    background-color: rgba(85, 170, 153, 0.511);
+    color: #3D281c;
+}
+
+.cat p {
+    font-size: 25px;
+    font-family: 'Kalam', cursive;
+    font-weight: 700;
+}
+
+.allcat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cat1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #efebe2;
+    width: 90%;
+}
+
+
+
+
+/*****************NAV******************/
+
+
+.slideshow-container {
+    position: relative;
+    /* 定位基準 */
+    min-width: 500px;
+    /* 幻燈片最小寬度 */
+    max-width: 500px;
+    /* 幻燈片最大寬度 */
+    max-height: 500px;
+    min-height: 500px;
+    /* 幻燈片最大高度 */
+    margin-left: 50px;
+
+}
+
+.singleSlide {
+    display: none;
+    width: 100%;
+    height: 480px;
+    position: relative;
+    animation: fadeAndScale 2s ease-in-out;
+    min-width: 500px;
+    /* 幻燈片最小寬度 */
+    max-width: 500px;
+    /* 幻燈片最大寬度 */
+    max-height: 480px;
+    min-height: 480px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.singleSlide img {
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+    object-fit: cover !important;
+}
+
+.singleSlide img:hover {
+    transform: scale(1.2);
+
+}
+
+/* 前後按鈕 */
+
+.prev,
+.next {
+    position: absolute;
+    /* 繼續使用絕對定位 */
+    top: 50%;
+    /* 按鈕垂直居中 */
+    transform: translateY(-50%);
+    /* 修正垂直偏移量 */
+    width: 40px;
+    /* 按鈕寬度 */
+    height: 40px;
+    /* 按鈕高度 */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 按鈕背景色 */
+    color: white;
+    /* 按鈕文字顏色 */
+    border: none;
+    /* 移除邊框 */
+    border-radius: 50%;
+    /* 圓形按鈕 */
+    cursor: pointer;
+    /* 鼠標樣式 */
+    z-index: 10;
+    /* 確保按鈕顯示在圖片上方 */
+}
+
+/* prev 按鈕的位置 */
+.prev {
+    left: -50px;
+    /* 向左偏移，固定在圖片外 */
+}
+
+/* next 按鈕的位置 */
+.next {
+    right: -50px;
+    /* 向右偏移，固定在圖片外 */
+}
+
+/* 按鈕懸停效果 */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    /* 懸停時背景加深 */
+    color: white;
+}
+
+@keyframes fadeAndScale {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+
+    }
+}
+
+
+
+
+
+/**************************************************/
+
+/**************************************************/

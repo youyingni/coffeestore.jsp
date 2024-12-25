@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>咖啡訂單介面</title>
+    <link rel="stylesheet" href="css/test.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+        integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous" />
+
+
+
+</head>
+
+<body>
+    <nav id="primary_nav_wrap">
+
+        <ul>
+            <li><a href="coffee.html"><img class="logo" src=''></a></li>
+            <li><a href="Yoga_interface.html">紓咖瑜珈</a>
+                <ul>
+                    <li><a href="#">初階課程</a>
+                        <ul>
+                            <li><a href="#">靈性瑜珈</a></li>
+                            <li><a href="#">基礎瑜珈</a></li>
+                            <li><a href="#">經絡瑜珈</a></li>
+                            <li><a href="#">陰瑜珈</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">進階課程</a>
+                        <ul>
+                            <li><a href="#">皮拉提斯</a></li>
+                            <li><a href="#">雕塑瑜珈</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">推薦課程</a>
+                        <ul>
+                            <li><a href="#">流動瑜珈</a></li>
+                            <li><a href="#">當代舞</a></li>
+                            <li><a href="#">瑜珈輪</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="Product_interface.html">紓咖咖啡</a>
+                <ul>
+                    <li><a href="#">飲品</a>
+                        <ul>
+                            <li><a href="#">咖啡</a></li>
+                            <li><a href="#">手沖咖啡</a></li>
+                            <li><a href="#">花草茶</a></li>
+                            <li><a href="#">茶</a></li>
+                            <li><a href="#">奶茶/可可</a></li>
+                            <li><a href="#">氣泡水</a></li>
+                            <li><a href="#">發泡飲</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">食物</a>
+
+                        <ul>
+                            <li><a href="#">鹹食</a></li>
+                            <li><a href="#">點心</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">其他</a>
+                        <ul>
+                            <li><a href="#">耳掛咖啡</a></li>
+                            <li><a href="#">咖啡豆</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#">紓咖活動</a>
+                <ul>
+                    <li><a href="#">香水製作</a></li>
+                    <li><a href="#">頌缽</a></li>
+                    <li><a href="#">書法</a></li>
+                    <li><a href="#">花藝</a></li>
+                </ul>
+            </li>
+            <li><a href="#">紓咖說書</a>
+            </li>
+            <li><a href="html/aboutus.html">關於我們about us</a>
+                <ul>
+                    <li><a href="../期末/html/aboutus.html#cats">店貓介紹</a></li>
+                    <li><a href="../期末/html/aboutus.html#contactus">聯絡我們</a></li>
+                    <li><a href="../期末/html/aboutus.html#qa">Q&A</a></li>
+                </ul>
+            </li>
+            <li><a href="#">留言意見</a>
+                <ul>
+                    <li><a href="#">留言板</a></li>
+                    <li><a href="#">意見箱</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="icon">
+            <div class="navbar-icons">
+                <!-- 收藏頁面的跳轉按鈕 -->
+                <a href="heart.html" class="heart-link">
+                    <div id="heart" class="heart" data-totalitems="0">
+                        <img src="image/heart.png" alt="heart" class="icons mx-2">
+                    </div>
+                </a>
+
+                <!-- 會員圖示 -->
+                <a href="#"><img src="image/member.png" alt="member" class="icons mx-2"></a>
+
+                <!-- 購物車 -->
+                <a href="cart.html" class="cart-link">
+                    <div id="cart" class="cart" data-totalitems="0">
+                        <img src="image/cart.png" alt="cart" class="icons mx-2">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <main class="container">
+
+        <section class="product">
+            <div class="product-image-container">
+                <img src="image/Yoga1.jpg" alt="咖啡" class="product-image">
+                <h1>靈性瑜珈</h1>
+                <p class="price">NT$400</p>
+            </div>
+            <!-- 選項 -->
+            <div class="product-details">
+                <div class="options">
+                    <p>只認券不認人</p>
+                    <p>一整個課程為一個月</p>
+                    <p>每次體驗價NT$400</p>
+
+                </div>
+                <div class="quantity">
+                    <button>-</button>
+                    <input type="number" value="1" min="1">
+                    <button>+</button>
+                </div>
+                <!-- cart特效 -->
+                <div class="button-container">
+                    <div class="page-wrapper">
+                        <button id="addtocart">
+                            加入購物車
+                            <span class="cart-item"></span>
+                        </button>
+                    </div>
+
+                    <div class="button-container">
+                        <div class="pages-wrapper">
+                            <button id="addtoheart">
+                                加入收藏
+                                <span class="heart-item"></span>
+                            </button>
+                        </div>
+                    </div>
+
+
+
+
+
+
+        </section>
+        <!-- 評分 -->
+        <section class="reviews">
+            <div class="reviews-container">
+                <!-- 左側: 商品評分 -->
+                <div class="rating-section">
+                    <h2>商品評分</h2>
+                    <div class="star" id="star-rating1">
+                        <!-- 找到所有的icon，並設立一個data-index，用來判斷點擊的是哪一個星星 -->
+                        <iconify-icon icon="material-symbols:star-outline" width="40" data-index="1"
+                            class="star-icon"></iconify-icon>
+                        <iconify-icon icon="material-symbols:star-outline" class="star-icon" data-index="2"
+                            width="40"></iconify-icon>
+                        <iconify-icon icon="material-symbols:star-outline" class="star-icon" data-index="3"
+                            width="40"></iconify-icon>
+                        <iconify-icon icon="material-symbols:star-outline" class="star-icon" data-index="4"
+                            width="40"></iconify-icon>
+                        <iconify-icon icon="material-symbols:star-outline" class="star-icon" data-index="5"
+                            width="40"></iconify-icon>
+                    </div>
+                    <textarea placeholder="留下評論..."></textarea>
+                    <button>送出</button>
+                </div>
+
+                <!-- 右側: 商品評論 -->
+                <div class="comments-section">
+                    <h2>商品評論</h2>
+                    <div class="comment">
+                        <h3>小志</h3>
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        <h4>老師很棒!</h4>
+                    </div>
+                    <div class="comment">
+                        <h3>小浩</h3>
+                        <span>⭐</span>
+                        <h4>沒有真人志浩差評</h4>
+                    </div>
+                    <div class="comment">
+                        <h3>志浩</h3>
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        <h4>還會再來</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        </section>
+        <section class="related-products">
+            <h2>其他推薦老師</h2>
+            <div class="product-grid">
+                <!-- 商品 A -->
+                <div class="card">
+                    <img src="image/coffee.png" alt="商品 A" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">志浩一號</h5>
+                        <p class="card-text">教你如何NT$500</p>
+                        <div class="rating">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
+                        <div class="favorite">
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- 商品 B -->
+                <div class="card">
+                    <img src="image/coffee.png" alt="商品 B" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">志浩2號</h5>
+                        <p class="card-text">教你如何NT$300</p>
+                        <div class="rating">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
+                        <div class="favorite">
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- 商品 C -->
+                <div class="card">
+                    <img src="image/coffee.png" alt="志式咖啡" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">志浩3號</h5>
+                        <p class="card-text">教你如何NT$100000</p>
+                        <div class="rating">
+                            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                        </div>
+                        <div class="favorite">
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+
+
+
+
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // 找到所有最外層的div
+            const starRatings = document.querySelectorAll(".star");
+
+            // 對每個星星評分區域設定事件
+            starRatings.forEach((starRating) => {
+                // 找到該評分區域內所有的icon
+                const starIcons = starRating.querySelectorAll(".star-icon");
+
+                // 將所有的icon加上click事件
+                starIcons.forEach((starIcon) => {
+                    starIcon.addEventListener("click", function () {
+                        // 找到點擊的icon的data-index 並轉成數字
+                        const clickedIndex = parseInt(this.getAttribute("data-index"));
+
+                        // starsIcons是一個陣列，所以可以用forEach來判斷 跑迴圈 全部都跑一遍
+                        starIcons.forEach((icon, index) => {
+                            // 如果index小於點擊的index，就加上selected的class，並且改變icon
+                            if (index < clickedIndex) {
+                                icon.setAttribute("icon", "material-symbols:star");
+                            }
+                            // 如果index小於點擊的index，就加上selected的class，並且改變icon 變成空心
+                            else {
+                                icon.setAttribute("icon", "material-symbols:star-outline");
+                            }
+                        });
+
+                        // 在這裏你可以將 clickedIndex 送到後端，並更新資料庫
+                        console.log("Selected Rating: " + clickedIndex);
+                    });
+                });
+            });
+        });
+    </script>
+
+
+    <script src="js/coffee.js"></script>
+    <!-- <script src="js/test.js"></script> -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

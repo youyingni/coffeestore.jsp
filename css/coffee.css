@@ -1,26 +1,7 @@
 * {
     box-sizing: border-box;
-    box-sizing: border-box;
-    font-weight: normal;
 }
 
-.clearfix {
-    clear: both;
-}
-
-footer {
-    padding: 10px 0;
-    width: 100%;
-    bottom: 0;
-    background-color: #0D1B2A;
-    color: white;
-    text-align: center;
-    font-size: 25px;
-    min-width: fit-content;
-    text-wrap: nowrap;
-    font-family: "LXGW WenKai Mono TC", monospace;
-    letter-spacing: 3px;
-}
 
 .tittle {
     position: relative;
@@ -46,188 +27,165 @@ body {
 
 
 /*****************NAV******************/
+/*-------------------------------------------*/
 
-nav.hidden {
-    transform: translateY(-100%);
-}
+/***********************************/
 
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 10px 20px;
-    transition: transform 0.3s ease;
-    z-index: 1000;
-}
-
-nav a {
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-#primary_nav_wrap {
-    padding: 10px 0;
-    display: flex;
-    align-items: center;
-    background-color: #dfbb96;
-    height: 30px;
-    min-height: min-content;
-    width: 100%;
-    justify-content: space-between;
-}
-
-
-#primary_nav_wrap ul {
-    list-style: none;
-    position: relative;
-    float: left;
-    margin: 0;
-    padding: 0
-}
-
-#primary_nav_wrap ul a {
-    display: block;
-    color: rgb(45, 34, 34);
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 32px;
-    padding: 0 15px;
-    font-family: 'Kalam', cursive;
-}
-
-#primary_nav_wrap ul li {
-    position: relative;
-    float: left;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
 
-#primary_nav_wrap ul li:hover>a {
-    background-color: #3D281c;
-    /* 選項背景色 */
-    color: #ffffff;
-    /* 選項文字色 */
-    border-radius: 25px;
-    transform: scale(1);
-}
 
-/* 同類祖先的背景色改變 */
-#primary_nav_wrap ul li:hover>a,
-#primary_nav_wrap ul li:hover>ul>li:hover>a,
-#primary_nav_wrap ul li:hover>ul>li:hover>ul>li:hover>a {
-
-    background-color: #3D281c;
-    /* 背景色 */
-    color: #ffffff;
-    /* 文字色 */
-}
-
-#primary_nav_wrap ul ul {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    padding: 0
-}
-
-#primary_nav_wrap ul ul li {
-    float: none;
-    width: 200px
-}
-
-#primary_nav_wrap ul ul a {
-    line-height: 120%;
-    padding: 10px 15px
-}
-
-#primary_nav_wrap ul ul ul {
-    top: 0;
-    left: 100%
-}
-
-#primary_nav_wrap ul li:hover>ul {
-    display: block
-}
-
-
-/*-------------------------------------------*/
-.slideshow-container {
-    max-width: 1000px;
+.carousel {
+    width: 100%;
+    max-width: 900px;
+    height: 550px;
+    margin: 50px auto;
     position: relative;
-    margin: auto;
+    overflow: hidden;
+    background-color: #fff;
 }
 
-.singleSlide {
-    display: none;
-}
-
-img {
+/* 幻燈片項目 */
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    /* 初始從右側滑入 */
     width: 100%;
-    max-height: 500px;
-    object-fit: cover;
+    height: 100%;
+    display: flex;
+    opacity: 0;
+    transition: all 1s ease;
+    z-index: 0;
 }
 
-/* 先給他absolute的位置，再用top來置中 */
-.prev {
+.carousel-item.active {
     left: 0;
-    border-radius: 3px 0 0 3px;
-    border: transparent solid 1px;
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    color: black;
+    opacity: 1;
+    z-index: 1;
 }
 
-.next {
+.carousel-item.prev {
+    left: -100%;
+    /* 向左滑出 */
+    opacity: 0;
+}
+
+.carousel-item.next {
+    left: 100%;
+    /* 向右滑出 */
+    opacity: 0;
+}
+
+/* 左側文字內容 */
+.carousel-item__info {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    transform: translateY(20px);
+    /* 初始下移 */
+    opacity: 0;
+    transition: transform 0.8s ease 0.3s, opacity 0.8s ease 0.3s;
+}
+
+.carousel-item.active .carousel-item__info {
+    transform: translateY(0);
+    /* 上移到正常位置 */
+    opacity: 1;
+}
+
+.carousel-item__subtitle {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #7e7e7e;
+    margin-bottom: 10px;
+}
+
+.carousel-item__title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.carousel-item__description {
+    font-size: 14px;
+    color: #7e7e7e;
+    margin-bottom: 20px;
+}
+
+.carousel-item__btn {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    border: 1px solid #333;
+    padding: 10px 15px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* 右側圖片 */
+.carousel-item__image {
+    width: 60%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: translateX(100%);
+    /* 初始滑入 */
+    transition: transform 1s ease 0.3s;
+}
+
+.carousel-item.active .carousel-item__image {
+    transform: translateX(0);
+}
+
+/* 導航按鈕 */
+.carousel__nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
     right: 0;
-    border-radius: 3px 0 0 3px;
-    border: transparent solid 1px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 10;
+    transform: translateY(-50%);
+    padding: 0 20px;
+}
+
+.carousel__arrow {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    color: black;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* on Hover, 靠上去的時候會有變化 */
-.prev:hover,
-.next:hover {
+.carousel__arrow:hover {
     background-color: rgba(0, 0, 0, 0.8);
-    color: white !important;
 }
 
-/* 小標題 */
-.text {
-    color: #f2f2f2;
-    font-size: 15px;
-    padding: 8px 12px;
-    position: absolute;
-    bottom: 8px;
-    width: 100%;
-    text-align: center;
+.carousel__icon {
+    fill: #333;
+    width: 24px;
+    height: 24px;
 }
 
-/* 淡入淡出 特效*/
-.fade {
-    animation-name: fade;
-    animation-duration: 2s;
-}
 
-@keyframes fade {
-    0% {
-        opacity: 0.4;
-    }
 
-    100% {
-        opacity: 1;
-    }
-}
+
 
 /**********************************/
 

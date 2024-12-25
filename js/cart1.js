@@ -1,4 +1,3 @@
-var shippingRate = 60.00; // 運費設定為 60
 var fadeTime = 300;
 
 /* Assign actions */
@@ -19,17 +18,12 @@ function recalculateCart() {
     subtotal += parseFloat($(this).children('.product-line-price').text());
   });
 
-  /* Calculate totals */
-  var shipping = subtotal > 0 ? shippingRate : 0; // 如果小計大於 0，則運費為 60；否則為 0
-  var total = subtotal + shipping; // 總金額 = 小計 + 運費
-
   /* Update totals display */
   $('.totals-value').fadeOut(fadeTime, function () {
     $('#cart-subtotal').html(subtotal.toFixed(2)); // 更新小計
-    $('#cart-shipping').html(shipping.toFixed(2)); // 更新運費
-    $('#cart-total').html(total.toFixed(2)); // 更新總計
+    $('#cart-total').html(subtotal.toFixed(2)); // 更新總計
 
-    if (total === 0) {
+    if (subtotal === 0) {
       $('.checkout').fadeOut(fadeTime); // 如果總金額為 0，隱藏結帳按鈕
     } else {
       $('.checkout').fadeIn(fadeTime); // 否則顯示結帳按鈕
