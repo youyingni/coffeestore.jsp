@@ -1,6 +1,6 @@
 /* 基本樣式 */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "LXGW WenKai Mono TC", monospace;
     margin: 0;
     padding: 0;
     background-color: #FDF6F0;
@@ -20,6 +20,7 @@ body {
     font-size: 28px;
     color: red;
     text-align: center;
+    font-family: 'Kalam', cursive;
 }
 
 .line {

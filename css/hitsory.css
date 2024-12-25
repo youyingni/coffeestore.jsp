@@ -1,6 +1,6 @@
 /* 全局樣式 */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "LXGW WenKai Mono TC", monospace;
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
@@ -8,7 +8,7 @@ body {
 }
 
 header {
-    background-color: #928c80d5;
+    background-color:#928c80d5;
     color: white;
     text-align: center;
     padding: 20px;
@@ -63,4 +63,8 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.h1{
+    font-family: 'Kalam', cursive;
 }
