@@ -201,7 +201,7 @@ footer div {
 h1{
   width: 165px;
   background-color: white;
-  font-family: "LXGW WenKai Mono TC", monospace;
+  font-family: 'Kalam', cursive;
   border-radius: 20px;
   margin: 70px;
   text-align: left;
@@ -333,6 +333,7 @@ h2 {
   font-weight: bolder;
   font-size: 1.5rem;
   margin-bottom: 20px;
+  font-family: 'Kalam', cursive;
 }
 
 .product-grid {
