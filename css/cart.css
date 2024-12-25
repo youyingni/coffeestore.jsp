@@ -39,7 +39,7 @@
   .product-line-price {
 	float: left;
 	width: 10%;
-	text-align: right;
+
   font-family: "LXGW WenKai Mono TC", monospace;
   }
   
@@ -98,7 +98,7 @@
 	margin-bottom: 15px;
 	border-bottom: 1px solid #413e3e;
   }
-  .column-labels .product-image, .column-labels .product-details, .column-labels .product-removal {
+  .column-labels .product-image {
 	text-indent: -9999px;
   }
   
