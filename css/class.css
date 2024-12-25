@@ -1,0 +1,387 @@
+
+
+
+/* Global Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "LXGW WenKai Mono TC", monospace;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container and Titles */
+.container {
+  width: 80%;
+  margin: 30px auto;
+  background-color: #fff8f0;
+  padding: 20px;
+  border: 1px solid #e0d5c4;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.yoga-title{
+  font-family: 'Kalam', cursive;
+  color: #090909;
+}
+
+.title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 10px;
+  font-family: 'Kalam', cursive;
+  ;
+}
+
+/* Carousel Section */
+.carousel-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  margin: 20px auto;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.card-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: 
+      rotateY(calc(var(--offset) * 50deg)) 
+      scaleY(calc(1 + var(--abs-offset) * -0.2))
+      translateZ(calc(var(--abs-offset) * -500px));
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: blur(calc(var(--abs-offset) * 3px));
+  opacity: calc(1 - var(--abs-offset) * 0.7);
+}
+
+.card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card h4 {
+  margin: 10px 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+/* Navigation Buttons */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  z-index: 10;
+}
+
+.nav.left {
+  left: -40px;
+}
+
+.nav.right {
+  right: -40px;
+}
+
+/* Table Section */
+.course-header {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+}
+
+.course-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.course-table th,
+.course-table td {
+  border: 1px solid #d3c3b8;
+  padding: 10px;
+  text-align: center;
+}
+
+.course-table th {
+  background-color: #e6ded2;
+  font-weight: bold;
+}
+
+
+
+
+
+h1 {
+  text-align: center;
+  padding: 20px 0;
+  font-family: 'Kalam', cursive;
+}
+.section {
+  width: 90%;
+  margin: 0 auto;
+}
+.teachers {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.teacher-card {
+  width: 22%;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.teacher-card img {
+  width: 100%;
+  height: auto;
+}
+.teacher-card h2 {
+  margin: 10px 0;
+}
+.teacher-card p {
+  color: #928c80d5;
+  font-weight: bold;
+}
+
+.book-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-bottom: 15px;
+  background-color: #928c80d5; /* 初始背景色 */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* 添加過渡效果 */
+}
+
+.book-btn:hover {
+  background-color: #928c80; /* 與其他按鈕一致的懸停背景色 */
+  transform: scale(1.05); /* 輕微放大效果 */
+}
+
+.book-btn:active {
+  background-color: #090908d5; /* 與其他按鈕一致的按下背景色 */
+  transform: scale(0.95); /* 輕微縮小效果 */
+}
+
+@media (max-width: 768px) {
+  .teacher-card {
+      width: 45%;
+  }
+}
+@media (max-width: 480px) {
+  .teacher-card {
+      width: 90%;
+  }
+}
+
+
+
+
+
+/* 按鈕樣式 */
+.filter-button {
+  padding: 10px 20px;
+  background-color: #928c80d5; /* 初始背景色 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* 添加平滑過渡 */
+}
+
+.filter-button:hover {
+  background-color: #928c80; /* 與 .learn-more 一致的懸停背景色 */
+  transform: scale(1.05); /* 添加輕微放大效果，與 .learn-more 一致 */
+}
+
+.filter-button:active {
+  background-color: #090908d5; /* 與 .learn-more 一致的按下背景色 */
+  transform: scale(0.95); /* 輕微縮小效果 */
+}
+
+
+/* 彈跳視窗背景 */
+.modal {
+  display: none; /* 初始隱藏 */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* 彈跳視窗內容 */
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 400px;
+  position: relative;
+}
+
+/* 關閉按鈕 */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: black;
+}
+
+/* 篩選選項樣式 */
+.difficulty-options label {
+  display: block;
+  margin: 10px 0;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.date-filter {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.date-filter label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.date-filter input {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #e1d8d8;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* 課程介紹區塊樣式 */
+.yoga-classes {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: #fdf6f0;
+  border: 1px solid #e6ded2;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.yoga-title {
+  text-align: center;
+  font-size: 2em;
+  color: #6C7A5E;
+  margin-bottom: 20px;
+}
+
+.yoga-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px; /* 卡片之間的間距 */
+}
+
+.yoga-card {
+  flex: 1 1 calc(30% - 20px); /* 三欄佈局，扣除間距 */
+  background-color: #ffffff;
+  border: 1px solid #e0d5c4;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.yoga-card h3 {
+  font-size: 1.5em;
+  color: #6C7A5E;
+  margin-bottom: 10px;
+}
+
+.yoga-card p {
+  font-size: 1em;
+  color: #555;
+  line-height: 1.6;
+}
+
+.yoga-card:hover {
+  transform: translateY(-5px); /* 滑鼠懸停時微微上移 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* 響應式設計 */
+@media (max-width: 1024px) {
+  .yoga-card {
+      flex: 1 1 calc(45% - 20px); /* 兩欄顯示 */
+  }
+}
+
+@media (max-width: 768px) {
+  .yoga-card {
+      flex: 1 1 calc(100% - 20px); /* 單欄顯示 */
+  }
+}
+
+.learn-more {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #928c80d5; 
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.learn-more:hover {
+  background-color: #928c80; /* 懸停時的顏色 (更深色調) */
+  transform: scale(1.05); /* 輕微放大效果 */
+}
+
+.learn-more:active {
+  background-color: #090908d5; /* 按下時的顏色 */
+  transform: scale(0.95); /* 輕微縮小效果 */
+}
