@@ -1,15 +1,32 @@
 .final {
   background-color: #DDCDc3;
-  opacity: 80%;
+  opacity: 0.8;
+  display: inline-block;
+  margin: 0 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 10px;
+
+
+  animation: bounce 5s infinite; 
 }
+
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px); 
+    }
+}
+
 
 :root {
   --primary: #ddd;
-
   --light: #fff;
   --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
   --background-color: #DDCDc3;
-
 }
 
 html {
@@ -18,22 +35,16 @@ html {
   color: #DDCDc3;
 }
 
-
 body {
-
   margin: 30px 50px;
   line-height: 1.4;
   background-color: #F5E6DA;
   font-family: "LXGW WenKai Mono TC", monospace;
-
 }
 
 .md-trigger btn {
   font-family: "LXGW WenKai Mono TC", monospace;
-
 }
-
-
 
 .btn {
   background-color: #57514d;
@@ -55,7 +66,6 @@ img {
 .wrapper {
   display: grid;
   grid-gap: 20px;
-  margin-top: 20px;
 }
 
 /* Navigation */
@@ -69,13 +79,11 @@ img {
 
 .main-nav a {
   background: #DDCDc3;
-  /* 更改背景顏色為 #DDCDc3 */
   display: block;
   text-decoration: none;
   padding: 12px;
   text-align: center;
   color: #1a0c04;
-  /* 文字顏色 */
   text-transform: uppercase;
   font-size: 18px;
   box-shadow: var(--shadow);
@@ -83,9 +91,7 @@ img {
 
 .main-nav a:hover {
   background: #cbb4a8;
-  /* Hover 時更深的顏色 */
   color: #fff;
-  /* Hover 時的文字顏色 */
 }
 
 /* Top Container */
@@ -93,17 +99,12 @@ img {
   display: grid;
   grid-gap: 20px;
   grid-template-areas:
-    'showcase showcase top-box-a'
-    'showcase showcase top-box-b';
+      'showcase showcase top-box-a'
+      'showcase showcase top-box-b';
   color: #DDCDc3;
 }
 
-
-
-
-
-
-/* Showcase  */
+/* Showcase */
 .showcase {
   grid-area: showcase;
   min-height: 250px;
@@ -115,15 +116,12 @@ img {
   flex-direction: column;
   align-items: start;
   justify-content: center;
-
 }
 
 .showcase h1 {
   font-size: 64px;
   margin-bottom: 0;
-  color: var(--light);
   color: #513518;
-
 }
 
 .showcase p {
@@ -132,25 +130,16 @@ img {
   color: #513518;
 }
 
-
 .showcase .subtext {
   font-size: 12px;
   color: #666;
   margin-bottom: 10px;
 }
 
-
-* {
-  box-sizing: border-box;
-}
-
 .login-section h2,
 .form-section h2 {
   margin-bottom: 20px;
-  /* 合理的數值 */
 }
-
-
 
 /* Top Box */
 .top-box {
@@ -188,20 +177,6 @@ img {
   box-shadow: var(--shadow);
 }
 
-
-
-/* Portfolio */
-.portfolio {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-.portfolio img {
-  width: 100%;
-  box-shadow: var(--shadow);
-}
-
 /* Footer */
 footer {
   margin-top: 32px;
@@ -218,59 +193,54 @@ footer {
 /* Media Queries */
 @media (max-width: 700px) {
   .top-container {
-    grid-template-areas:
-      'showcase showcase'
-      'top-box-a top-box-b';
+      grid-template-areas:
+          'showcase showcase'
+          'top-box-a top-box-b';
   }
 
   .showcase h1 {
-    font-size: 40px;
+      font-size: 40px;
   }
 
   .main-nav ul {
-    grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
   }
 
   .info {
-    grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
   }
 
   .info .btn {
-    display: block;
-    text-align: center;
-    margin: auto;
+      display: block;
+      text-align: center;
+      margin: auto;
   }
 }
 
 @media (max-width: 500px) {
   .top-container {
-    grid-template-areas:
-      'showcase'
-      'top-box-a'
-      'top-box-b';
+      grid-template-areas:
+          'showcase'
+          'top-box-a'
+          'top-box-b';
   }
 }
 
-
-/*ad*/
-
-/* Carousel Container */
+/* Hot-Sale Carousel */
 .hot-sale-carousel {
   width: 100%;
   max-width: 600px;
-  /* 增加最大寬度 */
   margin: 0 auto;
   position: relative;
   overflow: hidden;
   padding: 20px;
-  /* 增加內邊距讓內容不緊貼邊緣 */
 }
 
 .hot-sale-card {
-  display: none;
+  width: 70%;
+  height: 350px;
   text-align: center;
   padding: 30px;
-  /* 增加內部空間 */
   border: 2px solid #513518;
   background: #DDCDc3;
   position: absolute;
@@ -288,43 +258,40 @@ footer {
 }
 
 .product-image img {
-  width: 80%;
-  /* 縮小圖片比例，適配更寬的卡片 */
-  height: auto;
+  max-width: 100%;
+  max-height: 150px;
   border-radius: 5px;
   margin: 0 auto;
-  /* 圖片居中 */
 }
 
 .hotclass {
   color: #513518;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .sale-price {
   font-size: 24px;
-  /* 調整文字大小 */
   color: #513518;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .original-price {
   font-size: 18px;
-  /* 增加原價文字大小 */
   color: #4d453d;
   text-decoration: line-through;
+  margin-bottom: 10px;
 }
 
 .buy-button {
   padding: 12px 24px;
-  /* 加大按鈕 */
   background-color: #57514d;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 15px;
-  /* 增加按鈕與其他內容的距離 */
+  margin-top: 10px;
 }
 
 .buy-button:hover {
@@ -335,15 +302,12 @@ footer {
   display: flex;
   justify-content: center;
   margin-top: 15px;
-  /* 增加與卡片的距離 */
 }
 
 .carousel-indicators button {
   width: 10px;
-  /* 增加指示器大小 */
-  height: 12px;
+  height: 10px;
   margin: 0 8px;
-  /* 增加間距 */
   background-color: #ccc;
   border: none;
   border-radius: 50%;

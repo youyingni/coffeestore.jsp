@@ -8,11 +8,11 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
+    background-color: #ddcdc3;
 }
 
 header {
-    background-color: #928c80d5;
+    background-color: #3D281c;
     color: #fff;
     padding: 20px 10px;
     text-align: center;
@@ -54,7 +54,7 @@ section p {
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #928c80d5;
+    background-color:#3D281c;
     color: #fff;
     position: fixed;
     bottom: 0;
@@ -67,3 +67,5 @@ footer {
         margin: 0 auto;
     }
 }
+
+
