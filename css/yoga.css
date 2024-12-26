@@ -1,9 +1,10 @@
-.title{
+.title {
     font-family: 'Kalam', cursive;
+    font-size: 25px;
+    color: black;
 }
 
 body {
-    font-family: "LXGW WenKai Mono TC", monospace;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -11,17 +12,17 @@ body {
 }
 
 header {
-    background-color:  #928c80d5;
+    background-color: #928c80d5;
     color: #fff;
     padding: 20px 10px;
     text-align: center;
 }
 
 main {
-    
+
     padding: 20px;
 
-   
+
 }
 
 section {
@@ -30,12 +31,12 @@ section {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width:90%;
-    margin: 0  auto;
+    width: 90%;
+    margin: 0 auto;
 }
 
 section h2 {
-    color:  #928c80d5;
+    color: #928c80d5;
     margin-top: 0;
 }
 
@@ -53,7 +54,7 @@ section p {
 footer {
     text-align: center;
     padding: 10px;
-    background-color:  #928c80d5;
+    background-color: #928c80d5;
     color: #fff;
     position: fixed;
     bottom: 0;

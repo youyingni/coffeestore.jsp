@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,21 +33,21 @@
                     <div class="card">
                         <img src="../picture/shka10.jpg" alt="瑜珈輪">
                         <h4>瑜珈輪</h4>
-                        
+
                     </div>
                 </div>
                 <div class="card-container">
                     <div class="card">
                         <img src="../picture/shka6.jpg" alt="基礎瑜珈">
                         <h4>基礎瑜珈</h4>
-                        
+
                     </div>
                 </div>
             </div>
             <button class="nav right" onclick="nextSlide()">&gt;</button>
         </div>
 
-      
+
 
         <div class="yoga-classes">
             <h2 class="yoga-title">課程介紹</h2>
@@ -89,77 +90,78 @@
                 </div>
             </div>
         </div>
-        
 
-            <button id="openFilterModal" class="filter-button">適合你的課程</button>
 
-            <!-- 彈跳視窗 -->
-            <div id="filterModal" class="modal">
+        <button id="openFilterModal" class="filter-button">適合你的課程</button>
+
+        <!-- 彈跳視窗 -->
+        <div id="filterModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
                 <h2>搜尋與篩選條件</h2>
                 <!-- 篩選條件 -->
                 <div class="difficulty-options">
-                <label><input type="radio" name="level" value="beginner" checked> 初階</label>
-                <label><input type="radio" name="level" value="intermediate"> 進階</label>
-                <label><input type="radio" name="level" value="expert"> 推薦</label>
+                    <label><input type="radio" name="level" value="beginner" checked> 初階</label>
+                    <label><input type="radio" name="level" value="intermediate"> 進階</label>
+                    <label><input type="radio" name="level" value="expert"> 推薦</label>
                 </div>
-    
+
                 <!-- 日期篩選 -->
-            <div class="date-filter">
-                <label for="startDate">開始日期：</label>
-                <input type="date" id="startDate" name="startDate">
-    
-                <label for="endDate">結束日期：</label>
-                <input type="date" id="endDate" name="endDate">
-            </div>
+                <div class="date-filter">
+                    <label for="startDate">開始日期：</label>
+                    <input type="date" id="startDate" name="startDate">
+
+                    <label for="endDate">結束日期：</label>
+                    <input type="date" id="endDate" name="endDate">
+                </div>
                 <!-- 提交按鈕 -->
                 <button id="applyFilters">購買課程</button>
             </div>
-            </div>
-    
-    
+        </div>
 
 
 
-            <h1>推薦課程</h1>
-            <div class="section">
-                <div class="teachers">
-                    <!-- Teacher 1 -->
-                    <div class="teacher-card">
-                        <img src="../picture/shka13.jpg" alt="雕塑瑜珈">
-                        <h2>雕塑瑜珈</h2>
-                        <p>NT$1750 / 5期</p>
-                        <a href="#" class="book-btn">立即預約</a>
-                    </div>
-                    <!-- Teacher 2 -->
-                    <div class="teacher-card">
-                        <img src="../picture/shka2.jpg" alt="流動瑜珈">
-                        <h2>流動瑜珈</h2>
-                        <p>NT$1750 / 5期</p>
-                        <a href="#" class="book-btn">立即預約</a>
-                    </div>
-                    <!-- Teacher 3 -->
-                    <div class="teacher-card">
-                        <img src="../picture/shka1.jpg" alt="當代舞">
-                        <h2>當代舞</h2>
-                        <p>NT$1750 / 5期</p>
-                        <a href="#" class="book-btn">立即預約</a>
-                    </div>
-                    <!-- Teacher 4 -->
-                    <div class="teacher-card">
-                        <img src="../image/Yoga4.jpg" alt="經絡瑜珈">
-                        <h2>經絡瑜珈</h2>
-                        <p>NT$1750 / 5期</p>
-                        <a href="#" class="book-btn">立即購買</a>
-                    </div>
+
+
+        <h1>推薦課程</h1>
+        <div class="section">
+            <div class="teachers">
+                <!-- Teacher 1 -->
+                <div class="teacher-card">
+                    <img src="../picture/shka13.jpg" alt="雕塑瑜珈">
+                    <h2>雕塑瑜珈</h2>
+                    <p>NT$1750 / 5期</p>
+                    <a href="#" class="book-btn">立即購買</a>
+                </div>
+                <!-- Teacher 2 -->
+                <div class="teacher-card">
+                    <img src="../picture/shka2.jpg" alt="流動瑜珈">
+                    <h2>流動瑜珈</h2>
+                    <p>NT$1750 / 5期</p>
+                    <a href="#" class="book-btn">立即購買</a>
+                </div>
+                <!-- Teacher 3 -->
+                <div class="teacher-card">
+                    <img src="../picture/shka1.jpg" alt="當代舞">
+                    <h2>當代舞</h2>
+                    <p>NT$1750 / 5期</p>
+                    <a href="#" class="book-btn">立即購買</a>
+                </div>
+                <!-- Teacher 4 -->
+                <div class="teacher-card">
+                    <img src="../image/Yoga4.jpg" alt="經絡瑜珈">
+                    <h2>經絡瑜珈</h2>
+                    <p>NT$1750 / 5期</p>
+                    <a href="#" class="book-btn">立即購買</a>
                 </div>
             </div>
+        </div>
 
 
- 
-    <!-- Add jQuery for carousel functionality -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/class.js"></script>
+
+        <!-- Add jQuery for carousel functionality -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="../js/class.js"></script>
 </body>
+
 </html>
