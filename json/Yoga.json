@@ -43,7 +43,7 @@
           {
             "id": "pilates",
             "name": "皮拉提斯",
-            "price": 70,
+            "price": 1750,
             "image": "../image/Yoga5.jpg",
             "rating": 5,
             "Copywriting":"強化核心肌群，\n改善體態與身體協調性，增強肌力。\n這是一個全方位的健身課程，\n適合希望提升身體控制力的學員。"
@@ -51,7 +51,7 @@
           {
             "id": "sculpt_yoga",
             "name": "雕塑瑜珈",
-            "price": 70,
+            "price": 1750,
             "image": "../image/Yoga5.jpg",
             "rating": 5,
             "Copywriting": "專注於塑形與雕刻線條，\n打造理想體態與自信。\n課程針對希望塑造更佳身形的人士，\n結合力量訓練與瑜珈。"
