@@ -1,352 +1,261 @@
-@import "compass/css3";
-
-.icon{
+.icon {
   width: 50px;
   height: 50px;
 }
-.product-image {
-	float: left;
-	width: 20%;
-  font-family: "LXGW WenKai Mono TC", monospace;
-  }
 
-  .product-details {
-	float: left;
-	width: 37%;
+/* 頁面標題 */
+.page-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+/* 購物車容器 */
+.shopping-cart {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #efebe2;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 標籤欄 */
+.column-labels {
+  display: grid;
+  grid-template-columns: 20% 30% 10% 10% 15% 15%;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+/* 商品項目 */
+.product {
+  display: grid;
+  grid-template-columns: 20% 30% 10% 10% 15% 15%;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.product-image img {
+  width: 100px;
+  border-radius: 8px;
+}
+
+.product-title {
+  text-align: left;
+  font-size: 1.2rem;
+  margin: 0;
+  font-family: "LXGW WenKai Mono TC", monospace;
+}
+
+.product-description {
+  margin: 5px 0;
+  color: #2e2d2d;
   text-align: left;
   font-family: "LXGW WenKai Mono TC", monospace;
-  }
-  
-  
-  .product-price {
-	float: left;
-	width: 12%;
+}
+
+.product-price,
+.product-line-price {
+  text-align: center;
+}
+
+.product-quantity input {
+  width: 50px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.product-removal .remove-product {
+  padding: 5px 10px;
+  background-color: #ff6666;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.product-details {
+  text-align: left;
   font-family: "LXGW WenKai Mono TC", monospace;
-  }
-  
-  .product-quantity {
-	float: left;
-	width: 10%;
-  font-family: "LXGW WenKai Mono TC", monospace;
-  }
-  
-  .product-removal {
-	float: left;
-	width: 9%;
-  font-family: "LXGW WenKai Mono TC", monospace;
-  }
-  
-  .product-line-price {
-	float: left;
-	width: 10%;
-	text-align: right;
-  font-family: "LXGW WenKai Mono TC", monospace;
-  }
-  
-  /* This is used as the traditional .clearfix class */
-  .group:before, .shopping-cart:before, .column-labels:before, .product:before, .totals-item:before,
-  .group:after,
-  .shopping-cart:after,
-  .column-labels:after,
-  .product:after,
-  .totals-item:after {
-	content: '';
-	display: table;
-  }
-  
-  .group:after, .shopping-cart:after, .column-labels:after, .product:after, .totals-item:after {
-	clear: both;
-  }
-  
-  .group, .shopping-cart, .column-labels, .product, .totals-item {
-	zoom: 1;
-  }
-  
-  /* Apply clearfix in a few places */
-  /* Apply dollar signs */
-  .product .product-price:before, .product .product-line-price:before, .totals-value:before {
-	content: '$';
-  }
-  
-  /* Body/Header stuff */
-  body {
-	padding: 0px 0px 0px 0px;
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-weight: 100;
-  background-color: #E0E0E0;
-  
-  }
-  
-  h1 {
-	font-weight: 100;
+}
+
+.product-removal .remove-product:hover {
+  background-color: #cc0000;
+}
+
+/* Body/Header stuff */
+body {
+  padding: 0px 0px 0px 0px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  background-color: #BEBEBE;
+}
+
+h1 {
+  font-weight: 100;
   padding: 25px;
   text-align: left;
   font-family: "LXGW WenKai Mono TC", monospace;
-  }
-  
-  label {
-	color: #484848;
-  }
-  
-  .shopping-cart {
-	margin-top: -45px;
-  }
-  
-  /* Column headers */
-  .column-labels label {
-	padding-bottom: 15px;
-	margin-bottom: 15px;
-	border-bottom: 1px solid #413e3e;
-  }
-  .column-labels .product-image, .column-labels .product-details, .column-labels .product-removal {
-	text-indent: -9999px;
-  }
-  
-  /* Product entries */
-  .product {
-	margin-bottom: 20px;
-	padding-bottom: 10px;
-	border-bottom: 1px solid #413e3e;
-  }
-  .product .product-image {
-	text-align: center;
-  }
-  .product .product-image img {
-	width: 100px;
-  }
-  .product .product-details .product-title {
-  text-align: left;
-  font-size: 20px;
+}
+
+label {
+  color: #484848;
+  font-family: "LXGW WenKai Mono TC", monospace;
+}
+
+.shopping-cart {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #c7c7c7;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Column headers */
+.column-labels {
+  display: grid;
+  grid-template-columns: 20% 30% 10% 10% 15% 15%;
+  font-weight: bold;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.column-labels .product-image {
+  text-indent: -9999px;
+}
+
+/* Totals section */
+.totals {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.totals-item {
+  margin: 5px 0;
+}
+
+.totals-item label {
+  display: inline-block;
+  width: 80px;
+  text-align: right;
+}
+
+.totals-item-total {
+  font-weight: bold;
+}
+
+.totals .totals-item .totals-value {
+  float: right;
+  text-align: right;
+  width: 21%;
+  font-family: "LXGW WenKai Mono TC", monospace;
+}
+
+.totals .totals-item-total {
+  font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
+}
+
+.checkout {
+  display: block;
+  margin: 20px 0 0 auto;
+  text-align: center;
+  width: 24%;
+  max-width: 400px;
+  padding: 10px 25px;
+  background-color: #28a745;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.checkout:hover {
+  background-color: #494;
+}
+
+/* 付款方式容器樣式 */
+.payment-methods {
+  margin: 20px auto;
+  text-align: center;
+  width: 80%;
+  max-width: 400px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #c7c7c7;
+}
+
+.payment-methods label {
+  display: inline-block;
+  margin: 10px;
+}
+
+.payment-methods label input {
+  display: none;
+}
+
+.payment-methods label img {
+  width: 50px;
+  height: 50px;
+  display: block;
+  margin: 0 auto 5px;
+}
+
+.payment-methods label div {
+  padding: 10px 15px;
+  border: 1px solid #D0D0D0;
   font-weight: 800;
-	margin-right: 20px;
-	font-family: "LXGW WenKai Mono TC", monospace;
-  }
-  .product .product-details .product-description {
-	margin: 5px 20px 5px 0;
-	line-height: 1.4em;
-  }
-  .product .product-quantity input {
-	width: 40px;
-  }
-  .product .remove-product {
-	border: 0;
-	padding: 4px 8px;
-	background-color: #D0D0D0;
-	color: #fff;
-	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
-	font-size: 12px;
-	border-radius: 3px;
-  }
-  .product .remove-product:hover {
-	background-color: #a44;
-  }
-  
-  /* Totals section */
-  .totals .totals-item {
-	float: right;
-	clear: both;
-	width: 100%;
-	margin-bottom: 10px;
-  }
-  .totals .totals-item label {
-	float: left;
-	clear: both;
-	width: 79%;
-	text-align: right;
-  }
-  .totals .totals-item .totals-value {
-	float: right;
-	width: 21%;
-	text-align: right;
-  }
-  .totals .totals-item-total {
-	font-family: "HelveticaNeue-Medium", "Helvetica Neue Medium";
-  }
-  
-  .checkout {
-	float: right;
-	border: 0;
-	margin-top: 20px;
-	padding: 6px 25px;
-	background-color: #6b6;
-	color: #fff;
-	font-size: 25px;
-	border-radius: 3px;
-  }
-  
-  .checkout:hover {
-	background-color: #494;
-  }
+  border-radius: 10px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
 
+.payment-methods label input:checked+div {
+  background: #007BFF;
+  color: white;
+  border-color: #007BFF;
+}
 
+.order-remarks textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 
+.remark {
+  text-align: left;
+  padding-left: 4%;
+}
 
-
-
-
-  .page-wrapper {
-    min-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .page-wrapper button {
-    padding: 20px;
-    border: none;
-    background: #d5d8e7;
-    position: relative;
-    outline: none;
-    border-radius: 5px;
-    color: #292d48;
-    font-size: 18px;
-  }
-  .page-wrapper button .cart1-item {
-    position: absolute;
-    height: 24px;
-    width: 24px;
-    top: -10px;
-    right: -10px;
-  }
-  .page-wrapper button .cart1-item:before {
-    content: "❤️";
-    display: block;
-    line-height: 24px;
-    height: 24px;
-    width: 24px;
-    font-size: 12px;
-    font-weight: 600;
-    background: #2bd156;
-    color: white;
-    border-radius: 20px;
-    text-align: center;
-  }
-  .page-wrapper button.sendtocart1 .cart1-item {
-    display: block;
-    animation: xAxis 1s forwards cubic-bezier(1, 0.44, 0.84, 0.165);
-  }
-  .page-wrapper button.sendtocart1 .cart1-item:before {
-    animation: yAxis 1s alternate forwards cubic-bezier(0.165, 0.84, 0.44, 1);
-  }
-  
-  .cart1 {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    background: #292d48;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-  }
-  .cart1 i {
-    font-size: 25px;
-    color: white;
-  }
-  .cart1:before {
-    content: attr(data-totalitems);
-    font-size: 12px;
-    font-weight: 600;
-    position: absolute;
-    top: -12px;
-    right: -12px;
-    background: #2bd156;
-    line-height: 24px;
-    padding: 0 5px;
-    height: 24px;
-    min-width: 24px;
-    color: white;
-    text-align: center;
-    border-radius: 24px;
-  }
-  .cart1.shake {
-    animation: shakeCart 0.4s ease-in-out forwards;
-  }
-  
-  @keyframes xAxis {
-    100% {
-      transform: translateX(calc(50vw - 105px));
-    }
-  }
-  @keyframes yAxis {
-    100% {
-      transform: translateY(calc(-50vh + 75px));
-    }
-  }
-  @keyframes shakeCart1 {
-    25% {
-      transform: translateX(6px);
-    }
-    50% {
-      transform: translateX(-4px);
-    }
-    75% {
-      transform: translateX(2px);
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-
-  /* 付款方式容器樣式 */
-  .payment-methods {
-    margin: 20px auto;
-    text-align: center;
-    width: 80%;
-    max-width: 400px;
-    padding: 15px;
-    border-radius: 10px;
-    background: #c7c7c7;
-  }
-
-  .payment-methods label {
-    display: inline-block;
-    margin: 10px;
-  }
-
-  .payment-methods label input {
-    display: none;
-  }
-
-  .payment-methods label img {
-    width: 50px;
-    height: 50px;
-    display: block;
-    margin: 0 auto 5px;
-  }
-
-  .payment-methods label div {
-    padding: 10px 15px;
-    border: 1px solid #484848;
-    font-weight: 800;
-    border-radius: 10px;
-    font-size: 14px;
-    background: white;
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-
-  .payment-methods label input:checked + div {
-    background: #007BFF;
-    color: white;
-    border-color: #007BFF;
-  }
-
-  .order-remarks textarea {
-    width: 90%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  .remark{
-    text-align: left;
-    padding-left: 4%;
-  }
-
-  .modal div {
+.modal div {
   margin-bottom: 10px;
+}
+
+.modify-button {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 4px 8px;
+  background-color: #5b7c65;
+  color: white;
+  font-family: "LXGW WenKai Mono TC", monospace;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.modify-button:hover {
+  background-color: #2a5018;
+  color: #fff;
 }
 
 /* 按鈕基礎樣式 */

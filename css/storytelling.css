@@ -1,153 +1,157 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
 }
 
 .carousel {
-    width: 100%;
-    max-width: 920px;
-    height: 550px;
-    margin: 50px auto;
-    position: relative;
-    overflow: hidden;
-    background-color: #fff;
+  width: 100%;
+  max-width: 920px;
+  height: 550px;
+  margin: 50px auto;
+  position: relative;
+  overflow: hidden;
+  background-color: #fff;
 }
 
 /* 幻燈片項目 */
 .carousel-item {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    /* 初始從右側滑入 */
-    width: 100%;
-    height: 100%;
-    display: flex;
-    opacity: 0;
-    transition: all 1s ease;
-    z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  /* 初始從右側滑入 */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  opacity: 0;
+  transition: all 1s ease;
+  z-index: 0;
 }
 
 .carousel-item.active {
-    left: 0;
-    opacity: 1;
-    z-index: 1;
+  left: 0;
+  opacity: 1;
+  z-index: 1;
 }
 
 .carousel-item.prev {
-    left: -100%;
-    /* 向左滑出 */
-    opacity: 0;
+  left: -100%;
+  /* 向左滑出 */
+  opacity: 0;
 }
 
 .carousel-item.next {
-    left: 100%;
-    /* 向右滑出 */
-    opacity: 0;
+  left: 100%;
+  /* 向右滑出 */
+  opacity: 0;
 }
 
 /* 左側文字內容 */
 .carousel-item__info {
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    transform: translateY(20px);
-    /* 初始下移 */
-    opacity: 0;
-    transition: transform 0.8s ease 0.3s, opacity 0.8s ease 0.3s;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  transform: translateY(20px);
+  /* 初始下移 */
+  opacity: 0;
+  transition: transform 0.8s ease 0.3s, opacity 0.8s ease 0.3s;
 }
 
 .carousel-item.active .carousel-item__info {
-    transform: translateY(0);
-    /* 上移到正常位置 */
-    opacity: 1;
+  transform: translateY(0);
+  /* 上移到正常位置 */
+  opacity: 1;
 }
 
 .carousel-item__subtitle {
-    font-size: 12px;
-    text-transform: uppercase;
-    color: #7e7e7e;
-    margin-bottom: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #7e7e7e;
+  margin-bottom: 10px;
 }
 
 .carousel-item__title {
-    font-size: 48px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .carousel-item__description {
-    font-size: 14px;
-    color: #7e7e7e;
-    margin-bottom: 20px;
+  font-size: 14px;
+  color: #7e7e7e;
+  margin-bottom: 20px;
 }
 
 .carousel-item__btn {
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 12px;
-    border: 1px solid #333;
-    padding: 10px 15px;
-    display: inline-block;
-    margin-top: 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 12px;
+  border: 1px solid #333;
+  padding: 10px 15px;
+  display: inline-block;
+  margin-top: 10px;
 }
 
 /* 右側圖片 */
 .carousel-item__image {
-    width: 60%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transform: translateX(0);
-    /* 初始滑入 */
-    transition: transform 1s ease 0.3s;
-    opacity: 1;
-    z-index: 1;
+  width: 60%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: translateX(0);
+  /* 初始滑入 */
+  transition: transform 1s ease 0.3s;
+  opacity: 1;
+  z-index: 1;
 }
 
 .carousel-item.active .carousel-item__image {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
 /* 導航按鈕 */
 .carousel__nav {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: space-between;
-    z-index: 10;
-    transform: translateY(-50%);
-    padding: 0 20px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  z-index: 10;
+  transform: translateY(-50%);
+  padding: 0 20px;
 }
 
 .carousel__arrow {
-    width: 50px;
-    height: 50px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .carousel__arrow:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .carousel__icon {
-    fill: #333;
-    width: 24px;
-    height: 24px;
+  fill: #333;
+  width: 24px;
+  height: 24px;
 }
 
 html {
@@ -162,7 +166,7 @@ body {
   font-size: 1.3em;
   font-family: "LXGW WenKai Mono TC", monospace;
   height: 65%;
-  background-color:#ddcdc3;
+  background-color: #ddcdc3;
   color: var(--color-dark);
   font-size: var(--size-font);
 }
@@ -171,7 +175,7 @@ header {
   height: 100%;
   position: relative;
   overflow: hidden;
-  background: url('/113/image1/photo7.PNG') center no-repeat;
+  background: url('../image1/photo7.PNG') center no-repeat;
   /* Image Credit: Unsplash.me */
   background-size: cover;
 }
@@ -209,242 +213,333 @@ header .overlay {
   right: 0;
   left: 0;
   bottom: 0;
-  background:#333 center no-repeat;
+  background: #333 center no-repeat;
   background-size: cover;
   z-index: 0;
-  opacity: 0;  /* 初始透明 */
-  transition: opacity 0.3s ease; /* 增加過渡效果 */
+  opacity: 0;
+  /* 初始透明 */
+  transition: opacity 0.3s ease;
+  /* 增加過渡效果 */
 }
 
-img{
-  margin-right:20px
+img {
+  margin-right: 20px
 }
 
 .footer-space {
-  height: 30px; /* 留白高度 */
-  background-color: #ddcdc3; /* 可選：設定底部背景顏色 */
+  height: 30px;
+  /* 留白高度 */
+  background-color: #ddcdc3;
+  /* 可選：設定底部背景顏色 */
 }
 
 
 
-/****************************************/ 
-  .zlhomeAnimate, .zlhomeAnimate2 {
-    margin-top: 100px;
-  }
-  
-  .zlhomeAnimate h1, .zlhomeAnimate2 h1, .zlhomeAnimate2 h3 {
-    transition: opacity .6s, transform .6s;
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  .zlhomeAnimate.visible h1, .zlhomeAnimate2.visible h1, .zlhomeAnimate2.visible h3 {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  .zlhomeAnimate .zlhomeModule, .zlhomeAnimate2 .zlbuttom{
-    transition: opacity .6s, transform .6s;
-    transform: translateY(40px);
-    opacity: 0;
-  }
-  .zlhomeAnimate .zlhomeModule:nth-of-type(1) {
-    transition-delay: .2s;
-  }
-  .zlhomeAnimate .zlhomeModule:nth-of-type(2) {
-    transition-delay: .4s;
-  }
-  .zlhomeAnimate .zlhomeModule:nth-of-type(3) {
-    transition-delay: .5s;
-  }
-  
-  .zlhomeAnimate2 h1.zlbuttom  {
-    transition-delay: .3s;
-  }
-  
-  .zlhomeAnimate2 h3.zlbuttom  {
-    transition-delay: .38s;
-  }
-  .zlhomeAnimate.visible .zlhomeModule, .zlhomeAnimate2.visible .zlbuttom{
-    transform: translateY(0);
-    opacity: 1;
-  }
+/****************************************/
+.zlhomeAnimate,
+.zlhomeAnimate2 {
+  margin-top: 100px;
+}
+
+.zlhomeAnimate h1,
+.zlhomeAnimate2 h1,
+.zlhomeAnimate2 h3 {
+  transition: opacity .6s, transform .6s;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.zlhomeAnimate.visible h1,
+.zlhomeAnimate2.visible h1,
+.zlhomeAnimate2.visible h3 {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.zlhomeAnimate .zlhomeModule,
+.zlhomeAnimate2 .zlbuttom {
+  transition: opacity .6s, transform .6s;
+  transform: translateY(40px);
+  opacity: 0;
+}
+
+.zlhomeAnimate .zlhomeModule:nth-of-type(1) {
+  transition-delay: .2s;
+}
+
+.zlhomeAnimate .zlhomeModule:nth-of-type(2) {
+  transition-delay: .4s;
+}
+
+.zlhomeAnimate .zlhomeModule:nth-of-type(3) {
+  transition-delay: .5s;
+}
+
+.zlhomeAnimate2 h1.zlbuttom {
+  transition-delay: .3s;
+}
+
+.zlhomeAnimate2 h3.zlbuttom {
+  transition-delay: .38s;
+}
+
+.zlhomeAnimate.visible .zlhomeModule,
+.zlhomeAnimate2.visible .zlbuttom {
+  transform: translateY(0);
+  opacity: 1;
+}
 
 .zlhomeAnimate h1::after {
-    content: ""; /* 空內容 */
-    display: block;
-    width: 30%; /* 控制線條寬度 */
-    height: 3px; /* 控制線條高度 */
-    background: #7e7e7e; /* 線條顏色 */
-    margin: 10px auto 0; /* 上下間距，置中 */
-    border-radius: 2px; /* 圓角效果 */
+  content: "";
+  /* 空內容 */
+  display: block;
+  width: 30%;
+  /* 控制線條寬度 */
+  height: 3px;
+  /* 控制線條高度 */
+  background: #7e7e7e;
+  /* 線條顏色 */
+  margin: 10px auto 0;
+  /* 上下間距，置中 */
+  border-radius: 2px;
+  /* 圓角效果 */
 }
 
 .zlhomeModulesWrapper {
-    display: flex;
-    justify-content: space-between; /* 均勻分布模塊 */
-    align-items: stretch; /* 讓所有模塊等高 */
-    flex-wrap: wrap; /* 小螢幕時允許換行 */
-    margin: 20px 0;
-    gap: 20px; /* 增加模塊間距 */
+  display: flex;
+  justify-content: space-between;
+  /* 均勻分布模塊 */
+  align-items: stretch;
+  /* 讓所有模塊等高 */
+  flex-wrap: wrap;
+  /* 小螢幕時允許換行 */
+  margin: 20px 0;
+  gap: 20px;
+  /* 增加模塊間距 */
 }
 
 .zlhomeModule {
-  flex: 1; /* 讓每個模塊占用相同的空間 */
-  max-width: 30%; /* 限制模塊的最大寬度 */
-  min-height: 300px; /* 設定統一的最小高度 */
+  flex: 1;
+  /* 讓每個模塊占用相同的空間 */
+  max-width: 30%;
+  /* 限制模塊的最大寬度 */
+  min-height: 300px;
+  /* 設定統一的最小高度 */
   text-align: center;
   padding: 20px;
   box-sizing: border-box;
-  border: 2px solid #333; /* 邊框顏色 */
-  border-radius: 10px; /* 圓角 */
-  background-color: #efebe2; /* 背景顏色 */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 陰影效果 */
+  border: 2px solid #333;
+  /* 邊框顏色 */
+  border-radius: 10px;
+  /* 圓角 */
+  background-color: #efebe2;
+  /* 背景顏色 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* 陰影效果 */
   display: flex;
-  flex-direction: column; /* 內容垂直排列 */
+  flex-direction: column;
+  /* 內容垂直排列 */
 }
 
 /* 通用標題樣式 */
 .zlhomeModule h3 {
-  font-size: 28px; /* 增大字體 */
-  font-weight: bold; /* 加粗 */
-  text-align: center; /* 置中 */
-  color: #333; /* 深色文字 */
-  text-transform: uppercase; /* 全大寫 */
-  position: relative; /* 相對定位，用於添加裝飾 */
-  margin-bottom: 20px; /* 與內容間距 */
+  font-size: 28px;
+  /* 增大字體 */
+  font-weight: bold;
+  /* 加粗 */
+  text-align: center;
+  /* 置中 */
+  color: #333;
+  /* 深色文字 */
+  text-transform: uppercase;
+  /* 全大寫 */
+  position: relative;
+  /* 相對定位，用於添加裝飾 */
+  margin-bottom: 20px;
+  /* 與內容間距 */
 }
 
 /* 標題底部線條 */
 .zlhomeModule h3::after {
-  content: ""; /* 空內容 */
+  content: "";
+  /* 空內容 */
   display: block;
-  width: 50%; /* 控制線條寬度 */
-  height: 4px; /* 控制線條高度 */
-  background: linear-gradient(to right, #bdada9, #feb47b); /* 漸層色 */
-  margin: 10px auto 0; /* 置中並增加間距 */
-  border-radius: 2px; /* 圓角效果 */
+  width: 50%;
+  /* 控制線條寬度 */
+  height: 4px;
+  /* 控制線條高度 */
+  background: linear-gradient(to right, #bdada9, #feb47b);
+  /* 漸層色 */
+  margin: 10px auto 0;
+  /* 置中並增加間距 */
+  border-radius: 2px;
+  /* 圓角效果 */
 }
 
 /* 圖示裝飾（位於標題前） */
 .zlhomeModule h3::before {
-  content: "📘"; /* 書本圖示，可以根據需求更改 */
+  content: "📘";
+  /* 書本圖示，可以根據需求更改 */
   position: absolute;
-  left: -40px; /* 根據標題調整位置 */
+  left: -40px;
+  /* 根據標題調整位置 */
   top: 50%;
-  transform: translateY(-50%); /* 垂直置中 */
-  font-size: 28px; /* 圖示大小 */
-  color: #333; /* 圖示顏色 */
+  transform: translateY(-50%);
+  /* 垂直置中 */
+  font-size: 28px;
+  /* 圖示大小 */
+  color: #333;
+  /* 圖示顏色 */
 }
 
 /* 背景框效果 */
 .zlhomeModule {
   padding: 20px;
   margin: 20px;
-  border: 2px solid #333; /* 邊框顏色 */
-  border-radius: 10px; /* 圓角 */
-  background-color: #efebe2; /* 背景顏色 */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 陰影效果 */
-  text-align: center; /* 內容居中 */
+  border: 2px solid #333;
+  /* 邊框顏色 */
+  border-radius: 10px;
+  /* 圓角 */
+  background-color: #efebe2;
+  /* 背景顏色 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* 陰影效果 */
+  text-align: center;
+  /* 內容居中 */
 }
 
 /* 初始狀態，文字隱藏 */
-.zlhomeAnimate, .zlhomeAnimate2, .last-to-show {
-  opacity: 0; /* 初始透明 */
-  transform: translateY(40px); /* 初始位置向下移動 */
-  transition: opacity 0.6s ease, transform 0.6s ease; /* 動畫效果 */
+.zlhomeAnimate,
+.zlhomeAnimate2,
+.last-to-show {
+  opacity: 0;
+  /* 初始透明 */
+  transform: translateY(40px);
+  /* 初始位置向下移動 */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  /* 動畫效果 */
 }
 
 /* 出現時的狀態 */
-.zlhomeAnimate.visible, .zlhomeAnimate2.visible, .last-to-show.visible {
-  opacity: 1; /* 顯示文字 */
-  transform: translateY(0); /* 回到正常位置 */
+.zlhomeAnimate.visible,
+.zlhomeAnimate2.visible,
+.last-to-show.visible {
+  opacity: 1;
+  /* 顯示文字 */
+  transform: translateY(0);
+  /* 回到正常位置 */
 }
 
 /* 每月說書活動的延遲效果 */
 .last-to-show {
-  transition-delay: 1s; 
+  transition-delay: 1s;
 }
 
 .plan-list {
-  list-style-type: disc; /* 列點樣式：圓點 */
-  margin: 10px auto; /* 上下內邊距，讓列表與標題有距離 */
-  padding-left: 20px; /* 左邊縮進 */
-  max-width: 80%; /* 列表的最大寬度 */
-  text-align: left; /* 列表左對齊 */
+  list-style-type: disc;
+  /* 列點樣式：圓點 */
+  margin: 10px auto;
+  /* 上下內邊距，讓列表與標題有距離 */
+  padding-left: 20px;
+  /* 左邊縮進 */
+  max-width: 80%;
+  /* 列表的最大寬度 */
+  text-align: left;
+  /* 列表左對齊 */
 }
 
 .plan-list li {
-  margin-bottom: 5px; /* 列表項目之間的間距 */
-  line-height: 1.6; /* 行距 */
-  font-size: 1.3rem; /* 文字大小 */
+  margin-bottom: 5px;
+  /* 列表項目之間的間距 */
+  line-height: 1.6;
+  /* 行距 */
+  font-size: 1.3rem;
+  /* 文字大小 */
 }
 
 /* 響應式：平板樣式 */
 @media screen and (max-width: 1024px) {
   .zlhomeModulesWrapper {
-      flex-direction: column; /* 改為垂直排列 */
-      align-items: center;
+    flex-direction: column;
+    /* 改為垂直排列 */
+    align-items: center;
   }
 
   .zlhomeModule {
-      max-width: 80%; /* 每個模塊占螢幕寬度的 80% */
-      margin-bottom: 20px; /* 增加間距 */
+    max-width: 80%;
+    /* 每個模塊占螢幕寬度的 80% */
+    margin-bottom: 20px;
+    /* 增加間距 */
   }
 }
 
 /* 響應式：手機樣式 */
 @media screen and (max-width: 768px) {
   .zlhomeModule {
-      max-width: 90%; /* 每個模塊占螢幕寬度的 90% */
-      padding: 15px; /* 減少內邊距 */
+    max-width: 90%;
+    /* 每個模塊占螢幕寬度的 90% */
+    padding: 15px;
+    /* 減少內邊距 */
   }
 
   .carousel {
-      height: 300px; /* 調整輪播高度以適配手機 */
+    height: 300px;
+    /* 調整輪播高度以適配手機 */
   }
 
   .carousel-item__image {
-      width: 100%; /* 圖片寬度占滿輪播 */
+    width: 100%;
+    /* 圖片寬度占滿輪播 */
   }
 
   .carousel-item__info {
-      width: 100%; /* 調整文字內容寬度 */
-      padding: 10px;
+    width: 100%;
+    /* 調整文字內容寬度 */
+    padding: 10px;
   }
 
   .zlhomeAnimate h1 {
-      font-size: 24px; /* 縮小標題字體 */
+    font-size: 24px;
+    /* 縮小標題字體 */
   }
 
   .plan-list {
-      font-size: 1rem; /* 縮小列表文字大小 */
-      line-height: 1.4;
+    font-size: 1rem;
+    /* 縮小列表文字大小 */
+    line-height: 1.4;
   }
 }
 
 /* 響應式：小手機樣式 */
 @media screen and (max-width: 480px) {
   header {
-      padding: 10px; /* 減少 header 的內邊距 */
+    padding: 10px;
+    /* 減少 header 的內邊距 */
   }
 
   .zlhomeModule {
-      padding: 10px;
-      min-height: auto; /* 移除固定高度 */
+    padding: 10px;
+    min-height: auto;
+    /* 移除固定高度 */
   }
 
   .zlhomeAnimate h1 {
-      font-size: 18px; /* 再次縮小標題字體 */
+    font-size: 18px;
+    /* 再次縮小標題字體 */
   }
 
   .plan-list {
-      font-size: 0.9rem; /* 縮小列表字體 */
+    font-size: 0.9rem;
+    /* 縮小列表字體 */
   }
 
   .carousel-item__title {
-      font-size: 20px; /* 縮小輪播標題 */
+    font-size: 20px;
+    /* 縮小輪播標題 */
   }
 
   .carousel-item__description {
-      font-size: 12px; /* 縮小輪播描述文字 */
+    font-size: 12px;
+    /* 縮小輪播描述文字 */
   }
 }

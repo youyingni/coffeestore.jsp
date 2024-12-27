@@ -110,39 +110,6 @@ div {
     align-items: center;
 }
 
-/*****************NAV******************/
-
-
-
-
-
-/**************************************************/
-/*
-.slideshow-container {
-    position: relative;
-    min-width: 500px;
-    max-width: 500px;
-    max-height: 500px;
-    min-height: 500px;
-    margin: auto;
-    overflow: visible;
-}
-
-.singleSlide {
-    display: none;
-    width: 100%;
-    position: relative;
-    animation: fadeAndScale 2s ease-in-out;
-}
-
-.singleSlide img {
-    margin-top: 25px;
-    min-width: 450px;
-    max-width: 450px;
-    max-height: 420px;
-    min-height: 420px;
-    border-radius: 25px;
-}*/
 
 .slideshow-container {
     position: relative;

@@ -30,6 +30,7 @@ body {
         opacity: 0;
         transform: translateX(-100%);
     }
+
     to {
         opacity: 1;
         transform: translateX(0);
@@ -85,7 +86,8 @@ body {
 }
 
 /* 按鈕樣式 */
-.cart-btn, .delete-btn {
+.cart-btn,
+.delete-btn {
     margin: 10px 10px 0 0;
     padding: 8px 12px;
     background-color: #6C7A5E;
@@ -97,7 +99,8 @@ body {
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.cart-btn:hover, .delete-btn:hover {
+.cart-btn:hover,
+.delete-btn:hover {
     transform: scale(1.05);
 }
 
@@ -139,4 +142,49 @@ body {
     transform: scale(0);
     opacity: 0;
     transition: all 0.3s ease;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.logo {
+    border-radius: 100%;
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+    /* 保持圖片比例，防止拉伸 */
+    margin-right: 5px;
+}
+
+
+/* Navigation */
+.main-nav ul {
+    display: grid;
+    grid-gap: 20px;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.main-nav a {
+    background-color: #b1aeaeda;
+    display: block;
+    text-decoration: none;
+    padding: 12px;
+    text-align: center;
+    color: #1a0c04;
+    text-transform: uppercase;
+    font-size: 23px;
+    box-shadow: var(--shadow);
+}
+
+.main-nav a:hover {
+    background: #cbb4a8;
+    color: #fff;
 }
