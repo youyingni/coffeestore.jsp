@@ -205,10 +205,10 @@ body,
 .hello-parent {
     display: flex;
     background: #fff;
-    background: -webkit-radial-gradient(#fff, #eaeaea);
-    background: -o-radial-gradient(#fff, #eaeaea);
-    background: -moz-radial-gradient(#fff, #eaeaea);
-    background: radial-gradient(#fff, #eaeaea);
+    background: -webkit-radial-gradient(hsl(0, 0%, 100%), #ffffff);
+    background: -o-radial-gradient(#ffffff, hsl(0, 0%, 100%));
+    background: -moz-radial-gradient(#fff, #ffffff);
+    background: radial-gradient(#ccc8c4, #7d7976);
 
 }
 
