@@ -4,11 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>會員中心</title>
   <link rel="stylesheet" href="../css/login.css">
   <link rel="stylesheet" href="../css/popup.css">
   <link rel="stylesheet" href="../css/coffee1.css">
 
+  <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap" rel="stylesheet">
   <link
     href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap"
@@ -22,6 +23,7 @@
     <!-- Navigation -->
     <nav class="main-nav">
       <ul>
+        <li><a href="coffee.html"><img class="logo" src='../img/OIP.jpg'>回首頁</a></li>
         <li>
           <a href="personal.html">個人資料</a>
         </li>
@@ -36,104 +38,54 @@
         </li>
       </ul>
     </nav>
+  </div>
+
+  <section class="top-container">
+    <header class="showcase">
+      <div class="final">
+        <h1>會員中心</h1>
+        <p>咖啡和瑜珈課程</p>
+      </div>
 
 
-    <section class="top-container">
-      <header class="showcase">
-        <div class="final">
-          <h1>會員中心</h1>
-          <p>咖啡和瑜珈應有竟有!</p>
-        </div>
 
-
-
-        <div class="md-modal md-effect-13" id="modal-13">
-          <div class="container md-content">
-            <section class="login-section" id="modal-13">
-              <h2>會員登入</h2>
-              <p class="subtext">快速登入結帳</p>
-              <div class="login-methods">
-                <a href="#" class="line-login">Line 登入</a>
-                <a href="#" class="facebook-login">Facebook登入</a>
+      <div class="md-modal md-effect-13" id="modal-13">
+        <div class="container md-content">
+          <section class="login-section" id="modal-13">
+            <h2>會員登入</h2>
+            <p class="subtext">快速登入結帳</p>
+            <div class="login-methods">
+              <a href="#" class="line-login">Line 登入</a>
+              <a href="#" class="facebook-login">Facebook登入</a>
+            </div>
+          </section>
+          <section class="form-section">
+            <h2>E-mail or 會員帳號登入</h2>
+            <form>
+              <div class="form-group">
+                <label for="username">會員帳號</label>
+                <input type="text" id="username" placeholder="請輸入帳號">
               </div>
-            </section>
-            <section class="form-section">
-              <h2>E-mail or 會員帳號登入</h2>
-              <form>
-                <div class="form-group">
-                  <label for="username">會員帳號</label>
-                  <input type="text" id="username" placeholder="請輸入帳號">
-                </div>
-                <div class="form-group">
-                  <label for="password">會員密碼</label>
-                  <input type="password" id="password" placeholder="請輸入密碼">
-                </div>
-                <div class="forgot-password">
-                  <a href="#">忘記密碼</a>
-                </div>
-                <button type="submit" class="btn">登入會員</button>
-              </form>
-            </section>
-          </div>
-
-        </div>
-
-
-        <div class="md-overlay"></div>
-        <button class="md-trigger btn" data-modal="modal-13">會員帳號登入</button>
-
-        <script src="../js/popup.js"></script>
-
-      </header>
-
-
-      <div class="hot-sale-carousel">
-        <div class="hot-sale-card active">
-          <div class="product-image">
-            <img src="../picture/shka1.jpg" alt="商品1">
-          </div>
-          <h3 class="hotclass">熱賣課程：瑜伽入門</h3>
-          <p class="sale-price">特價：$299</p>
-          <p class="original-price">原價：$399</p>
-          <button class="buy-button">立即購買</button>
-        </div>
-
-        <div class="hot-sale-card">
-          <div class="product-image">
-            <img src="../picture/shka2.jpg" alt="商品2">
-          </div>
-          <h3 class="hotclass">熱賣課程：靈性瑜珈</h3>
-          <p class="sale-price">特價：$149</p>
-          <p class="original-price">原價：$249</p>
-          <button class="buy-button">立即購買</button>
-        </div>
-
-        <div class="hot-sale-card">
-          <div class="product-image">
-            <img src="../picture/shka3.jpg" alt="商品3">
-          </div>
-          <h3 class="hotclass">熱賣課程：經絡瑜珈</h3>
-          <p class="sale-price">特價：$79</p>
-          <p class="original-price">原價：$159</p>
-          <button class="buy-button">立即購買</button>
+              <div class="form-group">
+                <label for="password">會員密碼</label>
+                <input type="password" id="password" placeholder="請輸入密碼">
+              </div>
+              <div class="forgot-password">
+                <a href="#">忘記密碼</a>
+              </div>
+              <button type="submit" class="btn">登入會員</button>
+            </form>
+          </section>
         </div>
       </div>
-      <div class="carousel-indicators">
-        <button data-slide="0" class="active"></button>
-        <button data-slide="1"></button>
-        <button data-slide="2"></button>
+
       </div>
-      <script src="../js/ad.js"></script>
-    </section>
+      <div class="md-overlay"></div>
+      <button class="md-trigger btn" data-modal="modal-13">會員帳號登入</button>
 
+      <script src="../js/popup.js"></script>
 
-
-
-    <!-- Footer -->
-    <footer>
-      <p>紓咖 &copy; 2024</p>
-    </footer>
-
+    </header>
 
 
     <div class="hot-sale-carousel">
@@ -171,70 +123,8 @@
       <button data-slide="0" class="active"></button>
       <button data-slide="1"></button>
       <button data-slide="2"></button>
-    </div>
-    <script src="../js/ad.js"></script>
-    </section>
 
-
-
-
-    <!-- Footer -->
-    <footer>
-      <p>紓咖 &copy; 2024</p>
-    </footer>
-
-
-    <script src="../js/popup.js"></script>
-
-
-
-
-
-
-
-
-  </div>
-  <!-- Wrapper Ends -->
-  </header>
-
-
-  <div class="hot-sale-carousel">
-    <div class="hot-sale-card active">
-      <div class="product-image">
-        <img src="../picture/shka1.jpg" alt="商品1">
-      </div>
-      <h3 class="hotclass">熱賣課程：瑜伽入門</h3>
-      <p class="sale-price">特價：$299</p>
-      <p class="original-price">原價：$399</p>
-      <button class="buy-button">立即購買</button>
-    </div>
-
-    <div class="hot-sale-card">
-      <div class="product-image">
-        <img src="../picture/shka2.jpg" alt="商品2">
-      </div>
-      <h3 class="hotclass">熱賣課程：靈性瑜珈</h3>
-      <p class="sale-price">特價：$149</p>
-      <p class="original-price">原價：$249</p>
-      <button class="buy-button">立即購買</button>
-    </div>
-
-    <div class="hot-sale-card">
-      <div class="product-image">
-        <img src="../picture/shka3.jpg" alt="商品3">
-      </div>
-      <h3 class="hotclass">熱賣課程：經絡瑜珈</h3>
-      <p class="sale-price">特價：$79</p>
-      <p class="original-price">原價：$159</p>
-      <button class="buy-button">立即購買</button>
-    </div>
-  </div>
-  <div class="carousel-indicators">
-    <button data-slide="0" class="active"></button>
-    <button data-slide="1"></button>
-    <button data-slide="2"></button>
-  </div>
-  <script src="../js/ad.js"></script>
+      <script src="../js/ad.js"></script>
   </section>
 
 
@@ -242,11 +132,53 @@
 
   <!-- Footer -->
   <footer>
-    <p>紓咖 &copy; 2024</p>
+
+    <div class="footer-container">
+      <div class="left-section">
+        <div class="social-icons">
+          <a href="https://www.facebook.com/relaxshuca">
+            <iconify-icon class="icon1" icon="entypo-social:facebook" width="50" height="50"></iconify-icon>
+          </a>
+          <span>紓咖</span>
+          <a href="https://www.instagram.com/cominghsu_/?hl=zh-tw">
+            <iconify-icon class="icon1" icon="formkit:instagram" width="50" height="50"></iconify-icon>
+          </a>
+          <span>cominghsu</span>
+          <iconify-icon class="icon1" icon="el:phone-alt" width="50" height="50"></iconify-icon>
+          <span>0911305010</span>
+        </div>
+        <div>
+          <iconify-icon icon="maki:marker" style="color: #d22c0d" width="30" height="30"></iconify-icon>
+          地址：320桃園市中壢區環中東路357-1號
+        </div>
+
+      </div>
+      <div class="right-section">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.138166658024!2d121.25174567499147!3d24.961413377863547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468232a47f00ba3%3A0xa4ae5602976d050a!2z57ST5ZKWIOS_ruaBr-ajpw!5e0!3m2!1szh-TW!2stw!4v1733113194746!5m2!1szh-TW!2stw"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div>
+          <img src="../img/fb.png" alt="Facebook QR" width="100">
+          <p>facebook</p>
+        </div>
+        <div>
+          <img src="../img/ig.png" alt="Instagram QR" width="100">
+          <p>instagram</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="marquee">
+      <div>
+        © 2020.紓咖修息棧 All Rights Reserved 網頁設計 ‧ CYCU IMFORMATUION MANAGEMENT&emsp;&emsp;&emsp;&emsp;&emsp;©
+        2020.紓咖修息棧 All Rights Reserved 網頁設計 ‧ CYCU IMFORMATUION MANAGEMENT
+      </div>
+    </div>
   </footer>
 
-  </div>
-  <!-- Wrapper Ends -->
+
 </body>
 
 </html>

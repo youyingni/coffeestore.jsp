@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>收藏清單</title>
-    <link rel="stylesheet" href="../css/like.css">
-
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap" rel="stylesheet">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+Mono+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/like.css">
+    <link rel="stylesheet" href="../css/navBar.css">
 </head>
+
 <body>
+    <div class="wrapper">
+        <div class="main-nav">
+            <ul>
+                <li><a href="login.html">回上一頁</a></li>
+            </ul>
+        </div>
+    </div>
     <div class="container">
         <!-- 收藏清單標題 -->
         <div class="heart">收藏清單❤️</div>
@@ -71,5 +79,63 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // 移除收藏按鈕點擊動畫
+        document.querySelectorAll('.delete-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const product = button.closest('.product');
+                product.classList.add('removing');
+                setTimeout(() => product.remove(), 300);
+            });
+        });
+    </script>
+    <footer>
+
+        <div class="footer-container">
+            <div class="left-section">
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/relaxshuca">
+                        <iconify-icon class="icon1" icon="entypo-social:facebook" width="50" height="50"></iconify-icon>
+                    </a>
+                    <span>紓咖</span>
+                    <a href="https://www.instagram.com/cominghsu_/?hl=zh-tw">
+                        <iconify-icon class="icon1" icon="formkit:instagram" width="50" height="50"></iconify-icon>
+                    </a>
+                    <span>cominghsu</span>
+                    <iconify-icon class="icon1" icon="el:phone-alt" width="50" height="50"></iconify-icon>
+                    <span>0911305010</span>
+                </div>
+                <div>
+                    <iconify-icon icon="maki:marker" style="color: #d22c0d" width="30" height="30"></iconify-icon>
+                    地址：320桃園市中壢區環中東路357-1號
+                </div>
+
+            </div>
+            <div class="right-section">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.138166658024!2d121.25174567499147!3d24.961413377863547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468232a47f00ba3%3A0xa4ae5602976d050a!2z57ST5ZKWIOS_ruaBr-ajpw!5e0!3m2!1szh-TW!2stw!4v1733113194746!5m2!1szh-TW!2stw"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <div>
+                    <img src="../img/fb.png" alt="Facebook QR" width="100">
+                    <p>facebook</p>
+                </div>
+                <div>
+                    <img src="../img/ig.png" alt="Instagram QR" width="100">
+                    <p>instagram</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="marquee">
+            <div>
+                © 2020.紓咖修息棧 All Rights Reserved 網頁設計 ‧ CYCU IMFORMATUION MANAGEMENT&emsp;&emsp;&emsp;&emsp;&emsp;©
+                2020.紓咖修息棧 All Rights Reserved 網頁設計 ‧ CYCU IMFORMATUION MANAGEMENT
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>

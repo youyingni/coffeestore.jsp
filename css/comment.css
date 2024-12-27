@@ -2,8 +2,12 @@ body {
 
     background-color: #ddcdc3;
     margin: 0;
-    font-family: "LXGW WenKai Mono TC", monospace;
 
+    overflow-x: hidden;
+}
+
+.txt {
+    font-family: "LXGW WenKai Mono TC", monospace;
 }
 
 .nav {

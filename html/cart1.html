@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>購物車</title>
   <link
-        href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap"
-        rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap"
+    rel="stylesheet">
   <style>
     /* 主體樣式 */
     body {
@@ -85,8 +85,6 @@
         stroke-dashoffset: 0;
       }
     }
-
-
   </style>
 
   <style>
@@ -118,7 +116,7 @@
         <div class="product-title">經絡瑜珈</div>
         <p class="product-description">結合經絡理論，促進能量流動，增進身體健康。通過特定的動作，激活身體內的經絡系統，達到調節身體的效果。</p>
       </div>
-    
+
       <div class="product-price">1750.00</div>
       <div class="product-quantity">
         <input type="number" value="2" min="1">
@@ -138,13 +136,15 @@
       </div>
       <div class="product-details">
         <div class="product-title">靈性瑜珈</div>
-        <p class="product-description">靈性瑜珈是一種結合身心靈的練習方式，不僅僅專注於身體的動作與柔韌性，也更深入地探討內在心靈的提升與精神層面的成長。透過體位法（Asana）、冥想、呼吸控制（Pranayama）以及正念練習，靈性瑜珈幫助練習者與自己內心深處建立更深的連結。</p>
+        <p class="product-description">
+          靈性瑜珈是一種結合身心靈的練習方式，不僅僅專注於身體的動作與柔韌性，也更深入地探討內在心靈的提升與精神層面的成長。透過體位法（Asana）、冥想、呼吸控制（Pranayama）以及正念練習，靈性瑜珈幫助練習者與自己內心深處建立更深的連結。
+        </p>
       </div>
       <div class="product-price">1750.00</div>
       <div class="product-quantity">
         <input type="number" value="1" min="1">
       </div>
-      
+
       <div class="product-line-price">1750.00</div>
       <div class="product-removal">
         <button class="remove-product">
@@ -161,13 +161,13 @@
       <div class="product-details">
         <div class="product-title">陰瑜珈</div>
         <p class="product-description">透過長時間靜態拉伸，幫助身體深層放鬆與恢復。適合忙碌的現代人，放鬆身心並改善柔韌性。</p>
-        
+
       </div>
       <div class="product-price">1750.00</div>
       <div class="product-quantity">
         <input type="number" value="1" min="1">
       </div>
-      
+
       <div class="product-line-price">1750.00</div>
       <div class="product-removal">
         <button class="remove-product">
@@ -184,13 +184,13 @@
       <div class="product-details">
         <div class="product-title">雕塑瑜珈</div>
         <p class="product-description">專注於塑形與雕刻線條，打造理想體態與自信。課程針對希望塑造更佳身形的人士，結合力量訓練與瑜珈。</p>
-        
+
       </div>
       <div class="product-price">1750.00</div>
       <div class="product-quantity">
         <input type="number" value="1" min="1">
       </div>
-    
+
       <div class="product-line-price">1750.00</div>
       <div class="product-removal">
         <button class="remove-product">
@@ -229,7 +229,7 @@
         <label>小計</label>
         <div class="totals-value" id="cart-subtotal">8750.00</div>
       </div>
-      
+
       <div class="totals-item totals-item-total">
         <label>總計</label>
         <div class="totals-value" id="cart-total">875O.00</div>
@@ -255,26 +255,26 @@
 
     <script>
       const completePurchaseButton = document.getElementById("completePurchase");
-const modal = document.getElementById("purchaseModal");
-const overlay = document.getElementById("overlay");
+      const modal = document.getElementById("purchaseModal");
+      const overlay = document.getElementById("overlay");
 
-// 顯示購買完成的模態框
-completePurchaseButton.addEventListener("click", () => {
-  const selectedPayment = document.querySelector('input[name="payment"]:checked');
-  if (!selectedPayment) {
-    alert("請選擇付款方式");
-    return;
-  }
+      // 顯示購買完成的模態框
+      completePurchaseButton.addEventListener("click", () => {
+        const selectedPayment = document.querySelector('input[name="payment"]:checked');
+        if (!selectedPayment) {
+          alert("請選擇付款方式");
+          return;
+        }
 
-  modal.style.display = "block";
-  overlay.style.display = "block";
-});
+        modal.style.display = "block";
+        overlay.style.display = "block";
+      });
 
-// 關閉模態框
-function closeModal() {
-  modal.style.display = "none";
-  overlay.style.display = "none";
-}
+      // 關閉模態框
+      function closeModal() {
+        modal.style.display = "none";
+        overlay.style.display = "none";
+      }
 
     </script>
     <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

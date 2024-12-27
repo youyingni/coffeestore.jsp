@@ -1,70 +1,217 @@
-/* 全局樣式 */
+/* 基础样式 */
 body {
-    font-family: "LXGW WenKai Mono TC", monospace;
     margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
+    font-family: 'LXGW WenKai Mono TC', monospace;
+    background: #DDCDc3;
+    color: #928c80d5;
+
+    min-height: 100vh;
 }
 
-header {
-    background-color:#928c80d5;
-    color: white;
-    text-align: center;
-    padding: 20px;
+.txt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 main {
-    padding: 20px;
+    width: 100%;
     max-width: 800px;
-    margin: 0 auto;
+    /* 限制内容宽度 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-section.order {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* 标题居中 */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #513518;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* 订单样式 */
+
+
+/* 订单卡片 */
+.order {
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
     margin-bottom: 20px;
     padding: 20px;
+    width: 100%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    /* 确保文本居中 */
 }
 
-section.order h2 {
-    color: #928c80d5;
+.order:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* 标题和日期 */
+.order h2 {
+    font-size: 1.8rem;
+    color: #4b3832;
+    margin-bottom: 10px;
+}
+
+.order p {
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+/* 图片和详情 */
 .order-details {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .order-details img {
     width: 100px;
     height: 100px;
-    border-radius: 8px;
-    margin-right: 20px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    animation: fadeIn 1.5s ease-out;
 }
 
 .product-info p {
     margin: 5px 0;
-}
-
-.logistics {
-    margin-top: 15px;
-    font-size: 14px;
     color: #555;
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #928c80d5;
-    color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+.product-info p strong {
+    color: #333;
 }
 
-.h1{
-    font-family: 'Kalam', cursive;
+/* 动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 物流信息 */
+.logistics {
+    margin-top: 15px;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.logistics p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.logistics p strong {
+    color: #333;
+}
+
+/* 鼠标悬停效果 */
+.order:hover .product-info p {
+    color: #513518;
+    transition: color 0.3s ease-in-out;
+}
+
+.order:hover img {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .order-details {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .order-details img {
+        margin-bottom: 10px;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .order h2 {
+        font-size: 1.5rem;
+    }
+
+    .order-details img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .product-info p,
+    .logistics p {
+        font-size: 0.9rem;
+    }
+}
+
+
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.logo {
+    border-radius: 100%;
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+    /* 保持圖片比例，防止拉伸 */
+    margin-right: 5px;
+}
+
+
+/* Navigation */
+.main-nav ul {
+    display: grid;
+    grid-gap: 20px;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.main-nav a {
+    background-color: #b1aeaeda;
+    display: block;
+    text-decoration: none;
+    padding: 12px;
+    text-align: center;
+    color: #1a0c04;
+    text-transform: uppercase;
+    font-size: 23px;
+    box-shadow: var(--shadow);
+}
+
+.main-nav a:hover {
+    background: #cbb4a8;
+    color: #fff;
 }

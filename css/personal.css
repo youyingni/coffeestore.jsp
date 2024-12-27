@@ -3,7 +3,7 @@ body {
     font-family: "LXGW WenKai Mono TC", monospace;
     margin: 0;
     padding: 0;
-    background-color: #FDF6F0;
+    background-color: #DDCDc3;
     color: #333;
 }
 
@@ -54,4 +54,40 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+
+body {
+    overflow-x: hidden;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+}
+
+/* Navigation */
+.main-nav ul {
+    display: grid;
+    grid-gap: 20px;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.main-nav a {
+    background-color: #b1aeaeda;
+    display: block;
+    text-decoration: none;
+    padding: 12px;
+    text-align: center;
+    color: #1a0c04;
+    text-transform: uppercase;
+    font-size: 23px;
+    box-shadow: var(--shadow);
+}
+
+.main-nav a:hover {
+    background: #cbb4a8;
+    color: #fff;
 }

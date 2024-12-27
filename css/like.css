@@ -3,7 +3,7 @@ body {
     font-family: "LXGW WenKai Mono TC", monospace;
     margin: 0;
     padding: 0;
-    background-color: #FDF6F0;
+    background-color: #DDCDc3;
     color: #333;
 }
 
@@ -16,17 +16,36 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* 標題樣式 */
 .heart {
     font-size: 28px;
     color: red;
     text-align: center;
     font-family: 'Kalam', cursive;
+    animation: slideIn 1s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .line {
     border-top: 2px solid #6C7A5E;
     margin: 10px auto 20px;
     width: 100px;
+    transition: width 0.5s ease;
+}
+
+.line:hover {
+    width: 150px;
 }
 
 /* 商品樣式 */
@@ -35,6 +54,12 @@ body {
     gap: 20px;
     border-bottom: 1px solid #ddd;
     padding: 20px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .product img {
@@ -42,6 +67,11 @@ body {
     height: 120px;
     object-fit: cover;
     border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.product img:hover {
+    transform: scale(1.1);
 }
 
 .details h3 {
@@ -55,7 +85,9 @@ body {
     font-size: 16px;
 }
 
-.cart-btn, .delete-btn {
+/* 按鈕樣式 */
+.cart-btn,
+.delete-btn {
     margin: 10px 10px 0 0;
     padding: 8px 12px;
     background-color: #6C7A5E;
@@ -64,11 +96,12 @@ body {
     cursor: pointer;
     border-radius: 5px;
     font-size: 14px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.cart-btn:disabled {
-    background-color: #aaa;
-    cursor: not-allowed;
+.cart-btn:hover,
+.delete-btn:hover {
+    transform: scale(1.05);
 }
 
 .delete-btn {
@@ -79,10 +112,9 @@ body {
     background-color: #E74C3C;
 }
 
-.notifications {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #555;
+.cart-btn:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
 }
 
 /* 狀態樣式 */
@@ -97,4 +129,62 @@ body {
 .sale {
     color: #E67E22;
     font-weight: bold;
+}
+
+.notifications {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* 移除收藏動畫 */
+.product.removing {
+    transform: scale(0);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.logo {
+    border-radius: 100%;
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+    /* 保持圖片比例，防止拉伸 */
+    margin-right: 5px;
+}
+
+
+/* Navigation */
+.main-nav ul {
+    display: grid;
+    grid-gap: 20px;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.main-nav a {
+    background-color: #b1aeaeda;
+    display: block;
+    text-decoration: none;
+    padding: 12px;
+    text-align: center;
+    color: #1a0c04;
+    text-transform: uppercase;
+    font-size: 23px;
+    box-shadow: var(--shadow);
+}
+
+.main-nav a:hover {
+    background: #cbb4a8;
+    color: #fff;
 }
