@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-.icon{ 
-  width: 50px;
-  height: 50px;
-}
-/* 頁面標題 */
-.page-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-=======
 .icon {
   width: 50px;
   height: 50px;
@@ -23,7 +10,6 @@
   margin-bottom: 20px;
 }
 
->>>>>>> 478f5949c927203e64251bda5d728d5e683ba6d0
 /* 購物車容器 */
 .shopping-cart {
   max-width: 1200px;
@@ -91,12 +77,8 @@
   border-radius: 5px;
   cursor: pointer;
 }
-<<<<<<< HEAD
-.product-details{
-=======
 
 .product-details {
->>>>>>> 478f5949c927203e64251bda5d728d5e683ba6d0
   text-align: left;
   font-family: "LXGW WenKai Mono TC", monospace;
 }
@@ -110,11 +92,7 @@ body {
   padding: 0px 0px 0px 0px;
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 100;
-<<<<<<< HEAD
-  background-color: #BEBEBE;   
-=======
   background-color: #BEBEBE;
->>>>>>> 478f5949c927203e64251bda5d728d5e683ba6d0
 }
 
 h1 {
@@ -239,11 +217,7 @@ label {
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-<<<<<<< HEAD
-.payment-methods label input:checked + div {
-=======
 .payment-methods label input:checked+div {
->>>>>>> 478f5949c927203e64251bda5d728d5e683ba6d0
   background: #007BFF;
   color: white;
   border-color: #007BFF;
@@ -257,11 +231,7 @@ label {
   border-radius: 5px;
 }
 
-<<<<<<< HEAD
-.remark{
-=======
 .remark {
->>>>>>> 478f5949c927203e64251bda5d728d5e683ba6d0
   text-align: left;
   padding-left: 4%;
 }
