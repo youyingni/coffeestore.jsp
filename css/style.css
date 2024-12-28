@@ -176,7 +176,7 @@ body {
   transition: color 0.2s;
 }
 
-/* 左右間距vfheuvhurivbhuievbeu */
+/* 左右間距 */
 .reviews-container {
   display: flex;
   gap: 20px; /* 左右間距 */
@@ -208,6 +208,17 @@ textarea {
   width: 95%;
   height: 350px;
   resize: none; /* 禁止調整大小 */
+}
+
+.submit{
+  font-size: 20px;
+  padding: 10px 20px;
+  background-color: #000000;
+  border: none;
+  width: 95%;
+  color: white;
+  cursor: pointer;
+
 }
 
 button {
@@ -282,8 +293,8 @@ button:hover {
   display: flex;
   justify-content: flex-start; /* 按鈕靠左 */
   align-items: center; /* 垂直居中 */
-  gap: 25px; /* 按鈕之間的間距 */
-  margin-top: 20px; /* 與上方內容保持距離 */
+  gap: 25px; 
+  margin-top: 20px; 
 }
 
 
@@ -346,10 +357,10 @@ button:hover {
 /* 位置*/
 .page-wrapper button.sendtocart .cart-item {
   display: block;
-  animation: xAxis 1s forwards cubic-bezier(1, 0.8, 0.84, 1.6);
+  animation: xAxis 1s forwards cubic-bezier(1, 0.8, 0.84, 2);
 }
 .page-wrapper button.sendtocart .cart-item:before {
-  animation: yAxis 1s alternate forwards cubic-bezier(0.3, 0.84, 0.6, 2.0);
+  animation: yAxis 1s alternate forwards cubic-bezier(0.3, 0.84, 0.6, 3.0);
 }
 
 .cart {
