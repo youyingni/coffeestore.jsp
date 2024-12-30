@@ -7,7 +7,8 @@
 
 body {
   font-family: "LXGW WenKai Mono TC", monospace;
-  background-color: #f8f8f8;
+  background-color:#DDCDc3
+  ;
   margin: 0;
   padding: 0;
 }
@@ -448,4 +449,71 @@ h4 {
 
 body {
   overflow-x: hidden;
+}
+
+
+
+
+
+
+/* RWD 調整 - 中型螢幕 (平板) */
+@media (max-width: 768px) {
+  .carousel-container {
+      width: 100%;
+      height: auto;
+  }
+
+  .card-container {
+      transform: none;
+      margin-bottom: 15px;
+  }
+
+  .card img {
+      height: auto;
+  }
+
+  .teacher-card {
+      width: 45%;
+      margin: 10px auto;
+  }
+
+  .yoga-card {
+      flex: 1 1 calc(45% - 10px);
+      margin-bottom: 20px;
+  }
+}
+
+/* RWD 調整 - 小型螢幕 (手機) */
+@media (max-width: 480px) {
+  .title, .yoga-title {
+      font-size: 1.5em;
+  }
+
+  .teacher-card {
+      width: 100%;
+  }
+
+  .yoga-card {
+      flex: 1 1 100%;
+      margin-bottom: 15px;
+  }
+
+  .carousel-container {
+      width: 100%;
+      height: auto;
+  }
+
+  .card-container {
+      transform: none;
+      margin-bottom: 10px;
+  }
+
+  .card h4 {
+      font-size: 1em;
+  }
+
+  .filter-button {
+      width: 100%;
+      margin-top: 15px;
+  }
 }

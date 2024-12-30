@@ -439,4 +439,70 @@ footer {
   }
 }
 
-/**************************************************/
+/* RWD 調整 - 中型螢幕 (平板) */
+@media (max-width: 768px) {
+  .main-nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .main-nav a {
+    margin-bottom: 10px;
+  }
+
+  .showcase {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .showcase h1 {
+    font-size: 36px;
+  }
+
+  .showcase p {
+    font-size: 18px;
+  }
+
+  .hot-sale-card {
+    width: 90%;
+    margin: 10px auto;
+    position: relative;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  iframe {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* RWD 調整 - 小型螢幕 (手機) */
+@media (max-width: 480px) {
+  .main-nav a {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .showcase h1 {
+    font-size: 28px;
+  }
+
+  .showcase p {
+    font-size: 16px;
+  }
+
+  .hot-sale-card {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .buy-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
