@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>咖啡訂單介面</title>
+  <title>咖啡購買介面</title>
   <link rel="stylesheet" href="../css/style.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap"
@@ -25,6 +25,7 @@
       border-radius: 100%;
       width: 35px;
       height: 35px;
+      margin-left: 20px;
     }
 
     .description {
@@ -32,6 +33,10 @@
       color: white;
       font-weight: 400;
       border-radius: 10px;
+    }
+
+    a {
+      margin-left: 15px;
     }
   </style>
 
@@ -43,19 +48,19 @@
   <nav class="navbar">
     <div class="aa">
       <div>
-        <a href="coffee.html"><img class="logo" src='../img/OIP.jpg'></a>
+        <a href="index.html"><img class="logo" src='../img/OIP.jpg'></a>
       </div>
       <div class="navbar-icons">
-        <a href="heart.html" class="heart-link">
+        <a href="like.html" class="heart-link">
           <div id="heart" class="heart" data-totalitems="0">
             <img src="../image/heart.png" alt="heart" class="icons mx-2">
           </div>
         </a>
-        <a href="#"><img src="../image/member.png" alt="member" class="icons mx-2"></a>
+        <a href="login.html"><img src="../image/member.png" alt="member" class="icons mx-2"></a>
 
 
         <!-- cart特效 -->
-        <a href="cart1.html" class="cart-link">
+        <a href="cart.html" class="cart-link">
           <div id="cart" class="cart" data-totalitems="0">
             <img src="../image/cart.png" alt="cart" class="icons mx-2">
           </div>
@@ -73,7 +78,7 @@
         <h1 id="product-name">商品名稱</h1>
         <p id="product-price">NT$0</p>
         <a href="yoga.html"><button>課程介紹</button></a>
-        
+
       </div>
 
       <div class="product-details">
@@ -132,7 +137,7 @@
               width="40"></iconify-icon>
           </div>
           <textarea placeholder="留下評論..."></textarea>
-          <button>送出</button>
+          <button class="submit">送出</button>
         </div>
 
         <!-- 右側: 商品評論 -->
@@ -146,7 +151,7 @@
           <div class="comment">
             <h3>小浩</h3>
             <span>⭐</span>
-            <h4>瑜珈老師不是志浩哭哭!</h4>
+            <h4>瑜珈老師不是林老師哭哭!</h4>
           </div>
           <div class="comment">
             <h3>小呵</h3>
@@ -227,45 +232,45 @@
 
     /*json*/
     document.addEventListener("DOMContentLoaded", function () {
-  // 獲取商品 ID
-  const urlParams = new URLSearchParams(window.location.search);
-  const productId = urlParams.get("product");
+      // 獲取商品 ID
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = urlParams.get("product");
 
-  // 加載 JSON 資料
-  fetch("../json/Yoga.json")
-    .then((response) => response.json())
-    .then((data) => {
-      // 取得所有商品資料
-      const allItems = data.categories.flatMap((category) => category.items);
+      // 加載 JSON 資料
+      fetch("../json/Yoga.json")
+        .then((response) => response.json())
+        .then((data) => {
+          // 取得所有商品資料
+          const allItems = data.categories.flatMap((category) => category.items);
 
-      // 查找目前商品
-      const currentProduct = allItems.find((item) => item.id === productId);
+          // 查找目前商品
+          const currentProduct = allItems.find((item) => item.id === productId);
 
-      if (currentProduct) {
-        // 更新商品主要資訊
-        document.getElementById("product-image").src = currentProduct.image;
-        document.getElementById("product-name").innerText = currentProduct.name;
-        document.getElementById("product-price").innerText = `NT$${currentProduct.price}`;
-        document.getElementById("product-copywriting").innerText = currentProduct.Copywriting;
+          if (currentProduct) {
+            // 更新商品主要資訊
+            document.getElementById("product-image").src = currentProduct.image;
+            document.getElementById("product-name").innerText = currentProduct.name;
+            document.getElementById("product-price").innerText = `NT$${currentProduct.price}`;
+            document.getElementById("product-copywriting").innerText = currentProduct.Copywriting;
 
-        
-      } else {
-        // 如果商品不存在
-        document.querySelector(".product-image-container").innerHTML = `
+
+          } else {
+            // 如果商品不存在
+            document.querySelector(".product-image-container").innerHTML = `
           <h1>找不到商品</h1>
           <p>請返回商品列表並重新選擇。</p>`;
-      }
+          }
 
-      // 隨機選取三個推薦商品
-      const recommendedItems = allItems
-        .filter((item) => item.id !== productId) // 避免推薦目前商品
-        .sort(() => 0.5 - Math.random())
-        .slice(0, 3);
+          // 隨機選取三個推薦商品
+          const recommendedItems = allItems
+            .filter((item) => item.id !== productId) // 避免推薦目前商品
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 3);
 
-      // 渲染推薦商品到 HTML
-      const recommendedContainer = document.getElementById("recommended-products");
-      recommendedItems.forEach((item) => {
-        recommendedContainer.innerHTML += `
+          // 渲染推薦商品到 HTML
+          const recommendedContainer = document.getElementById("recommended-products");
+          recommendedItems.forEach((item) => {
+            recommendedContainer.innerHTML += `
           <div class="card">
             <img src="${item.image}" alt="${item.name}" class="card-img-top">
             <a href="BuyYoga.html?product=${item.id}" style="text-decoration: none; color: inherit;">
@@ -278,10 +283,10 @@
                </a>
             </div>
           </div>`;
-      });
-    })
-    .catch((error) => console.error("Error loading JSON:", error));
-});
+          });
+        })
+        .catch((error) => console.error("Error loading JSON:", error));
+    });
 
   </script>
 

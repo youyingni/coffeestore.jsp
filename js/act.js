@@ -14,36 +14,46 @@ window.addEventListener("scroll", () => {
 });
 
 /********************************************************/
-let slideIndex = 1; //先設預設變數為1
- 
-function showSlides(props) {
-  let i;
-  //取得所有的mySlides 因為他是取class 而不是id 所以要用getElementsByClassName
-  let slides = document.getElementsByClassName("singleSlide");
- 
-  //如果n大於slides的長度，代表已經到最後一張，所以要從第一張開始
-  if (props > slides.length) {
-    slideIndex = 1;
-  }
- 
-  if (props < 1) {
-    slideIndex = slides.length;
-  }
- 
-  //將所有圖片隱藏
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
- 
-  //將新的圖片顯示
-  //   console.log(slideIndex - 1, 25);
- 
-  //array都從0開始，所以要減一，因為我們的slideIndex是從1開始 ，已經賦予值
-  slides[slideIndex - 1].style.display = "flex";
+function initializeSlides(containerClass) {
+  const containers = document.querySelectorAll(`.${containerClass}`);
+
+  containers.forEach((container, index) => {
+      let slideIndex = 1; // 每個容器有自己的 slideIndex
+      const slides = container.querySelectorAll('.singleSlide');
+      const prevButton = container.querySelector('.prev');
+      const nextButton = container.querySelector('.next');
+
+      // 顯示特定幻燈片
+      function showSlides(n) {
+          if (n > slides.length) slideIndex = 1; // 從第一張重新開始
+          if (n < 1) slideIndex = slides.length; // 回到最後一張
+
+          // 隱藏所有幻燈片
+          slides.forEach(slide => (slide.style.display = 'none'));
+
+          // 顯示當前幻燈片
+          slides[slideIndex - 1].style.display = 'flex';
+      }
+
+      // 前後按鈕功能
+      function plusSlides(n) {
+          showSlides((slideIndex += n));
+      }
+
+      // 綁定按鈕事件
+      if (prevButton) prevButton.addEventListener('click', () => plusSlides(-1));
+      if (nextButton) nextButton.addEventListener('click', () => plusSlides(1));
+
+      // 初始化時顯示第一張
+      showSlides(slideIndex);
+
+      // 自動播放（可選）
+       setInterval(() => plusSlides(1), 4000); // 每2秒自動切換
+  });
 }
- 
-function plusSlides(a) {
-  showSlides((slideIndex += a));
-}
-//使用者點擊左右按鈕時，並傳入參數1或-1，代表下一張或上一張
-plusSlides(slideIndex);
+
+// 初始化所有幻燈片容器
+initializeSlides('slideshow-container');
+
+
+

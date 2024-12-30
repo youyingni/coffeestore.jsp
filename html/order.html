@@ -1,14 +1,15 @@
 <!--訂單詳情-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Progress</title>
+    <title>訂單</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css">
     <link
-    href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap"
-    rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap"
+        rel="stylesheet">
     <style>
         body {
             font-family: "LXGW WenKai Mono TC", monospace;
@@ -36,7 +37,8 @@
             font-family: "LXGW WenKai Mono TC", monospace;
         }
 
-        .product-header, .product {
+        .product-header,
+        .product {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -61,7 +63,7 @@
         .product-details {
             flex: 2;
             margin-left: 15px;
-            
+
         }
 
         .product-title {
@@ -74,7 +76,9 @@
             color: #777;
         }
 
-        .product-price, .product-quantity, .product-line-price {
+        .product-price,
+        .product-quantity,
+        .product-line-price {
             flex: 1;
             text-align: center;
             font-size: 16px;
@@ -108,11 +112,13 @@
         button:hover {
             background-color: #0056b3;
         }
-        .progress-bar{
+
+        .progress-bar {
             background-color: rgb(91, 173, 8);
         }
     </style>
 </head>
+
 <body>
     <div class="order-container">
         <div class="order-header">訂單準備中...</div>
@@ -186,7 +192,7 @@
                 <p>total：<span>$480</span></p>
             </div>
 
-            <a href="coffee.html"><button>回到主頁</button></a>
+            <a href="index.html"><button>回到主頁</button></a>
         </div>
     </div>
 
@@ -211,4 +217,5 @@
         document.getElementById('estimatedDate').textContent = getEstimatedDeliveryDate();
     </script>
 </body>
+
 </html>

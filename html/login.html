@@ -70,13 +70,21 @@
                 <label for="password">會員密碼</label>
                 <input type="password" id="password" placeholder="請輸入密碼">
               </div>
-              <div class="forgot-password">
-                <a href="#">忘記密碼</a>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <button type="button" class="btn" id="loginButton" style="margin: auto;">登入會員</button>
+                <a href="new.html">
+                  <button type="button" class="btn" style="margin-left: auto;">會員註冊</button>
+                </a>
               </div>
-              <button type="submit" class="btn">登入會員</button>
-               <div>
-              <a href="new.html">會員註冊</a>
-              </div>
+              <div id="loginMessage" style="display: none; margin-top: 10px; text-align: center; color: green; font-weight: bold;">已登入會員</div>
+              
+              <script>
+                document.getElementById('loginButton').addEventListener('click', function() {
+                  document.getElementById('loginMessage').style.display = 'block';
+                });
+              </script>
+              
+              
             </form>
           </section>
         </div>

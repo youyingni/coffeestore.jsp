@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Progress</title>
+    <title>訂單</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap"
@@ -35,7 +36,8 @@
             font-family: "LXGW WenKai Mono TC", monospace;
         }
 
-        .product-header, .product {
+        .product-header,
+        .product {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -60,7 +62,7 @@
         .product-details {
             flex: 2;
             margin-left: 15px;
-            
+
         }
 
         .product-title {
@@ -73,7 +75,9 @@
             color: #777;
         }
 
-        .product-price, .product-quantity, .product-line-price {
+        .product-price,
+        .product-quantity,
+        .product-line-price {
             flex: 1;
             text-align: center;
             font-size: 16px;
@@ -107,11 +111,13 @@
         button:hover {
             background-color: #0056b3;
         }
-        .progress-bar{
+
+        .progress-bar {
             background-color: rgb(91, 173, 8);
         }
     </style>
 </head>
+
 <body>
     <div class="order-container">
         <div class="order-header">訂單接收中...</div>
@@ -153,7 +159,9 @@
                 <div class="product-image"><img src="../image/Yoga2.jpg" alt="商品2"></div>
                 <div class="product-details">
                     <div class="product-title">靈性瑜珈</div>
-                    <div class="product-description">靈性瑜珈是一種結合身心靈的練習方式，不僅僅專注於身體的動作與柔韌性，也更深入地探討內在心靈的提升與精神層面的成長。透過體位法（Asana）、冥想、呼吸控制（Pranayama）以及正念練習，靈性瑜珈幫助練習者與自己內心深處建立更深的連結。</div>
+                    <div class="product-description">
+                        靈性瑜珈是一種結合身心靈的練習方式，不僅僅專注於身體的動作與柔韌性，也更深入地探討內在心靈的提升與精神層面的成長。透過體位法（Asana）、冥想、呼吸控制（Pranayama）以及正念練習，靈性瑜珈幫助練習者與自己內心深處建立更深的連結。
+                    </div>
                 </div>
                 <div class="product-price">$1750.00</div>
                 <div class="product-quantity">1</div>
@@ -184,7 +192,7 @@
                 <p>total：<span>$8750</span></p>
             </div>
 
-            <a href="coffee.html"><button>回到主頁</button></a>
+            <a href="index.html"><button>回到主頁</button></a>
         </div>
     </div>
 
@@ -209,4 +217,5 @@
         document.getElementById('estimatedDate').textContent = getEstimatedDeliveryDate();
     </script>
 </body>
+
 </html>

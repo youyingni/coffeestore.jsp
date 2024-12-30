@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>意見箱</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap"
+        rel="stylesheet">
+
+    <style>
+        @import url(../css/contact.css);
+        @import url("../css/navBar.css");
+    </style>
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+</head>
+
+<body>
+
+    <nav id="primary_nav_wrap">
+        <ul>
+            <li><a href="index.html"><img class="logo" src='../img/OIP.jpg'></a></li>
+            <li><a href="#">紓咖商品</a>
+                <ul>
+                    <li>
+                        <a href="Product_interface.html">紓咖咖啡</a>
+                    </li>
+                    <li>
+                        <a href="Yoga_interface.html">瑜珈課程</a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="class.html">紓咖瑜珈</a>
+                <ul>
+                    <li>
+                        <a href="yoga.html#yoga10">初階課程</a>
+                    </li>
+                    <li>
+                        <a href="yoga.html#yoga20">進階課程</a>
+                    </li>
+                    <li>
+                        <a href="class.html#yoga30">推薦課程</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="act.html">紓咖活動</a>
+                <ul>
+                    <li><a href="act.html#oil">精油</a></li>
+                    <li><a href="act.html#sounds">頌缽</a></li>
+                    <li><a href="act.html#words">書法</a></li>
+                    <li><a href="act.html#Xmas">聖誕</a></li>
+                </ul>
+            </li>
+            <li><a href="storytelling.html">紓咖說書</a>
+            </li>
+            <li><a href="aboutus.html">關於我們</a>
+                <ul>
+                    <li><a href="aboutus.html#cats">店貓介紹</a></li>
+                    <li><a href="aboutus.html#qa">Q&A</a></li>
+                </ul>
+            </li>
+            <li><a href="#">留言意見</a>
+                <ul>
+                    <li><a href="comment.html">留言板</a></li>
+                    <li><a href="contact.html">意見箱</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="icon">
+            <ul>
+
+                <li>
+                    <a href="like.html">
+                        <iconify-icon icon="mdi:heart" width="40px" height="40px" style="color: #fe0000"></iconify-icon>
+                    </a>
+                </li>
+                <li>
+                    <a href="login.html">
+                        <iconify-icon icon="bi:people-circle" width="30px" height="30px"></iconify-icon>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="cart.html">
+                        <iconify-icon icon="guidance:shop" width="30px" height="30px"></iconify-icon>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" id="form-container">
+        <h2>意見回饋 <span> </span></h2>
+        <form id="feedback-form">
+            <label for="category">問題類型</label>
+            <select id="category" name="category">
+                <option value="" disabled selected>請選擇分類</option>
+                <option>服務建議回饋</option>
+                <option>瑜珈課程諮詢</option>
+                <option>預約場地</option>
+                <option>其他</option>
+            </select>
+
+            <div style="display:flex;align-items: start;gap:8px">
+                <label>姓名</label>
+                <div class="radio-group">
+                    <div>
+                        <input type="radio" id="mr" name="title" value="先生" style="margin:auto;">
+                        <label for="mr" style="width: fit-content;min-width: fit-content;margin: auto;">先生</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="ms" name="title" value="小姐" style="margin:auto;">
+                        <label for="ms" style="width: fit-content;min-width: fit-content;margin: auto;">小姐</label>
+                    </div>
+                </div>
+            </div>
+            <input type="text" name="name" placeholder="請輸入姓名" required>
+
+            <label>Email</label>
+            <input type="email" name="email" placeholder="請輸入Email" required>
+
+            <label>電話</label>
+            <input type="tel" name="phone" placeholder="請輸入電話" required>
+
+            <label>內容說明</label>
+            <textarea name="content" placeholder="請輸入您的意見" required></textarea>
+
+            <div class="buttons">
+                <button type="submit">確認送出</button>
+                <button type="reset">取消</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="thankYouModal" class="thank-you-modal">
+        <div class="thank-you-content">
+            <p>已成功提交，感謝您寶貴的意見!!</p>
+        </div>
+    </div>
+
+    <script>
+        // 獲取表單和感謝彈窗的元素
+        const form = document.getElementById('feedback-form');
+        const thankYouModal = document.getElementById('thankYouModal');
+
+        // 表單提交事件
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // 阻止預設提交行為
+
+            // 顯示感謝彈窗
+            showThankYouModal();
+
+            // 清除表單資料
+            form.reset();
+        });
+
+        // 顯示感謝彈窗
+        function showThankYouModal() {
+            thankYouModal.style.display = 'flex';
+
+            // 3 秒後自動隱藏
+            setTimeout(() => {
+                thankYouModal.style.display = 'none';
+            }, 3000);
+        }
+
+        let lastScrollY = window.scrollY; // 儲存上一次滾動位置
+        const nav = document.querySelector("nav"); // 選取你的 NAV 元素
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > lastScrollY) {
+                // 向下滾動，隱藏 NAV
+                nav.classList.add("hidden");
+            } else {
+                // 向上滾動，顯示 NAV
+                nav.classList.remove("hidden");
+            }
+            lastScrollY = window.scrollY; // 更新滾動位置
+        });
+    </script>
+    <footer>
+
+        <div class="footer-container">
+            <div class="left-section">
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/relaxshuca">
+                        <iconify-icon class="icon1" icon="entypo-social:facebook" width="50" height="50"></iconify-icon>
+                    </a>
+                    <span>紓咖</span>
+                    <a href="https://www.instagram.com/cominghsu_/?hl=zh-tw">
+                        <iconify-icon class="icon1" icon="formkit:instagram" width="50" height="50"></iconify-icon>
+                    </a>
+                    <span>cominghsu</span>
+                    <iconify-icon class="icon1" icon="el:phone-alt" width="50" height="50"></iconify-icon>
+                    <span>0911305010</span>
+                </div>
+                <div>
+                    <iconify-icon icon="maki:marker" style="color: #d22c0d" width="30" height="30"></iconify-icon>
+                    地址：320桃園市中壢區環中東路357-1號
+                </div>
+
+            </div>
+            <div class="right-section">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3617.138166658024!2d121.25174567499147!3d24.961413377863547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3468232a47f00ba3%3A0xa4ae5602976d050a!2z57ST5ZKWIOS_ruaBr-ajpw!5e0!3m2!1szh-TW!2stw!4v1733113194746!5m2!1szh-TW!2stw"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                <div>
+                    <img src="../img/fb.png" alt="Facebook QR" width="100">
+                    <p>facebook</p>
+                </div>
+                <div>
+                    <img src="../img/ig.png" alt="Instagram QR" width="100">
+                    <p>instagram</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="marquee">
+            <div>
+                © 2020.紓咖修息棧 All Rights Reserved 網頁設計 ‧ CYCU IMFORMATUION MANAGEMENT&emsp;&emsp;&emsp;&emsp;&emsp;©
+                2020.紓咖修息棧 All Rights Reserved 網頁設計 ‧ CYCU IMFORMATUION MANAGEMENT
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

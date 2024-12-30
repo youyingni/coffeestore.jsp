@@ -1,10 +1,13 @@
 body {
-    font-family: Arial, sans-serif;
+
     background-color: #ddcdc3;
     margin: 0;
-    padding: 20px;
-    font-family: "LXGW WenKai Mono TC", monospace;
 
+    overflow-x: hidden;
+}
+
+.txt {
+    font-family: "LXGW WenKai Mono TC", monospace;
 }
 
 .nav {
@@ -13,7 +16,7 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    position:relative;
+    position: relative;
 }
 
 .sort-button {
@@ -127,11 +130,13 @@ body {
 
 .comment-footer .like-count {
     margin-left: 5px;
-    color: #333; /* 讚數顏色不變 */
+    color: #333;
+    /* 讚數顏色不變 */
 }
 
 .comment-footer .like-button.liked .like-icon {
-    color: gray; /* 按讚後的圖示顏色 */
+    color: gray;
+    /* 按讚後的圖示顏色 */
 }
 
 .comment-footer .comment-date {
@@ -157,6 +162,7 @@ body {
     max-width: 800px;
     margin-left: 25%;
 }
+
 .review-container {
     background: #fff;
     padding: 20px;
@@ -173,6 +179,7 @@ body {
     text-align: center;
     margin-top: 20px;
 }
+
 .submit-section button {
     padding: 10px 20px;
     background: #ccc;
@@ -198,12 +205,13 @@ body {
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    margin: 20px auto; 
+    margin: 20px auto;
     font-family: "LXGW WenKai Mono TC", monospace;
 }
 
-.btn:hover{
-    background-color: gray; /* 滑鼠懸停時按鈕顏色 */
+.btn:hover {
+    background-color: gray;
+    /* 滑鼠懸停時按鈕顏色 */
     color: white;
 }
 
@@ -221,11 +229,12 @@ body {
 }
 
 .close-btn:hover {
-    color: #d4a373; /* 滑鼠懸停時的顏色 */
+    color: #d4a373;
+    /* 滑鼠懸停時的顏色 */
 }
 
 .container {
-    margin: 20px auto;
+    margin: 80px auto;
     max-width: 800px;
     background: #fff;
     padding: 20px;
@@ -273,8 +282,10 @@ body {
     background: gold;
     height: 100%;
     border-radius: 4px;
-    width: 0; /* 初始寬度 */
-    transition: width 0.5s ease-in-out; /* 過渡動畫 */
+    width: 0;
+    /* 初始寬度 */
+    transition: width 0.5s ease-in-out;
+    /* 過渡動畫 */
 }
 
 /* 彈出視窗 */
@@ -308,7 +319,8 @@ body {
 
 #submit {
     display: block;
-    margin: 20px auto; /* 將按鈕置於容器中間 */
+    margin: 20px auto;
+    /* 將按鈕置於容器中間 */
     padding: 10px 20px;
     background-color: #ccc;
     color: black;
@@ -319,13 +331,15 @@ body {
 }
 
 #submit:hover {
-    background-color: gray; /* 滑鼠懸停時按鈕顏色 */
+    background-color: gray;
+    /* 滑鼠懸停時按鈕顏色 */
     color: white;
 }
 
 .modal-content textarea {
     width: 90%;
-    height: 150px; /* 增加留言框高度 */
+    height: 150px;
+    /* 增加留言框高度 */
     margin: 15px 0;
     padding: 15px;
     border: 1px solid #ddd;
@@ -334,13 +348,16 @@ body {
 }
 
 .stars-rating {
-    margin: 20px 0; /* 增加星星區域的上下間距 */
+    margin: 20px 0;
+    /* 增加星星區域的上下間距 */
 }
 
 .stars-rating span {
-    font-size: 32px; /* 放大星星 */
+    font-size: 32px;
+    /* 放大星星 */
     cursor: pointer;
-    margin: 0 8px; /* 增加星星間距 */
+    margin: 0 8px;
+    /* 增加星星間距 */
 }
 
 .stars-rating .selected {
@@ -353,20 +370,23 @@ body {
 
 /* 成功訊息 */
 .thank-you-modal {
-    display: none; /* 預設為隱藏 */
+    display: none;
+    /* 預設為隱藏 */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* 背景半透明 */
+    background: rgba(0, 0, 0, 0.5);
+    /* 背景半透明 */
     z-index: 1000;
     justify-content: center;
     align-items: center;
 }
 
 .thank-you-content {
-    background: #fef6f0; /* 背景色 */
+    background: #fef6f0;
+    /* 背景色 */
     padding: 20px 30px;
     border-radius: 10px;
     text-align: center;
@@ -378,24 +398,33 @@ body {
 
 @media screen and (max-width: 1024px) {
     .zlhomeModule {
-        flex: 1 1 100%; /* 占整行 */
-        max-width: 80%; /* 限制寬度 */
-        margin-bottom: 20px; /* 增加模塊之間的距離 */
+        flex: 1 1 100%;
+        /* 占整行 */
+        max-width: 80%;
+        /* 限制寬度 */
+        margin-bottom: 20px;
+        /* 增加模塊之間的距離 */
     }
 }
 
 @media screen and (max-width: 768px) {
     .modal-content {
-        width: 90%; /* 更窄的寬度 */
-        max-width: 300px; /* 限制最大寬度 */
-        padding: 15px; /* 減少內邊距 */
+        width: 90%;
+        /* 更窄的寬度 */
+        max-width: 300px;
+        /* 限制最大寬度 */
+        padding: 15px;
+        /* 減少內邊距 */
     }
 }
 
 @media screen and (max-width: 480px) {
     .modal-content {
-        width: 95%; /* 幾乎占滿螢幕 */
-        max-width: 280px; /* 限制最大寬度 */
-        padding: 10px; /* 減少內邊距 */
+        width: 95%;
+        /* 幾乎占滿螢幕 */
+        max-width: 280px;
+        /* 限制最大寬度 */
+        padding: 10px;
+        /* 減少內邊距 */
     }
 }

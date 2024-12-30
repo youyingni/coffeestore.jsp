@@ -10,6 +10,7 @@ body {
     height: 100vh;
     overflow-x: hidden;
     position: relative;
+    color: #3D281c;
 }
 
 
@@ -29,15 +30,12 @@ div {
 
 .background {
     height: 550px;
-    /*background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;*/
+
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    /*overflow: hidden;
-    /* 防止內容溢出背景區域 */
+
 }
 
 .background img {
@@ -52,7 +50,7 @@ div {
 .background p {
     text-align: justify;
     background-color: rgb(255, 252, 252);
-    color: #000000;
+    color:#3D281c;
     border-radius: 10px;
     font-family: "LXGW WenKai Mono TC", monospace;
     font-size: 25px;
@@ -78,30 +76,31 @@ div {
 
 
 .cat {
-    margin: 25px;
+    margin: 25px auto;
     padding: 3px 20px;
-    text-align: left;
+    text-align: center;
     font-size: 25px;
     border-radius: 10px;
     background-color: #efebe2;
     letter-spacing: 10px;
     line-height: 40px;
     font-family: "LXGW WenKai Mono TC", monospace;
-    width: 750px;
-    float: right;
+    width: 800px; 
+    float: none;
     height: 420px;
-    height: min-content;
+    height: auto;
     min-height: fit-content;
+    color: #3D281c;
 }
-
 
 .cat1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #928c80d5;
-    width: 100%;
+    width: 95%; 
 }
+
 
 .allcat {
     display: flex;
@@ -113,16 +112,12 @@ div {
 
 .slideshow-container {
     position: relative;
-    /* 定位基準 */
-    min-width: 500px;
-    /* 幻燈片最小寬度 */
-    max-width: 500px;
-    /* 幻燈片最大寬度 */
-    max-height: 500px;
-    min-height: 500px;
-    /* 幻燈片最大高度 */
+    min-width: 800px;
+    max-width: 800px;
+    max-height: 800px;
+    min-height: 800px;
     margin-left: 100px;
-    margin-top: 50px;
+    margin-top: 80px;
 }
 
 .singleSlide {
@@ -132,9 +127,7 @@ div {
     position: relative;
     animation: fadeAndScale 2s ease-in-out;
     min-width: 450px;
-    /* 幻燈片最小寬度 */
     max-width: 450px;
-    /* 幻燈片最大寬度 */
     max-height: 420px;
     min-height: 420px;
     border-radius: 25px;
@@ -153,51 +146,41 @@ div {
 
 }
 
-/* 前後按鈕 */
+
 
 .prev,
 .next {
     position: absolute;
-    /* 繼續使用絕對定位 */
     top: 50%;
-    /* 按鈕垂直居中 */
     transform: translateY(-50%);
-    /* 修正垂直偏移量 */
     width: 40px;
-    /* 按鈕寬度 */
     height: 40px;
-    /* 按鈕高度 */
     background-color: rgba(0, 0, 0, 0.5);
-    /* 按鈕背景色 */
-    color: white;
-    /* 按鈕文字顏色 */
+    color:white;
     border: none;
-    /* 移除邊框 */
     border-radius: 50%;
-    /* 圓形按鈕 */
     cursor: pointer;
-    /* 鼠標樣式 */
     z-index: 10;
-    /* 確保按鈕顯示在圖片上方 */
+ 
 }
 
-/* prev 按鈕的位置 */
+
 .prev {
     left: -50px;
-    /* 向左偏移，固定在圖片外 */
+    
 }
 
-/* next 按鈕的位置 */
+
 .next {
     right: -50px;
-    /* 向右偏移，固定在圖片外 */
+    
 }
 
-/* 按鈕懸停效果 */
+
 .prev:hover,
 .next:hover {
     background-color: rgba(0, 0, 0, 0.8);
-    /* 懸停時背景加深 */
+   
     color: white;
 }
 
@@ -221,6 +204,36 @@ div {
     }
 }
 
+.buy-button-container {
+    position: fixed; /* 固定位置 */
+    bottom: 0; /* 距離底部 20px */
+    right: 20px; /* 距離右側 20px */
+    z-index: 1000;
+    margin: 0;
+}
+
+.buy-now-button {
+    background-color: #928c80d5; /* 按鈕背景色 */
+    color: #FFF; /* 按鈕文字顏色 */
+    border: none;
+    padding: 10px 20px; /* 調小按鈕尺寸 */
+    font-size: 18px; /* 調小文字大小 */
+    font-weight: bold;
+    border-radius: 8px; /* 縮小圓角設計 */
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* 按鈕陰影 */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.buy-now-button:hover {
+    background-color: #736d63; /* 滑鼠懸停時的背景色 */
+    transform: scale(1.1); /* 放大按鈕效果 */
+}
+
+
+
+
+
 /**************************************************/
 .card {
     display: flex;
@@ -243,16 +256,16 @@ div {
         background-position: center !important;
         padding: 1em 2em;
         border-radius: 25px;
-        /* 確保是正方形 */
+     
         transition-timing-function: cubic-bezier(.175, .885, .32, 1.275);
         transition-duration: .5s;
         transition-property: transform, opacity;
         display: flex;
-        /* 使用 Flexbox */
+       
         align-items: center;
-        /* 垂直居中 */
+      
         justify-content: center;
-        /* 水平居中 */
+      
 
     }
 
@@ -316,11 +329,8 @@ div {
 .my-element {
     display: inline-block;
     margin: 0 0.5rem;
-
-    animation: bounce;
-    /* referring directly to the animation's @keyframe declaration */
-    animation-duration: 2s;
-    /* don't forget to set a duration! */
+    animation: bounce 500ms ease-in-out; /* 將持續時間設為 500ms 並使用平滑過渡效果 */
 }
+
 
 /*********************************/

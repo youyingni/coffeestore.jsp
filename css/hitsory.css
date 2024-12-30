@@ -3,13 +3,25 @@ body {
     margin: 0;
     font-family: 'LXGW WenKai Mono TC', monospace;
     background: #DDCDc3;
-    color:  #928c80d5;
+    color: #928c80d5;
+
+    min-height: 100vh;
+}
+
+.txt {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    padding: 20px;
+}
+
+main {
+    width: 100%;
+    max-width: 800px;
+    /* 限制内容宽度 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* 标题居中 */
@@ -26,13 +38,7 @@ header h1 {
 }
 
 /* 订单样式 */
-main {
-    width: 100%;
-    max-width: 800px; /* 限制内容宽度 */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+
 
 /* 订单卡片 */
 .order {
@@ -43,7 +49,8 @@ main {
     padding: 20px;
     width: 100%;
     transition: transform 0.3s, box-shadow 0.3s;
-    text-align: center; /* 确保文本居中 */
+    text-align: center;
+    /* 确保文本居中 */
 }
 
 .order:hover {
@@ -95,6 +102,7 @@ main {
         opacity: 0;
         transform: scale(0.9);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -114,16 +122,12 @@ main {
     color: #555;
 }
 
-.logistics p strong {
-    color: #333;
+body {
+    overflow-x: hidden;
 }
 
-/* 页脚 */
-footer {
-    text-align: center;
-    margin-top: 30px;
-    color: #777;
-    font-size: 0.9rem;
+.logistics p strong {
+    color: #333;
 }
 
 /* 鼠标悬停效果 */
@@ -164,7 +168,50 @@ footer {
         height: 80px;
     }
 
-    .product-info p, .logistics p {
+    .product-info p,
+    .logistics p {
         font-size: 0.9rem;
     }
+}
+
+
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.logo {
+    border-radius: 100%;
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+    /* 保持圖片比例，防止拉伸 */
+    margin-right: 5px;
+}
+
+
+/* Navigation */
+.main-nav ul {
+    display: grid;
+    grid-gap: 20px;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.main-nav a {
+    background-color: #b1aeaeda;
+    display: block;
+    text-decoration: none;
+    padding: 12px;
+    text-align: center;
+    color: #1a0c04;
+    text-transform: uppercase;
+    font-size: 23px;
+    box-shadow: var(--shadow);
+}
+
+.main-nav a:hover {
+    background: #cbb4a8;
+    color: #fff;
 }

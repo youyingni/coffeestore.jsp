@@ -14,6 +14,10 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+body {
+  overflow-x: hidden;
+}
+
 h2 {
   text-align: left;
   color: #333;
@@ -92,20 +96,23 @@ textarea {
 
 /* 成功訊息 */
 .thank-you-modal {
-  display: none; /* 預設為隱藏 */
+  display: none;
+  /* 預設為隱藏 */
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* 背景半透明 */
+  background: rgba(0, 0, 0, 0.5);
+  /* 背景半透明 */
   z-index: 1000;
   justify-content: center;
   align-items: center;
 }
 
 .thank-you-content {
-  background: #fef6f0; /* 背景色 */
+  background: #fef6f0;
+  /* 背景色 */
   padding: 20px 30px;
   border-radius: 10px;
   text-align: center;
@@ -118,22 +125,26 @@ textarea {
 /* 響應式設計：桌面 (適配寬度大於 1024px 的螢幕) */
 @media screen and (min-width: 1024px) {
   .container {
-    max-width: 400px; /* 更寬的表單容器 */
+    max-width: 400px;
+    /* 更寬的表單容器 */
     padding: 30px;
   }
 
   h2 {
-    font-size: 1.8em; /* 放大標題文字 */
+    font-size: 1.8em;
+    /* 放大標題文字 */
   }
 
   input,
   textarea,
   select {
-    font-size: 1em; /* 調整表單文字大小 */
+    font-size: 1em;
+    /* 調整表單文字大小 */
   }
 
   .buttons button {
-    font-size: 1.2em; /* 增大按鈕字體 */
+    font-size: 1.2em;
+    /* 增大按鈕字體 */
     padding: 10px 20px;
   }
 }
@@ -141,14 +152,16 @@ textarea {
 /* 響應式設計：平板 (適配寬度為 768px 至 1024px 的螢幕) */
 @media screen and (max-width: 1024px) and (min-width: 768px) {
   .container {
-    max-width: 500px; /* 容器稍窄 */
+    max-width: 500px;
+    /* 容器稍窄 */
     padding: 25px;
   }
 
   input,
   textarea,
   select {
-    font-size: 0.95em; /* 調整表單文字大小 */
+    font-size: 0.95em;
+    /* 調整表單文字大小 */
   }
 
   .buttons button {
@@ -159,54 +172,66 @@ textarea {
 /* 響應式設計：手機 (適配寬度小於 768px 的螢幕) */
 @media screen and (max-width: 768px) {
   body {
-    padding: 10px; /* 減少全局邊距 */
+    padding: 10px;
+    /* 減少全局邊距 */
   }
 
   .container {
-    max-width: 90%; /* 表單容器占螢幕 90% 寬度 */
+    max-width: 90%;
+    /* 表單容器占螢幕 90% 寬度 */
     padding: 15px;
   }
 
   h2 {
-    font-size: 1.5em; /* 縮小標題文字 */
+    font-size: 1.5em;
+    /* 縮小標題文字 */
   }
 
   input,
   textarea,
   select {
     font-size: 0.9em;
-    padding: 6px; /* 減少內邊距 */
+    padding: 6px;
+    /* 減少內邊距 */
   }
 
   textarea {
-    height: 100px; /* 減小高度 */
+    height: 100px;
+    /* 減小高度 */
   }
 
   .radio-group {
-    flex-direction: column; /* 改為垂直排列 */
+    flex-direction: column;
+    /* 改為垂直排列 */
     gap: 5px;
   }
 
   .buttons {
-    flex-direction: column; /* 按鈕改為垂直排列 */
+    flex-direction: column;
+    /* 按鈕改為垂直排列 */
     gap: 10px;
   }
 
   .buttons button {
-    width: 100%; /* 按鈕占滿寬度 */
-    font-size: 0.9em; /* 縮小按鈕字體 */
+    width: 100%;
+    /* 按鈕占滿寬度 */
+    font-size: 0.9em;
+    /* 縮小按鈕字體 */
   }
 
   .thank-you-content {
-    font-size: 1em; /* 縮小成功訊息文字 */
-    padding: 15px; /* 減少內邊距 */
+    font-size: 1em;
+    /* 縮小成功訊息文字 */
+    padding: 15px;
+    /* 減少內邊距 */
   }
 }
 
 /* 響應式設計：超小屏幕 (適配寬度小於 480px 的螢幕) */
 @media screen and (max-width: 480px) {
   h2 {
-    font-size: 1.2em; /* 繼續縮小標題文字 */
+    font-size: 1.2em;
+    /* 繼續縮小標題文字 */
   }
 
   input,

@@ -170,3 +170,17 @@ document.addEventListener("scroll", function () {
     const opacity = Math.max(0.85, 1 - scrollY / headerHeight);
     header.style.opacity = opacity;
 });
+/********************************** */
+let lastScrollY = window.scrollY; // 儲存上一次滾動位置
+const nav = document.querySelector("nav"); // 選取你的 NAV 元素
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > lastScrollY) {
+        // 向下滾動，隱藏 NAV
+        nav.classList.add("hidden");
+    } else {
+        // 向上滾動，顯示 NAV
+        nav.classList.remove("hidden");
+    }
+    lastScrollY = window.scrollY; // 更新滾動位置
+});

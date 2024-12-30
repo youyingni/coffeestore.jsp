@@ -8,11 +8,14 @@ body {
     align-items: center;
 }
 
+* {
+    box-sizing: border-box;
+}
 
 .container {
     width: 100%;
-    max-width: 500px; 
-    background-color: #e7c389; 
+    max-width: 500px;
+    background-color: #e7c389;
     border: 1px solid #ddd;
     padding: 30px;
     border-radius: 12px;
