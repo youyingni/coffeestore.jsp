@@ -85,6 +85,26 @@
         stroke-dashoffset: 0;
       }
     }
+
+    .additional-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .additional-buttons button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+
   </style>
 
   <style>
@@ -332,20 +352,23 @@
       </div>
     </div>
 
-    <button class="checkout" id="completePurchase">完成訂單</button>
-    <div class="overlay" id="overlay"></div>
-    <div class="modal" id="purchaseModal">
-      <p>購買已完成</p>
-      <svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
-        <g stroke="currentColor" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round"
-          stroke-linejoin="round">
-          <path class="circle"
-            d="M13 1C6.372583 1 1 6.372583 1 13s5.372583 12 12 12 12-5.372583 12-12S19.627417 1 13 1z" />
-          <path class="tick" d="M6.5 13.5L10 17l8.808621-8.308621" />
-        </g>
-      </svg>
-      <a href="index.html"><button onclick="closeModal()">回到首頁</button></a>
-      <a href="order.html"><button onclick="viewOrderDetails()">訂單詳情</button></a>
+    <div class="button-container">
+      <a href="Product_interface.html"><button class="return">繼續選購</button></a>
+      <button class="checkout" id="completePurchase">完成訂單</button>
+      <div class="overlay" id="overlay"></div>
+      <div class="modal" id="purchaseModal">
+        <p>購買已完成</p>
+        <svg viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="currentColor" stroke-width="2" fill="none" fill-rule="evenodd" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path class="circle"
+              d="M13 1C6.372583 1 1 6.372583 1 13s5.372583 12 12 12 12-5.372583 12-12S19.627417 1 13 1z" />
+            <path class="tick" d="M6.5 13.5L10 17l8.808621-8.308621" />
+          </g>
+        </svg>
+        <a href="coffee.html"><button onclick="closeModal()">回到首頁</button></a>
+        <a href="order.html"><button onclick="viewOrderDetails()">訂單詳情</button></a>
+      </div>
     </div>
 
 
@@ -365,11 +388,11 @@
         overlay.style.display = "block";
       });
 
-      // 關閉模態框
-      function closeModal() {
-        modal.style.display = "none";
-        overlay.style.display = "none";
-      }
+// 關閉模態框
+function closeModal() {
+    modal.style.display = "none";
+    overlay.style.display = "none";
+}
 
       // 查看訂單詳情
       function viewOrderDetails() {
