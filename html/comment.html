@@ -280,6 +280,14 @@
             function sortComments(order) {
                 const board = document.getElementById("comments-board");
                 const comments = Array.from(board.getElementsByClassName("comment"));
+
+                // 保留當前按讚狀態
+                comments.forEach(comment => {
+                    const likeButton = comment.querySelector('.like-button');
+                    const isLiked = likeButton.classList.contains('liked');
+                    comment.setAttribute('data-liked', isLiked);
+                });
+
                 // 根據排序條件進行排列
                 if (order === "newest") {
                     comments.sort((a, b) => new Date(b.getAttribute("data-date")) - new Date(a.getAttribute("data-date")));
@@ -288,14 +296,31 @@
                 } else if (order === "popular") {
                     comments.sort((a, b) => b.getAttribute("data-likes") - a.getAttribute("data-likes"));
                 }
+
                 // 清空當前留言內容，只清空留言部分
                 comments.forEach(comment => comment.remove());
-                // 重新插入排序後的留言
-                comments.forEach(comment => board.appendChild(comment));
+
+                // 重新插入排序後的留言，並恢復按讚狀態
+                comments.forEach(comment => {
+                    board.appendChild(comment);
+                    const isLiked = comment.getAttribute('data-liked') === 'true';
+                    const likeButton = comment.querySelector('.like-button');
+                    const iconElement = likeButton.querySelector('iconify-icon');
+
+                    if (isLiked) {
+                        likeButton.classList.add('liked');
+                        iconElement.setAttribute('icon', 'material-symbols:thumb-up');
+                    } else {
+                        likeButton.classList.remove('liked');
+                        iconElement.setAttribute('icon', 'material-symbols:thumb-up-outline');
+                    }
+                });
+
                 // 隱藏下拉選單
                 const dropdown = document.getElementById('sort-dropdown');
                 dropdown.style.display = 'none';
             }
+
             // 修正點擊下拉選單時的事件綁定
             function toggleDropdown() {
                 const dropdown = document.getElementById('sort-dropdown');
