@@ -1,13 +1,15 @@
 * {
   box-sizing: border-box;
 }
-p{
+
+p {
 
   font-weight: 700;
   font-family: "LXGW WenKai Mono TC", monospace;
- 
+
 }
-h4{
+
+h4 {
   line-height: 2.2rem;
   font-weight: 400;
 
@@ -26,6 +28,7 @@ body {
   background-color: #513518;
   color: white;
 }
+
 .navbar-icons {
   display: flex;
   align-items: center;
@@ -35,12 +38,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color: #efebe2;
 }
+
+
 
 .icons {
   width: 40px;
   height: 40px;
 }
+
 .container {
   background-color: #DDCDC3;
   display: flex;
@@ -68,14 +75,15 @@ body {
 
 .product {
   display: flex;
-  flex-direction: row; /* 內容左右排列 */
+  flex-direction: row;
+  /* 內容左右排列 */
   background-color: #efebe2;
   gap: 80px;
   padding: 50px;
   padding-left: 300px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  
+
 }
 
 .product-image {
@@ -90,7 +98,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  
+
 }
 
 .product-details h1 {
@@ -176,38 +184,55 @@ body {
   transition: color 0.2s;
 }
 
-/* 左右間距vfheuvhurivbhuievbeu */
+/* 左右間距 */
 .reviews-container {
   display: flex;
-  gap: 20px; /* 左右間距 */
+  gap: 20px;
+  /* 左右間距 */
 }
 
 .rating-section,
 .comments-section {
-  flex: 1; /* 左右各占一半寬度 */
+  flex: 1;
+  /* 左右各占一半寬度 */
 }
 
 .rating-section {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* 評分項目間的間距 */
+  gap: 15px;
+  /* 評分項目間的間距 */
 }
 
 .comments-section {
   display: flex;
   flex-direction: column;
-  gap: 1px; /* 評論間距 */
+  gap: 1px;
+  /* 評論間距 */
 }
 
 .comment {
   padding: 5px;
-  border-bottom: 1px solid #ddd; /* 下方的分隔線 */
+  border-bottom: 1px solid #ddd;
+  /* 下方的分隔線 */
 }
 
 textarea {
   width: 95%;
   height: 350px;
-  resize: none; /* 禁止調整大小 */
+  resize: none;
+  /* 禁止調整大小 */
+}
+
+.submit {
+  font-size: 20px;
+  padding: 10px 20px;
+  background-color: #000000;
+  border: none;
+  width: 95%;
+  color: white;
+  cursor: pointer;
+
 }
 
 button {
@@ -220,7 +245,8 @@ button {
 }
 
 button:hover {
-  background-color: #f6a200; /* 按鈕懸停時的顏色 */
+  background-color: #f6a200;
+  /* 按鈕懸停時的顏色 */
 }
 
 .related-products {
@@ -252,7 +278,7 @@ button:hover {
 
 .card-img-top {
   min-width: 250px;
-  width:250px;
+  width: 250px;
   min-height: 250px;
   height: 250px;
   border-radius: 10px;
@@ -280,10 +306,12 @@ button:hover {
 
 .button-container {
   display: flex;
-  justify-content: flex-start; /* 按鈕靠左 */
-  align-items: center; /* 垂直居中 */
-  gap: 25px; /* 按鈕之間的間距 */
-  margin-top: 20px; /* 與上方內容保持距離 */
+  justify-content: flex-start;
+  /* 按鈕靠左 */
+  align-items: center;
+  /* 垂直居中 */
+  gap: 25px;
+  margin-top: 20px;
 }
 
 
@@ -297,6 +325,7 @@ button:hover {
   position: fixed;
   bottom: 20px;
 }
+
 .new-version a {
   color: #2bd156;
   text-decoration: none;
@@ -310,6 +339,7 @@ button:hover {
   align-items: center;
   justify-content: center;
 }
+
 /*購物車按鈕*/
 .page-wrapper button {
   margin: auto;
@@ -323,6 +353,7 @@ button:hover {
   font-family: "LXGW WenKai Mono TC", monospace;
   font-size: 18px;
 }
+
 .page-wrapper button .cart-item {
   position: absolute;
   height: 24px;
@@ -330,6 +361,7 @@ button:hover {
   top: -10px;
   right: -10px;
 }
+
 .page-wrapper button .cart-item:before {
   content: "+";
   display: block;
@@ -343,17 +375,20 @@ button:hover {
   border-radius: 20px;
   text-align: center;
 }
+
 /* 位置*/
 .page-wrapper button.sendtocart .cart-item {
   display: block;
-  animation: xAxis 1s forwards cubic-bezier(1, 0.8, 0.84, 1.6);
+  animation: xAxis 1s forwards cubic-bezier(1, 0.8, 0.84, 2);
 }
+
 .page-wrapper button.sendtocart .cart-item:before {
-  animation: yAxis 1s alternate forwards cubic-bezier(0.3, 0.84, 0.6, 2.0);
+  animation: yAxis 1s alternate forwards cubic-bezier(0.3, 0.84, 0.6, 3.0);
 }
 
 .cart {
-  position: relative; /* 從 absolute 改為 relative */
+  position: relative;
+  /* 從 absolute 改為 relative */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -364,8 +399,10 @@ button:hover {
   font-size: 12px;
   font-weight: 600;
   position: absolute;
-  top: -5px; /* 微調位置 */
-  right: -5px; /* 微調位置 */
+  top: -5px;
+  /* 微調位置 */
+  right: -5px;
+  /* 微調位置 */
   background: #2bd156;
   line-height: 16px;
   padding: 0 5px;
@@ -382,26 +419,32 @@ button:hover {
 .cart.shake {
   animation: shakeCart 0.4s ease-in-out forwards;
 }
+
 @keyframes xAxis {
   100% {
     transform: translateX(calc(50vw - 105px));
   }
 }
+
 @keyframes yAxis {
   100% {
     transform: translateY(calc(-50vh + 75px));
   }
 }
+
 @keyframes shakeCart {
   25% {
     transform: translateX(6px);
   }
+
   50% {
     transform: translateX(-4px);
   }
+
   75% {
     transform: translateX(2px);
   }
+
   100% {
     transform: translateX(0);
   }
@@ -455,12 +498,14 @@ button:hover {
   display: block;
   animation: xAxis 1s forwards cubic-bezier(1, 0.8, 0.84, 1.6);
 }
+
 .pages-wrapper button.sendtocart .heart-item:before {
   animation: yAxis 1s alternate forwards cubic-bezier(0.3, 0.84, 0.6, 2.0);
 }
 
 .heart {
-  position: relative; /* 從 absolute 改為 relative */
+  position: relative;
+  /* 從 absolute 改為 relative */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -488,9 +533,146 @@ button:hover {
 }
 
 @keyframes shakeHeart {
-  25% { transform: translateX(6px); }
-  50% { transform: translateX(-4px); }
-  75% { transform: translateX(2px); }
-  100% { transform: translateX(0); }
+  25% {
+    transform: translateX(6px);
+  }
+
+  50% {
+    transform: translateX(-4px);
+  }
+
+  75% {
+    transform: translateX(2px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
+
+
+
+
+@media (max-width: 768px) {
+  .product {
+      flex-direction: column; /* 改為上下排列 */
+      align-items: center; /* 居中 */
+      gap: 20px; /* 增加間距 */
+      padding: 20px;
+  }
+
+  .product-image {
+      width: 200px; /* 縮小圖片寬度 */
+      height: 200px;
+  }
+
+  .product-details {
+      text-align: center; /* 文字居中 */
+  }
+
+  .product-details .options button {
+      display: block; /* 每個按鈕獨占一行 */
+      width: 100%; /* 滿版按鈕 */
+      margin: 5px 0;
+  }
+
+  .quantity {
+      flex-direction: column; /* 垂直排列數量調整區域 */
+      gap: 10px;
+  }
+
+  .quantity button {
+      width: 100%;
+  }
+
+  .button-container {
+  display: flex; /* 水平排列 */
+  justify-content: space-between; /* 按鈕左右對齊 */
+  align-items: center; /* 垂直居中 */
+  gap: 20px; /* 按鈕間距 */
+  margin-top: 20px;
+}
+
+.button-container button {
+  flex: 1; /* 按鈕平分可用空間 */
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* 每個選項區塊的間距 */
+  margin-bottom: 20px;
+}
+
+.sweetness,
+.ice {
+  display: flex; /* 水平排列按鈕 */
+  justify-content: space-between; /* 按鈕均分排列 */
+  gap: 10px; /* 按鈕之間的間距 */
+}
+
+.sweetness button{
+  flex: 1; 
+  width: 30%;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.ice button {
+flex: 1; 
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+
+
+}
+
+  }
+
+
+@media (max-width: 768px) {
+  .related-products .product-grid {
+      justify-content: center; /* 居中對齊 */
+      gap: 20px; /* 卡片間距 */
+  }
+
+  .card {
+      max-width: 48%;
+      box-sizing: border-box;
+  }
+
+  .card-img-top {
+      max-width: 140px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .related-products .product-grid {
+      flex-wrap: wrap; /* 啟用換行 */
+      justify-content: center; /* 居中對齊 */
+      gap: 20px; /* 卡片間距 */
+  }
+
+  .card {
+    width: 30%;
+    min-height: 35%;
+}
+
+  .card-img-top {
+      min-width: 140px; /* 圖片隨卡片大小縮放 */
+      min-height: 35px;
+  }
+}
+
+
+
+
 

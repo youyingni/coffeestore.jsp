@@ -161,7 +161,7 @@ label {
 }
 
 .checkout {
-  display: block;
+  display: inline-block;
   margin: 20px 0 0 auto;
   text-align: center;
   width: 24%;
@@ -179,6 +179,31 @@ label {
   background-color: #494;
 }
 
+.return {
+  display: inline-block;
+  margin: 20px 0 0 auto;
+  text-align: center;
+  width: 250px;
+  padding: 10px 25px;
+  background-color: #28a745;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.return:hover {
+  background-color: #218838;
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
 /* 付款方式容器樣式 */
 .payment-methods {
   margin: 20px auto;
@@ -318,4 +343,16 @@ label {
 
 #cancelChanges:hover {
   background-color: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+
+  .return {
+      width: 100%;
+      margin-top: 10px;
+  }
+  .checkout{
+    margin-top: 10px;
+
+  }
 }

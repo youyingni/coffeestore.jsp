@@ -205,10 +205,10 @@ body,
 .hello-parent {
     display: flex;
     background: #fff;
-    background: -webkit-radial-gradient(#fff, #eaeaea);
-    background: -o-radial-gradient(#fff, #eaeaea);
-    background: -moz-radial-gradient(#fff, #eaeaea);
-    background: radial-gradient(#fff, #eaeaea);
+    background: -webkit-radial-gradient(hsl(0, 0%, 100%), #ffffff);
+    background: -o-radial-gradient(#ffffff, hsl(0, 0%, 100%));
+    background: -moz-radial-gradient(#fff, #ffffff);
+    background: radial-gradient(#ccc8c4, #7d7976);
 
 }
 
@@ -513,3 +513,40 @@ body,
 }
 
 /**********************/
+@media (max-width: 768px) {
+    .carousel {
+        max-width: 100%;
+        height: auto;
+    }
+    .carousel-item__info {
+        width: 100%;
+        padding: 10px;
+    }
+
+
+    @media (max-width: 768px) {
+        #primary_nav_wrap ul {
+            flex-direction: column; /* 縱向排列 */
+            align-items: flex-start;
+            background: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    
+        #primary_nav_wrap ul li {
+            width: 100%; /* 每個選項占滿整行 */
+            margin: 5px 0;
+        }
+    
+        #primary_nav_wrap ul li ul {
+            position: static; /* 子選單改為靜態位置 */
+            display: block; /* 子選單直接展開 */
+            padding-left: 20px; /* 增加縮排 */
+        }
+    }
+
+    nav{
+        width: 20%;
+    }
+
+}

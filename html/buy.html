@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>咖啡訂單介面</title>
+  <title>咖啡購買介面</title>
   <link rel="stylesheet" href="../css/style.css">
   <link
     href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap"
@@ -34,6 +34,11 @@
       font-weight: 400;
       border-radius: 10px;
     }
+
+    a {
+      margin-left: 15px;
+      color: aliceblue;
+    }
   </style>
 
 </head>
@@ -43,15 +48,15 @@
   <nav class="navbar">
     <div class="aa">
       <div>
-        <a href="coffee.html"><img class="logo" src='../img/OIP.jpg'></a>
+        <a href="index.html"><img class="logo" src='../img/OIP.jpg'></a>
       </div>
       <div class="navbar-icons">
-        <a href="heart.html" class="heart-link">
+        <a href="like.html" class="heart-link">
           <div id="heart" class="heart" data-totalitems="0">
             <img src="../image/heart.png" alt="heart" class="icons mx-2">
           </div>
         </a>
-        <a href="#"><img src="../image/member.png" alt="member" class="icons mx-2"></a>
+        <a href="login.html"><img src="../image/member.png" alt="member" class="icons mx-2"></a>
 
 
         <!-- cart特效 -->
@@ -144,7 +149,7 @@
               width="40"></iconify-icon>
           </div>
           <textarea placeholder="留下評論..."></textarea>
-          <button>送出</button>
+          <button class="submit">送出</button>
         </div>
 
         <!-- 右側: 商品評論 -->

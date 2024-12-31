@@ -20,7 +20,7 @@
 
     <nav id="primary_nav_wrap">
         <ul>
-            <li><a href="coffee.html"><img class="logo" src='../img/OIP.jpg'></a></li>
+            <li><a href="index.html"><img class="logo" src='../img/OIP.jpg'></a></li>
             <li><a href="#">紓咖商品</a>
                 <ul>
                     <li>
@@ -31,16 +31,16 @@
                     </li>
                 </ul>
             </li>
-            <li><a href="Yoga_interface.html">紓咖瑜珈</a>
+            <li><a href="class.html">紓咖瑜珈</a>
                 <ul>
                     <li>
-                        <a href="#">初階課程</a>
+                        <a href="yoga.html#yoga10">初階課程</a>
                     </li>
                     <li>
-                        <a href="#">進階課程</a>
+                        <a href="yoga.html#yoga20">進階課程</a>
                     </li>
                     <li>
-                        <a href="#">推薦課程</a>
+                        <a href="class.html#yoga30">推薦課程</a>
                     </li>
                 </ul>
             </li>
@@ -72,16 +72,18 @@
             <ul>
 
                 <li>
-                    <iconify-icon icon="mdi:heart" width="40px" height="40px" style="color: #fe0000"></iconify-icon>
+                    <a href="like.html">
+                        <iconify-icon icon="mdi:heart" width="40px" height="40px" style="color: #fe0000"></iconify-icon>
+                    </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="login.html">
                         <iconify-icon icon="bi:people-circle" width="30px" height="30px"></iconify-icon>
                     </a>
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="cart.html">
                         <iconify-icon icon="guidance:shop" width="30px" height="30px"></iconify-icon>
                     </a>
                 </li>
@@ -278,6 +280,14 @@
             function sortComments(order) {
                 const board = document.getElementById("comments-board");
                 const comments = Array.from(board.getElementsByClassName("comment"));
+
+                // 保留當前按讚狀態
+                comments.forEach(comment => {
+                    const likeButton = comment.querySelector('.like-button');
+                    const isLiked = likeButton.classList.contains('liked');
+                    comment.setAttribute('data-liked', isLiked);
+                });
+
                 // 根據排序條件進行排列
                 if (order === "newest") {
                     comments.sort((a, b) => new Date(b.getAttribute("data-date")) - new Date(a.getAttribute("data-date")));
@@ -286,14 +296,31 @@
                 } else if (order === "popular") {
                     comments.sort((a, b) => b.getAttribute("data-likes") - a.getAttribute("data-likes"));
                 }
+
                 // 清空當前留言內容，只清空留言部分
                 comments.forEach(comment => comment.remove());
-                // 重新插入排序後的留言
-                comments.forEach(comment => board.appendChild(comment));
+
+                // 重新插入排序後的留言，並恢復按讚狀態
+                comments.forEach(comment => {
+                    board.appendChild(comment);
+                    const isLiked = comment.getAttribute('data-liked') === 'true';
+                    const likeButton = comment.querySelector('.like-button');
+                    const iconElement = likeButton.querySelector('iconify-icon');
+
+                    if (isLiked) {
+                        likeButton.classList.add('liked');
+                        iconElement.setAttribute('icon', 'material-symbols:thumb-up');
+                    } else {
+                        likeButton.classList.remove('liked');
+                        iconElement.setAttribute('icon', 'material-symbols:thumb-up-outline');
+                    }
+                });
+
                 // 隱藏下拉選單
                 const dropdown = document.getElementById('sort-dropdown');
                 dropdown.style.display = 'none';
             }
+
             // 修正點擊下拉選單時的事件綁定
             function toggleDropdown() {
                 const dropdown = document.getElementById('sort-dropdown');
