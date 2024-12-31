@@ -204,6 +204,7 @@ label {
   align-items: center;
   margin-top: 20px;
 }
+
 /* 付款方式容器樣式 */
 .payment-methods {
   margin: 20px auto;
@@ -348,10 +349,11 @@ label {
 @media (max-width: 768px) {
 
   .return {
-      width: 100%;
-      margin-top: 10px;
+    width: 100%;
+    margin-top: 10px;
   }
-  .checkout{
+
+  .checkout {
     margin-top: 10px;
 
   }
