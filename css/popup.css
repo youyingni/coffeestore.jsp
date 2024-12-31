@@ -159,3 +159,76 @@
         opacity: 1;
     }
 }
+/* 平板 */
+@media (max-width: 768px) {
+    .md-modal {
+        width: 80%; 
+        max-width: 700px;
+        min-width: 300px; 
+        padding: 10px; 
+        border-radius: 10px; 
+    }
+
+    .md-content {
+        padding: 15px 20px; 
+        font-size: 1rem; 
+    }
+
+    .md-content h3 {
+        font-size: 1.8rem; 
+        text-align: center;
+    }
+
+    .md-content>div {
+        padding: 10px 15px; 
+    }
+
+    .md-content button {
+        font-size: 1rem; 
+        padding: 8px 12px; 
+    }
+}
+
+/* 手機*/
+@media (max-width: 360px) {
+    .md-modal {
+        width: 95%; 
+        max-width: none; 
+        min-width: 0; 
+        padding: 5px; 
+        border-radius: 8px; 
+    }
+
+    .md-content {
+        padding: 10px; 
+        font-size: 0.9rem; 
+    }
+
+    .md-content h3 {
+        font-size: 1.5rem; 
+        padding: 5px;
+        text-align: center; 
+    }
+
+    .md-content>div {
+        padding: 5px 10px; 
+    }
+
+    .md-content button {
+        font-size: 0.8rem; 
+        padding: 6px 8px; 
+    }
+}
+
+
+.md-content {
+    max-width: 100%; 
+    box-sizing: border-box; 
+    overflow-x: auto; 
+}
+
+
+.md-content p, .md-content div {
+    word-wrap: break-word; 
+    word-break: break-word; 
+}

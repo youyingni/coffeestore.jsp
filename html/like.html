@@ -34,7 +34,10 @@
                 <p>商品分類：<strong>食品</strong></p>
                 <p>狀態：<span class="in-stock">有貨</span></p>
                 <p>評價：⭐⭐⭐⭐☆ (200 評價)</p>
-                <button class="cart-btn">加入購物車</button>
+                <button class="cart-btn" data-product-id="1">加入購物車</button>
+                <div class="cart-message" style="display: none; margin-top: 10px; color: green; font-weight: bold;">
+                    已加入購物車
+                </div>
                 <button class="delete-btn">移除收藏 🗑️</button>
                 <div class="notifications">
                     <input type="checkbox" id="notify-price-1"> <label for="notify-price-1">價格變動通知</label>
@@ -52,7 +55,10 @@
                 <p>商品分類：<strong>課程</strong></p>
                 <p>狀態：<span class="out-of-stock">缺貨</span></p>
                 <p>評價：⭐⭐⭐⭐⭐ (1500 評價)</p>
-                <button class="cart-btn" disabled>加入購物車</button>
+                <button class="cart-btn" data-product-id="2" disabled>加入購物車</button>
+                <div class="cart-message" style="display: none; margin-top: 10px; color: green; font-weight: bold;">
+                    已加入購物車
+                </div>
                 <button class="delete-btn">移除收藏 🗑️</button>
                 <div class="notifications">
                     <input type="checkbox" id="notify-price-2"> <label for="notify-price-2">價格變動通知</label>
@@ -70,7 +76,10 @@
                 <p>商品分類：<strong>食品</strong></p>
                 <p>狀態：<span class="sale">特價 20% 折扣</span></p>
                 <p>評價：⭐⭐⭐☆☆ (300 評價)</p>
-                <button class="cart-btn">加入購物車</button>
+                <button class="cart-btn" data-product-id="3">加入購物車</button>
+                <div class="cart-message" style="display: none; margin-top: 10px; color: green; font-weight: bold;">
+                    已加入購物車
+                </div>
                 <button class="delete-btn">移除收藏 🗑️</button>
                 <div class="notifications">
                     <input type="checkbox" id="notify-price-3"> <label for="notify-price-3">價格變動通知</label>
@@ -81,12 +90,28 @@
     </div>
 
     <script>
-        // 移除收藏按鈕點擊動畫
+      
+        document.querySelectorAll('.cart-btn').forEach(button => {
+            button.addEventListener('click', () => {
+              
+                const product = button.closest('.product');
+                const cartMessage = product.querySelector('.cart-message');
+
+               
+                cartMessage.style.display = 'block';
+
+              
+                setTimeout(() => {
+                    cartMessage.style.display = 'none';
+                }, 2000);
+            });
+        });
+
+        // 移除收藏功能
         document.querySelectorAll('.delete-btn').forEach(button => {
             button.addEventListener('click', () => {
                 const product = button.closest('.product');
-                product.classList.add('removing');
-                setTimeout(() => product.remove(), 300);
+                product.remove();
             });
         });
     </script>

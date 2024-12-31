@@ -335,7 +335,7 @@ div {
     /* 白色背景區塊 */
     border-radius: 50px;
     padding: 20px;
-    margin: 30px;
+    margin: 20px 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -414,3 +414,42 @@ div {
     white-space: nowrap;
     /* 防止文字換行 */
 }
+
+.buy-button-container {
+    position: fixed;
+    /* 固定位置 */
+    bottom: 0;
+    /* 距離底部 20px */
+    right: 20px;
+    /* 距離右側 20px */
+    z-index: 1000;
+    margin: 0;
+}
+
+.buy-now-button {
+    background-color: #928c80d5;
+    /* 按鈕背景色 */
+    color: #FFF;
+    /* 按鈕文字顏色 */
+    border: none;
+    padding: 10px 20px;
+    /* 調小按鈕尺寸 */
+    font-size: 18px;
+    /* 調小文字大小 */
+    font-weight: bold;
+    border-radius: 8px;
+    /* 縮小圓角設計 */
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    /* 按鈕陰影 */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.buy-now-button:hover {
+    background-color: #736d63;
+    /* 滑鼠懸停時的背景色 */
+    transform: scale(1.1);
+    /* 放大按鈕效果 */
+}
+
+/**********************************************/

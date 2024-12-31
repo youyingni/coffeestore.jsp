@@ -204,6 +204,7 @@ label {
   align-items: center;
   margin-top: 20px;
 }
+
 /* 付款方式容器樣式 */
 .payment-methods {
   margin: 20px auto;
@@ -343,4 +344,17 @@ label {
 
 #cancelChanges:hover {
   background-color: #e0e0e0;
+}
+
+@media (max-width: 768px) {
+
+  .return {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .checkout {
+    margin-top: 10px;
+
+  }
 }

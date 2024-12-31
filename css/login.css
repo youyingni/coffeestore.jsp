@@ -25,21 +25,6 @@
 }
 
 
-:root {
-  --primary: #ddd;
-  --light: #fff;
-  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
-  --background-color: #DDCDc3;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  overflow-x: hidden;
-}
 
 
 
@@ -429,14 +414,144 @@ footer {
 }
 
 
-@keyframes marquee {
-  0% {
-    left: 0;
+/* 全局样式 */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+}
+
+/* 根变量 */
+:root {
+  --primary: #ddd;
+  --background: #DDCDc3;
+  --text: #1a0c04;
+  --accent: #57514d;
+}
+
+/* 通用样式 */
+.wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 1rem;
+}
+
+/* 导航栏 */
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background);
+  padding: 1rem;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 1rem;
+}
+
+.main-nav ul li a {
+  text-decoration: none;
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+.hamburger-menu {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* 热销课程轮播 */
+.hot-sale-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  scroll-snap-type: x mandatory;
+}
+
+.hot-sale-card {
+  flex: 0 0 300px;
+  border: 1px solid var(--text);
+  border-radius: 8px;
+  background-color: var(--background);
+  padding: 1rem;
+  scroll-snap-align: start;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 响应式设计 - 中型屏幕 */
+@media (max-width: 768px) {
+  .main-nav ul {
+      display: none;
+      flex-direction: column;
+      background-color: var(--background);
+      position: absolute;
+      top: 3rem;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
   }
 
-  100% {
-    left: -100%;
+  .main-nav ul.active {
+      display: flex;
+  }
+
+  .hamburger-menu {
+      display: block;
+  }
+
+  .hot-sale-carousel {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .hot-sale-card {
+      width: 90%;
   }
 }
 
-/**************************************************/
+/* 响应式设计 - 小型屏幕 */
+@media (max-width: 480px) {
+  .main-nav ul li a {
+      font-size: 14px;
+      padding: 0.5rem;
+  }
+
+  .showcase h1 {
+      font-size: 1.5rem;
+  }
+
+  .showcase p {
+      font-size: 1rem;
+  }
+
+  .buy-button {
+      font-size: 14px;
+      padding: 0.5rem 1rem;
+  }
+
+  .footer-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+  }
+
+  iframe {
+      width: 90%;
+      height: auto;
+  }
+}
