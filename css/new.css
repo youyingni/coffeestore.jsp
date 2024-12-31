@@ -104,3 +104,89 @@ body {
     text-align: center;
     margin-top: 10px;
 }
+
+
+
+@media (max-width: 768px) {
+    body {
+        height: auto; 
+        flex-direction: column; 
+        padding: 10px; 
+    }
+
+    .main-nav {
+        top: 5px;
+        left: 5px;
+    }
+
+    .main-nav ul {
+        display: flex;
+        flex-wrap: wrap; 
+        gap: 5px; 
+    }
+
+    .main-nav a {
+        font-size: 14px;
+        padding: 8px 15px; 
+    }
+
+    .register-container {
+        max-width: 100%; 
+        padding: 15px; 
+        box-shadow: none; 
+    }
+
+    .form-group input {
+        width: 100%; 
+        padding: 6px; 
+    }
+
+    .register-button {
+        font-size: 14px; 
+        padding: 8px; 
+    }
+
+    .form-footer {
+        font-size: 12px; 
+    }
+}
+
+/* 手机设备 (宽度小于 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 5px; 
+    }
+
+    .main-nav ul {
+        flex-direction: column; 
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .main-nav a {
+        font-size: 12px; 
+        padding: 6px 10px;
+    }
+
+    .register-container {
+        padding: 10px; 
+        border-radius: 4px; 
+    }
+
+    .form-group input {
+        padding: 5px;
+    }
+
+    .register-button {
+        font-size: 12px;
+        padding: 6px; 
+    }
+
+    .form-footer {
+        font-size: 10px; 
+    }
+
+    #successMessage {
+        font-size: 12px; 
+    }
+}

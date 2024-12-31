@@ -334,3 +334,25 @@ div {
 
 
 /*********************************/
+
+
+/* 基本樣式保持不變 */
+/* 平板裝置 (寬度小於 768px) */
+@media (max-width: 768px) {
+    .background p {
+        font-size: 18px; /* 縮小字體大小 */
+        line-height: 28px; /* 行高適配縮小的字體 */
+        letter-spacing: 5px; /* 減小字間距 */
+        padding: 10px; /* 減少內邊距 */
+    }
+}
+
+/* 手機裝置 (寬度小於 480px) */
+@media (max-width: 480px) {
+    .background p {
+        font-size: 16px; /* 進一步縮小字體大小 */
+        line-height: 24px; /* 調整行高，確保易讀性 */
+        letter-spacing: 3px; /* 減少字間距 */
+        padding: 8px; /* 減少內邊距 */
+    }
+}
