@@ -414,3 +414,396 @@ div {
     white-space: nowrap;
     /* 防止文字換行 */
 }
+
+/********************************************/
+/* 響應式設計 - 寬度 768px 以下的裝置 */
+@media screen and (max-width: 768px) {
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #513518;
+        height: auto;
+        padding: 10px 0;
+        position: relative;
+        z-index: 1000;
+    }
+
+    /* 主選單容器 */
+    #primary_nav_wrap {
+        max-width: 768px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* 第一排 LOGO 和前四個選單（包含書咖說書） */
+    #primary_nav_wrap>ul {
+        display: flex;
+        flex-wrap: wrap;
+        /* 允許項目換行 */
+        justify-content: center;
+        /* 保持居中對齊 */
+        width: 100%;
+        gap: 2px;
+        /* 縮小選項之間的間距 */
+    }
+
+    #primary_nav_wrap>ul>li:first-child {
+        text-align: center;
+    }
+
+    #primary_nav_wrap>ul>li:nth-child(2),
+    #primary_nav_wrap>ul>li:nth-child(3),
+    #primary_nav_wrap>ul>li:nth-child(4),
+    #primary_nav_wrap>ul>li:nth-child(5) {
+        text-align: center;
+    }
+
+    /* 第二排 關於我們和留言意見 */
+    #primary_nav_wrap>ul>li:nth-child(6),
+    #primary_nav_wrap>ul>li:nth-child(7) {
+        text-align: center;
+    }
+
+    .logo {
+        width: 40px;
+        /* 縮小 LOGO 大小 */
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    /* 隱藏次選單，點擊時顯示 */
+    #primary_nav_wrap ul ul {
+        display: none;
+        /* 預設隱藏 */
+        position: absolute;
+        background-color: #513518;
+        z-index: 1001;
+        padding: 5px;
+        margin-top: 5px;
+        border-radius: 8px;
+    }
+
+    #primary_nav_wrap>ul>li {
+        padding: 2px;
+        /* 減少內邊距 */
+        font-size: 12px;
+        /* 調整字體大小 */
+        max-width: 70px;
+        /* 限制每個選項的寬度 */
+        margin: 0;
+        /* 移除外邊距 */
+        flex: 0 1 auto;
+        /* 自適應大小 */
+    }
+
+    /* 點擊時顯示次選單 */
+    #primary_nav_wrap ul li:focus-within>ul,
+    #primary_nav_wrap ul li:active>ul {
+        display: block;
+    }
+
+    /* 第三排 ICON */
+    .icon {
+        display: flex;
+        justify-content: center;
+        /* 保持 ICON 居中對齊 */
+        align-items: center;
+        /* 垂直居中對齊 */
+        width: 100%;
+        gap: 15px;
+        /* 調整 ICON 之間的間距 */
+        position: relative;
+        z-index: 1000;
+    }
+
+    .icon ul {
+        display: flex;
+        justify-content: center;
+        /* 保持 ICON 內部居中 */
+        align-items: center;
+        /* 垂直居中對齊 */
+        gap: 10px;
+        /* 調整內部 ICON 間距 */
+    }
+
+    /* 禁止選項再跑動 */
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+
+
+
+
+    /* FOOTER */
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        /* 垂直排列 */
+        align-items: center;
+        /* 水平居中 */
+        text-align: center;
+        /* 文字置中 */
+        gap: 20px;
+        /* 增加子項目間距 */
+        padding: 20px;
+        /* 增加內邊距 */
+    }
+
+    .left-section,
+    .right-section {
+        width: 100%;
+        /* 讓左右區塊佔滿父容器 */
+        display: flex;
+        flex-direction: column;
+        /* 垂直排列內容 */
+        align-items: center;
+        /* 水平居中 */
+        gap: 15px;
+        /* 增加子項目間距 */
+        margin: 0;
+        /* 移除默認外邊距 */
+    }
+
+    iframe {
+        width: 90%;
+        /* 調整 iframe 寬度 */
+        height: 200px;
+        /* 設定固定高度 */
+    }
+
+    .social-icons {
+        display: flex;
+        flex-direction: column;
+        /* 垂直排列社交圖標 */
+        align-items: center;
+        /* 水平居中 */
+        gap: 10px;
+        /* 增加圖標間距 */
+    }
+
+    .social-icons span {
+        margin-top: 5px;
+        font-size: 14px;
+        /* 調整文字大小 */
+    }
+
+    .footer-container div img {
+        width: 80px;
+        /* 調整圖片大小 */
+        height: auto;
+    }
+
+    .marquee {
+        font-size: 14px;
+        /* 調整文字大小 */
+        letter-spacing: 1px;
+        /* 調整字距 */
+        text-align: center;
+        /* 文字置中 */
+    }
+
+    .marquee div {
+        width: 200%;
+        /* 增加滾動內容寬度 */
+    }
+
+    .icon1 {
+        width: 40px;
+        height: 40px;
+    }
+
+    .social-icons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-container div img {
+        width: 80px;
+        height: auto;
+    }
+
+    /* CONTENT BLOCKS */
+    .background {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .background img {
+        height: 300px;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .background p {
+        font-size: 18px;
+        width: 90%;
+    }
+
+    .cat {
+        width: 90%;
+        height: auto;
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .cat1 {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        width: 100%;
+    }
+
+    .slideshow-container {
+        width: 90%;
+        margin: 0 auto;
+        max-width: 400px;
+        height: auto;
+    }
+
+    .singleSlide {
+        width: 100%;
+        height: 300px;
+    }
+
+    /* MEMBER EXPERIENCES */
+    .background2 {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .background2 .content {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .background2 p {
+        font-size: 18px;
+        width: 90%;
+    }
+
+    /* FLIP CARD */
+    .flip {
+        width: 320px;
+        /* 增加寬度 */
+        height: 350px;
+        /* 增加高度 */
+        margin: 20px auto;
+        perspective: 1200px;
+        /* 增加透視距離，翻轉效果更自然 */
+    }
+
+    .flip>.front,
+    .flip>.back {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        /* 保持前後卡片重疊 */
+        backface-visibility: hidden;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.6s ease;
+        /* 增加動畫平滑效果 */
+    }
+
+    .flip>.front {
+        background-color: #dfbb96;
+        color: #3D281c;
+        text-align: center;
+        z-index: 2;
+        transform: rotateY(0deg);
+    }
+
+    .flip>.back {
+        background-color: #bf8969;
+        color: #fff;
+        transform: rotateY(180deg);
+        text-align: center;
+        z-index: 1;
+    }
+
+    .flip:hover>.front {
+        transform: rotateY(180deg);
+    }
+
+    .flip:hover>.back {
+        transform: rotateY(0deg);
+    }
+
+    .flip>.front img {
+        width: 70%;
+        /* 縮小圖片比例，避免過於緊貼 */
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    /* FLIP2 CARD */
+    .flip2 {
+        width: 320px;
+        /* 增加寬度 */
+        height: 350px;
+        /* 增加高度 */
+        margin: 20px auto;
+        perspective: 1200px;
+        /* 增加透視距離 */
+    }
+
+    .flip2 .inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: transform 0.6s ease;
+    }
+
+    .flip2:hover .inner {
+        transform: rotateY(180deg);
+    }
+
+    .flip2 .front,
+    .flip2 .back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .flip2 .front {
+        background-color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .flip2 .front img {
+        width: 70%;
+        height: auto;
+        border-radius: 15px;
+    }
+
+    .flip2 .back {
+        background-color: #dfbb96;
+        color: #fff;
+        transform: rotateY(180deg);
+        display: flex;
+        justify-content: center;
+        /* 垂直居中 */
+        align-items: center;
+        /* 水平居中 */
+        font-size: 14px;
+        padding: 10px;
+        text-align: center;
+    }
+}

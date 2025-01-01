@@ -475,38 +475,212 @@ img {
 
 /* 響應式：手機樣式 */
 @media screen and (max-width: 768px) {
-  .zlhomeModule {
-    max-width: 90%;
-    /* 每個模塊占螢幕寬度的 90% */
-    padding: 15px;
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #513518;
+    height: auto;
+    padding: 10px 0;
+    position: relative;
+    z-index: 1000;
+  }
+
+  /* 主選單容器 */
+  #primary_nav_wrap {
+    max-width: 768px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 第一排 LOGO 和前四個選單（包含書咖說書） */
+  #primary_nav_wrap>ul {
+    display: flex;
+    flex-wrap: wrap;
+    /* 允許項目換行 */
+    justify-content: center;
+    /* 保持居中對齊 */
+    width: 100%;
+    gap: 2px;
+    /* 縮小選項之間的間距 */
+  }
+
+  #primary_nav_wrap>ul>li:first-child {
+    text-align: center;
+  }
+
+  #primary_nav_wrap>ul>li:nth-child(2),
+  #primary_nav_wrap>ul>li:nth-child(3),
+  #primary_nav_wrap>ul>li:nth-child(4),
+  #primary_nav_wrap>ul>li:nth-child(5) {
+    text-align: center;
+  }
+
+  /* 第二排 關於我們和留言意見 */
+  #primary_nav_wrap>ul>li:nth-child(6),
+  #primary_nav_wrap>ul>li:nth-child(7) {
+    text-align: center;
+  }
+
+  .logo {
+    width: 40px;
+    /* 縮小 LOGO 大小 */
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  /* 隱藏次選單，點擊時顯示 */
+  #primary_nav_wrap ul ul {
+    display: none;
+    /* 預設隱藏 */
+    position: absolute;
+    background-color: #513518;
+    z-index: 1001;
+    padding: 5px;
+    margin-top: 5px;
+    border-radius: 8px;
+  }
+
+  #primary_nav_wrap>ul>li {
+    padding: 2px;
     /* 減少內邊距 */
+    font-size: 12px;
+    /* 調整字體大小 */
+    max-width: 70px;
+    /* 限制每個選項的寬度 */
+    margin: 0;
+    /* 移除外邊距 */
+    flex: 0 1 auto;
+    /* 自適應大小 */
   }
 
-  .carousel {
-    height: 300px;
-    /* 調整輪播高度以適配手機 */
+  /* 點擊時顯示次選單 */
+  #primary_nav_wrap ul li:focus-within>ul,
+  #primary_nav_wrap ul li:active>ul {
+    display: block;
   }
 
-  .carousel-item__image {
+  /* 第三排 ICON */
+  .icon {
+    display: flex;
+    justify-content: center;
+    /* 保持 ICON 居中對齊 */
+    align-items: center;
+    /* 垂直居中對齊 */
     width: 100%;
-    /* 圖片寬度占滿輪播 */
+    gap: 15px;
+    /* 調整 ICON 之間的間距 */
+    position: relative;
+    z-index: 1000;
   }
 
-  .carousel-item__info {
+  .icon ul {
+    display: flex;
+    justify-content: center;
+    /* 保持 ICON 內部居中 */
+    align-items: center;
+    /* 垂直居中對齊 */
+    gap: 10px;
+    /* 調整內部 ICON 間距 */
+  }
+
+  /* 禁止選項再跑動 */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+
+
+
+  /* FOOTER */
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    /* 垂直排列 */
+    align-items: center;
+    /* 水平居中 */
+    text-align: center;
+    /* 文字置中 */
+    gap: 20px;
+    /* 增加子項目間距 */
+    padding: 20px;
+    /* 增加內邊距 */
+  }
+
+  .left-section,
+  .right-section {
     width: 100%;
-    /* 調整文字內容寬度 */
-    padding: 10px;
+    /* 讓左右區塊佔滿父容器 */
+    display: flex;
+    flex-direction: column;
+    /* 垂直排列內容 */
+    align-items: center;
+    /* 水平居中 */
+    gap: 15px;
+    /* 增加子項目間距 */
+    margin: 0;
+    /* 移除默認外邊距 */
   }
 
-  .zlhomeAnimate h1 {
-    font-size: 24px;
-    /* 縮小標題字體 */
+  iframe {
+    width: 90%;
+    /* 調整 iframe 寬度 */
+    height: 200px;
+    /* 設定固定高度 */
   }
 
-  .plan-list {
-    font-size: 1rem;
-    /* 縮小列表文字大小 */
-    line-height: 1.4;
+  .social-icons {
+    display: flex;
+    flex-direction: column;
+    /* 垂直排列社交圖標 */
+    align-items: center;
+    /* 水平居中 */
+    gap: 10px;
+    /* 增加圖標間距 */
+  }
+
+  .social-icons span {
+    margin-top: 5px;
+    font-size: 14px;
+    /* 調整文字大小 */
+  }
+
+  .footer-container div img {
+    width: 80px;
+    /* 調整圖片大小 */
+    height: auto;
+  }
+
+  .marquee {
+    font-size: 14px;
+    /* 調整文字大小 */
+    letter-spacing: 1px;
+    /* 調整字距 */
+    text-align: center;
+    /* 文字置中 */
+  }
+
+  .marquee div {
+    width: 200%;
+    /* 增加滾動內容寬度 */
+  }
+
+  .icon1 {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-container div img {
+    width: 80px;
+    height: auto;
   }
 }
 
