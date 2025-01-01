@@ -223,59 +223,93 @@ body {
 
 
 /* RWD 調整 - 中型螢幕 (平板) */
-@media (max-width: 768px) {
-    .txt {
-        padding: 10px;
-    }
+@media screen and (max-width: 768px) {
 
-    .order {
+    /* FOOTER */
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        /* 垂直排列 */
+        align-items: center;
+        /* 水平居中 */
         text-align: center;
-        padding: 15px;
+        /* 文字置中 */
+        gap: 20px;
+        /* 增加子項目間距 */
+        padding: 20px;
+        /* 增加內邊距 */
     }
 
-    .order-details {
+    .left-section,
+    .right-section {
+        width: 100%;
+        /* 讓左右區塊佔滿父容器 */
+        display: flex;
+        flex-direction: column;
+        /* 垂直排列內容 */
+        align-items: center;
+        /* 水平居中 */
+        gap: 15px;
+        /* 增加子項目間距 */
+        margin: 0;
+        /* 移除默認外邊距 */
+    }
+
+    iframe {
+        width: 90%;
+        /* 調整 iframe 寬度 */
+        height: 200px;
+        /* 設定固定高度 */
+    }
+
+    .social-icons {
+        display: flex;
+        flex-direction: column;
+        /* 垂直排列社交圖標 */
+        align-items: center;
+        /* 水平居中 */
+        gap: 10px;
+        /* 增加圖標間距 */
+    }
+
+    .social-icons span {
+        margin-top: 5px;
+        font-size: 14px;
+        /* 調整文字大小 */
+    }
+
+    .footer-container div img {
+        width: 80px;
+        /* 調整圖片大小 */
+        height: auto;
+    }
+
+    .marquee {
+        font-size: 14px;
+        /* 調整文字大小 */
+        letter-spacing: 1px;
+        /* 調整字距 */
+        text-align: center;
+        /* 文字置中 */
+    }
+
+    .marquee div {
+        width: 200%;
+        /* 增加滾動內容寬度 */
+    }
+
+    .icon1 {
+        width: 40px;
+        height: 40px;
+    }
+
+    .social-icons {
         flex-direction: column;
         align-items: center;
     }
 
-    .order-details img {
+    .footer-container div img {
         width: 80px;
-        height: 80px;
-    }
-
-    .product-info p {
-        font-size: 0.95rem;
-    }
-}
-
-/* RWD 調整 - 小型螢幕 (手機) */
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    .order h2 {
-        font-size: 1.2rem;
-    }
-
-    .order p {
-        font-size: 0.85rem;
-    }
-
-    .order-details img {
-        width: 60px;
-        height: 60px;
-    }
-
-    .product-info p {
-        font-size: 0.8rem;
-    }
-
-    .logistics p {
-        font-size: 0.75rem;
-    }
-
-    .logistics {
-        padding: 5px;
+        height: auto;
     }
 }

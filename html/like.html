@@ -16,7 +16,7 @@
     <div class="wrapper">
         <div class="main-nav">
             <ul>
-                <li><a href="login.html">回上一頁</a></li>
+                <li><a href="index.html">回首頁</a></li>
             </ul>
         </div>
     </div>
@@ -90,17 +90,17 @@
     </div>
 
     <script>
-      
+
         document.querySelectorAll('.cart-btn').forEach(button => {
             button.addEventListener('click', () => {
-              
+
                 const product = button.closest('.product');
                 const cartMessage = product.querySelector('.cart-message');
 
-               
+
                 cartMessage.style.display = 'block';
 
-              
+
                 setTimeout(() => {
                     cartMessage.style.display = 'none';
                 }, 2000);

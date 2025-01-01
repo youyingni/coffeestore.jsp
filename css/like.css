@@ -209,12 +209,19 @@ body {
 
 /* 彈跳動畫效果 */
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
         transform: translateY(0);
     }
+
     40% {
         transform: translateY(-10px);
     }
+
     60% {
         transform: translateY(-5px);
     }
@@ -222,111 +229,217 @@ body {
 
 .bounce-message {
     font-size: 16px;
-    animation: bounce 0.8s; /* 彈跳動畫時長 */
+    animation: bounce 0.8s;
+    /* 彈跳動畫時長 */
 }
 
 
 
 
 
-@media (max-width: 768px) and (min-width: 481px) {
-    .container {
-        max-width: 700px;
-        padding: 20px;
-    }
+@media screen and (max-width: 768px) {
 
-    .product {
-        flex-direction: row;
-        gap: 15px;
-        align-items: center;
-    }
-
-    .product img {
-        width: 100px;
-        height: 100px;
-    }
-
-    .details h3 {
-        font-size: 18px;
-    }
-
-    .details p {
-        font-size: 14px;
-    }
-
-    .cart-btn,
-    .delete-btn {
-        font-size: 14px;
-        padding: 10px 15px;
-    }
-
-    .main-nav ul {
+    nav {
+        display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        background-color: #513518;
+        height: auto;
+        padding: 10px 0;
+        position: relative;
+        z-index: 1000;
     }
 
-    .main-nav a {
-        font-size: 16px;
-        padding: 10px 15px;
-    }
-}
-
-/* 手机设备 (宽度小于或等于 480px) */
-@media (max-width: 480px) {
-    .container {
-        max-width: 100%;
-        padding: 15px;
-    }
-
-    .product {
+    /* 主選單容器 */
+    #primary_nav_wrap {
+        max-width: 768px;
+        display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 10px;
     }
 
-    .product img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .details h3 {
-        font-size: 16px;
-        text-align: center;
-    }
-
-    .details p {
-        font-size: 12px;
-        text-align: center;
-    }
-
-    .cart-btn,
-    .delete-btn {
-        font-size: 12px;
-        padding: 8px 10px;
+    /* 第一排 LOGO 和前四個選單（包含書咖說書） */
+    #primary_nav_wrap>ul {
+        display: flex;
+        flex-wrap: wrap;
+        /* 允許項目換行 */
+        justify-content: center;
+        /* 保持居中對齊 */
         width: 100%;
+        gap: 2px;
+        /* 縮小選項之間的間距 */
     }
 
-    .main-nav ul {
-        flex-direction: column;
+    #primary_nav_wrap>ul>li:first-child {
+        text-align: center;
+    }
+
+    #primary_nav_wrap>ul>li:nth-child(2),
+    #primary_nav_wrap>ul>li:nth-child(3),
+    #primary_nav_wrap>ul>li:nth-child(4),
+    #primary_nav_wrap>ul>li:nth-child(5) {
+        text-align: center;
+    }
+
+    /* 第二排 關於我們和留言意見 */
+    #primary_nav_wrap>ul>li:nth-child(6),
+    #primary_nav_wrap>ul>li:nth-child(7) {
+        text-align: center;
+    }
+
+    .logo {
+        width: 40px;
+        /* 縮小 LOGO 大小 */
+        height: 40px;
+        border-radius: 50%;
+    }
+
+    /* 隱藏次選單，點擊時顯示 */
+    #primary_nav_wrap ul ul {
+        display: none;
+        /* 預設隱藏 */
+        position: absolute;
+        background-color: #513518;
+        z-index: 1001;
+        padding: 5px;
+        margin-top: 5px;
+        border-radius: 8px;
+    }
+
+    #primary_nav_wrap>ul>li {
+        padding: 2px;
+        /* 減少內邊距 */
+        font-size: 12px;
+        /* 調整字體大小 */
+        max-width: 70px;
+        /* 限制每個選項的寬度 */
+        margin: 0;
+        /* 移除外邊距 */
+        flex: 0 1 auto;
+        /* 自適應大小 */
+    }
+
+    /* 點擊時顯示次選單 */
+    #primary_nav_wrap ul li:focus-within>ul,
+    #primary_nav_wrap ul li:active>ul {
+        display: block;
+    }
+
+    /* 第三排 ICON */
+    .icon {
+        display: flex;
+        justify-content: center;
+        /* 保持 ICON 居中對齊 */
+        align-items: center;
+        /* 垂直居中對齊 */
+        width: 100%;
+        gap: 15px;
+        /* 調整 ICON 之間的間距 */
+        position: relative;
+        z-index: 1000;
+    }
+
+    .icon ul {
+        display: flex;
+        justify-content: center;
+        /* 保持 ICON 內部居中 */
+        align-items: center;
+        /* 垂直居中對齊 */
         gap: 10px;
+        /* 調整內部 ICON 間距 */
     }
 
-    .main-nav a {
-        font-size: 14px;
-        padding: 8px 12px;
+    /* 禁止選項再跑動 */
+    * {
+        animation: none !important;
+        transition: none !important;
     }
 
-    .heart {
-        font-size: 20px;
+    /* FOOTER */
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        /* 垂直排列 */
+        align-items: center;
+        /* 水平居中 */
+        text-align: center;
+        /* 文字置中 */
+        gap: 20px;
+        /* 增加子項目間距 */
+        padding: 20px;
+        /* 增加內邊距 */
     }
 
-    .line {
-        width: 80px;
+    .left-section,
+    .right-section {
+        width: 100%;
+        /* 讓左右區塊佔滿父容器 */
+        display: flex;
+        flex-direction: column;
+        /* 垂直排列內容 */
+        align-items: center;
+        /* 水平居中 */
+        gap: 15px;
+        /* 增加子項目間距 */
+        margin: 0;
+        /* 移除默認外邊距 */
     }
 
     iframe {
-        width: 100%;
+        width: 90%;
+        /* 調整 iframe 寬度 */
         height: 200px;
+        /* 設定固定高度 */
+    }
+
+    .social-icons {
+        display: flex;
+        flex-direction: column;
+        /* 垂直排列社交圖標 */
+        align-items: center;
+        /* 水平居中 */
+        gap: 10px;
+        /* 增加圖標間距 */
+    }
+
+    .social-icons span {
+        margin-top: 5px;
+        font-size: 14px;
+        /* 調整文字大小 */
+    }
+
+    .footer-container div img {
+        width: 80px;
+        /* 調整圖片大小 */
+        height: auto;
+    }
+
+    .marquee {
+        font-size: 14px;
+        /* 調整文字大小 */
+        letter-spacing: 1px;
+        /* 調整字距 */
+        text-align: center;
+        /* 文字置中 */
+    }
+
+    .marquee div {
+        width: 200%;
+        /* 增加滾動內容寬度 */
+    }
+
+    .icon1 {
+        width: 40px;
+        height: 40px;
+    }
+
+    .social-icons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-container div img {
+        width: 80px;
+        height: auto;
     }
 }

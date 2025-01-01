@@ -28,9 +28,12 @@
 
 
 
-.md-trigger btn {
+.md-trigger btn,
+.Ok {
   font-family: "LXGW WenKai Mono TC", monospace;
 }
+
+
 
 .btn {
   background-color: #57514d;
@@ -66,6 +69,7 @@ img {
 
 /* Navigation */
 .main-nav ul {
+  color: #fff;
   display: grid;
   grid-gap: 20px;
   padding: 0;
@@ -74,12 +78,11 @@ img {
 }
 
 .main-nav a {
-  background: #DDCDc3;
   display: block;
   text-decoration: none;
   padding: 12px;
   text-align: center;
-  color: #1a0c04;
+  color: white;
   text-transform: uppercase;
   font-size: 23px;
   box-shadow: var(--shadow);
@@ -415,7 +418,8 @@ footer {
 
 
 /* 全局样式 */
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-size: 16px;
@@ -458,7 +462,7 @@ html, body {
 
 .main-nav ul li a {
   text-decoration: none;
-  color: var(--text);
+  color: white;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: background-color 0.3s ease;
@@ -493,65 +497,107 @@ html, body {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* 响应式设计 - 中型屏幕 */
-@media (max-width: 768px) {
-  .main-nav ul {
-      display: none;
-      flex-direction: column;
-      background-color: var(--background);
-      position: absolute;
-      top: 3rem;
-      left: 0;
-      width: 100%;
-      padding: 1rem;
-  }
+@media screen and (max-width: 768px) {
 
-  .main-nav ul.active {
-      display: flex;
-  }
-
-  .hamburger-menu {
-      display: block;
-  }
-
-  .hot-sale-carousel {
-      flex-direction: column;
-      align-items: center;
-  }
-
-  .hot-sale-card {
-      width: 90%;
-  }
-}
-
-/* 响应式设计 - 小型屏幕 */
-@media (max-width: 480px) {
-  .main-nav ul li a {
-      font-size: 14px;
-      padding: 0.5rem;
-  }
-
-  .showcase h1 {
-      font-size: 1.5rem;
-  }
-
-  .showcase p {
-      font-size: 1rem;
-  }
-
-  .buy-button {
-      font-size: 14px;
-      padding: 0.5rem 1rem;
-  }
-
+  /* FOOTER */
   .footer-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    /* 垂直排列 */
+    align-items: center;
+    /* 水平居中 */
+    text-align: center;
+    /* 文字置中 */
+    gap: 20px;
+    /* 增加子項目間距 */
+    padding: 20px;
+    /* 增加內邊距 */
+  }
+
+  .left-section,
+  .right-section {
+    width: 100%;
+    /* 讓左右區塊佔滿父容器 */
+    display: flex;
+    flex-direction: column;
+    /* 垂直排列內容 */
+    align-items: center;
+    /* 水平居中 */
+    gap: 15px;
+    /* 增加子項目間距 */
+    margin: 0;
+    /* 移除默認外邊距 */
   }
 
   iframe {
-      width: 90%;
-      height: auto;
+    width: 90%;
+    /* 調整 iframe 寬度 */
+    height: 200px;
+    /* 設定固定高度 */
+  }
+
+  .social-icons {
+    display: flex;
+    flex-direction: column;
+    /* 垂直排列社交圖標 */
+    align-items: center;
+    /* 水平居中 */
+    gap: 10px;
+    /* 增加圖標間距 */
+  }
+
+  .social-icons span {
+    margin-top: 5px;
+    font-size: 14px;
+    /* 調整文字大小 */
+  }
+
+  .footer-container div img {
+    width: 80px;
+    /* 調整圖片大小 */
+    height: auto;
+  }
+
+  .marquee {
+    font-size: 14px;
+    /* 調整文字大小 */
+    letter-spacing: 1px;
+    /* 調整字距 */
+    text-align: center;
+    /* 文字置中 */
+  }
+
+  .marquee div {
+    width: 200%;
+    /* 增加滾動內容寬度 */
+  }
+
+  .icon1 {
+    width: 40px;
+    height: 40px;
+  }
+
+  .social-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-container div img {
+    width: 80px;
+    height: auto;
+  }
+
+  .top-container {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .hot-sale-carousel {
+    order: 2;
+    /* 確保 .hot-sale-carousel 在 header 後面 */
+    margin-top: 1rem;
+    /* 與 header 保持適當距離 */
+    text-align: center;
   }
 }

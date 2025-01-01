@@ -1,3 +1,4 @@
+<!--會員登入成功畫面-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,34 +15,10 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap"
     rel="stylesheet">
-
     <style>
-      body{
+        body{
         background-color: #DDCDC3;
       }
-
-.btn {
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      background-color: #4caf50;
-      color: white;
-      transition: background-color 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #45a049;
-    }
-
-    #messageArea {
-      margin-top: 20px;
-      text-align: center;
-      font-weight: bold;
-    }
-
-
       .main-nav{
         background-color: #513518;
         color: white;
@@ -50,8 +27,6 @@
         background-color: #513518;
         color: white;
       }
-    </style>
-
     </style>
 
 
@@ -98,7 +73,6 @@
               <a href="https://zh-tw.facebook.com/login/web/" class="facebook-login">Facebook登入</a>
             </div>
           </section>
-          
           <section class="form-section">
             <h2>E-mail or 會員帳號登入</h2>
             <form>
@@ -137,8 +111,6 @@
               
               <!-- 下方顯示文字的區域 -->
               <div id="messageArea" style="margin-top: 20px; text-align: center; color: red; font-weight: bold;"></div>
-              <a href="Login_successful.html" id="memberLink" style="display: none;">回到會員</a>
-              <a href="index.html" id="homeLink" style="display: none;">回到首頁</a>
               
               <script>
                 document.getElementById("loginButton").addEventListener("click", function () {
@@ -166,7 +138,7 @@
 
       </div>
       <div class="md-overlay"></div>
-      <button class="md-trigger btn" data-modal="modal-13">會員登入/註冊</button>
+      <button class="Ok" data-modal="modal-13" style="color: blue;font-weight: 600;">已登入</button>
      
 
       <script src="../js/popup.js"></script>
@@ -263,31 +235,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    document.getElementById("loginButton").addEventListener("click", function () {
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
-    const messageArea = document.getElementById("messageArea");
-
-    if (!username || !password) {
-      messageArea.style.color = "red";
-      messageArea.textContent = "請輸入帳號和密碼！";
-      return;
-    }
-
-    // 假設登入成功的邏輯
-    messageArea.style.color = "green";
-    messageArea.textContent = "登入成功！歡迎使用本系統！";
-
-    // 顯示隱藏的連結
-    document.getElementById("memberLink").style.display = "inline";
-    document.getElementById("homeLink").style.display = "inline";
-  });
-
-
-
-  </script>
 
 
 </body>
