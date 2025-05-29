@@ -15,12 +15,12 @@
     href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap"
     rel="stylesheet">
 
-    <style>
-      body{
-        background-color: #DDCDC3;
-      }
+  <style>
+    body {
+      background-color: #DDCDC3;
+    }
 
-.btn {
+    .btn {
       padding: 10px 20px;
       font-size: 16px;
       border: none;
@@ -42,17 +42,18 @@
     }
 
 
-      .main-nav{
-        background-color: #513518;
-        color: white;
-      }
-      .main-nav a{
-        background-color: #513518;
-        color: white;
-      }
-    </style>
+    .main-nav {
+      background-color: #513518;
+      color: white;
+    }
 
-    </style>
+    .main-nav a {
+      background-color: #513518;
+      color: white;
+    }
+  </style>
+
+  </style>
 
 
 </head>
@@ -62,7 +63,7 @@
     <!-- Navigation -->
     <nav class="main-nav">
       <ul>
-        <li><a href="index.html"><img class="logo" src='../img/OIP.jpg'>回首頁</a></li>
+        <li><a href="index.jsp"><img class="logo" src='../img/OIP.jpg'>回首頁</a></li>
         <li>
           <a href="personal.html">個人資料</a>
         </li>
@@ -71,9 +72,6 @@
         </li>
         <li>
           <a href="class.html">課程介紹</a>
-        </li>
-        <li>
-          <a href="like.html">收藏清單</a>
         </li>
       </ul>
     </nav>
@@ -98,32 +96,25 @@
               <a href="https://zh-tw.facebook.com/login/web/" class="facebook-login">Facebook登入</a>
             </div>
           </section>
-          
+
           <section class="form-section">
             <h2>E-mail or 會員帳號登入</h2>
             <form>
 
-                
+
               <div style="display: flex; flex-direction: column; align-items: center;">
                 <label>
                   帳號
-                  <input
-                    type="text"
-                    id="username"
-                    placeholder="請輸入帳號"
-                    style="margin-bottom: 10px; padding: 5px; width: 200px;"
-                  />
+                  <input type="text" id="username" placeholder="請輸入帳號"
+                    style="margin-bottom: 10px; padding: 5px; width: 200px;" />
                 </label>
                 <label>
                   密碼
-                  <input
-                    type="password"
-                    id="password"
-                    placeholder="請輸入密碼"
-                    style="margin-bottom: 10px; padding: 5px; width: 200px;"
-                  />
+                  <input type="password" id="password" placeholder="請輸入密碼"
+                    style="margin-bottom: 10px; padding: 5px; width: 200px;" />
                 </label>
-                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 10px;">
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 10px;">
                   <button type="button" class="btn" id="loginButton" style="flex-grow: 1;">
                     登入會員
                   </button>
@@ -134,31 +125,31 @@
                   </a>
                 </div>
               </div>
-              
+
               <!-- 下方顯示文字的區域 -->
               <div id="messageArea" style="margin-top: 20px; text-align: center; color: red; font-weight: bold;"></div>
               <a href="Login_successful.html" id="memberLink" style="display: none;">回到會員</a>
               <a href="index.html" id="homeLink" style="display: none;">回到首頁</a>
-              
+
               <script>
                 document.getElementById("loginButton").addEventListener("click", function () {
                   const username = document.getElementById("username").value.trim();
                   const password = document.getElementById("password").value.trim();
                   const messageArea = document.getElementById("messageArea");
-              
+
                   if (!username || !password) {
                     messageArea.style.color = "red";
                     messageArea.textContent = "請輸入帳號和密碼！";
                     return;
                   }
-              
+
                   messageArea.style.color = "green";
                   messageArea.textContent = "登入成功！歡迎使用本系統！";
                 });
               </script>
-              
 
-              
+
+
             </form>
           </section>
         </div>
@@ -167,7 +158,7 @@
       </div>
       <div class="md-overlay"></div>
       <button class="md-trigger btn" data-modal="modal-13">會員登入/註冊</button>
-     
+
 
       <script src="../js/popup.js"></script>
 
@@ -266,24 +257,24 @@
 
   <script>
     document.getElementById("loginButton").addEventListener("click", function () {
-    const username = document.getElementById("username").value.trim();
-    const password = document.getElementById("password").value.trim();
-    const messageArea = document.getElementById("messageArea");
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const messageArea = document.getElementById("messageArea");
 
-    if (!username || !password) {
-      messageArea.style.color = "red";
-      messageArea.textContent = "請輸入帳號和密碼！";
-      return;
-    }
+      if (!username || !password) {
+        messageArea.style.color = "red";
+        messageArea.textContent = "請輸入帳號和密碼！";
+        return;
+      }
 
-    // 假設登入成功的邏輯
-    messageArea.style.color = "green";
-    messageArea.textContent = "登入成功！歡迎使用本系統！";
+      // 假設登入成功的邏輯
+      messageArea.style.color = "green";
+      messageArea.textContent = "登入成功！歡迎使用本系統！";
 
-    // 顯示隱藏的連結
-    document.getElementById("memberLink").style.display = "inline";
-    document.getElementById("homeLink").style.display = "inline";
-  });
+      // 顯示隱藏的連結
+      document.getElementById("memberLink").style.display = "inline";
+      document.getElementById("homeLink").style.display = "inline";
+    });
 
 
 

@@ -69,5 +69,17 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }, animationDuration);
 });
-
-
+/****************************************************/
+window.addEventListener("DOMContentLoaded", () => {
+    const adImg = document.getElementById("adImg");
+    if (!adImg) return; // 防止 adImg 為 null
+  
+    const ads = ["../image/ad1.png", "../image/ad2.png", "../image/ad3.png"];
+    let index = 0;
+  
+    setInterval(() => {
+      index = (index + 1) % ads.length;
+      adImg.src = ads[index];
+    }, 2000); // 每 2 秒換一張
+  });
+  
