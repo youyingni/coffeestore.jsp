@@ -1,25 +1,19 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="java.sql.*, java.security.*" %>
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>會員中心</title>
+  <title>會員中心登入</title>
   <link rel="stylesheet" href="../css/login.css">
   <link rel="stylesheet" href="../css/popup.css">
   <link rel="stylesheet" href="../css/coffee1.css">
-
   <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap" rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap"
-    rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
   <style>
-    body {
-      background-color: #DDCDC3;
-    }
-
+    body { background-color: #DDCDC3; }
     .btn {
       padding: 10px 20px;
       font-size: 16px;
@@ -30,141 +24,118 @@
       color: white;
       transition: background-color 0.3s;
     }
-
-    .btn:hover {
-      background-color: #45a049;
-    }
-
-    #messageArea {
-      margin-top: 20px;
-      text-align: center;
-      font-weight: bold;
-    }
-
-
-    .main-nav {
-      background-color: #513518;
-      color: white;
-    }
-
-    .main-nav a {
-      background-color: #513518;
-      color: white;
-    }
+    .btn:hover { background-color: #45a049; }
+    #messageArea { margin-top: 20px; text-align: center; font-weight: bold; }
+    .main-nav { background-color: #513518; color: white; }
+    .main-nav a { background-color: #513518; color: white; }
+    .register-link { color: #3377ff; text-decoration: underline; cursor: pointer; }
   </style>
-
-  </style>
-
-
 </head>
-
 <body>
   <div class="wrapper">
-    <!-- Navigation -->
     <nav class="main-nav">
       <ul>
         <li><a href="index.jsp"><img class="logo" src='../img/OIP.jpg'>回首頁</a></li>
-        <li>
-          <a href="personal.html">個人資料</a>
-        </li>
-        <li>
-          <a href="history.html">歷史紀錄</a>
-        </li>
-        <li>
-          <a href="class.html">課程介紹</a>
-        </li>
+        <li><a href="personal.html">個人資料</a></li>
+        <li><a href="history.html">歷史紀錄</a></li>
+        <li><a href="class.html">課程介紹</a></li>
       </ul>
     </nav>
   </div>
-
   <section class="top-container">
     <header class="showcase">
       <div class="final">
         <h1>會員中心</h1>
         <p>咖啡和瑜珈課程</p>
       </div>
+<%
+    String dbUrl = "jdbc:mysql://localhost:3306/members?useUnicode=true&characterEncoding=UTF-8";
+    String dbUser = "root"; // 請換成你的MySQL帳號
+    String dbPwd = "1234"; // 請換成你的MySQL密碼
 
+    String id = request.getParameter("id");
+    String pwd = request.getParameter("pwd");
+    boolean triedLogin = false;
+    boolean loginSuccess = false;
+    String errorMsg = "";
 
+    if(id != null && pwd != null) {
+        triedLogin = true;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            // 密碼雜湊
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(pwd.getBytes("UTF-8"));
+            byte[] digest = md.digest();
+            StringBuilder sb = new StringBuilder();
+            for(byte b : digest) sb.append(String.format("%02x", b));
+            String hashedPwd = sb.toString();
 
-      <div class="md-modal md-effect-13" id="modal-13">
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(dbUrl, dbUser, dbPwd);
+            String sql = "SELECT * FROM members WHERE id=? AND pwd=?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            ps.setString(2, hashedPwd);
+            rs = ps.executeQuery();
+            if(rs.next()) {
+                loginSuccess = true;
+            } else {
+                errorMsg = "帳號或密碼錯誤！請重新輸入。";
+            }
+        } catch(Exception e) {
+            errorMsg = "系統錯誤：" + e.getMessage();
+        } finally {
+            if(rs != null) try { rs.close(); } catch(Exception e) {}
+            if(ps != null) try { ps.close(); } catch(Exception e) {}
+            if(conn != null) try { conn.close(); } catch(Exception e) {}
+        }
+    }
+%>
+      <!-- 彈窗DIV：登入錯誤自動加 md-show（popup.js 控制彈窗） -->
+      <div class="md-modal md-effect-13 <% if(triedLogin && !loginSuccess){ %>md-show<% } %>" id="modal-13">
         <div class="container md-content">
-          <section class="login-section" id="modal-13">
-            <h2>會員登入</h2>
-            <p class="subtext">快速登入結帳</p>
-            <div class="login-methods">
-              <a href="https://www.line.me/tw/" class="line-login">Line 登入</a>
-              <a href="https://zh-tw.facebook.com/login/web/" class="facebook-login">Facebook登入</a>
-            </div>
-          </section>
-
           <section class="form-section">
-            <h2>E-mail or 會員帳號登入</h2>
-            <form>
-
-
+            <h2>會員帳號登入</h2>
+            <form method="post" action="login.jsp">
               <div style="display: flex; flex-direction: column; align-items: center;">
                 <label>
                   帳號
-                  <input type="text" id="username" placeholder="請輸入帳號"
-                    style="margin-bottom: 10px; padding: 5px; width: 200px;" />
+                  <input type="text" name="id" placeholder="請輸入帳號" style="margin-bottom: 10px; padding: 5px; width: 200px;" required value="<%= id!=null ? id : "" %>" />
                 </label>
                 <label>
                   密碼
-                  <input type="password" id="password" placeholder="請輸入密碼"
-                    style="margin-bottom: 10px; padding: 5px; width: 200px;" />
+                  <input type="password" name="pwd" placeholder="請輸入密碼" style="margin-bottom: 10px; padding: 5px; width: 200px;" required />
                 </label>
-                <div
-                  style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 10px;">
-                  <button type="button" class="btn" id="loginButton" style="flex-grow: 1;">
-                    登入會員
-                  </button>
-                  <a href="new.html" style="flex-grow: 1;">
-                    <button type="button" class="btn" style="width: 100%;">
-                      會員註冊
-                    </button>
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; gap: 10px;">
+                  <button type="submit" class="btn" style="flex-grow: 1;">登入會員</button>
+                  <a href="new.jsp" style="flex-grow: 1;">
+                    <button type="button" class="btn" style="width: 100%;">會員註冊</button>
                   </a>
                 </div>
               </div>
-
-              <!-- 下方顯示文字的區域 -->
-              <div id="messageArea" style="margin-top: 20px; text-align: center; color: red; font-weight: bold;"></div>
-              <a href="Login_successful.html" id="memberLink" style="display: none;">回到會員</a>
-              <a href="index.html" id="homeLink" style="display: none;">回到首頁</a>
-
-              <script>
-                document.getElementById("loginButton").addEventListener("click", function () {
-                  const username = document.getElementById("username").value.trim();
-                  const password = document.getElementById("password").value.trim();
-                  const messageArea = document.getElementById("messageArea");
-
-                  if (!username || !password) {
-                    messageArea.style.color = "red";
-                    messageArea.textContent = "請輸入帳號和密碼！";
-                    return;
-                  }
-
-                  messageArea.style.color = "green";
-                  messageArea.textContent = "登入成功！歡迎使用本系統！";
-                });
-              </script>
-
-
-
             </form>
+            <div id="messageArea">
+              <% if(triedLogin && !loginSuccess) { %>
+                <div style="color:red;"><%= errorMsg %></div>
+                <a href="new.jsp" class="register-link">還沒註冊嗎？點此註冊會員</a>
+              <% } else if(triedLogin && loginSuccess) { %>
+                <span style="color:green;">登入成功！歡迎 <%= id %>！</span>
+                <br>
+                <a href="Login_successful.html" id="memberLink">回到會員</a>
+                <a href="index.html" id="homeLink">回到首頁</a>
+              <% } %>
+            </div>
           </section>
         </div>
       </div>
-
-      </div>
       <div class="md-overlay"></div>
       <button class="md-trigger btn" data-modal="modal-13">會員登入/註冊</button>
-
-
       <script src="../js/popup.js"></script>
-
     </header>
-
-
+    <!-- 熱賣課程 -->
     <div class="hot-sale-carousel">
       <div class="hot-sale-card active">
         <div class="product-image">
@@ -175,7 +146,6 @@
         <p class="original-price">原價：$399</p>
         <a href="Yoga_interface.html"><button class="buy-button">立即購買</button></a>
       </div>
-
       <div class="hot-sale-card">
         <div class="product-image">
           <img src="../picture/shka2.jpg" alt="商品2">
@@ -185,7 +155,6 @@
         <p class="original-price">原價：$249</p>
         <a href="Yoga_interface.html"><button class="buy-button">立即購買</button></a>
       </div>
-
       <div class="hot-sale-card">
         <div class="product-image">
           <img src="../picture/shka3.jpg" alt="商品3">
@@ -200,16 +169,11 @@
       <button data-slide="0" class="active"></button>
       <button data-slide="1"></button>
       <button data-slide="2"></button>
-
       <script src="../js/ad.js"></script>
+    </div>
   </section>
-
-
-
-
   <!-- Footer -->
   <footer>
-
     <div class="footer-container">
       <div class="left-section">
         <div class="social-icons">
@@ -228,7 +192,6 @@
           <iconify-icon icon="maki:marker" style="color: #d22c0d" width="30" height="30"></iconify-icon>
           地址：320桃園市中壢區環中東路357-1號
         </div>
-
       </div>
       <div class="right-section">
         <iframe
@@ -245,8 +208,6 @@
         </div>
       </div>
     </div>
-
-
     <div class="marquee">
       <div>
         © 2020.紓咖修息棧 All Rights Reserved 網頁設計 ‧ CYCU IMFORMATUION MANAGEMENT&emsp;&emsp;&emsp;&emsp;&emsp;©
@@ -254,33 +215,5 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    document.getElementById("loginButton").addEventListener("click", function () {
-      const username = document.getElementById("username").value.trim();
-      const password = document.getElementById("password").value.trim();
-      const messageArea = document.getElementById("messageArea");
-
-      if (!username || !password) {
-        messageArea.style.color = "red";
-        messageArea.textContent = "請輸入帳號和密碼！";
-        return;
-      }
-
-      // 假設登入成功的邏輯
-      messageArea.style.color = "green";
-      messageArea.textContent = "登入成功！歡迎使用本系統！";
-
-      // 顯示隱藏的連結
-      document.getElementById("memberLink").style.display = "inline";
-      document.getElementById("homeLink").style.display = "inline";
-    });
-
-
-
-  </script>
-
-
 </body>
-
 </html>
