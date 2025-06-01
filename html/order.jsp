@@ -156,9 +156,11 @@ try {
     ps.executeUpdate();
     ResultSet generatedKeys = ps.getGeneratedKeys();
     if (generatedKeys.next()) orderId = generatedKeys.getInt(1);
+
     Statement stmt = conn.createStatement();
     ResultSet rs = stmt.executeQuery("SELECT cart.*, productss.name, productss.price FROM cart JOIN productss ON cart.id = productss.id");
     PreparedStatement itemPs = conn.prepareStatement("INSERT INTO order_items (order_id, product_name, product_price, quantity, sugar, ice) VALUES (?, ?, ?, ?, ?, ?)");
+    PreparedStatement updateStock = conn.prepareStatement("UPDATE productss SET inventory = inventory - ? WHERE id = ?");
     while (rs.next()) {
         itemPs.setInt(1, orderId);
         itemPs.setString(2, rs.getString("name"));
@@ -167,9 +169,13 @@ try {
         itemPs.setString(5, rs.getString("sugar"));
         itemPs.setString(6, rs.getString("ice"));
         itemPs.executeUpdate();
+
+        updateStock.setInt(1, rs.getInt("orderQ"));
+        updateStock.setString(2, rs.getString("id"));
+        updateStock.executeUpdate();
     }
     stmt.executeUpdate("DELETE FROM cart");
-    rs.close(); stmt.close(); ps.close(); itemPs.close(); conn.close();
+    rs.close(); stmt.close(); ps.close(); itemPs.close(); updateStock.close(); conn.close();
 } catch (Exception e) {
     out.println("<p>資料庫錯誤: " + e.getMessage() + "</p>");
 }
