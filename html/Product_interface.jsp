@@ -96,7 +96,7 @@
         </li>
 
         <li>
-          <a href="cart.html">
+          <a href="cart.jsp">
             <iconify-icon icon="guidance:shop" width="30px" height="30px"></iconify-icon>
           </a>
         </li>
@@ -109,13 +109,13 @@
     <div>
 
       <div class="wrap">
-        <div class="search">
-          <input type="text" class="searchTerm" placeholder="想要喝什麼?">
-          <button type="submit" class="searchButton">
-            <iconify-icon icon="ic:baseline-search" width="40" height="36"></iconify-icon>
-          </button>
-        </div>
-      </div>
+  <div class="search">
+    <input type="text" class="searchTerm" placeholder="想要喝什麼?">
+    <button type="submit" class="searchButton">
+      <iconify-icon icon="ic:baseline-search" width="40" height="36"></iconify-icon>
+    </button>
+  </div>
+</div>
       <h1>店長推薦</h1>
     </div>
 
@@ -175,16 +175,18 @@ try {
     while (rs.next()) {
 %>
       <!-- 6 個商品 -->
-        <div class="card">
-        <img src="<%= rs.getString("image") %>" alt="商品圖片" class="card-img-top">
-        <div class="card-body">
-            <a href="buy.jsp?product=<%= rs.getString("id") %>" class="product-link">
-                <h5 class="card-title"><%= rs.getString("name") %></h5>
-                <p class="card-text">NT$<%= rs.getInt("price") %></p>
-                <p class="card-text">庫存：<%= rs.getInt("inventory") %></p>
-            </a>
-        </div>
+       <% while (rs.next()) { %>
+  <div class="card" data-name="<%= rs.getString("name") %>">
+    <img src="<%= rs.getString("image") %>" alt="商品圖片" class="card-img-top">
+    <div class="card-body">
+      <a href="buy.jsp?product=<%= rs.getString("id") %>" class="product-link">
+        <h5 class="card-title"><%= rs.getString("name") %></h5>
+        <p class="card-text">NT$<%= rs.getInt("price") %></p>
+        <p class="card-text">庫存：<%= rs.getInt("inventory") %></p>
+      </a>
     </div>
+  </div>
+<% } %>
 <%
     }
     rs.close();
@@ -212,16 +214,18 @@ try {
 
     while (rs2.next()) {
 %>
-    <div class="card">
-      <img src="<%= rs2.getString("image") %>" alt="商品圖片" class="card-img-top">
-      <div class="card-body">
-        <a href="buy.jsp?product=<%= rs2.getString("id") %>" class="product-link">
-          <h5 class="card-title"><%= rs2.getString("name") %></h5>
-          <p class="card-text">NT$<%= rs2.getInt("price") %></p>
-          <p class="card-text">庫存：<%= rs2.getInt("inventory") %></p>
-        </a>
-      </div>
+    <% while (rs2.next()) { %>
+  <div class="card" data-name="<%= rs2.getString("name") %>">
+    <img src="<%= rs2.getString("image") %>" alt="商品圖片" class="card-img-top">
+    <div class="card-body">
+      <a href="buy.jsp?product=<%= rs2.getString("id") %>" class="product-link">
+        <h5 class="card-title"><%= rs2.getString("name") %></h5>
+        <p class="card-text">NT$<%= rs2.getInt("price") %></p>
+        <p class="card-text">庫存：<%= rs2.getInt("inventory") %></p>
+      </a>
     </div>
+  </div>
+<% } %>
 <%
     }
     rs2.close();
@@ -248,16 +252,19 @@ try {
 
     while (rs2.next()) {
 %>
-    <div class="card">
-      <img src="<%= rs2.getString("image") %>" alt="商品圖片" class="card-img-top">
-      <div class="card-body">
-        <a href="buy.jsp?product=<%= rs2.getString("id") %>" class="product-link">
-          <h5 class="card-title"><%= rs2.getString("name") %></h5>
-          <p class="card-text">NT$<%= rs2.getInt("price") %></p>
-          <p class="card-text">庫存：<%= rs2.getInt("inventory") %></p>
-        </a>
-      </div>
+      <% while (rs2.next()) { %>
+  <div class="card" data-name="<%= rs2.getString("name") %>">
+    <img src="<%= rs2.getString("image") %>" alt="商品圖片" class="card-img-top">
+    <div class="card-body">
+      <a href="buy.jsp?product=<%= rs2.getString("id") %>" class="product-link">
+        <h5 class="card-title"><%= rs2.getString("name") %></h5>
+        <p class="card-text">NT$<%= rs2.getInt("price") %></p>
+        <p class="card-text">庫存：<%= rs2.getInt("inventory") %></p>
+      </a>
     </div>
+  </div>
+<% } %>
+
 <%
     }
     rs2.close();
@@ -284,16 +291,18 @@ try {
 
     while (rs2.next()) {
 %>
-    <div class="card">
-      <img src="<%= rs2.getString("image") %>" alt="商品圖片" class="card-img-top">
-      <div class="card-body">
-        <a href="buy.jsp?product=<%= rs2.getString("id") %>" class="product-link">
-          <h5 class="card-title"><%= rs2.getString("name") %></h5>
-          <p class="card-text">NT$<%= rs2.getInt("price") %></p>
-          <p class="card-text">庫存：<%= rs2.getInt("inventory") %></p>
-        </a>
-      </div>
+    <% while (rs2.next()) { %>
+  <div class="card" data-name="<%= rs2.getString("name") %>">
+    <img src="<%= rs2.getString("image") %>" alt="商品圖片" class="card-img-top">
+    <div class="card-body">
+      <a href="buy.jsp?product=<%= rs2.getString("id") %>" class="product-link">
+        <h5 class="card-title"><%= rs2.getString("name") %></h5>
+        <p class="card-text">NT$<%= rs2.getInt("price") %></p>
+        <p class="card-text">庫存：<%= rs2.getInt("inventory") %></p>
+      </a>
     </div>
+  </div>
+<% } %>
 <%
     }
     rs2.close();
@@ -321,16 +330,18 @@ try {
 
     while (rs2.next()) {
 %>
-    <div class="card">
-      <img src="<%= rs2.getString("image") %>" alt="商品圖片" class="card-img-top">
-      <div class="card-body">
-        <a href="buy.jsp?product=<%= rs2.getString("id") %>" class="product-link">
-          <h5 class="card-title"><%= rs2.getString("name") %></h5>
-          <p class="card-text">NT$<%= rs2.getInt("price") %></p>
-          <p class="card-text">庫存：<%= rs2.getInt("inventory") %></p>
-        </a>
-      </div>
+   <% while (rs2.next()) { %>
+  <div class="card" data-name="<%= rs2.getString("name") %>">
+    <img src="<%= rs2.getString("image") %>" alt="商品圖片" class="card-img-top">
+    <div class="card-body">
+      <a href="buy.jsp?product=<%= rs2.getString("id") %>" class="product-link">
+        <h5 class="card-title"><%= rs2.getString("name") %></h5>
+        <p class="card-text">NT$<%= rs2.getInt("price") %></p>
+        <p class="card-text">庫存：<%= rs2.getInt("inventory") %></p>
+      </a>
     </div>
+  </div>
+<% } %>
 <%
     }
     rs2.close();
@@ -357,16 +368,18 @@ try {
 
     while (rs2.next()) {
 %>
-    <div class="card">
-      <img src="<%= rs2.getString("image") %>" alt="商品圖片" class="card-img-top">
-      <div class="card-body">
-        <a href="buy.jsp?product=<%= rs2.getString("id") %>" class="product-link">
-          <h5 class="card-title"><%= rs2.getString("name") %></h5>
-          <p class="card-text">NT$<%= rs2.getInt("price") %></p>
-          <p class="card-text">庫存：<%= rs2.getInt("inventory") %></p>
-        </a>
-      </div>
+  <% while (rs2.next()) { %>
+  <div class="card" data-name="<%= rs2.getString("name") %>">
+    <img src="<%= rs2.getString("image") %>" alt="商品圖片" class="card-img-top">
+    <div class="card-body">
+      <a href="buy.jsp?product=<%= rs2.getString("id") %>" class="product-link">
+        <h5 class="card-title"><%= rs2.getString("name") %></h5>
+        <p class="card-text">NT$<%= rs2.getInt("price") %></p>
+        <p class="card-text">庫存：<%= rs2.getInt("inventory") %></p>
+      </a>
     </div>
+  </div>
+<% } %>
 <%
     }
     rs2.close();
@@ -393,16 +406,18 @@ try {
 
     while (rs2.next()) {
 %>
-    <div class="card">
-      <img src="<%= rs2.getString("image") %>" alt="商品圖片" class="card-img-top">
-      <div class="card-body">
-        <a href="buy.jsp?product=<%= rs2.getString("id") %>" class="product-link">
-          <h5 class="card-title"><%= rs2.getString("name") %></h5>
-          <p class="card-text">NT$<%= rs2.getInt("price") %></p>
-          <p class="card-text">庫存：<%= rs2.getInt("inventory") %></p>
-        </a>
-      </div>
+    <% while (rs2.next()) { %>
+  <div class="card" data-name="<%= rs2.getString("name") %>">
+    <img src="<%= rs2.getString("image") %>" alt="商品圖片" class="card-img-top">
+    <div class="card-body">
+      <a href="buy.jsp?product=<%= rs2.getString("id") %>" class="product-link">
+        <h5 class="card-title"><%= rs2.getString("name") %></h5>
+        <p class="card-text">NT$<%= rs2.getInt("price") %></p>
+        <p class="card-text">庫存：<%= rs2.getInt("inventory") %></p>
+      </a>
     </div>
+  </div>
+<% } %>
 <%
     }
     rs2.close();
@@ -465,6 +480,24 @@ try {
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="../js/Product_interface.js"></script>
+  <script>
+document.querySelector('.searchButton').addEventListener('click', function () {
+  const keyword = document.querySelector('.searchTerm').value.trim().toLowerCase();
+  const cards = document.querySelectorAll('.card');
+  if (keyword === '') {
+    cards.forEach(card => card.style.display = 'block');
+  } else {
+    cards.forEach(card => {
+      const name = card.getAttribute('data-name');
+      if (name && name.toLowerCase().includes(keyword)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+});
+</script>
 </body>
 
 

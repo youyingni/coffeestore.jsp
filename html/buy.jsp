@@ -224,6 +224,35 @@
 
   <script>
     /*按鈕邏輯*/
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const decreaseBtn = document.getElementById("decrease-btn");
+      const increaseBtn = document.getElementById("increase-btn");
+      const quantityInput = document.getElementById("quantity-input");
+
+      // 增加數量
+      increaseBtn.addEventListener("click", () => {
+        const currentValue = parseInt(quantityInput.value, 10) || 0;
+        quantityInput.value = currentValue + 1;
+      });
+
+      // 減少數量
+      decreaseBtn.addEventListener("click", () => {
+        const currentValue = parseInt(quantityInput.value, 10) || 1;
+        if (currentValue > 1) {
+          quantityInput.value = currentValue - 1;
+        }
+      });
+    });
+
+
+
+
+
+
+
+
    document.addEventListener("DOMContentLoaded", function () {
     const addToCartButton = document.getElementById("addtocart");
 
@@ -296,8 +325,6 @@
         });
       });
     });
-
-    /*json*/
 
 
   </script>
