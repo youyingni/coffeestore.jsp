@@ -37,7 +37,7 @@
       <ul>
         <li><a href="index.jsp"><img class="logo" src='../img/OIP.jpg'>回首頁</a></li>
         <li><a href="personal.html">個人資料</a></li>
-        <li><a href="history.html">歷史紀錄</a></li>
+        <li><a href="history.jsp">歷史紀錄</a></li>
         <li><a href="class.html">課程介紹</a></li>
       </ul>
     </nav>
@@ -51,7 +51,7 @@
 <%
     String dbUrl = "jdbc:mysql://localhost:3306/members?useUnicode=true&characterEncoding=UTF-8";
     String dbUser = "root"; // 請換成你的MySQL帳號
-    String dbPwd = "1234"; // 請換成你的MySQL密碼
+    String dbPwd = "500608"; // 請換成你的MySQL密碼
 
     String id = request.getParameter("id");
     String pwd = request.getParameter("pwd");
@@ -82,6 +82,8 @@
             rs = ps.executeQuery();
             if(rs.next()) {
                 loginSuccess = true;
+                session.setAttribute("memberID", id); // 登入帳號
+                session.setAttribute("memberName", rs.getString("name"));
             } else {
                 errorMsg = "帳號或密碼錯誤！請重新輸入。";
             }

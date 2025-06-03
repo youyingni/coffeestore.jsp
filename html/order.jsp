@@ -133,7 +133,8 @@
 
 
 <%
-String customer = "顧客";
+request.setCharacterEncoding("UTF-8");
+String customer = (String) session.getAttribute("memberID"); // ✅ 用登入帳號
 String address = request.getParameter("address");
 String remarks = request.getParameter("remarks");
 String payment = request.getParameter("payment");
@@ -141,9 +142,17 @@ String discountCode = request.getParameter("discount");
 String subtotalStr = request.getParameter("subtotal");
 String totalStr = request.getParameter("total");
 int orderId = 0;
+
+if (customer == null) {
+    out.println("<p>請先登入才能建立訂單。</p>");
+    return;
+}
+
 try {
     Class.forName("com.mysql.jdbc.Driver");
     Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
+
+    // ✅ 插入訂單記錄
     String insertOrder = "INSERT INTO orders (customer_name, address, remarks, payment_method, discount_code, subtotal, total) VALUES (?, ?, ?, ?, ?, ?, ?)";
     PreparedStatement ps = conn.prepareStatement(insertOrder, Statement.RETURN_GENERATED_KEYS);
     ps.setString(1, customer);
@@ -154,16 +163,24 @@ try {
     ps.setBigDecimal(6, new java.math.BigDecimal(subtotalStr));
     ps.setBigDecimal(7, new java.math.BigDecimal(totalStr));
     ps.executeUpdate();
-    ResultSet generatedKeys = ps.getGeneratedKeys();
-    if (generatedKeys.next()) orderId = generatedKeys.getInt(1);
 
+    ResultSet generatedKeys = ps.getGeneratedKeys();
+    if (generatedKeys.next()) {
+        orderId = generatedKeys.getInt(1);
+    }
+
+    // ✅ 從購物車轉入訂單明細
     Statement stmt = conn.createStatement();
-    ResultSet rs = stmt.executeQuery("SELECT cart.*, productss.name, productss.price FROM cart JOIN productss ON cart.id = productss.id");
-    PreparedStatement itemPs = conn.prepareStatement("INSERT INTO order_items (order_id, product_name, product_price, quantity, sugar, ice) VALUES (?, ?, ?, ?, ?, ?)");
-    PreparedStatement updateStock = conn.prepareStatement("UPDATE productss SET inventory = inventory - ? WHERE id = ?");
+    ResultSet rs = stmt.executeQuery("SELECT cart.*, productss.id, productss.price FROM cart JOIN productss ON cart.id = productss.id");
+
+    PreparedStatement itemPs = conn.prepareStatement(
+        "INSERT INTO order_items (order_id, product_name, product_price, quantity, sugar, ice) VALUES (?, ?, ?, ?, ?, ?)");
+    PreparedStatement updateStock = conn.prepareStatement(
+        "UPDATE productss SET inventory = inventory - ? WHERE id = ?");
+
     while (rs.next()) {
         itemPs.setInt(1, orderId);
-        itemPs.setString(2, rs.getString("name"));
+        itemPs.setString(2, rs.getString("id")); // ✅ 使用商品 ID 當作名稱（或你可改顯示 name）
         itemPs.setBigDecimal(3, rs.getBigDecimal("price"));
         itemPs.setInt(4, rs.getInt("orderQ"));
         itemPs.setString(5, rs.getString("sugar"));
@@ -174,8 +191,14 @@ try {
         updateStock.setString(2, rs.getString("id"));
         updateStock.executeUpdate();
     }
-    stmt.executeUpdate("DELETE FROM cart");
-    rs.close(); stmt.close(); ps.close(); itemPs.close(); updateStock.close(); conn.close();
+
+    stmt.executeUpdate("DELETE FROM cart WHERE customerID = '" + customer + "'");
+    rs.close();
+    stmt.close();
+    ps.close();
+    itemPs.close();
+    updateStock.close();
+    conn.close();
 } catch (Exception e) {
     out.println("<p>資料庫錯誤: " + e.getMessage() + "</p>");
 }
@@ -187,6 +210,7 @@ try {
     </div>
     <div class="text-center" style="color: #777;">感謝您的訂購！</div>
     <div class="details">
+        <p>名字：<%= customer %></p>
         <p>訂單編號：<%= orderId %></p>
         <p>付款方式：<%= payment %></p>
         <p>收貨地址：<%= address %></p>
@@ -201,27 +225,34 @@ try {
 <%
 try {
     Class.forName("com.mysql.jdbc.Driver");
-    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
-    PreparedStatement stmt = conn.prepareStatement("SELECT * FROM order_items WHERE order_id = ?");
-    stmt.setInt(1, orderId);
-    ResultSet rs = stmt.executeQuery();
-    while (rs.next()) {
-        String name = rs.getString("product_name");
-        int price = rs.getInt("product_price");
-        int quantity = rs.getInt("quantity");
+    Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
+
+    PreparedStatement stmt2 = conn2.prepareStatement(
+        "SELECT oi.*, p.name AS product_display_name FROM order_items oi JOIN productss p ON oi.product_name = p.id WHERE oi.order_id = ?"
+
+    );
+    stmt2.setInt(1, orderId);
+    ResultSet rs2 = stmt2.executeQuery();
+
+    while (rs2.next()) {
+        String productName = rs2.getString("product_display_name"); // 改這裡
+        int price = rs2.getInt("product_price");
+        int quantity = rs2.getInt("quantity");
         int subtotal = price * quantity;
 %>
         <div class="product">
-            <div style="flex: 2;"> <%= name %> </div>
+            <div style="flex: 2;"><%= productName %></div>
             <div class="product-price">$<%= price %></div>
             <div class="product-quantity"><%= quantity %></div>
             <div class="product-line-price">$<%= subtotal %></div>
         </div>
 <%
     }
-    rs.close(); stmt.close(); conn.close();
+    rs2.close();
+    stmt2.close();
+    conn2.close();
 } catch (Exception e) {
-    out.println("<p>讀取訂單項目錯誤: " + e.getMessage() + "</p>");
+    out.println("<p>查詢商品名稱錯誤：" + e.getMessage() + "</p>");
 }
 %>
 

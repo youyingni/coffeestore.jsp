@@ -29,7 +29,7 @@
     // 設定資料庫連線資訊
     String dbUrl = "jdbc:mysql://localhost:3306/members?useUnicode=true&characterEncoding=UTF-8";
     String dbUser = "root"; // 請填你的MySQL帳號
-    String dbPwd = "1234"; // 請填你的MySQL密碼
+    String dbPwd = "500608"; // 請填你的MySQL密碼
 
     String id = request.getParameter("id");
     String email = request.getParameter("email");

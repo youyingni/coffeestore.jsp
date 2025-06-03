@@ -156,28 +156,28 @@ try {
     </div>
     <div class="product-line-price"><%=total%></div>
     <div class="product-removal">
-      <button class="remove-product" data-cartno="<%=no%>">
+      <button type="button" class="remove-product" data-cartno="<%=no%>">
         <img src="../image/garbage.png" alt="" class="icon">
       </button>
     </div>
   </div>
 <%
   }
-  rs.close();
-  stmt.close();
-  conn.close();
+  rs.close(); stmt.close(); conn.close();
 } catch (Exception e) {
   out.println("<p>錯誤: " + e.getMessage() + "</p>");
 }
 %>
 <div class="order-remarks">
-  <h2 class="remark">訂單備註</h2>
-  <textarea name="remarks" placeholder="例如：請放在門口" rows="3"></textarea>
-</div>
-<div class="order-remarks">
-  <h2 class="remark">收貨地址</h2>
-  <textarea name="address" placeholder="例如：在哪裡" rows="3"></textarea>
-</div>
+        <h2>客戶名字</h2>
+        <textarea name="customer_name" placeholder="例如：請輸入名字" rows="3"></textarea>
+
+        <h2>訂單備註</h2>
+        <textarea name="remarks" placeholder="例如：請放在門口" rows="3"></textarea>
+        <h2>收貨地址</h2>
+        <textarea name="address" placeholder="例如：台北市信義區101號" rows="3"></textarea>
+      </div>
+
 <div class="payment-methods">
   <h2>付款方式</h2>
   <label>
@@ -187,41 +187,62 @@ try {
       貨到付款
     </div>
   </label>
-  <div>
-    <label>輸入優惠券：</label>
-    <input type="text" id="discount-code" name="discount" placeholder="請輸入優惠碼">
-  </div>
-</div>
-<div class="totals">
-  <div class="totals-item">
-    <label>小計</label>
-    <div class="totals-value" id="cart-subtotal">0.00</div>
-  </div>
-  <div class="totals-item">
-    <label>運費</label>
-    <div class="totals-value" id="cart-shipping">60.00</div>
-  </div>
-  <div class="totals-item totals-item-total">
-    <label>總計</label>
-    <div class="totals-value" id="cart-total">0.00</div>
-  </div>
-</div>
-<input type="hidden" name="subtotal" id="hidden-subtotal">
+      
+        
+        <div>
+          <label>輸入優惠券：</label>
+          <input type="text" id="discount-code" name="discount" placeholder="請輸入優惠碼">
+        </div>
+      </div>
+      <div class="totals">
+        <div class="totals-item"><label>小計</label><div id="cart-subtotal">0.00</div></div>
+        <div class="totals-item"><label>運費</label><div id="cart-shipping">60.00</div></div>
+        <div class="totals-item"><label>總計</label><div id="cart-total">0.00</div></div>
+      </div>
+      <input type="hidden" name="subtotal" id="hidden-subtotal">
 <input type="hidden" name="total" id="hidden-total">
 <div class="button-container">
   <a href="Product_interface.jsp"><button type="button" class="return">繼續選購</button></a>
   <button class="checkout" type="submit">完成訂單</button>
-</div>
-</div>
-</form>
+      </div>
+    </div>
+  </form>
 
 <script>
+let isDeleting = false;
+
+function removeItem(removeButton) {
+  const productRow = $(removeButton).closest('.product');
+  const cartNo = $(removeButton).data("cartno");
+  isDeleting = true;
+
+  fetch("deleteCart.jsp", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `no=${cartNo}`
+  }).then(res => {
+    if (res.ok) {
+      productRow.slideUp(fadeTime, function () {
+        productRow.remove();
+        recalculateCart();
+        isDeleting = false;
+      });
+    } else {
+      alert("刪除失敗");
+      isDeleting = false;
+    }
+  });
+}
+
 function prepareOrderData() {
+  if (isDeleting) {
+    alert("請稍候，商品移除中...");
+    return false;
+  }
   document.getElementById("hidden-subtotal").value = document.getElementById("cart-subtotal").innerText;
   document.getElementById("hidden-total").value = document.getElementById("cart-total").innerText;
   return true;
-  }
-
+}
 
 
 const fadeTime = 300;
@@ -239,24 +260,7 @@ function recalculateCart() {
   document.getElementById("cart-shipping").innerText = shipping.toFixed(2);
   document.getElementById("cart-total").innerText = (subtotal + shipping).toFixed(2);
 }
-function removeItem(removeButton) {
-  const productRow = $(removeButton).closest('.product');
-  const cartNo = $(removeButton).data("cartno");
-  fetch("deleteCart.jsp", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: `no=${cartNo}`
-  }).then(res => {
-    if (res.ok) {
-      productRow.slideUp(fadeTime, function () {
-        productRow.remove();
-        recalculateCart();
-      });
-    } else {
-      alert("刪除失敗");
-    }
-  });
-}
+
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".remove-product").forEach(function (btn) {
     btn.addEventListener("click", function () {
@@ -268,6 +272,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   recalculateCart();
 });
+
+
+
 </script>
     <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="../js/cart.js"></script>
