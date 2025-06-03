@@ -45,60 +45,78 @@
 
 </head>
 <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<%
+String id = request.getParameter("product");
+String name = "";
+String image = "";
+int price = 0;
+int inventory = 0;
 
+if (id != null && !"".equals(id)) {
+    try {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM productss WHERE id = ?");
+        stmt.setString(1, id);
+        ResultSet rs = stmt.executeQuery();
+        if (rs.next()) {
+            name = rs.getString("name");
+            image = rs.getString("image");
+            price = rs.getInt("price");
+            inventory = rs.getInt("inventory");
+        } else {
+            out.println("<p>找不到商品資料。</p>");
+        }
+        rs.close();
+        stmt.close();
+        conn.close();
+    } catch (Exception e) {
+        out.println("<p>資料庫錯誤：" + e.getMessage() + "</p>");
+    }
+} else {
+    out.println("<p>未指定商品 ID。</p>");
+}
+%>
 <body>
-    <%
-  request.setCharacterEncoding("UTF-8");
-  String productId = request.getParameter("product");
-  String action = request.getParameter("action");
-  String name = "", image = "", link = "";
-  int price = 0, inventory = 0;
-  String description = "";
+  
+   <%
+request.setCharacterEncoding("UTF-8");
+String action = request.getParameter("action");
+String productId = request.getParameter("product");
 
-  try {
-    Class.forName("com.mysql.jdbc.Driver");
-    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
-
-    if ("add".equals(action)) {
-      String sugar = request.getParameter("sugar");
-      String ice = request.getParameter("ice");
-      int quantity = Integer.parseInt(request.getParameter("quantity"));
-      String customerID = "guest"; // 可根據登入狀態動態改變
-
-      String sql = "INSERT INTO cart (id, sugar, ice, customerID, orderQ) VALUES (?, ?, ?, ?, ?)";
-      PreparedStatement ps = conn.prepareStatement(sql);
-      ps.setString(1, productId);
-      ps.setString(2, sugar);
-      ps.setString(3, ice);
-      ps.setString(4, customerID);
-      ps.setInt(5, quantity);
-      ps.executeUpdate();
-      ps.close();
+if ("add".equals(action)) {
+    String customerID = (String) session.getAttribute("memberID");
+    if (customerID == null) {
+        out.print("NOT_LOGIN");
+        return;
     }
 
-    String query = "SELECT * FROM productss WHERE id = ?";
-    PreparedStatement pstmt = conn.prepareStatement(query);
-    pstmt.setString(1, productId);
-    ResultSet rs = pstmt.executeQuery();
+    try {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
 
-    if (rs.next()) {
-      name = rs.getString("name");
-      image = rs.getString("image");
-      price = rs.getInt("price");
-      try { description = rs.getString("description"); } catch (Exception ignore) {}
-      inventory = rs.getInt("inventory");
-    } else {
-      name = "找不到商品";
-      description = "請返回商品列表";
+        String sugar = request.getParameter("sugar");
+        String ice = request.getParameter("ice");
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+
+        String sql = "INSERT INTO cart (id, sugar, ice, customerID, orderQ) VALUES (?, ?, ?, ?, ?)";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, productId);
+        ps.setString(2, sugar);
+        ps.setString(3, ice);
+        ps.setString(4, customerID);
+        ps.setInt(5, quantity);
+        ps.executeUpdate();
+        ps.close();
+        conn.close();
+
+        out.print("OK");
+        return;
+    } catch (Exception e) {
+        out.print("ERROR: " + e.getMessage());
+        return;
     }
-
-    rs.close();
-    pstmt.close();
-    conn.close();
-  } catch (Exception e) {
-    name = "資料庫錯誤";
-    description = e.getMessage();
-  }
+}
 %>
   <nav class="navbar">
     <div class="aa">
@@ -107,7 +125,7 @@
       </div>
       <div class="navbar-icons">
         
-      <a href="login.html"><img src="../image/member.png" alt="member" class="icons mx-2"></a>
+      <a href="login.jsp"><img src="../image/member.png" alt="member" class="icons mx-2"></a>
 
 
         <!-- cart特效 -->
@@ -253,78 +271,48 @@
 
 
 
-   document.addEventListener("DOMContentLoaded", function () {
-    const addToCartButton = document.getElementById("addtocart");
+  document.addEventListener("DOMContentLoaded", function () {
+  const addToCartButton = document.getElementById("addtocart");
 
-    addToCartButton.addEventListener("click", function () {
-      const sweetness = document.querySelector("button[data-group='sweetness'].selected");
-      const ice = document.querySelector("button[data-group='ice'].selected");
-      const quantity = document.getElementById("quantity-input").value;
-      const product = new URLSearchParams(window.location.search).get("product");
+  addToCartButton.addEventListener("click", function () {
+    const sweetness = document.querySelector("button[data-group='sweetness'].selected");
+    const ice = document.querySelector("button[data-group='ice'].selected");
+    const quantity = document.getElementById("quantity-input").value;
+    const product = new URLSearchParams(window.location.search).get("product");
 
-      if (!sweetness || !ice) {
-        alert("請先選擇甜度和冰塊");
-        return;
-      }
+    if (!sweetness || !ice) {
+      alert("請先選擇甜度和冰塊");
+      return;
+    }
 
-      const data = new URLSearchParams();
-      data.append("action", "add");
-      data.append("product", product);
-      data.append("sugar", sweetness.innerText);
-      data.append("ice", ice.innerText);
-      data.append("quantity", quantity);
+    const data = new URLSearchParams();
+    data.append("action", "add");
+    data.append("product", product);
+    data.append("sugar", sweetness.innerText);
+    data.append("ice", ice.innerText);
+    data.append("quantity", quantity);
 
-      fetch("buy.jsp", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: data.toString()
-      }).then(response => {
-        if (response.ok) {
+    fetch("buy.jsp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: data.toString()
+    }).then(response => response.text())
+      .then(result => {
+        if (result === "NOT_LOGIN") {
+          alert("請先登入");
+          window.location.href = "login.jsp";
+        } else if (result === "OK") {
           alert("成功加入購物車！");
         } else {
-          alert("加入購物車失敗。");
+          alert("加入購物車失敗：" + result);
         }
       });
-    });
   });
+});
 
 
-
-    document.addEventListener("DOMContentLoaded", function () {
-      // 找到所有最外層的div
-      const starRatings = document.querySelectorAll(".star");
-
-      // 對每個星星評分區域設定事件
-      starRatings.forEach((starRating) => {
-        // 找到該評分區域內所有的icon
-        const starIcons = starRating.querySelectorAll(".star-icon");
-
-        // 將所有的icon加上click事件
-        starIcons.forEach((starIcon) => {
-          starIcon.addEventListener("click", function () {
-            // 找到點擊的icon的data-index 並轉成數字
-            const clickedIndex = parseInt(this.getAttribute("data-index"));
-
-            // starsIcons是一個陣列，所以可以用forEach來判斷 跑迴圈 全部都跑一遍
-            starIcons.forEach((icon, index) => {
-              // 如果index小於點擊的index，就加上selected的class，並且改變icon
-              if (index < clickedIndex) {
-                icon.setAttribute("icon", "material-symbols:star");
-              }
-              // 如果index小於點擊的index，就加上selected的class，並且改變icon 變成空心
-              else {
-                icon.setAttribute("icon", "material-symbols:star-outline");
-              }
-            });
-
-            // 在這裏你可以將 clickedIndex 送到後端，並更新資料庫
-            console.log("Selected Rating: " + clickedIndex);
-          });
-        });
-      });
-    });
 
 
   </script>
