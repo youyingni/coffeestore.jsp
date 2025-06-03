@@ -16,7 +16,7 @@
         .register-container { background: #fff8f2; margin: 60px auto; padding: 32px 30px 24px 30px; max-width: 400px; border-radius: 20px; box-shadow: 0 6px 18px #b5a08240;}
         .form-group { margin-bottom: 20px; }
         label { display: block; font-size: 1rem; margin-bottom: 7px; }
-        input { width: 100%; padding: 8px; border: 1px solid #c2b29b; border-radius: 5px;}
+        input, select { width: 100%; padding: 8px; border: 1px solid #c2b29b; border-radius: 5px;}
         .register-button { background: #4caf50; color: white; padding: 10px; border: none; width: 100%; border-radius: 5px; font-size: 1.1rem;}
         .register-button:hover { background: #45a049;}
         #errorMessage { margin-top: 16px; color: red; text-align: center;}
@@ -26,20 +26,25 @@
 </head>
 <body>
 <%
-    // 設定資料庫連線資訊
+    // 資料庫連線
     String dbUrl = "jdbc:mysql://localhost:3306/members?useUnicode=true&characterEncoding=UTF-8";
-    String dbUser = "root"; // 請填你的MySQL帳號
-    String dbPwd = "1234"; // 請填你的MySQL密碼
+    String dbUser = "root";
+    String dbPwd = "1234";
 
     String id = request.getParameter("id");
     String email = request.getParameter("email");
     String pwd = request.getParameter("pwd");
     String pwd2 = request.getParameter("pwd2");
+    String phone = request.getParameter("phone");
+    String gender = request.getParameter("gender");
+    String birthday = request.getParameter("birthday");
+    String address = request.getParameter("address");
 
     String errorMsg = "";
     boolean showError = false;
 
-    if(id != null && email != null && pwd != null && pwd2 != null) {
+    if(id != null && email != null && pwd != null && pwd2 != null
+        && phone != null && gender != null && birthday != null && address != null) {
         if(!pwd.equals(pwd2)) {
             errorMsg = "兩次密碼不一致，請重新輸入。";
             showError = true;
@@ -70,19 +75,23 @@
                     errorMsg = "Email已註冊，請換一個Email！";
                     showError = true;
                 } else {
-                    // ------- 密碼進行 SHA-256 雜湊 -------
+                    // 密碼雜湊 SHA-256
                     MessageDigest md = MessageDigest.getInstance("SHA-256");
                     md.update(pwd.getBytes("UTF-8"));
                     byte[] digest = md.digest();
                     StringBuilder sb = new StringBuilder();
                     for(byte b : digest) sb.append(String.format("%02x", b));
                     String hashedPwd = sb.toString();
-                    // ------- 寫入資料庫 -------
-                    String insertSql = "INSERT INTO members (id, pwd, email) VALUES (?,?,?)";
+                    // 寫入資料庫
+                    String insertSql = "INSERT INTO members (id, pwd, email, phone, gender, birthday, address) VALUES (?,?,?,?,?,?,?)";
                     insert = conn.prepareStatement(insertSql);
                     insert.setString(1, id);
                     insert.setString(2, hashedPwd);
                     insert.setString(3, email);
+                    insert.setString(4, phone);
+                    insert.setString(5, gender);
+                    insert.setString(6, birthday);
+                    insert.setString(7, address);
                     int ok = insert.executeUpdate();
                     if(ok > 0){
                         response.sendRedirect("login.jsp");
@@ -130,6 +139,30 @@
         <div class="form-group">
             <label for="pwd2">確認密碼</label>
             <input type="password" id="pwd2" name="pwd2" placeholder="再次輸入密碼" required maxlength="45">
+        </div>
+        <div class="form-group">
+            <label for="phone">電話號碼</label>
+            <input type="text" id="phone" name="phone" placeholder="09xxxxxxxx" required maxlength="20"
+                   value="<%= phone!=null ? phone : "" %>">
+        </div>
+        <div class="form-group">
+            <label for="gender">性別</label>
+            <select id="gender" name="gender" required>
+                <option value="">請選擇</option>
+                <option value="男" <%= "男".equals(gender) ? "selected" : "" %>>男</option>
+                <option value="女" <%= "女".equals(gender) ? "selected" : "" %>>女</option>
+                <option value="其他" <%= "其他".equals(gender) ? "selected" : "" %>>其他</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="birthday">生日</label>
+            <input type="date" id="birthday" name="birthday" required
+                   value="<%= birthday!=null ? birthday : "" %>">
+        </div>
+        <div class="form-group">
+            <label for="address">住家住址</label>
+            <input type="text" id="address" name="address" placeholder="例：320桃園市中壢區中北路200號" required maxlength="100"
+                   value="<%= address!=null ? address : "" %>">
         </div>
         <button type="submit" class="register-button">確認送出</button>
     </form>

@@ -1,5 +1,62 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.sql.*, java.security.*" %>
+<%
+    String dbUrl = "jdbc:mysql://localhost:3306/members?useUnicode=true&characterEncoding=UTF-8";
+    String dbUser = "root";
+    String dbPwd = "1234";
+
+    String id = request.getParameter("id");
+    String pwd = request.getParameter("pwd");
+    boolean triedLogin = false;
+    boolean loginSuccess = false;
+    String errorMsg = "";
+    String memberName = null;
+
+    // 判斷是否登入
+    if(session.getAttribute("memberID") != null) {
+        loginSuccess = true;
+        id = (String)session.getAttribute("memberID");
+        memberName = id; // 直接用id當作顯示名稱
+    }
+
+    // 送出登入資料，開始驗證
+    if(id != null && pwd != null && !loginSuccess) {
+        triedLogin = true;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(pwd.getBytes("UTF-8"));
+            byte[] digest = md.digest();
+            StringBuilder sb = new StringBuilder();
+            for(byte b : digest) sb.append(String.format("%02x", b));
+            String hashedPwd = sb.toString();
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(dbUrl, dbUser, dbPwd);
+            String sql = "SELECT * FROM members WHERE id=? AND pwd=?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            ps.setString(2, hashedPwd);
+            rs = ps.executeQuery();
+            if(rs.next()) {
+                loginSuccess = true;
+                session.setAttribute("memberID", id); // 登入帳號
+                session.setAttribute("memberName", id); // 用id當名稱
+                memberName = id;
+            } else {
+                errorMsg = "帳號或密碼錯誤！請重新輸入。";
+            }
+        } catch(Exception e) {
+            errorMsg = "系統錯誤：" + e.getMessage();
+        } finally {
+            if(rs != null) try { rs.close(); } catch(Exception e) {}
+            if(ps != null) try { ps.close(); } catch(Exception e) {}
+            if(conn != null) try { conn.close(); } catch(Exception e) {}
+        }
+    }
+%>
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -29,18 +86,46 @@
     .main-nav { background-color: #513518; color: white; }
     .main-nav a { background-color: #513518; color: white; }
     .register-link { color: #3377ff; text-decoration: underline; cursor: pointer; }
+    .nav-right {
+      float: right;
+      margin-right: 30px;
+      font-size: 1.1em;
+      color: #fff;
+      line-height: 60px;
+      letter-spacing: 2px;
+    }
+    .logout-link {
+      margin-left: 12px;
+      color: #fff;
+      background: #b45a5a;
+      border-radius: 4px;
+      padding: 4px 10px;
+      text-decoration: none;
+    }
+    .logout-link:hover {
+      background: #a93226;
+    }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.jsp"><img class="logo" src='../img/OIP.jpg'>回首頁</a></li>
-        <li><a href="personal.html">個人資料</a></li>
-        <li><a href="history.html">歷史紀錄</a></li>
-        <li><a href="class.html">課程介紹</a></li>
-      </ul>
-    </nav>
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.jsp"><img class="logo" src='../img/OIP.jpg'>回首頁</a></li>
+    <li><a href="personal.jsp">個人資料</a></li>
+    <li><a href="history.jsp">歷史紀錄</a></li>
+    <li><a href="class.jsp">課程介紹</a></li>
+  </ul>
+  <div class="nav-right">
+    <% if(session.getAttribute("memberID")!=null) { %>
+      <span><%= session.getAttribute("memberName") %> 歡迎登入</span>
+      <a class="logout-link" href="logout.jsp">登出</a>
+    <% } %>
+  </div>
+</nav>
+
+
+
   </div>
   <section class="top-container">
     <header class="showcase">
@@ -48,53 +133,8 @@
         <h1>會員中心</h1>
         <p>咖啡和瑜珈課程</p>
       </div>
-<%
-    String dbUrl = "jdbc:mysql://localhost:3306/members?useUnicode=true&characterEncoding=UTF-8";
-    String dbUser = "root"; // 請換成你的MySQL帳號
-    String dbPwd = "1234"; // 請換成你的MySQL密碼
-
-    String id = request.getParameter("id");
-    String pwd = request.getParameter("pwd");
-    boolean triedLogin = false;
-    boolean loginSuccess = false;
-    String errorMsg = "";
-
-    if(id != null && pwd != null) {
-        triedLogin = true;
-        Connection conn = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        try {
-            // 密碼雜湊
-            MessageDigest md = MessageDigest.getInstance("SHA-256");
-            md.update(pwd.getBytes("UTF-8"));
-            byte[] digest = md.digest();
-            StringBuilder sb = new StringBuilder();
-            for(byte b : digest) sb.append(String.format("%02x", b));
-            String hashedPwd = sb.toString();
-
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(dbUrl, dbUser, dbPwd);
-            String sql = "SELECT * FROM members WHERE id=? AND pwd=?";
-            ps = conn.prepareStatement(sql);
-            ps.setString(1, id);
-            ps.setString(2, hashedPwd);
-            rs = ps.executeQuery();
-            if(rs.next()) {
-                loginSuccess = true;
-            } else {
-                errorMsg = "帳號或密碼錯誤！請重新輸入。";
-            }
-        } catch(Exception e) {
-            errorMsg = "系統錯誤：" + e.getMessage();
-        } finally {
-            if(rs != null) try { rs.close(); } catch(Exception e) {}
-            if(ps != null) try { ps.close(); } catch(Exception e) {}
-            if(conn != null) try { conn.close(); } catch(Exception e) {}
-        }
-    }
-%>
-      <!-- 彈窗DIV：登入錯誤自動加 md-show（popup.js 控制彈窗） -->
+      <% if(!loginSuccess) { %>
+      <!-- 登入表單彈窗（未登入才顯示） -->
       <div class="md-modal md-effect-13 <% if(triedLogin && !loginSuccess){ %>md-show<% } %>" id="modal-13">
         <div class="container md-content">
           <section class="form-section">
@@ -121,11 +161,6 @@
               <% if(triedLogin && !loginSuccess) { %>
                 <div style="color:red;"><%= errorMsg %></div>
                 <a href="new.jsp" class="register-link">還沒註冊嗎？點此註冊會員</a>
-              <% } else if(triedLogin && loginSuccess) { %>
-                <span style="color:green;">登入成功！歡迎 <%= id %>！</span>
-                <br>
-                <a href="Login_successful.html" id="memberLink">回到會員</a>
-                <a href="index.html" id="homeLink">回到首頁</a>
               <% } %>
             </div>
           </section>
@@ -134,7 +169,10 @@
       <div class="md-overlay"></div>
       <button class="md-trigger btn" data-modal="modal-13">會員登入/註冊</button>
       <script src="../js/popup.js"></script>
+      <% } %>
+
     </header>
+
     <!-- 熱賣課程 -->
     <div class="hot-sale-carousel">
       <div class="hot-sale-card active">
