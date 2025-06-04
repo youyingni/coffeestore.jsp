@@ -130,8 +130,10 @@
 try {
   Class.forName("com.mysql.jdbc.Driver");
   Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
-  Statement stmt = conn.createStatement();
-  ResultSet rs = stmt.executeQuery("SELECT cart.no, productss.name, productss.image, productss.price, cart.orderQ, cart.sugar, cart.ice FROM cart JOIN productss ON cart.id = productss.id");
+  String memberID = (String) session.getAttribute("memberID");
+  PreparedStatement ps = conn.prepareStatement("SELECT cart.no, productss.name, productss.image, productss.price, cart.orderQ, cart.sugar, cart.ice FROM cart JOIN productss ON cart.id = productss.id WHERE cart.customerID = ?");
+  ps.setString(1, memberID);
+  ResultSet rs = ps.executeQuery();
   while (rs.next()) {
     int no = rs.getInt("no");
     String name = rs.getString("name");
@@ -156,14 +158,14 @@ try {
     </div>
     <div class="product-line-price"><%=total%></div>
     <div class="product-removal">
-      <button type="button" class="remove-product" data-cartno="<%=no%>">
+      <button type="button" class="remove-product" data-cartno="<%=no%>" data-memberid="<%=memberID%>">
         <img src="../image/garbage.png" alt="" class="icon">
       </button>
     </div>
   </div>
 <%
   }
-  rs.close(); stmt.close(); conn.close();
+  rs.close(); ps.close(); conn.close();
 } catch (Exception e) {
   out.println("<p>錯誤: " + e.getMessage() + "</p>");
 }
@@ -181,7 +183,7 @@ try {
 <div class="payment-methods">
   <h2>付款方式</h2>
   <label>
-    <input type="radio" name="payment" value="cod">
+    <input type="radio" name="payment" value="cod" checked>
     <div>
       <img src="../image/cash.png" alt="Line Pay">
       貨到付款
@@ -189,10 +191,44 @@ try {
   </label>
       
         
-        <div>
-          <label>輸入優惠券：</label>
-          <input type="text" id="discount-code" name="discount" placeholder="請輸入優惠碼">
-        </div>
+      <%
+String member = (String) session.getAttribute("memberID");
+boolean hasFreeShipping = false;
+String couponCode = "";
+
+if (member != null) {
+    try {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
+        PreparedStatement ps = conn.prepareStatement("SELECT code FROM coupons WHERE customerID = ? AND isUsed = FALSE AND type = 'free_shipping'");
+        ps.setString(1, member);
+        ResultSet rs = ps.executeQuery();
+
+        if (rs.next()) {
+            hasFreeShipping = true;
+            couponCode = rs.getString("code");
+        }
+
+        rs.close();
+        ps.close();
+        conn.close();
+    } catch (Exception e) {
+        out.println("<p>查詢免運券錯誤：" + e.getMessage() + "</p>");
+    }
+}
+%>
+
+<% if (hasFreeShipping) { %>
+    <div class="form-group">
+        <button type="button" class="btn btn-success" onclick="applyCoupon('<%= couponCode %>')">
+            使用免運券（折抵運費 NT$60）
+        </button>
+        <input type="hidden" name="discount" id="discountInput" value="">
+        <div id="couponStatus" style="color: green; margin-top: 5px;"></div>
+    </div>
+<% } else { %>
+    <div class="form-group text-muted">尚無可用的免運券</div>
+<% } %>
       </div>
       <div class="totals">
         <div class="totals-item"><label>小計</label><div id="cart-subtotal">0.00</div></div>
@@ -212,6 +248,8 @@ try {
 let isDeleting = false;
 
 function removeItem(removeButton) {
+  if (!confirm("確定要移除這項商品嗎？")) return;
+
   const productRow = $(removeButton).closest('.product');
   const cartNo = $(removeButton).data("cartno");
   isDeleting = true;
@@ -273,7 +311,18 @@ document.addEventListener("DOMContentLoaded", function () {
   recalculateCart();
 });
 
+function applyCoupon(code) {
+    document.getElementById('discountInput').value = code;
+    document.getElementById('couponStatus').textContent = '已套用免運券（運費 $0）';
 
+    // 修改運費顯示為 0
+    document.getElementById("cart-shipping").innerText = "0.00";
+
+    // 重新計算總計
+    const subtotal = parseFloat(document.getElementById("cart-subtotal").innerText);
+    const newTotal = subtotal + 0; // shipping = 0
+    document.getElementById("cart-total").innerText = newTotal.toFixed(2);
+}
 
 </script>
     <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

@@ -1,6 +1,7 @@
 <!--訂單詳情-->
 <%@ page import="java.sql.*" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ page import="java.math.BigDecimal" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -134,13 +135,14 @@
 
 <%
 request.setCharacterEncoding("UTF-8");
-String customer = (String) session.getAttribute("memberID"); // ✅ 用登入帳號
+String customer = (String) session.getAttribute("memberID");
 String address = request.getParameter("address");
 String remarks = request.getParameter("remarks");
 String payment = request.getParameter("payment");
 String discountCode = request.getParameter("discount");
 String subtotalStr = request.getParameter("subtotal");
-String totalStr = request.getParameter("total");
+BigDecimal subtotal = new BigDecimal(subtotalStr);
+BigDecimal total = BigDecimal.ZERO;
 int orderId = 0;
 
 if (customer == null) {
@@ -152,7 +154,25 @@ try {
     Class.forName("com.mysql.jdbc.Driver");
     Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
 
-    // ✅ 插入訂單記錄
+    int shippingFee = 60;
+    if (discountCode != null && !discountCode.isEmpty()) {
+        PreparedStatement checkCoupon = conn.prepareStatement("SELECT * FROM coupons WHERE code = ? AND isUsed = FALSE");
+        checkCoupon.setString(1, discountCode);
+        ResultSet checkRs = checkCoupon.executeQuery();
+        if (checkRs.next() && "free_shipping".equals(checkRs.getString("type"))) {
+            shippingFee = 0;
+            PreparedStatement markUsed = conn.prepareStatement("UPDATE coupons SET isUsed = TRUE WHERE code = ?");
+            markUsed.setString(1, discountCode);
+            markUsed.executeUpdate();
+            markUsed.close();
+        }
+        checkRs.close();
+        checkCoupon.close();
+    }
+
+    // ⛳ 修正重點：此處不能重新宣告 total，直接賦值即可
+    total = subtotal.add(new BigDecimal(shippingFee));
+
     String insertOrder = "INSERT INTO orders (customer_name, address, remarks, payment_method, discount_code, subtotal, total) VALUES (?, ?, ?, ?, ?, ?, ?)";
     PreparedStatement ps = conn.prepareStatement(insertOrder, Statement.RETURN_GENERATED_KEYS);
     ps.setString(1, customer);
@@ -160,8 +180,8 @@ try {
     ps.setString(3, remarks);
     ps.setString(4, payment);
     ps.setString(5, discountCode);
-    ps.setBigDecimal(6, new java.math.BigDecimal(subtotalStr));
-    ps.setBigDecimal(7, new java.math.BigDecimal(totalStr));
+    ps.setBigDecimal(6, subtotal);
+    ps.setBigDecimal(7, total);
     ps.executeUpdate();
 
     ResultSet generatedKeys = ps.getGeneratedKeys();
@@ -169,18 +189,34 @@ try {
         orderId = generatedKeys.getInt(1);
     }
 
-    // ✅ 從購物車轉入訂單明細
+    PreparedStatement countStmt = conn.prepareStatement("SELECT COUNT(*) FROM orders WHERE customer_name = ?");
+    countStmt.setString(1, customer);
+    ResultSet countRs = countStmt.executeQuery();
+    int orderCount = 0;
+    if (countRs.next()) {
+        orderCount = countRs.getInt(1);
+    }
+    countRs.close();
+    countStmt.close();
+
+    if (orderCount == 1 || orderCount == 3 || orderCount == 5 || orderCount == 7) {
+        String couponCode = "FREE" + System.currentTimeMillis();
+        PreparedStatement couponStmt = conn.prepareStatement("INSERT INTO coupons (code, customerID, type) VALUES (?, ?, 'free_shipping')");
+        couponStmt.setString(1, couponCode);
+        couponStmt.setString(2, customer);
+        couponStmt.executeUpdate();
+        couponStmt.close();
+    }
+
     Statement stmt = conn.createStatement();
     ResultSet rs = stmt.executeQuery("SELECT cart.*, productss.id, productss.price FROM cart JOIN productss ON cart.id = productss.id");
 
-    PreparedStatement itemPs = conn.prepareStatement(
-        "INSERT INTO order_items (order_id, product_name, product_price, quantity, sugar, ice) VALUES (?, ?, ?, ?, ?, ?)");
-    PreparedStatement updateStock = conn.prepareStatement(
-        "UPDATE productss SET inventory = inventory - ? WHERE id = ?");
+    PreparedStatement itemPs = conn.prepareStatement("INSERT INTO order_items (order_id, product_name, product_price, quantity, sugar, ice) VALUES (?, ?, ?, ?, ?, ?)");
+    PreparedStatement updateStock = conn.prepareStatement("UPDATE productss SET inventory = inventory - ? WHERE id = ?");
 
     while (rs.next()) {
         itemPs.setInt(1, orderId);
-        itemPs.setString(2, rs.getString("id")); // ✅ 使用商品 ID 當作名稱（或你可改顯示 name）
+        itemPs.setString(2, rs.getString("id"));
         itemPs.setBigDecimal(3, rs.getBigDecimal("price"));
         itemPs.setInt(4, rs.getInt("orderQ"));
         itemPs.setString(5, rs.getString("sugar"));
@@ -214,7 +250,7 @@ try {
         <p>訂單編號：<%= orderId %></p>
         <p>付款方式：<%= payment %></p>
         <p>收貨地址：<%= address %></p>
-        <p>訂單總金額：<span>$<%= totalStr %></span></p>
+        <p>訂單總金額：<span>$<%= total %></span></p>
         <h5 style="font-weight: bold; margin-top: 20px;">訂單資訊</h5>
         <div class="product-header">
             <div style="flex: 2;">品項</div>
@@ -226,25 +262,20 @@ try {
 try {
     Class.forName("com.mysql.jdbc.Driver");
     Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
-
-    PreparedStatement stmt2 = conn2.prepareStatement(
-        "SELECT oi.*, p.name AS product_display_name FROM order_items oi JOIN productss p ON oi.product_name = p.id WHERE oi.order_id = ?"
-
-    );
+    PreparedStatement stmt2 = conn2.prepareStatement("SELECT oi.*, p.name AS product_display_name FROM order_items oi JOIN productss p ON oi.product_name = p.id WHERE oi.order_id = ?");
     stmt2.setInt(1, orderId);
     ResultSet rs2 = stmt2.executeQuery();
-
     while (rs2.next()) {
-        String productName = rs2.getString("product_display_name"); // 改這裡
+        String productName = rs2.getString("product_display_name");
         int price = rs2.getInt("product_price");
         int quantity = rs2.getInt("quantity");
-        int subtotal = price * quantity;
+        int lineTotal = price * quantity;
 %>
         <div class="product">
             <div style="flex: 2;"><%= productName %></div>
             <div class="product-price">$<%= price %></div>
             <div class="product-quantity"><%= quantity %></div>
-            <div class="product-line-price">$<%= subtotal %></div>
+            <div class="product-line-price">$<%= lineTotal %></div>
         </div>
 <%
     }
@@ -278,7 +309,10 @@ try {
         document.getElementById('orderNumber').textContent = generateOrderNumber();
         document.getElementById('orderDate').textContent = getCurrentDateTime();
         document.getElementById('estimatedDate').textContent = getEstimatedDeliveryDate();
+
+
     </script>
+
 </body>
 
 </html>
