@@ -175,7 +175,7 @@
                                     <li><a href="#">紓咖商品</a>
                                         <ul>
                                             <li>
-                                                <a href="Product_interface.html">紓咖咖啡</a>
+                                                <a href="Product_interface.jsp">紓咖咖啡</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -216,14 +216,14 @@
                                 <div class="icon">
                                     <ul>
                                         <li>
-                                            <a href="login.html">
+                                            <a href="login.jsp">
                                                 <iconify-icon icon="bi:people-circle" width="30px"
                                                     height="30px"></iconify-icon>
                                             </a>
                                         </li>
 
                                         <li>
-                                            <a href="cart.html">
+                                            <a href="cart.jsp">
                                                 <iconify-icon icon="guidance:shop" width="30px"
                                                     height="30px"></iconify-icon>
                                             </a>

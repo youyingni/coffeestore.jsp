@@ -109,23 +109,14 @@
 </head>
 <body>
   <div class="wrapper">
-<nav class="main-nav">
-  <ul>
-    <li><a href="index.jsp"><img class="logo" src='../img/OIP.jpg'>回首頁</a></li>
-    <li><a href="personal.jsp">個人資料</a></li>
-    <li><a href="history.jsp">歷史紀錄</a></li>
-    <li><a href="class.jsp">課程介紹</a></li>
-  </ul>
-  <div class="nav-right">
-    <% if(session.getAttribute("memberID")!=null) { %>
-      <span><%= session.getAttribute("memberName") %> 歡迎登入</span>
-      <a class="logout-link" href="logout.jsp">登出</a>
-    <% } %>
-  </div>
-</nav>
-
-
-
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.jsp"><img class="logo" src='../img/OIP.jpg'>回首頁</a></li>
+        <li><a href="personal.html">個人資料</a></li>
+        <li><a href="history.html">歷史紀錄</a></li>
+        <li><a href="class.html">課程介紹</a></li>
+      </ul>
+    </nav>
   </div>
   <section class="top-container">
     <header class="showcase">
@@ -133,8 +124,53 @@
         <h1>會員中心</h1>
         <p>咖啡和瑜珈課程</p>
       </div>
-      <% if(!loginSuccess) { %>
-      <!-- 登入表單彈窗（未登入才顯示） -->
+<%
+    String dbUrl = "jdbc:mysql://localhost:3306/members?useUnicode=true&characterEncoding=UTF-8";
+    String dbUser = "root"; // 請換成你的MySQL帳號
+    String dbPwd = "1234"; // 請換成你的MySQL密碼
+
+    String id = request.getParameter("id");
+    String pwd = request.getParameter("pwd");
+    boolean triedLogin = false;
+    boolean loginSuccess = false;
+    String errorMsg = "";
+
+    if(id != null && pwd != null) {
+        triedLogin = true;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            // 密碼雜湊
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            md.update(pwd.getBytes("UTF-8"));
+            byte[] digest = md.digest();
+            StringBuilder sb = new StringBuilder();
+            for(byte b : digest) sb.append(String.format("%02x", b));
+            String hashedPwd = sb.toString();
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn = DriverManager.getConnection(dbUrl, dbUser, dbPwd);
+            String sql = "SELECT * FROM members WHERE id=? AND pwd=?";
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, id);
+            ps.setString(2, hashedPwd);
+            rs = ps.executeQuery();
+            if(rs.next()) {
+                loginSuccess = true;
+            } else {
+                errorMsg = "帳號或密碼錯誤！請重新輸入。";
+            }
+        } catch(Exception e) {
+            errorMsg = "系統錯誤：" + e.getMessage();
+        } finally {
+            if(rs != null) try { rs.close(); } catch(Exception e) {}
+            if(ps != null) try { ps.close(); } catch(Exception e) {}
+            if(conn != null) try { conn.close(); } catch(Exception e) {}
+        }
+    }
+%>
+      <!-- 彈窗DIV：登入錯誤自動加 md-show（popup.js 控制彈窗） -->
       <div class="md-modal md-effect-13 <% if(triedLogin && !loginSuccess){ %>md-show<% } %>" id="modal-13">
         <div class="container md-content">
           <section class="form-section">

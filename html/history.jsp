@@ -4,6 +4,7 @@
 request.setCharacterEncoding("UTF-8");
 String customer = (String) session.getAttribute("memberID");
 %>
+<<<<<<< HEAD
 <%
     // 判斷是否已登入，沒登入就導回登入頁
     if(session.getAttribute("memberID") == null){
@@ -11,6 +12,8 @@ String customer = (String) session.getAttribute("memberID");
         return;
     }
 %>
+=======
+>>>>>>> origin/youtingyu
 <!DOCTYPE html>
 <html lang="en">
 
