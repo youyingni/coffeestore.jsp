@@ -115,25 +115,42 @@
 </head>
 
 <body>
- <h1 class="page-title">購物車</h1>
-<form method="post" action="order.jsp" onsubmit="return prepareOrderData();">
-<div class="shopping-cart">
-  <div class="column-labels">
-    <label class="product-image">圖片</label>
-    <label class="product-details">商品內容</label>
-    <label class="product-price">價格</label>
-    <label class="product-quantity">數量</label>
-    <label class="product-line-price">總計</label>
-    <label class="product-removal">移除</label>
+<%
+String memberID = (String) session.getAttribute("memberID");
+if (memberID == null) {
+%>
+  <div style="background-color: #ffeeee; padding: 20px; border: 2px solid red; border-radius: 10px; margin: 30px;">
+    <h2>⚠ 您尚未登入會員</h2>
+    <p>請先<a href="login.jsp" style="color: blue; font-weight: bold;">登入會員</a>以查看購物車內容。</p>
   </div>
+<%
+} else {
+%>
+
+
+<!-- 不要再宣告 memberID -->
 <%
 try {
   Class.forName("com.mysql.jdbc.Driver");
   Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
-  String memberID = (String) session.getAttribute("memberID");
   PreparedStatement ps = conn.prepareStatement("SELECT cart.no, productss.name, productss.image, productss.price, cart.orderQ, cart.sugar, cart.ice FROM cart JOIN productss ON cart.id = productss.id WHERE cart.customerID = ?");
   ps.setString(1, memberID);
   ResultSet rs = ps.executeQuery();
+
+  // 開始輸出 HTML 表格
+%>
+  <h1 class="page-title">購物車</h1>
+  <form method="post" action="order.jsp" onsubmit="return prepareOrderData();">
+  <div class="shopping-cart">
+    <div class="column-labels">
+      <label class="product-image">圖片</label>
+      <label class="product-details">商品內容</label>
+      <label class="product-price">價格</label>
+      <label class="product-quantity">數量</label>
+      <label class="product-line-price">總計</label>
+      <label class="product-removal">移除</label>
+    </div>
+<%
   while (rs.next()) {
     int no = rs.getInt("no");
     String name = rs.getString("name");
@@ -144,28 +161,30 @@ try {
     String ice = rs.getString("ice");
     int total = price * quantity;
 %>
-  <div class="product" data-cartno="<%=no%>">
-    <div class="product-image">
-      <img src="<%=image%>">
+    <div class="product" data-cartno="<%=no%>">
+      <div class="product-image">
+        <img src="<%=image%>">
+      </div>
+      <div class="product-details">
+        <div class="product-title"><%=name%></div>
+        <p class="product-description"><%=sugar%>/<%=ice%></p>
+      </div>
+      <div class="product-price"><%=price%></div>
+      <div class="product-quantity">
+        <input type="number" value="<%=quantity%>" min="1">
+      </div>
+      <div class="product-line-price"><%=total%></div>
+      <div class="product-removal">
+        <button type="button" class="remove-product" data-cartno="<%=no%>">
+          <img src="../image/garbage.png" alt="" class="icon">
+        </button>
+      </div>
     </div>
-    <div class="product-details">
-      <div class="product-title"><%=name%></div>
-      <p class="product-description"><%=sugar%>/<%=ice%></p>
-    </div>
-    <div class="product-price"><%=price%></div>
-    <div class="product-quantity">
-      <input type="number" value="<%=quantity%>" min="1">
-    </div>
-    <div class="product-line-price"><%=total%></div>
-    <div class="product-removal">
-      <button type="button" class="remove-product" data-cartno="<%=no%>" data-memberid="<%=memberID%>">
-        <img src="../image/garbage.png" alt="" class="icon">
-      </button>
-    </div>
-  </div>
 <%
   }
-  rs.close(); ps.close(); conn.close();
+  rs.close();
+  ps.close();
+  conn.close();
 } catch (Exception e) {
   out.println("<p>錯誤: " + e.getMessage() + "</p>");
 }
@@ -243,7 +262,7 @@ if (member != null) {
       </div>
     </div>
   </form>
-
+<% } %> <!-- 這是 if (memberID == null) 的 else 結尾 -->
 <script>
 let isDeleting = false;
 

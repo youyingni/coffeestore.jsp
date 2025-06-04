@@ -3,7 +3,7 @@
 <%
     String dbUrl = "jdbc:mysql://localhost:3306/members?useUnicode=true&characterEncoding=UTF-8";
     String dbUser = "root";
-    String dbPwd = "500608";
+    String dbPwd = "1234";
 
     String id = request.getParameter("id");
     String pwd = request.getParameter("pwd");
