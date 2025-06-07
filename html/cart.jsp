@@ -132,7 +132,7 @@ if (memberID == null) {
 <%
 try {
   Class.forName("com.mysql.jdbc.Driver");
-  Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
+  Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "1234");
   PreparedStatement ps = conn.prepareStatement("SELECT cart.no, productss.name, productss.image, productss.price, cart.orderQ, cart.sugar, cart.ice FROM cart JOIN productss ON cart.id = productss.id WHERE cart.customerID = ?");
   ps.setString(1, memberID);
   ResultSet rs = ps.executeQuery();
@@ -218,7 +218,7 @@ String couponCode = "";
 if (member != null) {
     try {
         Class.forName("com.mysql.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "1234");
         PreparedStatement ps = conn.prepareStatement("SELECT code FROM coupons WHERE customerID = ? AND isUsed = FALSE AND type = 'free_shipping'");
         ps.setString(1, member);
         ResultSet rs = ps.executeQuery();

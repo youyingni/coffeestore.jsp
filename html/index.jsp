@@ -37,6 +37,32 @@
                             </style>
                             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
                             <style>
+                              .cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  z-index: 999;
+}
+.cookie-banner button {
+  background: #27ae60;
+  border: none;
+  color: white;
+  margin: 0 5px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cookie-banner button:nth-child(3) {
+  background: #c0392b;
+}
+
+
                                 .text {
                                     display: flex;
                                     align-items: center;
@@ -59,7 +85,7 @@
                                     align-items: center;
                                     justify-content: center;
                                     height: 70px;
-                                    width: 400px;
+                                    width: 350px;
                                     background-color: #532119;
                                     font-size: 28px;
                                     font-weight: bolder;
@@ -67,7 +93,7 @@
                                     border-radius: 10px;
                                     color: white;
                                     margin-top: 80px;
-                                    margin-left: 10px;
+                                    margin-left: 20px;
 
                                 }
 
@@ -169,68 +195,68 @@
                                 </svg>
                             </div>
 
-                            <nav id="primary_nav_wrap">
-                                <ul>
-                                    <li><a href="index.jsp"><img class="logo" src='../img/OIP.jpg'></a></li>
-                                    <li><a href="#">紓咖商品</a>
-                                        <ul>
-                                            <li>
-                                                <a href="Product_interface.jsp">紓咖咖啡</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="class.html">紓咖瑜珈</a>
-                                        <ul>
-                                            <li>
-                                                <a href="class.html#yoga10">初階課程</a>
-                                            </li>
-                                            <li>
-                                                <a href="class.html#yoga20">進階課程</a>
-                                            </li>
-                                        </ul>
-                                    </li>
-
-                                    <li><a href="act.html">紓咖活動</a>
-                                        <ul>
-                                            <li><a href="act.html#oil">精油</a></li>
-                                            <li><a href="act.html#sounds">頌缽</a></li>
-                                            <li><a href="act.html#words">書法</a></li>
-                                            <li><a href="act.html#Xmas">聖誕</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="storytelling.html">紓咖說書</a>
-                                    </li>
-                                    <li><a href="aboutus.html">關於我們</a>
-                                        <ul>
-                                            <li><a href="aboutus.html#cats">店貓介紹</a></li>
-                                            <li><a href="aboutus.html#qa">Q & A</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">留言意見</a>
-                                        <ul>
-                                            <li><a href="comment.html">留言板</a></li>
-                                            <li><a href="contact.html">意見箱</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <div class="icon">
+                            <%
+                            String role = (String) session.getAttribute("role");
+                            String memberLink = "login.jsp";
+                            if ("admin".equals(role)) {
+                                memberLink = "login1.jsp";
+                            }
+                        %>
+                        
+                        <nav id="primary_nav_wrap">
+                            <ul>
+                                <li><a href="index.jsp"><img class="logo" src='../img/OIP.jpg'></a></li>
+                                <li><a href="#">紓咖商品</a>
                                     <ul>
                                         <li>
-                                            <a href="login.jsp">
-                                                <iconify-icon icon="bi:people-circle" width="30px"
-                                                    height="30px"></iconify-icon>
-                                            </a>
-                                        </li>
-
-                                        <li>
-                                            <a href="cart.jsp">
-                                                <iconify-icon icon="guidance:shop" width="30px"
-                                                    height="30px"></iconify-icon>
-                                            </a>
+                                            <a href="Product_interface.jsp">紓咖咖啡</a>
                                         </li>
                                     </ul>
-                                </div>
-                            </nav>
+                                </li>
+                                <li><a href="class.html">紓咖瑜珈</a>
+                                    <ul>
+                                        <li><a href="class.html#yoga10">初階課程</a></li>
+                                        <li><a href="class.html#yoga20">進階課程</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="act.html">紓咖活動</a>
+                                    <ul>
+                                        <li><a href="act.html#oil">精油</a></li>
+                                        <li><a href="act.html#sounds">頌缽</a></li>
+                                        <li><a href="act.html#words">書法</a></li>
+                                        <li><a href="act.html#Xmas">聖誕</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="storytelling.html">紓咖說書</a></li>
+                                <li><a href="aboutus.html">關於我們</a>
+                                    <ul>
+                                        <li><a href="aboutus.html#cats">店貓介紹</a></li>
+                                        <li><a href="aboutus.html#qa">Q & A</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">留言意見</a>
+                                    <ul>
+                                        <li><a href="comment.jsp">留言板</a></li>
+                                        <li><a href="contact.html">意見箱</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="icon">
+                                <ul>
+                                    <li>
+                                        <a href="<%= memberLink %>">
+                                            <iconify-icon icon="bi:people-circle" width="30px" height="30px"></iconify-icon>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="cart.jsp">
+                                            <iconify-icon icon="guidance:shop" width="30px" height="30px"></iconify-icon>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        
 
                             <div>
                                 <div class="text">
@@ -366,43 +392,49 @@
                                         最新優惠
                                     </div>
                                     <div class="ad-image">
-                                        <% String adHTML="" ; try { Class.forName("com.mysql.cj.jdbc.Driver"); String
-                                            url="jdbc:mysql://localhost:3306/ad?serverTimezone=UTC" ; Connection
-                                            con=DriverManager.getConnection(url, "root" , "1234" ); if (!con.isClosed())
-                                            { Statement stmt=con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
-                                            ResultSet.CONCUR_READ_ONLY); stmt.execute("USE `ad1`"); ResultSet
-                                            countRs=stmt.executeQuery("SELECT * FROM `randad`"); countRs.last(); int
-                                            n=countRs.getRow(); countRs.close(); if (n> 0) {
-                                            int current_adid = new Random().nextInt(n) + 1;
-
-                                            ResultSet rs = stmt.executeQuery("SELECT * FROM `randad` WHERE `adid`=" +
-                                            current_adid);
-
-                                            if (rs.next()) {
-
-                                            String imgPath = request.getContextPath() + "/期末/image1/" + rs.getString(3);
-                                            String link = rs.getString(4);
-                                            String altText = rs.getString(5);
-
-                                            adHTML = "<a href='https://" + link + "'>" +
-                                                "<img class='ad-img' src='" + imgPath + "' alt='" + altText + "'>" +
-                                                "</a>";
-                                            }
-                                            rs.close();
-                                            } else {
-                                            adHTML = "<p style='color:red;'>目前沒有任何廣告資料。</p>";
-                                            }
-
-                                            stmt.close();
-                                            }
-
-                                            con.close();
+                                        <%
+                                            String adHTML = "";
+                                            try {
+                                                Class.forName("com.mysql.cj.jdbc.Driver");
+                                                String url = "jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC";
+                                                Connection con = DriverManager.getConnection(url, "root", "1234");
+                                                if (!con.isClosed()) {
+                                                    Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                                                    String sql = "SELECT * FROM `randad`";
+                                                    ResultSet countRs = stmt.executeQuery(sql);
+                                                    countRs.last();
+                                                    int n = countRs.getRow();
+                                                    countRs.close();
+                                    
+                                                    if (n > 0) {
+                                                        int current_adid = new Random().nextInt(n) + 1;
+                                                        String detailSql = "SELECT * FROM `randad` WHERE `adid` = " + current_adid;
+                                                        ResultSet rs = stmt.executeQuery(detailSql);
+                                    
+                                                        if (rs.next()) {
+                                                            adHTML = "<img src='" + rs.getString("file_path") + "' class='ad-img'>";
+                                                        }
+                                    
+                                                        rs.close();
+                                                    } else {
+                                                        adHTML = "<p style='color:red;'>目前沒有任何廣告資料。</p>";
+                                                    }
+                                    
+                                                    stmt.close();
+                                                }
+                                    
+                                                con.close();
                                             } catch (Exception e) {
-                                            adHTML = "<p style='color:red;'>載入廣告失敗：" + e.getMessage() + "</p>";
+                                                adHTML = "<p style='color:red;'>載入廣告失敗：" + e.getMessage() + "</p>";
                                             }
+                                    
                                             out.println(adHTML);
-                                            %>
+                                        %>
                                     </div>
+                                    
+
+
+
 
                                 </div>
 
@@ -420,14 +452,19 @@
                                                         src="https://images.unsplash.com/photo-1721622560183-4172c8ef8934?q=80&w=2030&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
                                                 </div>
                                                 <div class="back">
-                                                    <p>11244201游英妮</p>
+                                                    <img src="../image/201.png" alt="">
                                                 </div>
 
                                             </div>
+
+                                            <p class="name">11244201游英妮</p>
+
                                         </div>
                                         <p>
-                                            這堂課的期末專案，是我們需要以小組形式製作一個完整的電商網站，這個挑戰可以說是非常龐大，涉及到前端設計、資料串接和功能實現、甚至是部分後端等多個部分，我們小組從一個多月前就開始分工與討論，每位組員都對專案設計提供了的想法，也都非常積極討論、設計網頁的版面，此外也都有在預定的時間內完成自己的進度。<br>
-                                            我認為最困難的部分，就是最後統合每一位組員製作的部分，因為每個組員編輯的電腦大小都不一樣，難免會有在其他人版面開啟後跑版的情形，或者是在其他人開啟後不能使用的情況，在無數次的修改與測試之後，我們最終成功將各部分的功能串接起來，完成了電商網站。
+                                            我覺得這次後端實作比起上學期的多媒體程式設計課真的難很多。上學期我們只做前端的電商網站介面，語法也比較熟，做起來算是比較順。而這次一開始老師就直接帶進
+                                            JSP 語法，但我們之前完全沒學過，所以前面花了很多時間在學語法和理解後端邏輯。
+
+                                            我們一直到課程滿後期才開始實作網站的功能，像是購買流程、留言流程這些。購買流程要處理購物車、訂單、資料庫存取，留言則要判斷會員身份還要能寫入資料庫。整合起來真的滿麻煩的，不過做出來之後還是滿有成就感的。
                                         </p>
                                     </div>
                                 </div>
@@ -441,12 +478,14 @@
                                                         src="https://images.unsplash.com/photo-1667599611951-7e27a50f690e?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
                                                 </div>
                                                 <div class="back">
-                                                    <p>11244202游婷喻</p>
+                                                    <img src="../image/202.jpg" alt="">
                                                 </div>
                                             </div>
+                                            <p class="name">11244202游婷喻</p>
                                         </div>
                                         <p>
-                                            這次的期末專題,是跟組員合作製作一個購物網站,我們是跟一個咖啡店家合作,我是負責商品跟購物車的前端製作,我自己一開始遇到的困難是json抓取商品到對應購買介面,好在最後有製作出來,只是商品加入到購物車還不太成熟,之後再製作後端會精進自己的技術。另外,在這個過程中，我學到了團隊合作的重要性，特別是在分工和協調方面。每個組員都在不同的職責上發揮專長，讓整個專案得以順利推進。<br>
+                                            這學期的網路程式設計課程中，我們進行了分組專題，我負責商品購買流程的設計與實作，主要包含：從資料庫讀取商品資訊並動態顯示在頁面上、設計加入購物車功能，以及確保使用者登入後才能順利完成下單操作。
+                                            開發過程中雖然遇到不少錯誤與挑戰，例如無法成功抓取資料、頁面顯示異常、購物車資訊寫入資料庫失敗等問題，但在不斷測試與修正之下，最終成功完成了預期功能。這次經驗讓我更加熟悉後端開發流程，也學會了如何解決實際問題，同時也獲得了與組員相互合作的寶貴機會，是一次非常有收穫的經驗。
                                         </p>
                                     </div>
                                 </div>
@@ -459,14 +498,15 @@
                                                         src="https://images.unsplash.com/photo-1670739368045-7f09844fc862?q=80&w=1963&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
                                                 </div>
                                                 <div class="back">
-                                                    <p>11244239林孟亭</p>
+                                                    <img src="../image/239.jpg" alt="">
                                                 </div>
                                             </div>
+                                            <p class="name">11244239林孟亭</p>
                                         </div>
                                         <p>
-                                            與組員合作製作一個網站是一次充滿挑戰但非常有收穫的經歷。在這個過程中，我學到了團隊合作的重要性，特別是在分工和協調方面。每個組員都在不同的職責上發揮專長，例如設計、前端開發或內容撰寫，讓整個專案得以順利推進。<br>
-                                            透過這次專案，我對HTML語法有了更深入的了解，尤其是如何利用HTML結構化地展示內容，並搭配CSS進行版面設計，讓網站不僅功能完整，還具有吸引力。此外，我們也嘗試很多上課沒有學到的新功能，這需要不少時間研究I，並確保網站的流暢和用戶體驗。<br>
-                                            雖然過程中遇到了一些困難，比如設計與功能需求的取捨，或是程式碼的調整，但每一次挑戰都讓我對網站開發有更多的認識，也讓團隊更加凝聚。這次專案不僅提升了我的技術能力，還教會了我解決問題的耐心與創意。
+                                            這次的網路程式設計作業相較於上次，難度明顯提升了不少。除了基本的網頁排版與前端設計之外，還需要建立後端的資料庫，並學會如何讓網頁與資料庫互相連結，這是以前沒有接觸過的部分，所以一開始其實有點不知所措。
+
+                                            不過也因為有了上一次製作網頁的經驗，這次在開始做的時候沒有那麼緊張，知道可以先規劃好整體的功能，再一步步去實作。像是先建立資料表，再設計好表單與連接語法，慢慢地也能理解資料是如何從使用者輸入、儲存到資料庫，然後再從資料庫讀取出來顯示在網頁上的整個流程。
                                         </p>
                                     </div>
                                 </div>
@@ -479,19 +519,27 @@
                                                         src="https://images.unsplash.com/photo-1629953428887-4226e677e91b?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
                                                 </div>
                                                 <div class="back">
-                                                    <p>11244240李怡萱</p>
+                                                    <img src="../image/240.jpg" alt="">
                                                 </div>
                                             </div>
+                                            <p class="name">11244240李怡萱</p>
                                         </div>
                                         <p>
-                                            在期末專案中，我與小組合作製作了一個電商網站，這對我來說既新鮮又充滿挑戰。在網站製作的過程中，我遇到了一些程式設計的困難，但也因此學會如何在網路上搜尋與參考資料，並向同學與助教請教，逐漸理解程式的用法。<br>
-                                            <br>我們小組每週都會安排時間討論，制定明確的進度與目標，透過一次次的累積，最終完成了一個完整的專案。這次經驗不僅有趣，還讓我學到了很多實用的技能與合作的價值。
+                                            這學期的網路程式設計課是以後端為主，學習了如何建立資料庫，以及如何讓前端和後端做連接。相較於前端，後端在邏輯和難度上確實複雜許多，學習過程真的有點吃力。不過很幸運的是，組員之間都有互相幫忙、一起討論，讓我們在做專題時可以順利完成，把成果展現出來。這是個有收穫的經驗，不只學到了技術，也體會到團隊合作的重要性。
                                         </p>
                                     </div>
                                 </div>
                             </div>
 
 
+                            <!------------>
+                            <div id="cookieBanner" class="cookie-banner">
+                                本網站使用 Cookie 儲存登入狀態與改善使用者體驗，並依據《個人資料保護法》保護您提供的個人資料。
+                                <button onclick="acceptCookies()">我同意</button>
+                                <button onclick="declineCookies()">我不同意</button>
+                              </div>
+                              
+                              
                             <!------------>
                             <footer>
 
@@ -548,6 +596,28 @@
 
 
                             <script src="../js/coffee.js"></script>
+                            <script>
+                                function acceptCookies() {
+                                  document.cookie = "cookieAccepted=true; path=/; max-age=" + 60 * 60 * 24 * 30;
+                                  document.getElementById("cookieBanner").style.display = "none";
+                                }
+                                
+                                function declineCookies() {
+                                  document.getElementById("cookieBanner").style.display = "none";
+                                }
+                                
+                                window.onload = function() {
+                                  if (!document.cookie.includes("cookieAccepted=true")) {
+                                    document.getElementById("cookieBanner").style.display = "block";
+                                  } else {
+                                    document.getElementById("cookieBanner").style.display = "none";
+                                  }
+                                }
+                                </script>
+                                
+                                
+                                
+                                
 
                         </body>
 

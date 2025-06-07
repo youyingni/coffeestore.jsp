@@ -17,6 +17,12 @@ String customer = (String) session.getAttribute("memberID");
 
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=LXGW+WenKai+Mono+TC&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <style>
+        .area{
+            padding: 200px;
+            font-size: 25px;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,7 +42,7 @@ String customer = (String) session.getAttribute("memberID");
 <% } else {
     try {
         Class.forName("com.mysql.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "1234");
 
         // ✅ 用登入帳號直接查 orders.customer_name
         String sql = "SELECT * FROM orders WHERE customer_name = ? ORDER BY order_time DESC";
@@ -84,7 +90,7 @@ String customer = (String) session.getAttribute("memberID");
     }
 } %>
     </main>
-
+<div class="area"></div>
         <footer>
 
             <div class="footer-container">

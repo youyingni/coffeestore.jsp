@@ -152,7 +152,7 @@ if (customer == null) {
 
 try {
     Class.forName("com.mysql.jdbc.Driver");
-    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
+    Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "1234");
 
     int shippingFee = 60;
     if (discountCode != null && !discountCode.isEmpty()) {
@@ -261,7 +261,7 @@ try {
 <%
 try {
     Class.forName("com.mysql.jdbc.Driver");
-    Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
+    Connection conn2 = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "1234");
     PreparedStatement stmt2 = conn2.prepareStatement("SELECT oi.*, p.name AS product_display_name FROM order_items oi JOIN productss p ON oi.product_name = p.id WHERE oi.order_id = ?");
     stmt2.setInt(1, orderId);
     ResultSet rs2 = stmt2.executeQuery();

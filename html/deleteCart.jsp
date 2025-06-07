@@ -14,7 +14,7 @@
 
   try {
     Class.forName("com.mysql.jdbc.Driver");
-    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "500608");
+    conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/coffee?serverTimezone=UTC", "root", "1234");
 
     ps = conn.prepareStatement("DELETE FROM cart WHERE no = ? AND customerID = ?");
     ps.setInt(1, Integer.parseInt(no));
