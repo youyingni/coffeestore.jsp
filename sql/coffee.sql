@@ -35,27 +35,42 @@ CREATE TABLE `cart` (
   `customerID` varchar(50) DEFAULT NULL,
   `orderQ` int DEFAULT NULL,
   PRIMARY KEY (`no`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `cart` (`no`, `id`, `sugar`, `ice`, `customerID`, `orderQ`) VALUES
-(11, 'lavender-milktea', '半糖', '少冰', 'guest', 4),
-(12, 'cold-brew', '半糖', '少冰', 'guest', 1);
 
+-- ----------------------------
+-- Table structure for table `coupons`
+-- ----------------------------
 DROP TABLE IF EXISTS `coupons`;
-
 CREATE TABLE `coupons` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `code` varchar(50) DEFAULT NULL,
   `customerID` varchar(50) DEFAULT NULL,
-  `code` varchar(20) DEFAULT NULL,
-  `discount` int DEFAULT '50',
   `isUsed` tinyint(1) DEFAULT '0',
-  `issueDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `code` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `type` enum('free_shipping','discount50') DEFAULT 'discount50',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- 初始無資料，如需新增請補上：
--- INSERT INTO `coupons` (`customerID`, `code`, `discount`, `isUsed`) VALUES ('testuser', 'WELCOME50', 50, 0);
+-- ----------------------------
+-- Records of coupons
+-- ----------------------------
+LOCK TABLES `coupons` WRITE;
+INSERT INTO `coupons` VALUES 
+(1,'FREE1748956706230','nn',1,'free_shipping','2025-06-03 13:18:26'),
+(2,'FREE1748957056696','nn',1,'free_shipping','2025-06-03 13:24:16'),
+(3,'FREE1748957490637','nn',1,'free_shipping','2025-06-03 13:31:30'),
+(4,'FREE1748958089502','nn',1,'free_shipping','2025-06-03 13:41:29'),
+(5,'FREE1748971905843','11233',1,'free_shipping','2025-06-03 17:31:45'),
+(6,'FREE1749040168692','111',1,'free_shipping','2025-06-04 12:29:28'),
+(7,'FREE1749056259420','222',1,'free_shipping','2025-06-04 16:57:39'),
+(8,'FREE1749182689214','111',1,'free_shipping','2025-06-06 04:04:49'),
+(9,'FREE1749205786218','111',1,'free_shipping','2025-06-06 10:29:46'),
+(10,'FREE1749259601048','111',1,'free_shipping','2025-06-07 01:26:41'),
+(11,'FREE1749261660217','333',0,'free_shipping','2025-06-07 02:01:00'),
+(12,'FREE1749263056435','222',0,'free_shipping','2025-06-07 02:24:16'),
+(13,'FREE1749291572832','333',0,'free_shipping','2025-06-07 10:19:32');
+UNLOCK TABLES;
 
 
 DROP TABLE IF EXISTS `orders`;
