@@ -11,17 +11,19 @@ CREATE TABLE `members` (
   `id` varchar(100) NOT NULL,
   `pwd` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `role` varchar(20) DEFAULT 'user', -- 新增：用來辨識是否為 admin
+  `role` varchar(20) DEFAULT 'user', -- 管理員或一般使用者
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `members` (`id`, `pwd`, `email`, `role`) VALUES
-('bobby','03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4','bobby@gmail.com', 'user'),
-('george','1234','george1234@gmail.com', 'user'),
-('hello','1234','hello111@gmail.com', 'user'),
-('test','1234','', 'user'),
-('vivi','1234','vivi6666@gmail.com', 'user'),
-('222','1234','admin@test.com', 'admin'); -- 管理員帳號
+('bobby',  '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'bobby@gmail.com',  'user'),  -- 1234
+('george', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'george1234@gmail.com', 'user'), -- 1234
+('hello',  '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'hello111@gmail.com', 'user'),   -- 1234
+('test',   '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', '',                    'user'),   -- 1234
+('vivi',   '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'vivi6666@gmail.com',  'user'),   -- 1234
+('222',    '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 'admin@test.com',     'admin'),  -- 1234 管理員
+('888',    '2926a2731f4b312c08982cacf8061eb14bf65c1a87cc5d70e864e079c6220731', '888@example.com',    'user');   -- 8888
+
 
 DROP TABLE IF EXISTS `cart`;
 
