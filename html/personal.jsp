@@ -21,7 +21,7 @@
 </head>
 <%
     // 連接資料庫，取得個人資料
-    String dbUrl = "jdbc:mysql://localhost:3306/members?useUnicode=true&characterEncoding=UTF-8";
+    String dbUrl = "jdbc:mysql://localhost:3306/coffee?useUnicode=true&characterEncoding=UTF-8";
     String dbUser = "root";
     String dbPwd = "1234";
     String id = (String)session.getAttribute("memberID"); // 使用登入時的 session key

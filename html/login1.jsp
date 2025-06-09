@@ -1,7 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page import="java.sql.*, java.security.*" %>
 <%
-    String dbUrl = "jdbc:mysql://localhost:3306/members?useUnicode=true&characterEncoding=UTF-8";
+    String dbUrl = "jdbc:mysql://localhost:3306/coffee?useUnicode=true&characterEncoding=UTF-8";
     String dbUser = "root";
     String dbPwd = "1234";
 
